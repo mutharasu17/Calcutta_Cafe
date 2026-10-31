@@ -1,0 +1,13 @@
+{
+  "name": "prompts-chat",
+  "version": "1.0.0",
+  "description": "Access thousands of AI prompts and skills directly from prompts.chat. Search prompts, discover skills, and improve prompts.",
+  "author": {
+    "name": "Fatih Kadir Akın",
+    "email": "fatihkadirakin@gmail.com"
+  },
+  "homepage": "https://prompts.chat",
+  "repository": "https://github.com/f/prompts.chat",
+  "license": "MIT",
+  "keywords": ["prompts", "ai", "skills", "chatgpt", "claude", "llm"]
+}

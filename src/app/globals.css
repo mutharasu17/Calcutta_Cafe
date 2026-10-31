@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-red: #8b1e1e;
+    --brand-red-dark: #621414;
+    --brand-red-light: #ad2d2d;
+    --brand-gold: #d4af37;
+    --brand-gold-light: #f3cf5f;
+    --brand-gold-dark: #a6841e;
+    --brand-blue: #0e1b2e;
+    --brand-blue-deep: #070e18;
+    --brand-blue-light: #1b2f4d;
+    --terracotta: #c86446;
+    --canvas-cream: #faf6f0;
+    --canvas-cream-subtle: #f4eee2;
+    --charcoal-black: #141110;
+    --charcoal-card: #1f1b19;
+
+    --background: #0e1218;
+    --foreground: #faf6f0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090e15;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27201d;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8b1e1e;
+  }
+
+  ::selection {
+    background: #8b1e1e;
+    color: #faf6f0;
+  }
+}
+
+/* Glassmorphism & Cinematic Shimmers */
+.glass-panel {
+  background: rgba(18, 22, 30, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-panel-warm {
+  background: rgba(30, 20, 20, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 30, 30, 0.25);
+}
+
+.glass-nav {
+  background: rgba(10, 14, 22, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+/* Subtle gold luxury gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa821d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-red-gradient {
+  background: linear-gradient(135deg, #ff6b6b 0%, #8b1e1e 60%, #521111 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cultural decorative borders inspired by Alpona and Bengal Terracotta */
+.border-bengal-subtle {
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.border-bengal-red {
+  border-color: rgba(139, 30, 30, 0.35);
+}
+
+/* Vignette and Cinematic Overlays */
+.cinematic-vignette {
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
