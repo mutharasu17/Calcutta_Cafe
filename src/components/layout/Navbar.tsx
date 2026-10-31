@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import BrandLogo from "../ui/BrandLogo";
-import { Menu as MenuIcon, X, ShoppingBag, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/" },
+  { label: "Overview", href: "/" },
   { label: "Our Story", href: "/about" },
   { label: "Menu", href: "/menu" },
-  { label: "Our Journey", href: "/#journey" },
-  { label: "Blog", href: "/blog" },
+  { label: "Journal", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -28,7 +27,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile drawer on route change
   useEffect(() => {
     setIsMobileOpen(false);
   }, [pathname]);
@@ -36,122 +34,99 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "glass-nav py-3.5 shadow-2xl shadow-black/60"
-            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5"
+            ? "bg-[#171615]/90 backdrop-blur-xl border-b border-white/[0.07] py-4 shadow-xl shadow-black/40"
+            : "bg-transparent py-6"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Logo */}
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
+          {/* Brand Mark */}
           <BrandLogo size="md" />
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden items-center gap-1 md:flex" aria-label="Main Navigation">
+          {/* Desktop Nav Items */}
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
             {NAV_ITEMS.map((item) => {
               const isActive =
                 item.href === "/"
                   ? pathname === "/"
-                  : pathname.startsWith(item.href) && !item.href.includes("#");
+                  : pathname.startsWith(item.href);
 
               return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                  className={`text-xs font-medium tracking-widest uppercase transition-colors duration-200 ${
                     isActive
-                      ? "text-[#D4AF37]"
-                      : "text-neutral-300 hover:text-white hover:bg-white/5"
+                      ? "text-[#FAF9F6]"
+                      : "text-[#D8D0C3]/70 hover:text-[#FAF9F6]"
                   }`}
                 >
                   {item.label}
-                  {isActive && (
-                    <span className="absolute bottom-1 left-4 right-4 h-0.5 rounded-full bg-gradient-to-r from-[#8B1E1E] via-[#D4AF37] to-[#8B1E1E]" />
-                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden items-center gap-3 md:flex">
+          {/* Direct Ordering Action CTA */}
+          <div className="hidden md:flex items-center gap-5">
             <Link
               href="/order"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#8B1E1E] via-[#A62424] to-[#8B1E1E] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-lg shadow-[#8B1E1E]/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#8B1E1E]/50 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="group relative inline-flex items-center gap-2 border border-[#B79A65]/60 bg-[#641F2B] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.16em] text-[#FAF9F6] transition-all duration-300 hover:bg-[#7D2736] hover:border-[#B79A65]"
             >
-              <ShoppingBag className="h-4 w-4 text-[#D4AF37] transition-transform duration-300 group-hover:-translate-y-0.5" />
               <span>Order Online</span>
-              <span className="ml-0.5 rounded bg-black/20 px-1.5 py-0.5 text-[9px] text-[#D4AF37]">
-                Live
-              </span>
+              <ArrowUpRight className="h-3.5 w-3.5 text-[#B79A65] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Trigger */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="rounded-lg p-2 text-neutral-300 transition-colors hover:bg-white/10 hover:text-white md:hidden"
+            className="md:hidden p-2 text-[#FAF9F6] focus:outline-none"
             aria-label={isMobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileOpen}
           >
-            {isMobileOpen ? <X className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+            <div className="w-6 flex flex-col items-end gap-1.5">
+              <span className={`block h-[1.5px] bg-[#FAF9F6] transition-all duration-300 ${isMobileOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`} />
+              <span className={`block h-[1.5px] bg-[#FAF9F6] transition-all duration-300 ${isMobileOpen ? "opacity-0" : "w-4"}`} />
+              <span className={`block h-[1.5px] bg-[#FAF9F6] transition-all duration-300 ${isMobileOpen ? "w-6 -rotate-45 -translate-y-2" : "w-5"}`} />
+            </div>
           </button>
         </div>
       </header>
 
-      {/* Mobile Menu Drawer */}
+      {/* Full-Screen Bespoke Mobile Navigation Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-xl transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-[#171615] transition-all duration-500 md:hidden flex flex-col justify-between px-8 py-24 ${
           isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
-        onClick={() => setIsMobileOpen(false)}
       >
-        <div
-          className={`fixed top-0 right-0 bottom-0 w-full max-w-sm border-l border-[#D4AF37]/20 bg-[#0E1522] p-6 shadow-2xl transition-transform duration-300 ease-out ${
-            isMobileOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex items-center justify-between pb-6 border-b border-white/10">
-            <BrandLogo size="sm" />
-            <button
-              onClick={() => setIsMobileOpen(false)}
-              className="rounded-full p-2 text-neutral-400 hover:bg-white/10 hover:text-white"
-              aria-label="Close menu"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          <div className="mt-8 flex flex-col gap-2">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium text-neutral-200 transition-colors hover:bg-[#8B1E1E]/20 hover:text-[#D4AF37]"
-              >
-                <span>{item.label}</span>
-                <ArrowUpRight className="h-4 w-4 opacity-50" />
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-white/10">
+        <div className="space-y-6 pt-8">
+          <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#B79A65] block mb-6">
+            Navigation
+          </span>
+          {NAV_ITEMS.map((item, idx) => (
             <Link
-              href="/order"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#8B1E1E] to-[#681414] py-3.5 text-center text-sm font-semibold tracking-wider text-white shadow-lg shadow-[#8B1E1E]/40"
+              key={item.label}
+              href={item.href}
+              className="block font-serif text-3xl font-light text-[#FAF9F6] transition-colors hover:text-[#B79A65]"
             >
-              <ShoppingBag className="h-4 w-4 text-[#D4AF37]" />
-              <span>ORDER ONLINE (SWIGGY / ZOMATO)</span>
+              <span className="font-sans text-xs text-[#B79A65] mr-3 font-mono opacity-50">0{idx + 1}</span>
+              {item.label}
             </Link>
+          ))}
+        </div>
 
-            <div className="mt-6 text-center text-xs text-neutral-400">
-              <p>Bangalore Cloud Kitchen Hub</p>
-              <p className="mt-1 text-[11px] text-[#D4AF37]">
-                Delhi NCR Expansion Coming Soon
-              </p>
-            </div>
-          </div>
+        <div className="pt-8 border-t border-white/[0.08] space-y-4">
+          <Link
+            href="/order"
+            className="flex items-center justify-between border border-[#B79A65]/50 bg-[#641F2B] px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#FAF9F6]"
+          >
+            <span>Order via Swiggy / Zomato</span>
+            <ArrowUpRight className="h-4 w-4 text-[#B79A65]" />
+          </Link>
+          <p className="text-[11px] text-[#D8D0C3]/60 font-light text-center">
+            The Calcutta Cafe Foods Pvt Ltd • Bangalore Hub
+          </p>
         </div>
       </div>
     </>

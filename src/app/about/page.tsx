@@ -1,227 +1,140 @@
 import Image from "next/image";
 import Link from "next/link";
-import SectionHeading from "@/components/ui/SectionHeading";
 import { BRAND_DATA } from "@/data/brandInfo";
-import {
-  Heart,
-  Award,
-  Sparkles,
-  Compass,
-  Target,
-  ArrowRight,
-  ShieldCheck,
-  Utensils,
-  History,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Our Story & Philosophy | The Calcutta Cafe",
+  title: "Our Story — Signature Edition | The Calcutta Cafe",
   description:
-    "The story of The Calcutta Cafe, founded by Akash Santra in 2019. Bringing the authentic culinary diversity of Bengal across India with pure ingredients and customer experience excellence.",
+    "The journey of The Calcutta Cafe, founded by Akash Santra. Elevating Bengal's culinary heritage through quiet luxury and disciplined craft.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="relative pt-28 pb-20 bg-[#0A0E17]">
+    <div className="relative pt-32 pb-28 bg-[#171615] text-[#FAF9F6]">
       {/* Editorial Header */}
-      <section className="relative py-16 lg:py-24 border-b border-white/10 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <Image
-            src="/images/kolkata-heritage-story.jpg"
-            alt="Kolkata Heritage Architecture"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E17] via-[#0A0E17]/80 to-[#0A0E17]" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#161D2B]/90 px-4 py-1 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider mb-6">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>আমাদের ইতিবৃত্ত • Estd. 2019</span>
-          </div>
-
-          <h1
-            className="font-serif text-4xl sm:text-6xl font-extrabold text-[#FAF6F0] leading-tight"
-            style={{ fontFamily: "var(--font-serif, serif)" }}
-          >
-            The Soul of Bengal,{" "}
-            <span className="text-gold-gradient italic font-normal">
-              Crafted with Purpose.
+      <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 border-b border-white/[0.06]">
+        <div className="mx-auto max-w-5xl">
+          <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#B79A65] block mb-4">
+            A Culinary Monograph
+          </span>
+          <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-light tracking-tight leading-[1.04]">
+            The soul of Bengal,
+            <span className="block italic text-[#D8D0C3] font-normal">
+              crafted with purpose.
             </span>
           </h1>
-
-          <p className="mt-6 text-lg sm:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            Founded by Akash Santra, The Calcutta Cafe was born to represent the full
-            breadth of Bengal&apos;s culinary heritage—bringing authentic flavors, honest
-            preparation, and dependable food experiences to tables across India.
+          <p className="mt-8 text-lg sm:text-xl text-[#D8D0C3]/90 font-light leading-relaxed max-w-3xl">
+            Founded by Akash Santra, The Calcutta Cafe was born to represent the full depth of Bengal&apos;s culinary heritage—bringing authentic flavors and dependable food experiences to tables across India.
           </p>
         </div>
       </section>
 
-      {/* Main Content Body */}
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-24">
-        {/* Why The Calcutta Cafe */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7">
-            <SectionHeading
-              align="left"
-              eyebrow="The Genesis"
-              bengaliEyebrow="কেন ক্যালকাটা ক্যাফে"
-              title="Why The"
-              highlightedWord="Calcutta Cafe?"
-            />
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-neutral-300">
+      {/* Narrative Section 01: Genesis */}
+      <section className="px-6 sm:px-10 lg:px-16 py-20 lg:py-32 border-b border-white/[0.06]">
+        <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B79A65] block">
+              The Genesis • 2019
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#FAF9F6]">
+              Beyond the familiar.
+            </h2>
+            <div className="space-y-4 text-sm sm:text-base text-[#D8D0C3]/80 font-light leading-relaxed">
               <p>
-                In 2019, when the foundational idea of The Calcutta Cafe took root,
-                Bengali cuisine in metropolitan India was largely constrained to festive pop-ups
-                or high-cost colonial clubs.
+                In 2019, when the foundational vision of The Calcutta Cafe took shape, Bengali cuisine across metropolitan India was largely constrained to a few festive pop-ups or a predictable handful of sweet confections.
               </p>
               <p>
-                Akash Santra recognized that people craving the daily comfort of authentic
-                Bengali food—be it a fragrant Chholar Dal on a quiet morning, a restorative
-                Shukto, or a hearty Sunday Mutton curry—lacked a reliable, high-standard brand
-                they could count on.
-              </p>
-              <p>
-                We set out not to create another generic multi-cuisine eatery, but an ambitious,
-                revered culinary destination dedicated solely to Bengal&apos;s culinary depth.
+                Akash Santra recognized that people craving the comfort of authentic Bengali dining—the subtle herbal harmony of Shukto, the golden warmth of Chholar Dal, or the unhurried richness of Sunday Kosha Mangsho—deserved a brand grounded in authenticity and service excellence.
               </p>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative rounded-3xl overflow-hidden border border-[#D4AF37]/30 shadow-2xl aspect-[4/5]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden border border-white/[0.1] bg-[#292725]">
               <Image
                 src="/images/hero-bengali-bhoj.jpg"
-                alt="The Calcutta Cafe Culinary Foundation"
+                alt="Traditional Royal Bhoj Feast"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* More Than Just a Few Dishes & The Thought Behind Our Recipes */}
-        <section className="rounded-3xl border border-[#D4AF37]/20 bg-gradient-to-br from-[#121622] via-[#0E121B] to-[#161014] p-8 sm:p-12 lg:p-16 shadow-xl">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#8B1E1E]/30 px-3.5 py-1 text-xs font-semibold text-[#D4AF37] border border-[#8B1E1E]/50 mb-4">
-              <Utensils className="h-3.5 w-3.5" />
-              <span>Culinary Depth</span>
-            </div>
-
-            <h2
-              className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight"
-              style={{ fontFamily: "var(--font-serif, serif)" }}
-            >
-              More Than Just a Few{" "}
-              <span className="text-gold-gradient italic font-normal">
-                Bengali Dishes.
-              </span>
-            </h2>
-
-            <p className="mt-6 text-base sm:text-lg text-neutral-300 leading-relaxed">
-              Bengal&apos;s cuisine is a dialogue between land and water, sweet and bitter,
-              refined Mughlai influences and sacred Vedic ayurveda.
-            </p>
-
-            <div className="mt-8 space-y-4 text-sm sm:text-base text-neutral-300 leading-relaxed">
-              <p>
-                <strong>The Thought Behind Our Recipes:</strong> We believe in zero-shortcut
-                kitchens. Authentic mustard oil cannot be diluted with cheaper oils. Saffron
-                Basanti Pulao requires genuine Gobindobhog grains from Bengal&apos;s paddy
-                fields. Sunday Kosha Mangsho demands patient, continuous reduction over medium
-                heat in heavy cookware.
-              </p>
-              <p>
-                We do not alter traditional flavor profiles to suit generic trends. Our food is
-                unapologetically authentic, allowing diners outside Bengal to experience the real
-                depth of Kolkata&apos;s kitchens.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Founder Story with Full Integrity */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative rounded-3xl overflow-hidden border border-[#D4AF37]/30 shadow-2xl aspect-[4/5]">
+      {/* Narrative Section 02: Founder Leadership */}
+      <section className="px-6 sm:px-10 lg:px-16 py-20 lg:py-32 border-b border-white/[0.06]">
+        <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <div className="relative aspect-[3/4] w-full overflow-hidden border border-white/[0.1] bg-[#292725]">
               <Image
                 src={BRAND_DATA.founder.image}
-                alt="Akash Santra — Founder, The Calcutta Cafe"
+                alt="Akash Santra, Founder"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-top"
+                className="object-cover object-top filter grayscale"
               />
             </div>
           </div>
 
-          <div className="lg:col-span-7 order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/30 bg-[#141A26] px-3.5 py-1 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider mb-4">
-              <Award className="h-4 w-4" />
-              <span>Founder Leadership</span>
-            </div>
-
-            <h2
-              className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight"
-              style={{ fontFamily: "var(--font-serif, serif)" }}
-            >
-              A Message from{" "}
-              <span className="text-gold-gradient italic font-normal">
-                Akash Santra
-              </span>
+          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B79A65] block">
+              Founder Profile
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#FAF9F6]">
+              Akash Santra
             </h2>
-
-            <p className="mt-2 text-xs text-[#D4AF37] font-medium">
-              Founder, The Calcutta Cafe • 8–9 Years Customer Experience Background
+            <p className="text-xs font-mono uppercase tracking-widest text-[#B79A65]">
+              8–9 Years Customer Experience Leadership
             </p>
 
-            <blockquote className="mt-6 border-l-2 border-[#D4AF37] pl-6 font-serif text-lg text-[#FAF6F0] italic leading-relaxed">
-              &ldquo;{BRAND_DATA.founder.message}&rdquo;
+            <blockquote className="border-l border-[#B79A65] pl-6 py-1 my-6">
+              <p className="font-serif text-xl sm:text-2xl text-[#FAF9F6] font-light italic leading-snug">
+                &ldquo;{BRAND_DATA.founder.approvedQuote}&rdquo;
+              </p>
             </blockquote>
 
-            <p className="mt-6 text-sm text-neutral-300 leading-relaxed">
-              {BRAND_DATA.founder.bio}
+            <p className="text-sm sm:text-base text-[#D8D0C3]/80 font-light leading-relaxed">
+              Applying a background of customer experience rigor, Akash built The Calcutta Cafe with an insistence on operational dependability: consistent preparations, robust packaging for delivery transit, and a long-term roadmap that reaches from Bangalore to Delhi NCR and major metros.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Mission & Vision Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-white/10">
-          <div className="rounded-2xl border border-white/10 bg-[#121620] p-8">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#8B1E1E]/20 text-[#D4AF37] mb-4">
-              <Target className="h-5 w-5" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-white">Our Mission</h3>
-            <p className="mt-3 text-sm leading-relaxed text-neutral-300">
+      {/* Narrative Section 03: Mission & Vision */}
+      <section className="px-6 sm:px-10 lg:px-16 py-20 lg:py-32">
+        <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-white/[0.08] pt-16">
+          <div className="space-y-4">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B79A65]">
+              Our Mission
+            </span>
+            <p className="text-sm sm:text-base text-[#FAF9F6] font-light leading-relaxed">
               {BRAND_DATA.mission}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-[#121620] p-8">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF37]/20 text-[#D4AF37] mb-4">
-              <Compass className="h-5 w-5" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-white">Our Vision</h3>
-            <p className="mt-3 text-sm leading-relaxed text-neutral-300">
+          <div className="space-y-4">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B79A65]">
+              Our Vision
+            </span>
+            <p className="text-sm sm:text-base text-[#FAF9F6] font-light leading-relaxed">
               {BRAND_DATA.vision}
             </p>
           </div>
-        </section>
+        </div>
 
-        {/* CTA to Menu */}
-        <div className="text-center pt-8">
+        <div className="mt-16 text-center">
           <Link
             href="/menu"
-            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#F3CF5F] to-[#D4AF37] px-8 py-4 text-sm font-bold uppercase tracking-wider text-[#14100C] shadow-xl shadow-[#D4AF37]/25 transition-all hover:scale-105"
+            className="inline-flex items-center gap-3 border border-[#B79A65] bg-[#B79A65] px-8 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#171615] hover:bg-transparent hover:text-[#FAF9F6] transition-all duration-300"
           >
             <span>Explore The Bengal Menu</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

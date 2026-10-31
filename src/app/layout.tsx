@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmoothScroll from "@/components/providers/SmoothScroll";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -18,30 +19,26 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://thecalcuttacafe.com"),
-  title: "The Calcutta Cafe | The Taste of Bengal, Beyond Boundaries",
+  title: "The Calcutta Cafe — Signature Edition | Bengali Culinary Heritage",
   description:
-    "Bringing the rich culinary diversity of Bengali cuisine closer to everyone across India. Discover slow-cooked Kosha Mangsho, Shorshe Ilish, vegetarian heritage dishes, and artisanal sweets. Founded by Akash Santra.",
+    "The soul of Bengal. Served differently. A refined, editorial presentation of authentic Bengali cuisine across India. Founded by Akash Santra.",
   keywords: [
     "The Calcutta Cafe",
     "Bengali cuisine",
+    "Akash Santra",
     "Bengali food Bangalore",
     "Kosha Mangsho",
     "Shorshe Ilish",
-    "Akash Santra",
-    "Authentic Bengali food",
     "Mishti Doi",
-    "Bengali Cloud Kitchen",
+    "Bengal culinary heritage",
   ],
   authors: [{ name: "Akash Santra" }],
-  creator: "The Calcutta Cafe",
+  creator: "The Calcutta Cafe Foods Pvt Ltd",
   openGraph: {
-    title: "The Calcutta Cafe — Bringing the Taste of Bengal Closer to Everyone",
-    description:
-      "A culinary movement to make the complete diversity of Bengal's rich food heritage accessible across India.",
+    title: "The Calcutta Cafe — Signature Edition",
+    description: "The soul of Bengal. Served differently.",
     url: "https://thecalcuttacafe.com",
     siteName: "The Calcutta Cafe",
     images: [
@@ -49,7 +46,7 @@ export const metadata: Metadata = {
         url: "/images/hero-bengali-bhoj.jpg",
         width: 1200,
         height: 675,
-        alt: "The Calcutta Cafe Authentic Royal Bengali Feast",
+        alt: "The Calcutta Cafe Signature Culinary Presentation",
       },
     ],
     locale: "en_IN",
@@ -57,9 +54,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Calcutta Cafe | Authentic Bengali Food",
-    description:
-      "The Taste of Bengal, Beyond Boundaries. Founded by Akash Santra.",
+    title: "The Calcutta Cafe — Signature Edition",
+    description: "The soul of Bengal. Served differently. Founded by Akash Santra.",
     creator: "@calcutta_cafe",
     images: ["/images/hero-bengali-bhoj.jpg"],
   },
@@ -72,12 +68,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} dark`}>
-      <body className="min-h-screen bg-[#0A0E17] text-[#FAF6F0] selection:bg-[#8B1E1E] selection:text-white">
-        <Navbar />
-        <main className="relative min-h-screen overflow-hidden pt-0">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-screen bg-[#171615] text-[#FAF9F6] selection:bg-[#641F2B] selection:text-[#FAF9F6]">
+        <SmoothScroll>
+          <Navbar />
+          <main className="relative min-h-screen overflow-hidden pt-0">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

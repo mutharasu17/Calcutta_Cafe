@@ -1,34 +1,30 @@
-import HeroSection from "@/components/sections/HeroSection";
-import SoulOfBengalSection from "@/components/sections/SoulOfBengalSection";
-import CuisineExplorerSection from "@/components/sections/CuisineExplorerSection";
-import CookingArtSection from "@/components/sections/CookingArtSection";
-import JourneyTimelineSection from "@/components/sections/JourneyTimelineSection";
-import FounderMessageSection from "@/components/sections/FounderMessageSection";
-import FinalCtaSection from "@/components/sections/FinalCtaSection";
+import SignatureOpening from "@/components/home/SignatureOpening";
+import SignatureDish from "@/components/home/SignatureDish";
+import CulinaryCollection from "@/components/home/CulinaryCollection";
+import TheCraft from "@/components/home/TheCraft";
+import BrandStory from "@/components/home/BrandStory";
+import FinalStatement from "@/components/home/FinalStatement";
 
 export default function HomePage() {
   return (
     <>
-      {/* CHAPTER 01: The First Impression — The Food */}
-      <HeroSection />
+      {/* EXPERIENCE 01: The Signature Opening */}
+      <SignatureOpening />
 
-      {/* CHAPTER 02: The Identity — Bengal & The Bhoj Ritual */}
-      <SoulOfBengalSection />
+      {/* EXPERIENCE 02: The Signature Dish */}
+      <SignatureDish />
 
-      {/* CHAPTER 03: The Experience — Six Worlds of Bengali Gastronomy */}
-      <CuisineExplorerSection />
+      {/* EXPERIENCE 03: The Culinary Collection */}
+      <CulinaryCollection />
 
-      {/* CHAPTER 04: The Preparation — Every Flavour Has a Story */}
-      <CookingArtSection />
+      {/* EXPERIENCE 04: The Craft */}
+      <TheCraft />
 
-      {/* CHAPTER 05: The Journey — From Bengal to Bangalore & Beyond */}
-      <JourneyTimelineSection />
+      {/* EXPERIENCE 05: The Brand Story */}
+      <BrandStory />
 
-      {/* CHAPTER 06: The People — Akash Santra & The Founder's Vision */}
-      <FounderMessageSection />
-
-      {/* CHAPTER 07: The Destination — A Taste of Bengal, Wherever You Are */}
-      <FinalCtaSection />
+      {/* EXPERIENCE 06: The Final Statement */}
+      <FinalStatement />
     </>
   );
 }
