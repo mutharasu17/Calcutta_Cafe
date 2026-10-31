@@ -69,7 +69,7 @@ export default function ContactPage() {
                 Official Brand Information
               </h2>
               <p className="mt-2 text-sm text-neutral-400">
-                Founded by Akash Santra. Operating through dedicated delivery cloud kitchen hubs.
+                The Calcutta Cafe Foods Pvt Ltd • Founded by Akash Santra. Operating through dedicated delivery cloud kitchen hubs.
               </p>
             </div>
 

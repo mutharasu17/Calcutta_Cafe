@@ -17,7 +17,10 @@ export default function Footer() {
           {/* Brand Info & Mission */}
           <div className="lg:col-span-2">
             <BrandLogo size="lg" />
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-400">
+            <p className="mt-4 font-serif text-base text-[#D4AF37] italic">
+              &ldquo;The Calcutta Cafe – A Taste of Bengal, Wherever You Are.&rdquo;
+            </p>
+            <p className="mt-2 max-w-md text-xs leading-relaxed text-neutral-400">
               {BRAND_DATA.tagline}
             </p>
             <p className="mt-2 max-w-md text-xs leading-relaxed text-neutral-500">
@@ -167,7 +170,7 @@ export default function Footer() {
         <div className="mt-16 border-t border-white/10 pt-8 text-xs text-neutral-500">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p>
-              © 2026 The Calcutta Cafe. All rights reserved. Founded by Akash Santra.
+              © 2026 The Calcutta Cafe Foods Pvt Ltd. All rights reserved. Founded by Akash Santra.
             </p>
             <div className="flex flex-wrap items-center gap-6 text-neutral-400">
               <Link href="/contact" className="hover:text-white transition-colors">

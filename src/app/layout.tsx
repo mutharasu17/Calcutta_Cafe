@@ -18,6 +18,8 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://thecalcuttacafe.com"),
   title: "The Calcutta Cafe | The Taste of Bengal, Beyond Boundaries",

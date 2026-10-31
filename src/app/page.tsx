@@ -1,37 +1,33 @@
 import HeroSection from "@/components/sections/HeroSection";
-import BrandIntroSection from "@/components/sections/BrandIntroSection";
+import SoulOfBengalSection from "@/components/sections/SoulOfBengalSection";
 import CuisineExplorerSection from "@/components/sections/CuisineExplorerSection";
-import StoryPhilosophySection from "@/components/sections/StoryPhilosophySection";
+import CookingArtSection from "@/components/sections/CookingArtSection";
 import JourneyTimelineSection from "@/components/sections/JourneyTimelineSection";
-import MissionVisionSection from "@/components/sections/MissionVisionSection";
 import FounderMessageSection from "@/components/sections/FounderMessageSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. Cinematic Hero Section */}
+      {/* CHAPTER 01: The First Impression — The Food */}
       <HeroSection />
 
-      {/* 2. Brand Introduction: A World of Bengal on Every Plate */}
-      <BrandIntroSection />
+      {/* CHAPTER 02: The Identity — Bengal & The Bhoj Ritual */}
+      <SoulOfBengalSection />
 
-      {/* 3. Explore Bengali Cuisine Categories */}
+      {/* CHAPTER 03: The Experience — Six Worlds of Bengali Gastronomy */}
       <CuisineExplorerSection />
 
-      {/* 4. Story Behind Brand & Food Philosophy */}
-      <StoryPhilosophySection />
+      {/* CHAPTER 04: The Preparation — Every Flavour Has a Story */}
+      <CookingArtSection />
 
-      {/* 5. Brand Journey Visual Timeline (2019 to Future) */}
+      {/* CHAPTER 05: The Journey — From Bengal to Bangalore & Beyond */}
       <JourneyTimelineSection />
 
-      {/* 6. Brand Mission & Vision */}
-      <MissionVisionSection />
-
-      {/* 7. Founder Message from Akash Santra */}
+      {/* CHAPTER 06: The People — Akash Santra & The Founder's Vision */}
       <FounderMessageSection />
 
-      {/* 8. Final CTA Section */}
+      {/* CHAPTER 07: The Destination — A Taste of Bengal, Wherever You Are */}
       <FinalCtaSection />
     </>
   );
