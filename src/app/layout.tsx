@@ -69,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} dark`}>
-      <body className="min-h-screen bg-[#090909] text-[#F5F0E8] selection:bg-[#651F2B] selection:text-[#F5F0E8] pb-16 md:pb-0">
+      <body className="min-h-screen bg-[#090909] text-[#F5F0E8] selection:bg-[#651F2B] selection:text-[#F5F0E8] pb-[max(6rem,calc(env(safe-area-inset-bottom)+5rem))] md:pb-0">
         <SmoothScroll>
           <Navbar />
           <main className="relative min-h-screen overflow-hidden pt-0">

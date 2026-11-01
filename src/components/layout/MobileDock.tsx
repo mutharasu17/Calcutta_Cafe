@@ -15,7 +15,7 @@ export default function MobileDock() {
   ];
 
   return (
-    <div className="fixed bottom-6 left-0 right-0 z-30 flex justify-center px-4 md:hidden pointer-events-none">
+    <div className="fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-0 right-0 z-30 flex justify-center px-4 md:hidden pointer-events-none">
       <nav
         aria-label="Mobile Bottom Quick Navigation"
         className="pointer-events-auto flex items-center gap-1 sm:gap-2 px-3 py-2 rounded-full glass-dock border border-white/[0.14] bg-[#121010]/85 backdrop-blur-2xl shadow-2xl shadow-black/90"
