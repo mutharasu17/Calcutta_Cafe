@@ -31,7 +31,7 @@ const CATEGORIES: CategoryShowcase[] = [
     title: "River Fish & Seafood",
     bengali: "মাছের ঝোল ও ঝাল",
     image: "/images/shorshe-ilish.jpg",
-    summary: "Monsoon Hilsa in stone-ground mustard paste, Kolkata Bhetki Paturi steamed in banana leaf, and jumbo prawns.",
+    summary: "Monsoon Hilsa in traditional mustard paste, Kolkata Bhetki Paturi steamed in banana leaf, and jumbo prawns.",
     dishes: ["Shorshe Ilish", "Bhetki Macher Paturi", "Chingri Malai Curry", "Rui Kalia"],
   },
   {

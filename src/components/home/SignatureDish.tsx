@@ -21,7 +21,7 @@ export default function SignatureDish() {
           </div>
 
           <p className="max-w-md text-sm text-[#D8D0C3]/80 font-light leading-relaxed">
-            In Bengali gastronomy, true mastery is never rushed. Hours of patient braising allow whole spices and aromatics to marry into deep, velvety gravies.
+            In Bengali gastronomy, true depth comes from patient cooking. The traditional koshano technique allows whole spices and aromatics to meld into deep, rich gravies.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ export default function SignatureDish() {
                 The Slow-Cooked Kosha Mangsho
               </p>
               <p className="text-xs text-[#D8D0C3]/70 font-mono mt-1">
-                Simmered in cast iron with whole cardamom, clove, and mustard oil
+                Slow-braised tender mutton prepared with aromatic spices and mustard oil
               </p>
             </div>
 

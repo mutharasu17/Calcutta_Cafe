@@ -1,52 +1,158 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import BrandLogo from "../ui/BrandLogo";
 import { ArrowUpRight, X } from "lucide-react";
 
-const NAV_ITEMS = [
-  { label: "Overview", href: "/" },
+interface NavLinkItem {
+  id: string;
+  number: string;
+  label: string;
+  href: string;
+  previewImage: string;
+  tagline: string;
+}
+
+const PRIMARY_NAV = [
+  { label: "Discover", href: "/" },
   { label: "Our Story", href: "/about" },
-  { label: "Menu", href: "/menu" },
+  { label: "The Menu", href: "/menu" },
   { label: "Journal", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+];
+
+const FULL_NAV_ITEMS: NavLinkItem[] = [
+  {
+    id: "discover",
+    number: "01",
+    label: "Discover",
+    href: "/",
+    previewImage: "/images/hero-bengali-bhoj.jpg",
+    tagline: "The Royal Bhoj & Culinary Identity",
+  },
+  {
+    id: "about",
+    number: "02",
+    label: "Our Story",
+    href: "/about",
+    previewImage: "/images/kolkata-heritage-story.jpg",
+    tagline: "Estd. 2019 • Akash Santra's Vision",
+  },
+  {
+    id: "menu",
+    number: "03",
+    label: "The Menu",
+    href: "/menu",
+    previewImage: "/images/kosha-mangsho.jpg",
+    tagline: "Authentic Regional Repertoire",
+  },
+  {
+    id: "journal",
+    number: "04",
+    label: "Journal",
+    href: "/blog",
+    previewImage: "/images/luchi-chholar-dal.jpg",
+    tagline: "Essays on Culinary Heritage",
+  },
+  {
+    id: "contact",
+    number: "05",
+    label: "Contact",
+    href: "/contact",
+    previewImage: "/images/shorshe-ilish.jpg",
+    tagline: "Direct Inquiries & Bangalore Hub",
+  },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<NavLinkItem>(FULL_NAV_ITEMS[0]);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
 
+  // Scroll detection: direction-aware hide/show & compact floating header
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // Hide header on scroll-down, reveal on scroll-up. Always visible at the top.
+      if (currentScrollY <= 80) {
+        setIsVisible(true);
+      } else if (currentScrollY > 120 && currentScrollY > lastScrollY.current + 5) {
+        setIsVisible(false); // scrolling down
+      } else if (currentScrollY < lastScrollY.current - 5) {
+        setIsVisible(true); // scrolling up
+      }
+
+      lastScrollY.current = currentScrollY;
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close full-screen menu on route change
   useEffect(() => {
-    setIsMobileOpen(false);
+    setIsMenuOpen(false);
   }, [pathname]);
+
+  // Lock body scroll and listen for Escape key when menu is open
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
+      {/* ──────────────────────────────────────────────────────────
+          SIGNATURE HEADER (DESKTOP & MOBILE)
+      ────────────────────────────────────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        } ${
           isScrolled
-            ? "bg-[#171615]/90 backdrop-blur-xl border-b border-white/[0.07] py-4 shadow-xl shadow-black/40"
-            : "bg-transparent py-6"
+            ? "bg-[#171615]/85 backdrop-blur-xl border-b border-white/[0.08] py-4 shadow-2xl shadow-black/60"
+            : "bg-transparent py-6 lg:py-8"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
-          {/* Brand Mark */}
-          <BrandLogo size="md" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-16">
+          {/* Left: Brand Wordmark */}
+          <div className="flex items-center">
+            <BrandLogo size="md" />
+          </div>
 
-          {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
-            {NAV_ITEMS.map((item) => {
+          {/* Centre: Desktop Primary Navigation */}
+          <nav
+            className="hidden md:flex items-center gap-10"
+            aria-label="Desktop Primary Navigation"
+          >
+            {PRIMARY_NAV.map((item) => {
               const isActive =
                 item.href === "/"
                   ? pathname === "/"
@@ -56,77 +162,194 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-xs font-medium tracking-widest uppercase transition-colors duration-200 ${
-                    isActive
-                      ? "text-[#FAF9F6]"
-                      : "text-[#D8D0C3]/70 hover:text-[#FAF9F6]"
+                  className={`link-roll text-xs tracking-[0.2em] uppercase font-medium transition-colors ${
+                    isActive ? "text-[#FAF9F6]" : "text-[#D8D0C3]/70 hover:text-[#FAF9F6]"
                   }`}
                 >
-                  {item.label}
+                  <span className="link-roll-inner">
+                    <span>{item.label}</span>
+                    <span className="text-[#B79A65]">{item.label}</span>
+                  </span>
                 </Link>
               );
             })}
           </nav>
 
-          {/* Direct Ordering Action CTA */}
-          <div className="hidden md:flex items-center gap-5">
+          {/* Right: Order Online Action + Animated Full-Screen Menu Toggle */}
+          <div className="flex items-center gap-4 sm:gap-6">
             <Link
               href="/order"
-              className="group relative inline-flex items-center gap-2 border border-[#B79A65]/60 bg-[#641F2B] px-5 py-2.5 text-xs font-medium uppercase tracking-[0.16em] text-[#FAF9F6] transition-all duration-300 hover:bg-[#7D2736] hover:border-[#B79A65]"
+              className="group relative hidden sm:inline-flex items-center gap-2 border border-[#B79A65]/70 bg-[#641F2B] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#FAF9F6] transition-all duration-300 hover:bg-[#7D2736] hover:border-[#B79A65]"
             >
               <span>Order Online</span>
               <ArrowUpRight className="h-3.5 w-3.5 text-[#B79A65] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
-          </div>
 
-          {/* Mobile Menu Trigger */}
-          <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden p-2 text-[#FAF9F6] focus:outline-none"
-            aria-label={isMobileOpen ? "Close menu" : "Open menu"}
-          >
-            <div className="w-6 flex flex-col items-end gap-1.5">
-              <span className={`block h-[1.5px] bg-[#FAF9F6] transition-all duration-300 ${isMobileOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`} />
-              <span className={`block h-[1.5px] bg-[#FAF9F6] transition-all duration-300 ${isMobileOpen ? "opacity-0" : "w-4"}`} />
-              <span className={`block h-[1.5px] bg-[#FAF9F6] transition-all duration-300 ${isMobileOpen ? "w-6 -rotate-45 -translate-y-2" : "w-5"}`} />
-            </div>
-          </button>
+            {/* Menu Trigger Button */}
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              className="group flex items-center gap-3 border border-white/10 bg-white/[0.03] hover:border-[#B79A65]/50 px-3.5 py-2 transition-all duration-300 focus:outline-none"
+              aria-label="Open Full-Screen Navigation Menu"
+              aria-expanded={isMenuOpen}
+            >
+              <span className="hidden sm:inline-block font-mono text-[11px] uppercase tracking-[0.22em] text-[#FAF9F6] group-hover:text-[#B79A65] transition-colors">
+                Menu
+              </span>
+              <div className="w-5 flex flex-col items-end gap-1.5">
+                <span className="block h-[1px] w-5 bg-[#FAF9F6] group-hover:bg-[#B79A65] transition-all duration-300" />
+                <span className="block h-[1px] w-3.5 bg-[#FAF9F6] group-hover:bg-[#B79A65] group-hover:w-5 transition-all duration-300" />
+              </div>
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Full-Screen Bespoke Mobile Navigation Overlay */}
+      {/* ──────────────────────────────────────────────────────────
+          FULL-SCREEN LUXURY NAVIGATION EXPERIENCE
+      ────────────────────────────────────────────────────────── */}
       <div
-        className={`fixed inset-0 z-40 bg-[#171615] transition-all duration-500 md:hidden flex flex-col justify-between px-8 py-24 ${
-          isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        style={{ backgroundColor: "#171615" }}
+        className={`fixed inset-0 z-50 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site Navigation Overlay"
       >
-        <div className="space-y-6 pt-8">
-          <span className="font-sans text-[11px] tracking-[0.25em] uppercase text-[#B79A65] block mb-6">
-            Navigation
-          </span>
-          {NAV_ITEMS.map((item, idx) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="block font-serif text-3xl font-light text-[#FAF9F6] transition-colors hover:text-[#B79A65]"
-            >
-              <span className="font-sans text-xs text-[#B79A65] mr-3 font-mono opacity-50">0{idx + 1}</span>
-              {item.label}
-            </Link>
-          ))}
+        {/* Dynamic Background Image Preview (Desktop Hover Moment) */}
+        <div
+          style={{ backgroundColor: "#171615" }}
+          className="absolute inset-0 z-0 hidden lg:block overflow-hidden"
+        >
+          <Image
+            src={hoveredItem.previewImage}
+            alt={hoveredItem.label}
+            fill
+            sizes="100vw"
+            className="object-cover object-center filter brightness-[0.22] contrast-110 transition-opacity duration-700 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#171615] via-[#171615]/85 to-[#171615]/60" />
+          <div className="absolute inset-0 editorial-grain opacity-40 pointer-events-none" />
         </div>
 
-        <div className="pt-8 border-t border-white/[0.08] space-y-4">
-          <Link
-            href="/order"
-            className="flex items-center justify-between border border-[#B79A65]/50 bg-[#641F2B] px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#FAF9F6]"
+        {/* Mobile/Tablet Solid Canvas Background */}
+        <div
+          style={{ backgroundColor: "#171615" }}
+          className="absolute inset-0 z-0 lg:hidden"
+        />
+
+        {/* Top Control Bar with Wordmark & Close Button */}
+        <div className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-16 pt-8 pb-6 border-b border-white/[0.08]">
+          <BrandLogo size="md" />
+
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="group flex items-center gap-2.5 border border-white/20 hover:border-[#B79A65] px-4 py-2 transition-all duration-300 focus:outline-none"
+            aria-label="Close Navigation Menu"
           >
-            <span>Order via Swiggy / Zomato</span>
-            <ArrowUpRight className="h-4 w-4 text-[#B79A65]" />
-          </Link>
-          <p className="text-[11px] text-[#D8D0C3]/60 font-light text-center">
-            The Calcutta Cafe Foods Pvt Ltd • Bangalore Hub
-          </p>
+            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#FAF9F6] group-hover:text-[#B79A65] transition-colors">
+              Close
+            </span>
+            <X className="h-4 w-4 text-[#B79A65] transition-transform duration-300 group-hover:rotate-90" />
+          </button>
+        </div>
+
+        {/* Navigation Content Matrix */}
+        <div className="relative z-10 mx-auto max-w-7xl h-[calc(100vh-100px)] flex flex-col justify-between px-6 sm:px-10 lg:px-16 py-10 lg:py-16 overflow-y-auto">
+          {/* Main Links List (Oversized Editorial Serif) */}
+          <nav className="space-y-4 lg:space-y-6" aria-label="Full-Screen Navigation Links">
+            {FULL_NAV_ITEMS.map((item) => {
+              const isCurrent = pathname === item.href;
+              const isHovered = hoveredItem.id === item.id;
+
+              return (
+                <div
+                  key={item.id}
+                  onMouseEnter={() => setHoveredItem(item)}
+                  className="group block"
+                >
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-baseline gap-4 sm:gap-6 transition-all duration-300"
+                  >
+                    <span className="font-mono text-xs sm:text-sm text-[#B79A65]/70 tracking-widest">
+                      {item.number}
+                    </span>
+                    <span
+                      className={`font-serif text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight transition-all duration-300 ${
+                        isCurrent || isHovered
+                          ? "text-[#FAF9F6] italic translate-x-2"
+                          : "text-[#D8D0C3]/60 group-hover:text-[#FAF9F6]"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                    <span className="hidden sm:inline-block font-mono text-xs text-[#D8D0C3]/40 tracking-wider font-light opacity-0 group-hover:opacity-100 transition-opacity">
+                      — {item.tagline}
+                    </span>
+                  </Link>
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* Bottom Information Grid */}
+          <div className="pt-8 border-t border-white/[0.08] grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+            {/* Quick Ordering Action */}
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#B79A65] block mb-2">
+                Immediate Fulfillment
+              </span>
+              <Link
+                href="/order"
+                className="inline-flex items-center gap-2 border border-[#B79A65] bg-[#641F2B] px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#FAF9F6] hover:bg-[#7D2736] transition-colors"
+              >
+                <span>Order via Swiggy / Zomato</span>
+                <ArrowUpRight className="h-4 w-4 text-[#B79A65]" />
+              </Link>
+            </div>
+
+            {/* Operational Location Attribution */}
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#B79A65] block mb-1">
+                Operational Presence
+              </span>
+              <p className="text-xs text-[#FAF9F6] font-light">
+                Bangalore Hub Operational
+              </p>
+              <p className="text-[11px] text-[#D8D0C3]/60 font-light mt-0.5">
+                Delhi NCR & Metros Planned
+              </p>
+            </div>
+
+            {/* Social & Legal Reference */}
+            <div className="md:text-right">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#B79A65] block mb-1">
+                Official Channels
+              </span>
+              <div className="flex md:justify-end items-center gap-4 text-xs text-[#D8D0C3]/80">
+                <a
+                  href="https://www.instagram.com/thecalcutta_cafe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FAF9F6] transition-colors"
+                >
+                  Instagram
+                </a>
+                <span>•</span>
+                <a
+                  href="https://x.com/calcutta_cafe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FAF9F6] transition-colors"
+                >
+                  X
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

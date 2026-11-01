@@ -58,8 +58,8 @@ export default function BrandLogo({ className = "", size = "md" }: BrandLogoProp
         >
           THE CALCUTTA CAFE
         </span>
-        <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-[#B79A65] mt-1 font-medium">
-          Signature Edition
+        <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-[#B79A65] mt-1 font-normal">
+          Black Label
         </span>
       </div>
     </Link>

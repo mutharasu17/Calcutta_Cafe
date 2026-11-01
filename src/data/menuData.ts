@@ -87,7 +87,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Shorshe Ilish",
     bengaliName: "সর্ষে ইলিশ",
     category: "fish-seafood",
-    description: "The crown jewel of Bengal—tender cut of Hilsa gently simmered in a stone-ground yellow and black mustard paste, seasoned with pure cold-pressed mustard oil and slit green chillies.",
+    description: "The classic Bengali delicacy—Hilsa simmered in traditional mustard paste, seasoned with mustard oil and slit green chillies.",
     image: "/images/shorshe-ilish.jpg",
     dietary: "non-veg",
     spiceLevel: "high",
@@ -131,10 +131,10 @@ export const MENU_ITEMS: MenuItem[] = [
   // Chicken & Mutton
   {
     id: "kosha-mangsho",
-    name: "Kolkata Golbari-Style Kosha Mangsho",
+    name: "Traditional Kosha Mangsho",
     bengaliName: "কষা মাংস",
     category: "chicken-mutton",
-    description: "Velvety, dark-caramelized mutton curry slow-cooked for hours in heavy iron pots with mustard oil, roasted spices, garlic, and whole potatoes that absorb the gravy.",
+    description: "Slow-cooked tender mutton curry prepared with aromatic roasted spices, garlic, and traditional brown gravy with potatoes.",
     image: "/images/kosha-mangsho.jpg",
     dietary: "non-veg",
     spiceLevel: "high",
