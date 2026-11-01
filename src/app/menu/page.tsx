@@ -90,7 +90,7 @@ function MenuContent() {
       </section>
 
       {/* Category Navigation & Search Toolbar */}
-      <section className="px-6 sm:px-10 lg:px-16 py-4 border-b border-[#E6D8C3] sticky top-20 z-30 bg-[#F5EFE4]/95 backdrop-blur-md shadow-sm">
+      <section className="px-6 sm:px-10 lg:px-16 py-4 border-b border-[#E6D8C3] sticky top-[104px] sm:top-[112px] lg:top-[118px] z-30 bg-[#F5EFE4]/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Category Tabs (Scrollable on Mobile) */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">

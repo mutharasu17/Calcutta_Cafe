@@ -1,42 +1,42 @@
-import MobileWelcome from "@/components/home/MobileWelcome";
-import CinematicHero from "@/components/home/CinematicHero";
-import SignatureDishGlass from "@/components/home/SignatureDishGlass";
-import AnandCategoryShowcase from "@/components/home/AnandCategoryShowcase";
-import SignatureSelection from "@/components/home/SignatureSelection";
-import TheCraftFilm from "@/components/home/TheCraftFilm";
-import FounderEditorial from "@/components/home/FounderEditorial";
-import OrderOnlineSection from "@/components/home/OrderOnlineSection";
-import JournalSection from "@/components/home/JournalSection";
+import RetailHeroBanner from "@/components/home/RetailHeroBanner";
+import ShopOurRange from "@/components/home/ShopOurRange";
+import BrandTrustStrip from "@/components/home/BrandTrustStrip";
+import BestSellersGallery from "@/components/home/BestSellersGallery";
+import PromotionalBanners from "@/components/home/PromotionalBanners";
+import OurSpeciality from "@/components/home/OurSpeciality";
+import StreetFoodShowcase from "@/components/home/StreetFoodShowcase";
+import BrandStorySection from "@/components/home/BrandStorySection";
+import JournalGrid from "@/components/home/JournalGrid";
 
 export default function HomePage() {
   return (
     <>
-      {/* MOBILE SCREEN 1: Welcome & Brand Discovery (Dismissable/Remembered) */}
-      <MobileWelcome />
+      {/* 1. LARGE PROMOTIONAL HERO BANNER (ANAND SWEETS RETAIL STYLE) */}
+      <RetailHeroBanner />
 
-      {/* SCENE 1: Editorial Hero (Asymmetric Warm Ivory & Bengali Food Film) */}
-      <CinematicHero />
+      {/* 2. SHOP OUR RANGE — CATEGORY FIRST VISUAL STRUCTURE */}
+      <ShopOurRange />
 
-      {/* SCENE 2: Signature Culinary Showcase (Traditional Kosha Mangsho) */}
-      <SignatureDishGlass />
+      {/* 3. BRAND INFORMATION & TRUST STRIP (4 VERIFIED PILLARS) */}
+      <BrandTrustStrip />
 
-      {/* SCENE 3: Anand Sweets Inspired Category Visual Merchandising (6 Categories) */}
-      <AnandCategoryShowcase />
+      {/* 4. FEATURED DISHES & BEST SELLERS (ANAND STYLE PRODUCT GALLERY) */}
+      <BestSellersGallery />
 
-      {/* SCENE 4: Curated Best-Sellers & Signature Repertoire (With Interactive Dish Details & Favourites) */}
-      <SignatureSelection />
+      {/* 5. PROMOTIONAL EDITORIAL CAMPAIGN BANNERS (RIVER FISH & SUNDAY KOSHA) */}
+      <PromotionalBanners />
 
-      {/* SCENE 5: The Bengali Food Experience (Four Dining Courses & Craft Film) */}
-      <TheCraftFilm />
+      {/* 6. OUR SPECIALITY — IMAGE-LED SIGNATURE CULINARY SHOWCASE */}
+      <OurSpeciality />
 
-      {/* SCENE 6: Brand Story (Akash Santra 2019 Founder Monograph) */}
-      <FounderEditorial />
+      {/* 7. STREET SAVOURIES & SNACK DISCOVERY (PARK STREET KATHI ROLLS & CUTLETS) */}
+      <StreetFoodShowcase />
 
-      {/* SCENE 7: Order Online (Verified Bangalore Swiggy & Zomato Delivery Hubs) */}
-      <OrderOnlineSection />
+      {/* 8. OUR STORY — AKASH SANTRA 2019 FOUNDING MONOGRAPH & PHILOSOPHY */}
+      <BrandStorySection />
 
-      {/* SCENE 8: The Bengal Journal (Curated Essays & Food Culture) */}
-      <JournalSection />
+      {/* 9. THE BENGAL JOURNAL — EDITORIAL ARTICLE GRID */}
+      <JournalGrid />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans, Noto_Serif_Bengali } from "next/font/google";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import RetailHeader from "@/components/layout/RetailHeader";
+import RetailFooter from "@/components/layout/RetailFooter";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import "./globals.css";
 
@@ -78,11 +78,11 @@ export default function RootLayout({
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable} ${notoBengali.variable}`}>
       <body className="min-h-screen bg-[#F5EFE4] text-[#29251F] selection:bg-[#7A382B] selection:text-[#F5EFE4]">
         <SmoothScroll>
-          <Navbar />
-          <main className="relative min-h-screen pt-20 lg:pt-24">
+          <RetailHeader />
+          <main className="relative min-h-screen pt-[104px] sm:pt-[112px] lg:pt-[118px]">
             {children}
           </main>
-          <Footer />
+          <RetailFooter />
         </SmoothScroll>
       </body>
     </html>
