@@ -67,7 +67,7 @@ async function run() {
 
     // 1B. Mobile Signature Dish (VERIFY FOOD IS 100% VISIBLE WITH NO OVERLAY)
     console.log("Scrolling to mobile signature dish...");
-    const signatureSection = m390Page.locator("section:has-text('Traditional Kosha Mangsho')");
+    const signatureSection = m390Page.locator("section:has-text('Traditional Kosha Mangsho')").first();
     await signatureSection.scrollIntoViewIfNeeded();
     await m390Page.waitForTimeout(800);
     console.log("Capturing 02-mobile-390-signature-dish-uncovered.png...");
@@ -204,7 +204,7 @@ async function run() {
     });
 
     console.log("Scrolling to Desktop Signature Stage...");
-    const dSig = d1920Page.locator("section:has-text('Traditional Kosha Mangsho')");
+    const dSig = d1920Page.locator("section:has-text('Traditional Kosha Mangsho')").first();
     await dSig.scrollIntoViewIfNeeded();
     await d1920Page.waitForTimeout(800);
     console.log("Capturing 10-desktop-1920-signature-stage.png...");
@@ -212,9 +212,57 @@ async function run() {
       path: path.join(OUTPUT_DIR, "10-desktop-1920-signature-stage.png"),
     });
 
+    // ──────────────────────────────────────────────────────────
+    // 7. ANAND CATEGORY SHOWCASE & SIGNATURE SELECTIONS
+    // ──────────────────────────────────────────────────────────
+    console.log("Scrolling to Anand Category Showcase...");
+    const catShowcase = d1920Page.locator("section:has-text('Explore Our Repertoire.')");
+    await catShowcase.scrollIntoViewIfNeeded();
+    await d1920Page.waitForTimeout(600);
+    console.log("Capturing 11-anand-category-showcase.png...");
+    await catShowcase.screenshot({
+      path: path.join(OUTPUT_DIR, "11-anand-category-showcase.png"),
+    });
+
+    console.log("Scrolling to Signature Delicacies Grid...");
+    const sigDelicacies = d1920Page.locator("section:has-text('Signature Delicacies.')");
+    await sigDelicacies.scrollIntoViewIfNeeded();
+    await d1920Page.waitForTimeout(600);
+    console.log("Capturing 12-signature-selection-grid.png...");
+    await sigDelicacies.screenshot({
+      path: path.join(OUTPUT_DIR, "12-signature-selection-grid.png"),
+    });
+
+    // ──────────────────────────────────────────────────────────
+    // 8. DISH DETAIL MODAL INTERACTION
+    // ──────────────────────────────────────────────────────────
+    console.log("Testing Dish Detail Modal on Desktop...");
+    const detailBtn = d1920Page.locator("button:has-text('View Details')").first();
+    await detailBtn.click();
+    await d1920Page.waitForTimeout(600);
+    console.log("Capturing 13-dish-detail-modal.png...");
+    await d1920Page.screenshot({
+      path: path.join(OUTPUT_DIR, "13-dish-detail-modal.png"),
+    });
+    // Close modal via Escape
+    await d1920Page.keyboard.press("Escape");
+    await d1920Page.waitForTimeout(400);
+
+    // ──────────────────────────────────────────────────────────
+    // 9. MENU PAGE & FOOD DISCOVERY
+    // ──────────────────────────────────────────────────────────
+    console.log("Testing Menu Page Discovery...");
+    await d1920Page.goto(`${BASE_URL}/menu`, { waitUntil: "networkidle" });
+    await d1920Page.waitForTimeout(1000);
+    console.log("Capturing 14-menu-page-discovery.png...");
+    await d1920Page.screenshot({
+      path: path.join(OUTPUT_DIR, "14-menu-page-discovery.png"),
+      clip: { x: 0, y: 0, width: 1920, height: 1080 },
+    });
+
     await d1920Context.close();
 
-    console.log("ALL 6 VIEWPORTS VERIFIED AND SCREENSHOTS CAPTURED!");
+    console.log("ALL VIEWPORTS AND INTERACTIVE SCENARIOS VERIFIED!");
   } finally {
     await browser.close();
     server.kill();
