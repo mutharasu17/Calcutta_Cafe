@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { MENU_CATEGORIES, MENU_ITEMS, MenuCategory } from "@/data/menuData";
 import { Search, ArrowUpRight } from "lucide-react";
-import GlassPanel from "@/components/ui/GlassPanel";
 
 function MenuContent() {
   const searchParams = useSearchParams();
@@ -34,36 +33,36 @@ function MenuContent() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div className="relative pt-32 pb-28 bg-[#090909] text-[#F5F0E8] min-h-screen">
-      {/* Header */}
-      <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 border-b border-white/[0.08]">
+    <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
+      {/* Editorial Header */}
+      <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
-          <span className="text-[10px] sm:text-xs font-mono tracking-[0.26em] uppercase text-[#C7AC83] block mb-4">
-            The Culinary Repertoire
+          <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#7A382B] font-semibold block mb-3">
+            The Culinary Repertoire • বাংলার রসনা
           </span>
-          <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-light tracking-tight leading-[1.04]">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
             Authentic Bengal.
-            <span className="block italic text-[#C7AC83] font-light mt-1">
+            <span className="block italic text-[#7A382B] font-light mt-1">
               Course by course.
             </span>
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-[#A9A19A] font-light leading-relaxed max-w-2xl">
-            A comprehensive journey through Bengal&apos;s culinary heritage, from bitter Shukto palate awakeners to slow-braised meats, river seafood, and earthen sweets.
+          <p className="mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
+            A comprehensive journey through Bengal&apos;s culinary heritage, from bitter Shukto palate awakeners to slow-braised curries, river seafood, and earthen sweets.
           </p>
         </div>
       </section>
 
       {/* Category Navigation & Search */}
-      <section className="px-6 sm:px-10 lg:px-16 py-6 border-b border-white/[0.08] sticky top-16 z-30 bg-[#090909]/90 backdrop-blur-2xl">
-        <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <section className="px-6 sm:px-10 lg:px-16 py-5 border-b border-[#E6D8C3] sticky top-20 z-30 bg-[#F5EFE4]/95 backdrop-blur-md">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
             <button
               onClick={() => setActiveCategory("all")}
-              className={`px-4 py-2 text-xs uppercase tracking-wider font-medium transition-all ${
+              className={`px-4 py-2 text-xs uppercase tracking-wider font-medium transition-all border min-h-[40px] ${
                 activeCategory === "all"
-                  ? "border border-[#C7AC83] bg-white/[0.08] text-[#F5F0E8]"
-                  : "border border-transparent text-[#A9A19A] hover:text-[#F5F0E8]"
+                  ? "border-[#7A382B] bg-[#7A382B] text-[#F5EFE4] shadow-sm"
+                  : "border-[#E6D8C3] bg-[#FFFFFF] text-[#29251F] hover:border-[#7A382B]/60"
               }`}
             >
               All Courses
@@ -72,10 +71,10 @@ function MenuContent() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 text-xs uppercase tracking-wider whitespace-nowrap transition-all ${
+                className={`px-4 py-2 text-xs uppercase tracking-wider whitespace-nowrap font-medium transition-all border min-h-[40px] ${
                   activeCategory === cat.id
-                    ? "border border-[#C7AC83] bg-white/[0.08] text-[#F5F0E8]"
-                    : "border border-transparent text-[#A9A19A] hover:text-[#F5F0E8]"
+                    ? "border-[#7A382B] bg-[#7A382B] text-[#F5EFE4] shadow-sm"
+                    : "border-[#E6D8C3] bg-[#FFFFFF] text-[#29251F] hover:border-[#7A382B]/60"
                 }`}
               >
                 {cat.name}
@@ -85,32 +84,30 @@ function MenuContent() {
 
           {/* Search Input */}
           <div className="relative w-full md:w-64">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#C7AC83]" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#7A382B]" />
             <input
               type="text"
               placeholder="Search dishes..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/[0.04] border border-white/10 px-9 py-2 text-xs text-[#F5F0E8] placeholder-[#A9A19A]/50 focus:outline-none focus:border-[#C7AC83] transition-colors"
+              className="w-full bg-[#FFFFFF] border border-[#E6D8C3] px-9 py-2 text-xs text-[#29251F] placeholder-[#6B6357]/60 focus:outline-none focus:border-[#7A382B] transition-colors"
             />
           </div>
         </div>
       </section>
 
-      {/* Dishes Editorial Glass Cards */}
-      <section className="px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
+      {/* Dishes Editorial Grid */}
+      <section className="px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
-              <GlassPanel
+              <div
                 key={item.id}
-                variant="subtle"
-                hoverEffect
-                className="p-6 flex flex-col justify-between space-y-6"
+                className="group bg-[#FFFFFF] border border-[#E6D8C3] p-6 flex flex-col justify-between space-y-6 shadow-sm hover:border-[#7A382B]/50 transition-all duration-300"
               >
                 <div>
                   {item.image && (
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#151313] border border-white/[0.08] mb-5">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E6D8C3] border border-[#E6D8C3] mb-5">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -123,44 +120,48 @@ function MenuContent() {
 
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <div>
-                      <h3 className="font-serif text-xl sm:text-2xl font-light text-[#F5F0E8]">
+                      <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#29251F] group-hover:text-[#7A382B] transition-colors">
                         {item.name}
                       </h3>
                       {item.bengaliName && (
-                        <p className="font-bengali text-xs text-[#C7AC83] mt-0.5">
+                        <p className="font-bengali text-xs text-[#7A382B] mt-0.5 font-medium">
                           {item.bengaliName}
                         </p>
                       )}
                     </div>
-                    <span className="text-[9px] font-mono uppercase tracking-widest text-[#A9A19A] px-2 py-0.5 border border-white/10">
+                    <span className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border ${
+                      item.dietary === "veg"
+                        ? "text-[#34483A] border-[#34483A]/30 bg-[#34483A]/5"
+                        : "text-[#7A382B] border-[#7A382B]/30 bg-[#7A382B]/5"
+                    }`}>
                       {item.dietary === "veg" ? "Veg" : "Non-Veg"}
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#A9A19A] font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#6B6357] font-normal leading-relaxed mt-2">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
-                  <span className="font-mono text-[11px] text-[#C7AC83]">
+                <div className="pt-4 border-t border-[#E6D8C3] flex items-center justify-between text-xs">
+                  <span className="font-mono text-[11px] text-[#7A382B] font-semibold">
                     Bangalore Delivery
                   </span>
 
                   <Link
                     href="/order"
-                    className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-[#F5F0E8] hover:text-[#C7AC83] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-[#29251F] hover:text-[#7A382B] font-semibold transition-colors"
                   >
                     <span>Order Online</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-[#C7AC83]" />
+                    <ArrowUpRight className="h-3.5 w-3.5 text-[#7A382B]" />
                   </Link>
                 </div>
-              </GlassPanel>
+              </div>
             ))}
           </div>
 
           {filteredItems.length === 0 && (
-            <div className="text-center py-20 text-[#A9A19A] font-light">
+            <div className="text-center py-20 text-[#6B6357] font-normal">
               No dishes found matching your query.
             </div>
           )}
@@ -172,7 +173,7 @@ function MenuContent() {
 
 export default function MenuPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#090909] pt-36 text-center text-sm text-[#A9A19A]">Loading Repertoire...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#F5EFE4] pt-36 text-center text-sm text-[#6B6357]">Loading Repertoire...</div>}>
       <MenuContent />
     </Suspense>
   );

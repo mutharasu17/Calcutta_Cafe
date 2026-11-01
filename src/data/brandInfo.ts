@@ -22,14 +22,14 @@ export interface BrandData {
   vision: string;
   philosophy: string;
   colors: {
-    obsidian: string;
-    secondaryBg: string;
-    burgundy: string;
-    champagne: string;
     ivory: string;
-    mutedText: string;
-    glassSurface: string;
-    glassBorder: string;
+    sandstone: string;
+    charcoal: string;
+    mutedCharcoal: string;
+    terracotta: string;
+    deepLeaf: string;
+    mutedBrass: string;
+    white: string;
   };
   socialLinks: {
     instagram: string;
@@ -61,14 +61,14 @@ export const BRAND_DATA: BrandData = {
   vision: "To build a nationally recognised Bengali food brand that represents the diversity of Bengal's culinary heritage and makes its food culture available in cities across India.",
   philosophy: "Bengali cuisine deserves to be represented in its full diversity, not limited to a handful of well-known dishes. Food is not only about taste—it represents familiarity, culture, memories, traditions and meaningful experiences.",
   colors: {
-    obsidian: "#090909",
-    secondaryBg: "#151313",
-    burgundy: "#651F2B",
-    champagne: "#C7AC83",
-    ivory: "#F5F0E8",
-    mutedText: "#A9A19A",
-    glassSurface: "rgba(255, 255, 255, 0.075)",
-    glassBorder: "rgba(255, 255, 255, 0.16)",
+    ivory: "#F5EFE4",
+    sandstone: "#E6D8C3",
+    charcoal: "#29251F",
+    mutedCharcoal: "#6B6357",
+    terracotta: "#7A382B",
+    deepLeaf: "#34483A",
+    mutedBrass: "#B68A52",
+    white: "#FFFFFF",
   },
   socialLinks: {
     instagram: "https://www.instagram.com/thecalcutta_cafe",

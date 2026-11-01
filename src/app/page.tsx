@@ -3,28 +3,32 @@ import SignatureDishGlass from "@/components/home/SignatureDishGlass";
 import ImmersiveGallery from "@/components/home/ImmersiveGallery";
 import TheCraftFilm from "@/components/home/TheCraftFilm";
 import FounderEditorial from "@/components/home/FounderEditorial";
-import BrandClosingCTA from "@/components/home/BrandClosingCTA";
+import OrderOnlineSection from "@/components/home/OrderOnlineSection";
+import JournalSection from "@/components/home/JournalSection";
 
 export default function HomePage() {
   return (
     <>
-      {/* SCENE A: Cinematic Hero (Full-Screen Film & Left-Aligned Typography) */}
+      {/* SCENE 1: Editorial Hero (Asymmetric Warm Ivory & Food Film) */}
       <CinematicHero />
 
-      {/* SCENE B: Signature Cuisine Image with Floating Glass Panel */}
+      {/* SCENE 2: Signature Culinary Showcase (Traditional Kosha Mangsho) */}
       <SignatureDishGlass />
 
-      {/* SCENE C: Immersive Cuisine Gallery (Category Tabs & Glass Controls) */}
+      {/* SCENE 3: Explore the Menu (6 Categories, Anand Sweets Inspired) */}
       <ImmersiveGallery />
 
-      {/* SCENE D: Cinematic Preparation Film / The Craft Moments */}
+      {/* SCENE 4: The Bengali Food Experience (Four Dining Courses & Craft Film) */}
       <TheCraftFilm />
 
-      {/* SCENE E: Founder & Brand Story (Akash Santra Editorial Monograph) */}
+      {/* SCENE 5: Brand Story (Akash Santra 2019 Founder Monograph) */}
       <FounderEditorial />
 
-      {/* SCENE F: Full-Screen Brand Closing CTA */}
-      <BrandClosingCTA />
+      {/* SCENE 6: Order Online (Verified Swiggy & Zomato Delivery) */}
+      <OrderOnlineSection />
+
+      {/* SCENE 7: The Bengal Journal (Curated Essays & Food Stories) */}
+      <JournalSection />
     </>
   );
 }

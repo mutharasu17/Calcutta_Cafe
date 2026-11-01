@@ -2,48 +2,45 @@ import Image from "next/image";
 import Link from "next/link";
 import { BLOG_POSTS } from "@/data/blogData";
 import { ArrowRight } from "lucide-react";
-import GlassPanel from "@/components/ui/GlassPanel";
 
 export const metadata = {
-  title: "The Heritage Journal — Immersive Edition | The Calcutta Cafe",
+  title: "The Bengal Journal | The Calcutta Cafe",
   description:
     "Reflective essays on Bengali gastronomy, seasonal rituals, and time-honored culinary traditions.",
 };
 
 export default function BlogListPage() {
   return (
-    <div className="relative pt-32 pb-28 bg-[#090909] text-[#F5F0E8] min-h-screen">
-      {/* Header */}
-      <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 border-b border-white/[0.08]">
+    <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
+      {/* Editorial Header */}
+      <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
-          <span className="text-[10px] sm:text-xs font-mono tracking-[0.26em] uppercase text-[#C7AC83] block mb-4">
-            The Heritage Journal
+          <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#7A382B] font-semibold block mb-3">
+            The Bengal Journal • প্রবন্ধমালা
           </span>
-          <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-light tracking-tight leading-[1.04]">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
             Stories from Bengal&apos;s
-            <span className="block italic text-[#C7AC83] font-light mt-1">
+            <span className="block italic text-[#7A382B] font-light mt-1">
               culinary heritage.
             </span>
           </h1>
-          <p className="mt-8 text-base sm:text-lg text-[#A9A19A] font-light leading-relaxed max-w-2xl">
+          <p className="mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
             Essays on monsoon Hilsa legends, the sacred architecture of the Sunday Kosha ritual, and the overlooked genius of Bengal&apos;s vegetarian repertoire.
           </p>
         </div>
       </section>
 
       {/* Articles Grid */}
-      <section className="px-6 sm:px-10 lg:px-16 py-20 lg:py-32">
+      <section className="px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {BLOG_POSTS.map((post) => (
-              <GlassPanel
+              <article
                 key={post.slug}
-                variant="subtle"
-                hoverEffect
-                className="p-6 flex flex-col justify-between space-y-6"
+                className="group bg-[#FFFFFF] border border-[#E6D8C3] shadow-sm flex flex-col justify-between overflow-hidden hover:border-[#7A382B]/50 transition-all duration-300"
               >
                 <div>
-                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#151313] border border-white/[0.08] mb-6">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E6D8C3]">
                     <Image
                       src={post.image}
                       alt={post.title}
@@ -51,32 +48,40 @@ export default function BlogListPage() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
+                    <div className="absolute top-3 left-3 bg-[#F5EFE4]/90 backdrop-blur-sm px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-[#7A382B] font-semibold border border-[#E6D8C3]">
+                      {post.category}
+                    </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs font-mono text-[#C7AC83] mb-3">
-                    <span>{post.category}</span>
-                    <span className="text-[#A9A19A]">{post.readTime}</span>
+                  <div className="p-6 space-y-3">
+                    <div className="flex items-center gap-3 text-[11px] font-mono text-[#6B6357]">
+                      <span>{post.date}</span>
+                      <span>•</span>
+                      <span>{post.readTime}</span>
+                    </div>
+
+                    <h2 className="font-serif text-xl sm:text-2xl text-[#29251F] font-normal leading-snug group-hover:text-[#7A382B] transition-colors">
+                      <Link href={`/blog/${post.slug}`}>
+                        {post.title}
+                      </Link>
+                    </h2>
+
+                    <p className="text-xs sm:text-sm text-[#6B6357] font-normal leading-relaxed">
+                      {post.excerpt}
+                    </p>
                   </div>
-
-                  <h3 className="font-serif text-2xl font-light text-[#F5F0E8] group-hover:text-[#C7AC83] transition-colors leading-snug">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-
-                  <p className="mt-3 text-xs sm:text-sm text-[#A9A19A] font-light leading-relaxed">
-                    {post.excerpt}
-                  </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.08]">
+                <div className="px-6 pb-6 pt-2 border-t border-[#E6D8C3]/50">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#C7AC83] hover:text-[#F5F0E8] transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#7A382B] hover:text-[#29251F] transition-colors"
                   >
                     <span>Read Essay</span>
-                    <ArrowRight className="h-3 w-3" />
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
-              </GlassPanel>
+              </article>
             ))}
           </div>
         </div>

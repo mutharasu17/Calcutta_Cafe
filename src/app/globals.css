@@ -2,97 +2,86 @@
 
 @layer base {
   :root {
-    --obsidian: #090909;
-    --secondary-bg: #151313;
-    --burgundy: #651f2b;
-    --champagne: #c7ac83;
-    --ivory: #f5f0e8;
-    --muted-text: #a9a19a;
-    --glass-surface: rgba(255, 255, 255, 0.075);
-    --glass-border: rgba(255, 255, 255, 0.16);
+    --ivory: #F5EFE4;
+    --sandstone: #E6D8C3;
+    --charcoal: #29251F;
+    --muted-charcoal: #6B6357;
+    --terracotta: #7A382B;
+    --deep-leaf: #34483A;
+    --muted-brass: #B68A52;
+    --white: #FFFFFF;
 
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-in-out-circ: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-out-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
 
-    --background: var(--obsidian);
-    --foreground: var(--ivory);
+    --background: var(--ivory);
+    --foreground: var(--charcoal);
   }
 
   html {
-    background-color: #090909;
-    color: #f5f0e8;
-    color-scheme: dark;
+    background-color: #F5EFE4;
+    color: #29251F;
+    color-scheme: light;
   }
 
   body {
-    background-color: #090909;
-    color: #f5f0e8;
-    font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #F5EFE4;
+    color: #29251F;
+    font-family: var(--font-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
-  /* Refined quiet luxury scrollbar */
+  /* Refined warm editorial scrollbar */
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #090909;
+    background: #F5EFE4;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e1b1b;
-    border-radius: 2px;
+    background: #E6D8C3;
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #c7ac83;
+    background: #7A382B;
   }
 
   ::selection {
-    background: #651f2b;
-    color: #f5f0e8;
+    background: #7A382B;
+    color: #F5EFE4;
   }
 }
 
 .font-serif {
-  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+  font-family: var(--font-serif), "Cormorant Garamond", Garamond, Georgia, serif;
 }
 
 .font-bengali {
-  font-family: "Noto Serif Bengali", "Bangla Sangam MN", "Mukti", "Kalpurush", Georgia, serif;
+  font-family: var(--font-bengali), "Noto Serif Bengali", "Bangla Sangam MN", "Mukti", "Kalpurush", Georgia, serif;
 }
 
 /* ──────────────────────────────────────────────────────────
-   GLASSMORPHISM DESIGN SYSTEM
+   WARM EDITORIAL CARDS & SURFACES
 ────────────────────────────────────────────────────────── */
-.glass-surface {
-  background-color: rgba(255, 255, 255, 0.065);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+.surface-ivory {
+  background-color: #F5EFE4;
 }
 
-.glass-surface-subtle {
-  background-color: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.surface-sandstone {
+  background-color: #E6D8C3;
 }
 
-.glass-header {
-  background-color: rgba(9, 9, 9, 0.82);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+.surface-white {
+  background-color: #FFFFFF;
 }
 
-.glass-dock {
-  background-color: rgba(18, 16, 16, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.85), 0 0 1px 1px rgba(199, 172, 131, 0.2);
+/* Subtle warm paper texture */
+.editorial-paper {
+  background-image: radial-gradient(rgba(122, 56, 43, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
 }
 
 /* Lenis smooth scrolling compatibility */
@@ -112,57 +101,26 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
-/* Subtle editorial film texture */
-.editorial-grain {
-  background-image: radial-gradient(rgba(245, 240, 232, 0.03) 1px, transparent 0);
-  background-size: 28px 28px;
-}
-
-/* Color Accent Utilities */
-.text-champagne {
-  color: #c7ac83;
-}
-
-.bg-champagne {
-  background-color: #c7ac83;
-}
-
-.border-champagne {
-  border-color: #c7ac83;
-}
-
-.bg-burgundy {
-  background-color: #651f2b;
-}
-
-.border-burgundy {
-  border-color: #651f2b;
-}
-
-/* Luxury letter roll hover effect */
-.link-roll {
-  display: inline-flex;
-  overflow: hidden;
-  height: 1.15em;
-  line-height: 1.15em;
+/* Editorial underline hover physics */
+.editorial-link {
   position: relative;
-  vertical-align: middle;
+  display: inline-block;
+  transition: color 0.3s ease;
 }
 
-.link-roll-inner {
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.editorial-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #7A382B;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.link-roll-inner > span {
-  display: block;
-  height: 1.15em;
-  line-height: 1.15em;
-}
-
-.link-roll:hover .link-roll-inner {
-  transform: translateY(-50%);
+.editorial-link:hover::after {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -171,8 +129,5 @@ html.lenis, html.lenis body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .link-roll:hover .link-roll-inner {
-    transform: none !important;
   }
 }

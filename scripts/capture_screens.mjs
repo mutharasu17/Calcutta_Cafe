@@ -77,7 +77,7 @@ async function run() {
 
     // 1C. Mobile The Craft Video Film
     console.log("Scrolling to The Craft Film...");
-    const craftSection = m390Page.locator("section:has-text('The craft in motion')");
+    const craftSection = m390Page.locator("section:has-text('The Bengali Food Experience')");
     await craftSection.scrollIntoViewIfNeeded();
     await m390Page.waitForTimeout(800);
     console.log("Capturing 03-mobile-390-craft-video.png...");
@@ -85,13 +85,26 @@ async function run() {
       path: path.join(OUTPUT_DIR, "03-mobile-390-craft-video.png"),
     });
 
-    // 1D. Mobile Footer & Safe-Area Dock Separation
+    // 1D. Mobile Navigation Overlay
+    console.log("Opening mobile navigation menu...");
+    const menuBtn = m390Page.locator('button[aria-label="Open Navigation Menu"]');
+    await menuBtn.click({ force: true });
+    await m390Page.waitForTimeout(600);
+    console.log("Capturing 04-mobile-390-navigation-overlay.png...");
+    await m390Page.screenshot({
+      path: path.join(OUTPUT_DIR, "04-mobile-390-navigation-overlay.png"),
+    });
+    const closeBtn = m390Page.locator('button[aria-label="Close Navigation Menu"]');
+    await closeBtn.click({ force: true });
+    await m390Page.waitForTimeout(400);
+
+    // 1E. Mobile Footer
     console.log("Scrolling to mobile footer...");
     await m390Page.evaluate(() => window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" }));
     await m390Page.waitForTimeout(800);
-    console.log("Capturing 04-mobile-390-footer-no-overlap.png...");
+    console.log("Capturing 04b-mobile-390-footer.png...");
     await m390Page.screenshot({
-      path: path.join(OUTPUT_DIR, "04-mobile-390-footer-no-overlap.png"),
+      path: path.join(OUTPUT_DIR, "04b-mobile-390-footer.png"),
     });
 
     await m390Context.close();
