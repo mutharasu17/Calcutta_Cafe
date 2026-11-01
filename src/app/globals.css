@@ -2,31 +2,31 @@
 
 @layer base {
   :root {
-    --obsidian: #171615;
-    --ivory: #f4f0e8;
-    --porcelain: #faf9f6;
-    --burgundy: #641f2b;
-    --brass: #b79a65;
-    --stone: #d8d0c3;
-    --charcoal: #292725;
-    --indigo: #28364c;
+    --obsidian: #090909;
+    --secondary-bg: #151313;
+    --burgundy: #651f2b;
+    --champagne: #c7ac83;
+    --ivory: #f5f0e8;
+    --muted-text: #a9a19a;
+    --glass-surface: rgba(255, 255, 255, 0.075);
+    --glass-border: rgba(255, 255, 255, 0.16);
 
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-circ: cubic-bezier(0.65, 0, 0.35, 1);
 
     --background: var(--obsidian);
-    --foreground: var(--porcelain);
+    --foreground: var(--ivory);
   }
 
   html {
-    background-color: var(--obsidian);
-    color: var(--porcelain);
+    background-color: #090909;
+    color: #f5f0e8;
     color-scheme: dark;
   }
 
   body {
-    background-color: var(--obsidian);
-    color: var(--porcelain);
+    background-color: #090909;
+    color: #f5f0e8;
     font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -36,22 +36,22 @@
 
   /* Refined quiet luxury scrollbar */
   ::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #171615;
+    background: #090909;
   }
   ::-webkit-scrollbar-thumb {
-    background: #292725;
+    background: #1e1b1b;
     border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #b79a65;
+    background: #c7ac83;
   }
 
   ::selection {
-    background: #641f2b;
-    color: #faf9f6;
+    background: #651f2b;
+    color: #f5f0e8;
   }
 }
 
@@ -61,6 +61,38 @@
 
 .font-bengali {
   font-family: "Noto Serif Bengali", "Bangla Sangam MN", "Mukti", "Kalpurush", Georgia, serif;
+}
+
+/* ──────────────────────────────────────────────────────────
+   GLASSMORPHISM DESIGN SYSTEM
+────────────────────────────────────────────────────────── */
+.glass-surface {
+  background-color: rgba(255, 255, 255, 0.065);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.glass-surface-subtle {
+  background-color: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-header {
+  background-color: rgba(9, 9, 9, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.glass-dock {
+  background-color: rgba(18, 16, 16, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.85), 0 0 1px 1px rgba(199, 172, 131, 0.2);
 }
 
 /* Lenis smooth scrolling compatibility */
@@ -82,30 +114,29 @@ html.lenis, html.lenis body {
 
 /* Subtle editorial film texture */
 .editorial-grain {
-  background-image: radial-gradient(rgba(244, 240, 232, 0.035) 1px, transparent 0);
+  background-image: radial-gradient(rgba(245, 240, 232, 0.03) 1px, transparent 0);
   background-size: 28px 28px;
 }
 
-/* Hairline borders */
-.border-hairline {
-  border-color: rgba(216, 208, 195, 0.12);
+/* Color Accent Utilities */
+.text-champagne {
+  color: #c7ac83;
 }
 
-.border-hairline-strong {
-  border-color: rgba(183, 154, 101, 0.28);
+.bg-champagne {
+  background-color: #c7ac83;
 }
 
-/* Brass subtle accent text */
-.text-brass {
-  color: #b79a65;
+.border-champagne {
+  border-color: #c7ac83;
 }
 
 .bg-burgundy {
-  background-color: #641f2b;
+  background-color: #651f2b;
 }
 
-.border-brass {
-  border-color: #b79a65;
+.border-burgundy {
+  border-color: #651f2b;
 }
 
 /* Luxury letter roll hover effect */

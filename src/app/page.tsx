@@ -1,30 +1,30 @@
-import SignatureOpening from "@/components/home/SignatureOpening";
-import SignatureDish from "@/components/home/SignatureDish";
-import CulinaryCollection from "@/components/home/CulinaryCollection";
-import TheCraft from "@/components/home/TheCraft";
-import BrandStory from "@/components/home/BrandStory";
-import FinalStatement from "@/components/home/FinalStatement";
+import CinematicHero from "@/components/home/CinematicHero";
+import SignatureDishGlass from "@/components/home/SignatureDishGlass";
+import ImmersiveGallery from "@/components/home/ImmersiveGallery";
+import TheCraftFilm from "@/components/home/TheCraftFilm";
+import FounderEditorial from "@/components/home/FounderEditorial";
+import BrandClosingCTA from "@/components/home/BrandClosingCTA";
 
 export default function HomePage() {
   return (
     <>
-      {/* EXPERIENCE 01: The Signature Opening */}
-      <SignatureOpening />
+      {/* SCENE A: Cinematic Hero (Full-Screen Film & Left-Aligned Typography) */}
+      <CinematicHero />
 
-      {/* EXPERIENCE 02: The Signature Dish */}
-      <SignatureDish />
+      {/* SCENE B: Signature Cuisine Image with Floating Glass Panel */}
+      <SignatureDishGlass />
 
-      {/* EXPERIENCE 03: The Culinary Collection */}
-      <CulinaryCollection />
+      {/* SCENE C: Immersive Cuisine Gallery (Category Tabs & Glass Controls) */}
+      <ImmersiveGallery />
 
-      {/* EXPERIENCE 04: The Craft */}
-      <TheCraft />
+      {/* SCENE D: Cinematic Preparation Film / The Craft Moments */}
+      <TheCraftFilm />
 
-      {/* EXPERIENCE 05: The Brand Story */}
-      <BrandStory />
+      {/* SCENE E: Founder & Brand Story (Akash Santra Editorial Monograph) */}
+      <FounderEditorial />
 
-      {/* EXPERIENCE 06: The Final Statement */}
-      <FinalStatement />
+      {/* SCENE F: Full-Screen Brand Closing CTA */}
+      <BrandClosingCTA />
     </>
   );
 }

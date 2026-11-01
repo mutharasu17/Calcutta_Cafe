@@ -57,15 +57,15 @@ async function run() {
     await desktopPage.goto(BASE_URL, { waitUntil: "networkidle" });
     await desktopPage.waitForTimeout(1000);
 
-    // 1A. Desktop Header & Hero (Initial Transparent Header)
-    console.log("Capturing 01-desktop-header-hero.png...");
+    // 1A. Desktop Header & Hero (Initial Transparent Header + Left-aligned Headline)
+    console.log("Capturing 01-desktop-hero.png...");
     await desktopPage.screenshot({
-      path: path.join(OUTPUT_DIR, "01-desktop-header-hero.png"),
+      path: path.join(OUTPUT_DIR, "01-desktop-hero.png"),
       clip: { x: 0, y: 0, width: 1440, height: 900 },
     });
 
-    // 1B. Desktop Full-Screen Navigation (Opened from initial top state)
-    console.log("Opening full-screen menu from top state...");
+    // 1B. Desktop Full-Screen Navigation Overlay
+    console.log("Opening full-screen menu...");
     const menuBtn = desktopPage.locator('button[aria-label="Open Full-Screen Navigation Menu"]');
     await menuBtn.click({ force: true });
     await desktopPage.waitForTimeout(600);
@@ -80,12 +80,12 @@ async function run() {
       path: path.join(OUTPUT_DIR, "03-desktop-fullscreen-nav.png"),
     });
 
-    // Close menu with close button
+    // Close menu
     const closeBtn = desktopPage.locator('button[aria-label="Close Navigation Menu"]');
     await closeBtn.click({ force: true });
     await desktopPage.waitForTimeout(500);
 
-    // 1C. Desktop Header Scrolled State (Scroll down then up)
+    // 1C. Desktop Scrolled Header (Scroll down then up)
     console.log("Testing scroll direction for compact header...");
     await desktopPage.mouse.wheel(0, 500);
     await desktopPage.waitForTimeout(300);
@@ -98,18 +98,27 @@ async function run() {
       clip: { x: 0, y: 0, width: 1440, height: 160 },
     });
 
-    // 1D. Desktop Signature Footer
+    // 1D. Scene B & C (Signature Dish & Gallery)
+    console.log("Scrolling to Scene B & C...");
+    await desktopPage.evaluate(() => window.scrollTo({ top: 950, behavior: "instant" }));
+    await desktopPage.waitForTimeout(800);
+    console.log("Capturing 04-desktop-scene-b-signature-glass.png...");
+    await desktopPage.screenshot({
+      path: path.join(OUTPUT_DIR, "04-desktop-scene-b-signature-glass.png"),
+      clip: { x: 0, y: 0, width: 1440, height: 900 },
+    });
+
+    // 1E. Desktop Signature Footer
     console.log("Scrolling smoothly down to footer...");
-    // Scroll down to the bottom
     await desktopPage.evaluate(() => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" });
     });
-    await desktopPage.waitForTimeout(600);
+    await desktopPage.waitForTimeout(800);
 
-    console.log("Capturing 04-desktop-signature-footer.png...");
+    console.log("Capturing 05-desktop-signature-footer.png...");
     const footerElement = desktopPage.locator("footer");
     await footerElement.screenshot({
-      path: path.join(OUTPUT_DIR, "04-desktop-signature-footer.png"),
+      path: path.join(OUTPUT_DIR, "05-desktop-signature-footer.png"),
     });
 
     await desktopContext.close();
@@ -129,10 +138,10 @@ async function run() {
     await mobilePage.goto(BASE_URL, { waitUntil: "networkidle" });
     await mobilePage.waitForTimeout(1000);
 
-    // 2A. Mobile Header & Mobile Hero
-    console.log("Capturing 05-mobile-header-hero.png...");
+    // 2A. Mobile Header, Hero & Floating Bottom Dock
+    console.log("Capturing 06-mobile-hero-dock.png...");
     await mobilePage.screenshot({
-      path: path.join(OUTPUT_DIR, "05-mobile-header-hero.png"),
+      path: path.join(OUTPUT_DIR, "06-mobile-hero-dock.png"),
       clip: { x: 0, y: 0, width: 390, height: 844 },
     });
 
@@ -142,9 +151,9 @@ async function run() {
     await mobileMenuBtn.click({ force: true });
     await mobilePage.waitForTimeout(800);
 
-    console.log("Capturing 06-mobile-fullscreen-nav.png...");
+    console.log("Capturing 07-mobile-fullscreen-nav.png...");
     await mobilePage.screenshot({
-      path: path.join(OUTPUT_DIR, "06-mobile-fullscreen-nav.png"),
+      path: path.join(OUTPUT_DIR, "07-mobile-fullscreen-nav.png"),
     });
 
     // Close mobile menu
@@ -157,12 +166,12 @@ async function run() {
     await mobilePage.evaluate(() => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "instant" });
     });
-    await mobilePage.waitForTimeout(600);
+    await mobilePage.waitForTimeout(800);
 
-    console.log("Capturing 07-mobile-signature-footer.png...");
+    console.log("Capturing 08-mobile-signature-footer.png...");
     const mobileFooter = mobilePage.locator("footer");
     await mobileFooter.screenshot({
-      path: path.join(OUTPUT_DIR, "07-mobile-signature-footer.png"),
+      path: path.join(OUTPUT_DIR, "08-mobile-signature-footer.png"),
     });
 
     await mobileContext.close();
