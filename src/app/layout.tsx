@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans, Noto_Serif_Bengali } from "next/font/google";
-import RetailHeader from "@/components/layout/RetailHeader";
-import RetailFooter from "@/components/layout/RetailFooter";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import { CartProvider } from "@/context/CartContext";
+import AppShell from "@/components/layout/AppShell";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -77,13 +77,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable} ${notoBengali.variable}`}>
       <body className="min-h-screen bg-[#FFF1DF] text-[#292321] selection:bg-[#8E171D] selection:text-[#FFF1DF]">
-        <SmoothScroll>
-          <RetailHeader />
-          <main className="relative min-h-screen pt-[72px] sm:pt-[76px] lg:pt-[80px]">
-            {children}
-          </main>
-          <RetailFooter />
-        </SmoothScroll>
+        <CartProvider>
+          <SmoothScroll>
+            <AppShell>{children}</AppShell>
+          </SmoothScroll>
+        </CartProvider>
       </body>
     </html>
   );

@@ -109,6 +109,7 @@ export default function HensslerVisualGallery() {
   return (
     <section
       ref={containerRef}
+      id="visual-gallery"
       className="bg-[#F4E8D7] text-[#292321] py-16 sm:py-24 lg:py-32 border-b border-[#E6D8C3] relative overflow-hidden"
       aria-label="Food and Restaurant Visual Gallery"
     >

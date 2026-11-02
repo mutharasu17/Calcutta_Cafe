@@ -1,8 +1,8 @@
-import HensslerHero from "@/components/home/HensslerHero";
+import CinematicFullscreenHero from "@/components/home/CinematicFullscreenHero";
 import HensslerBrandIntro from "@/components/home/HensslerBrandIntro";
 import HensslerSignatureExperience from "@/components/home/HensslerSignatureExperience";
-import HensslerMenuCategories from "@/components/home/HensslerMenuCategories";
-import HensslerFeaturedDishes from "@/components/home/HensslerFeaturedDishes";
+import CinematicCategoryDiscovery from "@/components/home/CinematicCategoryDiscovery";
+import CinematicFeaturedMenu from "@/components/home/CinematicFeaturedMenu";
 import HensslerCampaignBanner from "@/components/home/HensslerCampaignBanner";
 import HensslerRestaurantStory from "@/components/home/HensslerRestaurantStory";
 import HensslerVisualGallery from "@/components/home/HensslerVisualGallery";
@@ -12,34 +12,34 @@ import HensslerRestaurantInfo from "@/components/home/HensslerRestaurantInfo";
 export default function HomePage() {
   return (
     <>
-      {/* SECTION 01 — CINEMATIC RESTAURANT HERO (HENSSLER STYLE) */}
-      <HensslerHero />
+      {/* 1. FULL-SCREEN CINEMATIC HOMEPAGE HERO (100svh, TEXT OVER IMAGE) */}
+      <CinematicFullscreenHero />
 
-      {/* SECTION 02 — BRAND INTRODUCTION (WARM IVORY EDITORIAL) */}
+      {/* 2. BENGALI BRAND INTRODUCTION (WARM IVORY EDITORIAL) */}
       <HensslerBrandIntro />
 
-      {/* SECTION 03 — SIGNATURE FOOD EXPERIENCE (ASYMMETRIC SHOWCASE) */}
+      {/* 3. SIGNATURE FOOD EXPERIENCE (ASYMMETRIC FLAME & CLAYPOT CRAFT) */}
       <HensslerSignatureExperience />
 
-      {/* SECTION 04 — EXPLORE OUR MENU (ANAND-INSPIRED CATEGORY DISCOVERY) */}
-      <HensslerMenuCategories />
+      {/* 4. ANIMATED FOOD CATEGORY DISCOVERY (INDIVIDUAL ORBITING RING MOTION) */}
+      <CinematicCategoryDiscovery />
 
-      {/* SECTION 05 — FEATURED MENU / SIGNATURE DISHES (DEEP RED RESTAURANT GALLERY) */}
-      <HensslerFeaturedDishes />
+      {/* 5. FEATURED SIGNATURE DISHES WITH ADD TO CART & FILTER TABS */}
+      <CinematicFeaturedMenu />
 
-      {/* SECTION 06 — EDITORIAL PROMOTIONAL BANNER (BURGUNDY RITUAL CAMPAIGN) */}
+      {/* 6. EDITORIAL BENGALI FOOD CAMPAIGN SECTION (BURGUNDY SUNDAY KOSHA RITUAL) */}
       <HensslerCampaignBanner />
 
-      {/* SECTION 07 — BENGALI FOOD STORY (FOUNDER & RESTAURANT MONOGRAPH) */}
+      {/* 7. BRAND AND CULINARY HERITAGE STORY (AKASH SANTRA MONOGRAPH) */}
       <HensslerRestaurantStory />
 
-      {/* SECTION 08 — FOOD AND RESTAURANT VISUAL GALLERY (A1 GALLERY ANTHOLOGY) */}
+      {/* 8. VISUAL FOOD GALLERY (A1 GALLERY PHOTOGRAPHIC ANTHOLOGY) */}
       <HensslerVisualGallery />
 
-      {/* SECTION 09 — ORDER ONLINE (DEDICATED CONVERSION SECTION WITH SWIGGY & ZOMATO) */}
+      {/* 9. ORDER ONLINE SECTION (DEDICATED CONVERSION WITH SWIGGY & ZOMATO) */}
       <HensslerOrderOnline />
 
-      {/* SECTION 10 — RESTAURANT INFORMATION / VISIT US (HUBS, HOURS & CONTACT) */}
+      {/* 10. CONTACT AND RESTAURANT INFORMATION (BANGALORE HUBS & OPERATIONS) */}
       <HensslerRestaurantInfo />
     </>
   );

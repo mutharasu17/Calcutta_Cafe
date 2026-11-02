@@ -14,12 +14,12 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 async function triggerAllScrollTriggers(page) {
   await page.evaluate(async () => {
     const distance = 400;
-    const delay = 70;
+    const delay = 60;
     while (document.scrollingElement.scrollTop + window.innerHeight < document.scrollingElement.scrollHeight) {
       document.scrollingElement.scrollBy(0, distance);
       await new Promise((r) => setTimeout(r, delay));
     }
-    await new Promise((r) => setTimeout(r, 400));
+    await new Promise((r) => setTimeout(r, 300));
     window.scrollTo({ top: 0, behavior: "instant" });
   });
   await page.waitForTimeout(600);
@@ -58,7 +58,7 @@ async function run() {
 
   try {
     // ──────────────────────────────────────────────────────────
-    // 1. DESKTOP 1920 × 1080 (FULL SUITE)
+    // 1. DESKTOP 1920 × 1080 (CINEMATIC HERO, HEADER, CARDS, CART)
     // ──────────────────────────────────────────────────────────
     console.log("--- Testing Desktop 1920x1080 ---");
     const dContext = await browser.newContext({
@@ -67,120 +67,85 @@ async function run() {
     });
     const dPage = await dContext.newPage();
     await dPage.goto(BASE_URL, { waitUntil: "networkidle" });
-    await dPage.waitForTimeout(1000);
+    await dPage.waitForTimeout(1200);
 
-    // Scroll through to activate all ScrollTriggers
-    console.log("Activating all scroll animations...");
+    // 1A. Fullscreen Cinematic Hero (Top fold, text directly over image, transparent header)
+    console.log("Capturing 01-desktop-fullscreen-hero.png...");
+    await dPage.screenshot({
+      path: path.join(OUTPUT_DIR, "01-desktop-fullscreen-hero.png"),
+      clip: { x: 0, y: 0, width: 1920, height: 1080 },
+    });
+
+    // 1B. Scrolled Header Transition
+    console.log("Capturing 02-desktop-header-scrolled.png...");
+    await dPage.evaluate(() => window.scrollTo({ top: 400, behavior: "instant" }));
+    await dPage.waitForTimeout(600);
+    await dPage.screenshot({
+      path: path.join(OUTPUT_DIR, "02-desktop-header-scrolled.png"),
+      clip: { x: 0, y: 0, width: 1920, height: 160 },
+    });
+
+    // Scroll through page to activate all animations
     await triggerAllScrollTriggers(dPage);
 
-    // 1A. Hero Section
-    console.log("Capturing 01-desktop-hero.png...");
-    await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "01-desktop-hero.png"),
-      clip: { x: 0, y: 0, width: 1920, height: 980 },
-    });
-
-    // 1B. Brand Introduction
-    console.log("Capturing 02-desktop-brand-intro.png...");
-    const introSec = dPage.locator("section[aria-label='Brand Introduction']").first();
-    await introSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await introSec.screenshot({
-      path: path.join(OUTPUT_DIR, "02-desktop-brand-intro.png"),
-    });
-
-    // 1C. Signature Food Experience
-    console.log("Capturing 03-desktop-signature-experience.png...");
-    const sigSec = dPage.locator("section[aria-label='Signature Food Experience']").first();
-    await sigSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await sigSec.screenshot({
-      path: path.join(OUTPUT_DIR, "03-desktop-signature-experience.png"),
-    });
-
-    // 1D. Menu Discovery
-    console.log("Capturing 04-desktop-menu-discovery.png...");
-    const catSec = dPage.locator("section[aria-label='Explore Our Menu Categories']").first();
+    // 1C. Category Section with Ring Animations
+    console.log("Capturing 03-desktop-category-rings.png...");
+    const catSec = dPage.locator("#menu-categories").first();
     await catSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
+    await dPage.waitForTimeout(600);
     await catSec.screenshot({
-      path: path.join(OUTPUT_DIR, "04-desktop-menu-discovery.png"),
+      path: path.join(OUTPUT_DIR, "03-desktop-category-rings.png"),
     });
 
-    // 1E. Featured Food Section
-    console.log("Capturing 05-desktop-featured-food.png...");
-    const featSec = dPage.locator("section[aria-label='Featured Signature Dishes']").first();
-    await featSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await featSec.screenshot({
-      path: path.join(OUTPUT_DIR, "05-desktop-featured-food.png"),
+    // 1D. Signature Food Cards with Filter Tabs
+    console.log("Capturing 04-desktop-signature-food-cards.png...");
+    const foodSec = dPage.locator("#signature-menu").first();
+    await foodSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(600);
+    await foodSec.screenshot({
+      path: path.join(OUTPUT_DIR, "04-desktop-signature-food-cards.png"),
     });
 
-    // 1F. Campaign Banner
-    console.log("Capturing 06-desktop-campaign-banner.png...");
-    const campSec = dPage.locator("section[aria-label='Editorial Campaign Banner']").first();
-    await campSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await campSec.screenshot({
-      path: path.join(OUTPUT_DIR, "06-desktop-campaign-banner.png"),
-    });
+    // 1E. Add-to-Cart Interaction (Click Add to Feast on first dish)
+    console.log("Testing Add-to-Cart interaction...");
+    const addBtn = foodSec.locator("button:has-text('Add to Feast')").first();
+    await addBtn.click();
+    await dPage.waitForTimeout(700);
 
-    // 1G. Restaurant Story
-    console.log("Capturing 07-desktop-restaurant-story.png...");
-    const storySec = dPage.locator("section[aria-label='Restaurant Story and Founder']").first();
-    await storySec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await storySec.screenshot({
-      path: path.join(OUTPUT_DIR, "07-desktop-restaurant-story.png"),
-    });
-
-    // 1H. Food and Restaurant Visual Gallery
-    console.log("Capturing 08-desktop-visual-gallery.png...");
-    const gallSec = dPage.locator("section[aria-label='Food and Restaurant Visual Gallery']").first();
-    await gallSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await gallSec.screenshot({
-      path: path.join(OUTPUT_DIR, "08-desktop-visual-gallery.png"),
-    });
-
-    // 1I. Order Online Section
-    console.log("Capturing 09-desktop-order-online.png...");
-    const orderSec = dPage.locator("section[aria-label='Order Online for Delivery']").first();
-    await orderSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await orderSec.screenshot({
-      path: path.join(OUTPUT_DIR, "09-desktop-order-online.png"),
-    });
-
-    // 1J. Restaurant Information
-    console.log("Capturing 10-desktop-restaurant-info.png...");
-    const infoSec = dPage.locator("section[aria-label='Restaurant Information and Hubs']").first();
-    await infoSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await infoSec.screenshot({
-      path: path.join(OUTPUT_DIR, "10-desktop-restaurant-info.png"),
-    });
-
-    // 1K. Preserved Existing Footer
-    console.log("Capturing 11-desktop-footer.png...");
-    const footSec = dPage.locator("footer").first();
-    await footSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(500);
-    await footSec.screenshot({
-      path: path.join(OUTPUT_DIR, "11-desktop-footer.png"),
-    });
-
-    // 1L. Full Desktop Homepage
-    console.log("Capturing 12-full-desktop-homepage.png...");
+    // Capture Add-to-Cart feedback and toast
+    console.log("Capturing 05-desktop-add-to-cart-toast.png...");
     await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "12-full-desktop-homepage.png"),
+      path: path.join(OUTPUT_DIR, "05-desktop-add-to-cart-toast.png"),
+      clip: { x: 1200, y: 800, width: 720, height: 280 },
+    });
+
+    // 1F. Open Cart Drawer
+    console.log("Opening Cart Drawer...");
+    const cartBtn = dPage.locator("button[aria-label*='Open feast selection']").first();
+    await cartBtn.click();
+    await dPage.waitForTimeout(800);
+
+    console.log("Capturing 06-desktop-cart-drawer-open.png...");
+    await dPage.screenshot({
+      path: path.join(OUTPUT_DIR, "06-desktop-cart-drawer-open.png"),
+    });
+
+    // Close Cart Drawer
+    const closeDrawerBtn = dPage.locator("button[aria-label='Close cart drawer']").first();
+    await closeDrawerBtn.click();
+    await dPage.waitForTimeout(500);
+
+    // 1G. Full Desktop Page Screenshot
+    console.log("Capturing 07-full-desktop-homepage.png...");
+    await dPage.screenshot({
+      path: path.join(OUTPUT_DIR, "07-full-desktop-homepage.png"),
       fullPage: true,
     });
 
     await dContext.close();
 
     // ──────────────────────────────────────────────────────────
-    // 2. MOBILE 390 × 844 (PRIMARY MOBILE BENCHMARK)
+    // 2. MOBILE 390 × 844 (PRIMARY MOBILE PHONE BENCHMARK)
     // ──────────────────────────────────────────────────────────
     console.log("--- Testing Mobile 390x844 ---");
     const m390Context = await browser.newContext({
@@ -192,54 +157,70 @@ async function run() {
     const m390Page = await m390Context.newPage();
     await m390Page.goto(BASE_URL, { waitUntil: "networkidle" });
     await m390Page.waitForTimeout(1000);
-    await triggerAllScrollTriggers(m390Page);
 
-    // 2A. Mobile Homepage Top Fold (Header + Hero)
-    console.log("Capturing 13-mobile-homepage.png...");
+    // 2A. Mobile Full-Screen Hero Top Fold
+    console.log("Capturing 08-mobile-fullscreen-hero.png...");
     await m390Page.screenshot({
-      path: path.join(OUTPUT_DIR, "13-mobile-homepage.png"),
+      path: path.join(OUTPUT_DIR, "08-mobile-fullscreen-hero.png"),
       clip: { x: 0, y: 0, width: 390, height: 844 },
     });
 
-    // 2B. Mobile Menu Discovery
-    console.log("Capturing 14-mobile-menu-discovery.png...");
-    const mCatSec = m390Page.locator("section[aria-label='Explore Our Menu Categories']").first();
+    // 2B. Mobile Navigation Overlay Open
+    console.log("Opening Mobile Navigation Menu...");
+    const mobileMenuBtn = m390Page.locator("button[aria-label='Open menu']").first();
+    await mobileMenuBtn.click();
+    await m390Page.waitForTimeout(700);
+
+    console.log("Capturing 09-mobile-nav-overlay.png...");
+    await m390Page.screenshot({
+      path: path.join(OUTPUT_DIR, "09-mobile-nav-overlay.png"),
+    });
+
+    // Close Mobile Navigation
+    const closeMobileBtn = m390Page.locator("button[aria-label='Close menu']").first();
+    await closeMobileBtn.click();
+    await m390Page.waitForTimeout(500);
+
+    // Scroll through mobile
+    await triggerAllScrollTriggers(m390Page);
+
+    // 2C. Mobile Category Cards & Rings
+    console.log("Capturing 10-mobile-category-cards.png...");
+    const mCatSec = m390Page.locator("#menu-categories").first();
     await mCatSec.scrollIntoViewIfNeeded();
     await m390Page.waitForTimeout(500);
     await mCatSec.screenshot({
-      path: path.join(OUTPUT_DIR, "14-mobile-menu-discovery.png"),
+      path: path.join(OUTPUT_DIR, "10-mobile-category-cards.png"),
     });
 
-    // 2C. Mobile Featured Food
-    console.log("Capturing 15-mobile-featured-food.png...");
-    const mFeatSec = m390Page.locator("section[aria-label='Featured Signature Dishes']").first();
-    await mFeatSec.scrollIntoViewIfNeeded();
+    // 2D. Mobile Food Cards & Add to Cart
+    console.log("Capturing 11-mobile-food-cards.png...");
+    const mFoodSec = m390Page.locator("#signature-menu").first();
+    await mFoodSec.scrollIntoViewIfNeeded();
     await m390Page.waitForTimeout(500);
-    await mFeatSec.screenshot({
-      path: path.join(OUTPUT_DIR, "15-mobile-featured-food.png"),
+    await mFoodSec.screenshot({
+      path: path.join(OUTPUT_DIR, "11-mobile-food-cards.png"),
     });
 
-    // 2D. Mobile Order Online
-    console.log("Capturing 16-mobile-order-online.png...");
-    const mOrderSec = m390Page.locator("section[aria-label='Order Online for Delivery']").first();
-    await mOrderSec.scrollIntoViewIfNeeded();
-    await m390Page.waitForTimeout(500);
-    await mOrderSec.screenshot({
-      path: path.join(OUTPUT_DIR, "16-mobile-order-online.png"),
-    });
+    // Add an item on mobile
+    const mAddBtn = mFoodSec.locator("button:has-text('Add to Feast')").first();
+    await mAddBtn.click();
+    await m390Page.waitForTimeout(600);
 
-    // 2E. Mobile Footer
-    console.log("Capturing 17-mobile-footer.png...");
-    const mFootSec = m390Page.locator("footer").first();
-    await mFootSec.scrollIntoViewIfNeeded();
-    await m390Page.waitForTimeout(500);
-    await mFootSec.screenshot({
-      path: path.join(OUTPUT_DIR, "17-mobile-footer.png"),
+    // 2E. Mobile Cart Drawer Open
+    console.log("Opening Cart Drawer on mobile...");
+    const mCartBtn = m390Page.locator("button[aria-label*='Open feast selection']").first();
+    await mCartBtn.click();
+    await m390Page.waitForTimeout(800);
+
+    console.log("Capturing 12-mobile-cart-drawer.png...");
+    await m390Page.screenshot({
+      path: path.join(OUTPUT_DIR, "12-mobile-cart-drawer.png"),
     });
 
     await m390Context.close();
 
-    console.log("ALL MANDATORY SCREENSHOTS CAPTURED SUCCESSFULLY!");
+    console.log("ALL REDESIGN VERIFICATION SCREENSHOTS CAPTURED SUCCESSFULLY!");
   } finally {
     await browser.close();
     server.kill();
