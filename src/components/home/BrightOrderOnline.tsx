@@ -36,12 +36,16 @@ export default function BrightOrderOnline() {
     <section
       ref={containerRef}
       id="order-online"
-      className="bg-[#F4E8D7] text-[#292321] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-gradient-to-b from-[#8E171D] via-[#7B1113] to-[#651217] text-white py-20 sm:py-28 lg:py-36 border-b-4 border-[#C49A55] relative overflow-hidden"
       aria-label="Order Online Delivery"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+      {/* Decorative Red & Gold Geometric Watermark */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full border border-[#C49A55]/15 pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full border border-[#C49A55]/10 pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
         
-        <div className="order-content bg-[#FFFCF7] border border-[#E6D8C3] shadow-md p-8 sm:p-12 lg:p-16">
+        <div className="order-content bg-white text-[#292321] border-2 border-[#C49A55]/40 shadow-2xl p-8 sm:p-12 lg:p-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Narrative (7 cols) */}

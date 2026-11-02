@@ -78,10 +78,10 @@ export default function DishDetailModal({
       {/* Background Click to Dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-2xl bg-[#FFF8ED] border border-[#E6D8C3] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col my-auto">
+      {/* Modal Card: Crisp White with Bengali Red Accents */}
+      <div className="relative z-10 w-full max-w-2xl bg-white border-2 border-[#8E171D]/25 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col my-auto">
         {/* Top Image Container */}
-        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#F4E8D7] flex-shrink-0">
+        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#FFF8ED] flex-shrink-0">
           {dish.image ? (
             <Image
               src={dish.image}
@@ -100,7 +100,7 @@ export default function DishDetailModal({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-[#FFF8ED]/90 backdrop-blur-xs border border-[#E6D8C3] flex items-center justify-center text-[#292321] hover:bg-[#8E171D] hover:text-[#FFF8ED] transition-colors cursor-pointer"
+            className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-white/95 backdrop-blur-xs border border-[#8E171D]/30 flex items-center justify-center text-[#292321] hover:bg-[#8E171D] hover:text-white transition-colors cursor-pointer"
             aria-label="Close dish details"
           >
             <X className="h-5 w-5" />

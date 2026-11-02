@@ -57,22 +57,26 @@ export default function BrightSignatureCollection() {
   return (
     <section
       ref={containerRef}
-      className="bg-[#FFF8ED] text-[#292321] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-gradient-to-b from-[#8E171D] via-[#7D1318] to-[#651217] text-white py-20 sm:py-28 lg:py-36 border-b-4 border-[#C49A55] relative overflow-hidden"
       aria-label="Signature Food Collection"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+      {/* Decorative Red & Gold Geometric Motifs */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full border border-[#C49A55]/15 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full border border-[#C49A55]/10 pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
           <div className="space-y-3">
-            <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#8E171D] font-bold">
+            <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#C49A55] font-bold">
               <Award className="h-3.5 w-3.5 text-[#C49A55]" />
               The Connoisseur Selection • বিশিষ্ট সম্ভার
             </span>
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#292321] leading-[1.08]">
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white leading-[1.08]">
               Signature Food Collection.
             </h2>
-            <p className="text-sm sm:text-base text-[#5C524B] font-sans leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base text-[#FFF8ED]/90 font-sans leading-relaxed max-w-xl">
               Hand-picked culinary masterpieces that embody our commitment to time-honored
               Bengal kitchen craft.
             </p>
@@ -80,14 +84,14 @@ export default function BrightSignatureCollection() {
 
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#8E171D] hover:text-[#A9272D] transition-colors pb-1 border-b border-[#8E171D]/40"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#FFF8ED] hover:text-[#C49A55] transition-colors pb-1 border-b border-white/60"
           >
             <span>Explore All 22 Menu Dishes</span>
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
-        {/* 3 Horizontal / Distinctive Editorial Collection Cards */}
+        {/* 3 Horizontal / Distinctive Editorial Collection Cards: Crisp White on Deep Red */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {collectionDishes.map((dish, idx) => {
             const isAdded = addedIds.includes(dish.id);
@@ -95,11 +99,11 @@ export default function BrightSignatureCollection() {
             return (
               <div
                 key={dish.id}
-                className="collection-item group bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-between"
+                className="collection-item group bg-white border border-[#C49A55]/30 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   {/* Photo with Overlay Badge */}
-                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#F4E8D7]">
+                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#FFF8ED]">
                     {dish.image && (
                       <Image
                         src={dish.image}
@@ -109,7 +113,7 @@ export default function BrightSignatureCollection() {
                         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
                     )}
-                    <div className="absolute top-3 left-3 bg-[#FFF8ED]/95 backdrop-blur-xs text-[#8E171D] border border-[#C49A55]/40 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-widest font-semibold">
+                    <div className="absolute top-3 left-3 bg-[#8E171D] text-white border border-[#C49A55]/40 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-widest font-semibold shadow-xs">
                       Curated 0{idx + 1}
                     </div>
                   </div>
@@ -144,7 +148,7 @@ export default function BrightSignatureCollection() {
                       className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer ${
                         isAdded
                           ? "bg-emerald-600 text-white"
-                          : "bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED]"
+                          : "bg-[#8E171D] hover:bg-[#A9272D] text-white"
                       }`}
                     >
                       {isAdded ? (

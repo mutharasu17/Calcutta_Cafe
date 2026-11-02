@@ -55,7 +55,7 @@ export default function BrightRestaurantStory() {
   return (
     <section
       ref={containerRef}
-      className="bg-[#F4E8D7] text-[#292321] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-white text-[#292321] py-20 sm:py-28 lg:py-36 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
       aria-label="Restaurant and Heritage Story"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
@@ -89,8 +89,8 @@ export default function BrightRestaurantStory() {
               </p>
             </div>
 
-            {/* Quote Card on Soft White */}
-            <div className="p-6 sm:p-7 bg-[#FFFCF7] border-l-4 border-[#8E171D] border border-[#E6D8C3] shadow-xs space-y-3">
+            {/* Quote Card on Crisp White */}
+            <div className="p-6 sm:p-7 bg-white border-l-4 border-[#8E171D] border-t border-r border-b border-[#8E171D]/20 shadow-sm space-y-3">
               <div className="flex items-center gap-2 text-[#8E171D]">
                 <Quote className="h-4 w-4" />
                 <span className="text-xs font-mono uppercase tracking-wider font-bold">
@@ -116,7 +116,7 @@ export default function BrightRestaurantStory() {
 
           {/* Right: Heritage Photography (5 cols) */}
           <div ref={imageRef} className="lg:col-span-5 relative">
-            <div className="relative aspect-[3/4] w-full overflow-hidden border border-[#E6D8C3] shadow-md group bg-[#FFFCF7]">
+            <div className="relative aspect-[3/4] w-full overflow-hidden border-2 border-[#8E171D]/25 shadow-xl group bg-white">
               <Image
                 src="/images/akash-santra-founder.jpg"
                 alt="Akash Santra - Founder of The Calcutta Cafe in Bangalore"
@@ -126,7 +126,7 @@ export default function BrightRestaurantStory() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute bottom-5 left-5 right-5 p-4 bg-[#FFFCF7]/95 backdrop-blur-xs border-l-3 border-[#8E171D] shadow-xs">
+              <div className="absolute bottom-5 left-5 right-5 p-4 bg-white/95 backdrop-blur-xs border-l-4 border-[#8E171D] shadow-md">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E171D] font-bold block">
                   Bangalore Kitchen Origins
                 </span>

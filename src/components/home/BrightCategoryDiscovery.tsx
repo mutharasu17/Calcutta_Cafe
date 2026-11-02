@@ -150,7 +150,7 @@ export default function BrightCategoryDiscovery() {
     <section
       ref={sectionRef}
       id="explore-categories"
-      className="bg-[#F4E8D7] text-[#292321] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-white text-[#292321] py-20 sm:py-28 lg:py-36 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
       aria-label="Explore Food Categories"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">

@@ -55,7 +55,7 @@ export default function BrightBrandIntro() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#FFF8ED] text-[#292321] py-16 sm:py-24 lg:py-32 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-white text-[#292321] py-16 sm:py-24 lg:py-32 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
       aria-label="Brand Introduction"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
@@ -63,7 +63,7 @@ export default function BrightBrandIntro() {
           
           {/* Left Column: Asymmetric Editorial Image Composition */}
           <div ref={imageRef} className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#E6D8C3] shadow-md group bg-[#F4E8D7]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden border-2 border-[#8E171D]/20 shadow-md group bg-[#FFF8ED]">
               <Image
                 src="/images/shorshe-ilish.jpg"
                 alt="Shorshe Ilish - Signature fresh Hilsa simmered in mustard paste with green chillies"
@@ -73,7 +73,7 @@ export default function BrightBrandIntro() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#FFFCF7]/95 backdrop-blur-xs border-l-3 border-[#8E171D] shadow-xs">
+              <div className="absolute bottom-4 left-4 right-4 p-4 bg-white/95 backdrop-blur-xs border-l-4 border-[#8E171D] shadow-sm">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E171D] font-bold block">
                   Revered River Catch
                 </span>

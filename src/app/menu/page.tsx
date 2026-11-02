@@ -110,12 +110,12 @@ function MenuContent() {
   }, [activeTab, dietaryFilter, searchQuery]);
 
   return (
-    <div className="relative pb-28 bg-[#FFF8ED] text-[#292321] min-h-screen">
+    <div className="relative pb-28 bg-white text-[#292321] min-h-screen">
       
       {/* ──────────────────────────────────────────────────────────
-          1. TOP: MENU INTRODUCTION (EDITORIAL BRIGHT HEADER)
+          1. TOP: MENU INTRODUCTION (EDITORIAL RED & WHITE HEADER)
       ────────────────────────────────────────────────────────── */}
-      <section className="px-5 sm:px-10 lg:px-16 pt-14 sm:pt-20 pb-10 sm:pb-14 border-b border-[#E6D8C3] bg-[#FFF8ED]">
+      <section className="px-5 sm:px-10 lg:px-16 pt-14 sm:pt-20 pb-10 sm:pb-14 border-b-2 border-[#8E171D]/15 bg-white">
         <div className="mx-auto max-w-5xl space-y-4">
           <div className="flex items-center gap-2">
             <Sparkles className="h-3.5 w-3.5 text-[#C49A55]" />
@@ -155,7 +155,7 @@ function MenuContent() {
       {/* ──────────────────────────────────────────────────────────
           2. SECOND: CLEAN, RESPONSIVE CATEGORY NAVIGATION BAR
       ────────────────────────────────────────────────────────── */}
-      <section className="px-4 sm:px-8 lg:px-12 py-3.5 border-b border-[#E6D8C3] sticky top-[64px] sm:top-[72px] lg:top-[78px] z-30 bg-[#FFF8ED]/98 backdrop-blur-md shadow-xs">
+      <section className="px-4 sm:px-8 lg:px-12 py-3.5 border-b border-[#8E171D]/20 sticky top-[64px] sm:top-[72px] lg:top-[78px] z-30 bg-white/98 backdrop-blur-md shadow-xs">
         <div className="mx-auto max-w-7xl">
           {/* Row 1: Primary Category Tabs (Scrollable on Mobile, Wrap on Desktop) */}
           <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
@@ -172,16 +172,16 @@ function MenuContent() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
                     isSelected
-                      ? "bg-[#8E171D] text-[#FFF8ED] shadow-md border border-[#8E171D]"
-                      : "bg-[#FFFCF7] text-[#292321] hover:text-[#8E171D] hover:bg-[#F4E8D7] border border-[#E6D8C3]"
+                      ? "bg-[#8E171D] text-white shadow-md border border-[#8E171D]"
+                      : "bg-white text-[#292321] hover:text-[#8E171D] hover:bg-[#FFF8ED] border border-[#8E171D]/20 shadow-2xs"
                   }`}
                 >
                   <span>{tab.label}</span>
                   <span
                     className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                       isSelected
-                        ? "bg-[#FFF8ED] text-[#8E171D] font-bold"
-                        : "bg-[#F4E8D7] text-[#5C524B]"
+                        ? "bg-white text-[#8E171D] font-bold"
+                        : "bg-[#FFF8ED] text-[#8E171D] font-semibold"
                     }`}
                   >
                     {count}
@@ -195,8 +195,8 @@ function MenuContent() {
               onClick={() => setActiveTab("favorites")}
               className={`px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
                 activeTab === "favorites"
-                  ? "bg-[#8E171D] text-[#FFF8ED] shadow-md border border-[#8E171D]"
-                  : "bg-[#FFFCF7] text-[#292321] hover:text-[#8E171D] hover:bg-[#F4E8D7] border border-[#E6D8C3]"
+                  ? "bg-[#8E171D] text-white shadow-md border border-[#8E171D]"
+                  : "bg-white text-[#292321] hover:text-[#8E171D] hover:bg-[#FFF8ED] border border-[#8E171D]/20 shadow-2xs"
               }`}
             >
               <Heart className={`h-3.5 w-3.5 ${favorites.length > 0 ? "fill-current text-rose-500" : ""}`} />

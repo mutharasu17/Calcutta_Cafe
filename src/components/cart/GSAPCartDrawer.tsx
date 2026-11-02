@@ -78,18 +78,18 @@ export default function GSAPCartDrawer() {
       {/* Drawer Panel */}
       <div
         ref={drawerRef}
-        className="relative w-full max-w-md bg-[#FFF8ED] text-[#292321] h-full shadow-2xl flex flex-col justify-between z-10 border-l border-[#C49A55]/30 overflow-hidden"
+        className="relative w-full max-w-md bg-white text-[#292321] h-full shadow-2xl flex flex-col justify-between z-10 border-l border-[#8E171D]/30 overflow-hidden"
         role="dialog"
         aria-label="Curated Feast Selection"
       >
         {/* Header */}
-        <div className="p-6 bg-[#8E171D] text-[#FFF8ED] border-b border-[#C49A55]/40 flex items-center justify-between shadow-sm">
+        <div className="p-6 bg-[#8E171D] text-white border-b border-[#C49A55]/40 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#651217] border border-[#C49A55] flex items-center justify-center text-[#C49A55]">
               <ShoppingBag className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="font-serif text-xl sm:text-2xl text-[#FFF8ED] font-normal">
+              <h2 className="font-serif text-xl sm:text-2xl text-white font-normal">
                 Your Curated Feast
               </h2>
               <span className="font-bengali text-xs text-[#C49A55] block">
@@ -100,7 +100,7 @@ export default function GSAPCartDrawer() {
 
           <button
             onClick={handleClose}
-            className="p-2 text-[#FFF8ED]/80 hover:text-[#FFF8ED] hover:bg-[#651217] rounded-full transition-colors cursor-pointer"
+            className="p-2 text-white/80 hover:text-white hover:bg-[#651217] rounded-full transition-colors cursor-pointer"
             aria-label="Close cart drawer"
           >
             <X className="h-5 w-5" />
@@ -108,7 +108,7 @@ export default function GSAPCartDrawer() {
         </div>
 
         {/* Free Delivery Threshold Bar */}
-        <div className="px-6 py-2.5 bg-[#F4E8D7] border-b border-[#E6D8C3] text-xs font-mono">
+        <div className="px-6 py-2.5 bg-[#FFF8ED] border-b border-[#8E171D]/15 text-xs font-mono">
           <div className="flex items-center justify-between text-[#5C524B] mb-1">
             <span>
               {subtotal >= freeDeliveryThreshold

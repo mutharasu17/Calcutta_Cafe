@@ -136,8 +136,8 @@ export default function GSAPHeader() {
         ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-400 ease-out ${
           isScrolled
-            ? "bg-[#FFF8ED]/98 backdrop-blur-md py-3 sm:py-3.5 border-b border-[#C49A55]/30 shadow-md"
-            : "bg-[#FFF8ED]/90 backdrop-blur-sm py-4 sm:py-5 border-b border-[#C49A55]/20"
+            ? "bg-white/98 backdrop-blur-md py-3 sm:py-3.5 border-b border-[#8E171D]/20 shadow-sm"
+            : "bg-white/95 backdrop-blur-sm py-4 sm:py-5 border-b border-[#8E171D]/15"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 flex items-center justify-between">
@@ -261,7 +261,7 @@ export default function GSAPHeader() {
       {mobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="fixed inset-0 z-30 bg-[#FFF8ED] flex flex-col justify-between pt-24 pb-8 px-6 sm:px-10 overflow-y-auto lg:hidden"
+          className="fixed inset-0 z-30 bg-white flex flex-col justify-between pt-24 pb-8 px-6 sm:px-10 overflow-y-auto lg:hidden"
         >
           {/* Header row in mobile overlay */}
           <div className="flex flex-col space-y-6">

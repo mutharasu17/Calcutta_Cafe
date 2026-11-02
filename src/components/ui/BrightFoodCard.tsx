@@ -32,13 +32,13 @@ export default function BrightFoodCard({
   };
 
   return (
-    <div className="group bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between overflow-hidden">
+    <div className="group bg-white border border-[#8E171D]/20 hover:border-[#8E171D] transition-all duration-300 shadow-xs hover:shadow-lg flex flex-col justify-between overflow-hidden">
       {/* ──────────────────────────────────────────────────────────
           FOOD PHOTOGRAPHY (CONSISTENT ASPECT RATIO & HOVER ZOOM)
       ────────────────────────────────────────────────────────── */}
       <div
         onClick={() => onOpenDetails?.(dish)}
-        className="relative aspect-[16/10] w-full overflow-hidden bg-[#F4E8D7] cursor-pointer"
+        className="relative aspect-[16/10] w-full overflow-hidden bg-[#FFF8ED] cursor-pointer"
       >
         {dish.image ? (
           <Image
@@ -158,7 +158,7 @@ export default function BrightFoodCard({
             className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer ${
               isAdded
                 ? "bg-emerald-600 text-white"
-                : "bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED]"
+                : "bg-[#8E171D] hover:bg-[#A9272D] text-white"
             }`}
           >
             {isAdded ? (

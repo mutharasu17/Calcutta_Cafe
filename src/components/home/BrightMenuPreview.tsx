@@ -77,7 +77,7 @@ export default function BrightMenuPreview() {
     <>
       <section
         id="signature-menu"
-        className="bg-[#FFF8ED] text-[#292321] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+        className="bg-white text-[#292321] py-20 sm:py-28 lg:py-36 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
         aria-label="Filterable Menu and Dish Selection"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
@@ -125,16 +125,16 @@ export default function BrightMenuPreview() {
                     onClick={() => setActiveCategory(tab.id)}
                     className={`relative px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
                       isSelected
-                        ? "bg-[#8E171D] text-[#FFF8ED] font-bold shadow-md border border-[#8E171D]"
-                        : "bg-[#FFFCF7] text-[#292321] hover:text-[#8E171D] hover:bg-[#F4E8D7] border border-[#E6D8C3]"
+                        ? "bg-[#8E171D] text-white font-bold shadow-md border border-[#8E171D]"
+                        : "bg-white text-[#292321] hover:text-[#8E171D] hover:bg-[#FFF8ED] border border-[#8E171D]/20 shadow-2xs"
                     }`}
                   >
                     <span>{tab.label}</span>
                     <span
                       className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                         isSelected
-                          ? "bg-[#FFF8ED] text-[#8E171D] font-bold"
-                          : "bg-[#F4E8D7] text-[#5C524B]"
+                          ? "bg-white text-[#8E171D] font-bold"
+                          : "bg-[#FFF8ED] text-[#8E171D] font-semibold"
                       }`}
                     >
                       {count}

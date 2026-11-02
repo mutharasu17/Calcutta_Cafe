@@ -69,7 +69,7 @@ export default function BrightVisualGallery() {
     <section
       ref={containerRef}
       id="visual-gallery"
-      className="bg-[#FFF8ED] text-[#292321] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-white text-[#292321] py-20 sm:py-28 lg:py-36 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
       aria-label="Food and Culinary Gallery"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
@@ -94,7 +94,7 @@ export default function BrightVisualGallery() {
           {GALLERY_PHOTOS.map((photo, idx) => (
             <div
               key={photo.title}
-              className={`gallery-item group relative overflow-hidden bg-[#FFFCF7] border border-[#E6D8C3] shadow-xs hover:shadow-md hover:border-[#8E171D] transition-all duration-300 ${photo.aspect}`}
+              className={`gallery-item group relative overflow-hidden bg-white border-2 border-[#8E171D]/15 shadow-xs hover:shadow-lg hover:border-[#8E171D] transition-all duration-300 ${photo.aspect}`}
             >
               <Image
                 src={photo.src}

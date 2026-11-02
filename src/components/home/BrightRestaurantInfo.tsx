@@ -38,7 +38,7 @@ export default function BrightRestaurantInfo() {
     <section
       ref={containerRef}
       id="restaurant-info"
-      className="bg-[#FFF8ED] text-[#292321] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-white text-[#292321] py-20 sm:py-28 lg:py-36 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
       aria-label="Restaurant and Bangalore Hub Information"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
@@ -88,7 +88,7 @@ export default function BrightRestaurantInfo() {
           ].map((item) => (
             <div
               key={item.hub}
-              className="info-card p-6 sm:p-7 bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] shadow-xs hover:shadow-md transition-all duration-300 space-y-4 flex flex-col justify-between"
+              className="info-card p-6 sm:p-7 bg-white border-2 border-[#8E171D]/15 hover:border-[#8E171D] shadow-xs hover:shadow-lg transition-all duration-300 space-y-4 flex flex-col justify-between"
             >
               <div className="space-y-2">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#8E171D] font-bold block">
@@ -111,7 +111,7 @@ export default function BrightRestaurantInfo() {
         </div>
 
         {/* Contact Strip */}
-        <div className="mt-12 p-6 sm:p-8 bg-[#F4E8D7] border border-[#E6D8C3] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 p-6 sm:p-8 bg-white border-2 border-[#8E171D]/20 border-l-4 border-l-[#8E171D] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6 flex-wrap text-xs font-mono text-[#292321]">
             <a
               href="tel:+918045678900"

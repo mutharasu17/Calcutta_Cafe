@@ -99,7 +99,7 @@ export default function BrightFullscreenHero() {
   return (
     <section
       ref={heroRef}
-      className="relative w-full h-[100svh] min-h-[100svh] flex items-center overflow-hidden bg-[#FFF8ED] text-[#292321]"
+      className="relative w-full h-[100svh] min-h-[100svh] flex items-center overflow-hidden bg-white text-[#292321] border-b border-[#8E171D]/20"
       aria-label="The Calcutta Cafe Culinary Hero"
     >
       {/* ──────────────────────────────────────────────────────────
@@ -119,11 +119,11 @@ export default function BrightFullscreenHero() {
         />
 
         {/* 
-          Bright Warm Editorial Gradient Overlay:
+          Bright White & Red Editorial Gradient Overlay:
           Ensures text is 100% crisp and readable while keeping the photography luminous and inviting.
         */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFF8ED] via-[#FFF8ED]/85 to-transparent sm:w-[65%] w-full z-1" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FFF8ED] via-transparent to-[#FFF8ED]/40 z-1" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent sm:w-[65%] w-full z-1" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30 z-1" />
       </div>
 
       {/* ──────────────────────────────────────────────────────────
@@ -134,7 +134,7 @@ export default function BrightFullscreenHero() {
           
           {/* Eyebrow Label with Ornamental Accents */}
           <div ref={eyebrowRef} className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#FFF8ED]/95 backdrop-blur-md border border-[#C49A55]/40 text-[#8E171D] text-[11px] sm:text-xs font-mono uppercase tracking-[0.25em] font-semibold shadow-xs">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/95 backdrop-blur-md border border-[#8E171D]/30 text-[#8E171D] text-[11px] sm:text-xs font-mono uppercase tracking-[0.25em] font-semibold shadow-xs">
               <Sparkles className="h-3 w-3 text-[#C49A55]" />
               THE CALCUTTA CAFE · BENGALIAN CULINARY HERITAGE
             </span>
@@ -208,7 +208,7 @@ export default function BrightFullscreenHero() {
             {/* Secondary Button: Order Online */}
             <Link
               href="/order"
-              className="inline-flex items-center justify-center gap-3 bg-[#FFF8ED]/90 hover:bg-[#FFF8ED] text-[#292321] hover:text-[#8E171D] px-8 py-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5 border border-[#C49A55]/50"
+              className="inline-flex items-center justify-center gap-3 bg-white hover:bg-[#FFF8ED] text-[#292321] hover:text-[#8E171D] px-8 py-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5 border border-[#8E171D]/40"
             >
               <span>Order Online</span>
               <span className="font-mono text-[10px] text-[#8E171D] font-bold">Bangalore</span>
@@ -263,7 +263,7 @@ export default function BrightFullscreenHero() {
         <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#5C524B] font-medium">
           Scroll to Discover
         </span>
-        <div className="w-5 h-8 border border-[#C49A55]/60 rounded-full flex justify-center p-1 bg-[#FFF8ED]/80 backdrop-blur-xs">
+        <div className="w-5 h-8 border border-[#8E171D]/40 rounded-full flex justify-center p-1 bg-white/90 backdrop-blur-xs">
           <div className="hero-scroll-dot w-1.5 h-2 bg-[#8E171D] rounded-full" />
         </div>
       </div>

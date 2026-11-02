@@ -49,29 +49,33 @@ export default function BrightSignatureDish() {
   return (
     <section
       ref={containerRef}
-      className="bg-[#F4E8D7] text-[#292321] py-20 sm:py-28 lg:py-36 relative overflow-hidden border-b border-[#E6D8C3]"
+      className="bg-gradient-to-b from-[#8E171D] via-[#7B1113] to-[#651217] text-white py-20 sm:py-28 lg:py-36 relative overflow-hidden border-b-4 border-[#C49A55]"
       aria-label="Featured Signature Dish"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+      {/* Decorative Red & Gold Heritage Motif Background Watermark */}
+      <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full border border-[#C49A55]/15 pointer-events-none" />
+      <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full border border-[#C49A55]/10 pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="sig-dish-content max-w-3xl mb-12 sm:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#8E171D] font-bold">
+          <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#C49A55] font-bold">
             <Flame className="h-3.5 w-3.5 text-[#C49A55]" />
             Signature Dish Spotlight • বিশেষ নিবেদন
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#292321] leading-[1.08]">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-white leading-[1.08]">
             An Unhurried Philosophy of Flame &amp; Clay.
           </h2>
-          <p className="text-base sm:text-lg text-[#5C524B] font-sans leading-relaxed">
+          <p className="text-base sm:text-lg text-[#FFF8ED]/90 font-sans leading-relaxed">
             Every signature preparation at The Calcutta Cafe honors centuries-old kitchen techniques:
             earthen vessels that breathe, low-flame bhuna reduction that deepens spices, and
             unadulterated cold-pressed mustard oil.
           </p>
         </div>
 
-        {/* Featured Dish Editorial Split Container */}
-        <div className="sig-dish-content bg-[#FFFCF7] border border-[#E6D8C3] shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
+        {/* Featured Dish Editorial Split Container: Crisp Pure White on Bengali Red */}
+        <div className="sig-dish-content bg-white border-2 border-[#C49A55]/40 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
           
           {/* Left: Large Food Image (7 cols) */}
           <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto w-full min-h-[320px] lg:min-h-[460px] bg-[#E6D8C3] overflow-hidden group">
@@ -82,13 +86,13 @@ export default function BrightSignatureDish() {
               sizes="(max-width: 1024px) 100vw, 60vw"
               className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute top-4 left-4 bg-[#8E171D] text-[#FFF8ED] px-3 py-1 text-[10px] font-mono uppercase tracking-widest font-semibold shadow-xs">
+            <div className="absolute top-4 left-4 bg-[#8E171D] text-white px-3 py-1 text-[10px] font-mono uppercase tracking-widest font-semibold shadow-xs">
               Chef Signature • 4-Hour Bhuna
             </div>
           </div>
 
           {/* Right: Narrative & Direct Action (5 cols) */}
-          <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6 bg-white text-[#292321]">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="font-bengali text-sm text-[#8E171D] font-semibold">
@@ -111,10 +115,10 @@ export default function BrightSignatureDish() {
               </p>
 
               <div className="pt-2 flex items-center gap-4 text-xs font-mono text-[#5C524B]">
-                <span className="px-2.5 py-1 bg-[#FFF8ED] border border-[#E6D8C3] font-semibold text-[#8E171D]">
+                <span className="px-2.5 py-1 bg-[#FFF8ED] border border-[#8E171D]/20 font-semibold text-[#8E171D]">
                   Non-Vegetarian
                 </span>
-                <span className="px-2.5 py-1 bg-[#FFF8ED] border border-[#E6D8C3]">
+                <span className="px-2.5 py-1 bg-[#FFF8ED] border border-[#8E171D]/20 text-[#5C524B]">
                   Medium-High Spice
                 </span>
               </div>
@@ -137,7 +141,7 @@ export default function BrightSignatureDish() {
                   className={`flex items-center gap-2 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-xs cursor-pointer ${
                     isAdded
                       ? "bg-emerald-600 text-white"
-                      : "bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED]"
+                      : "bg-[#8E171D] hover:bg-[#A9272D] text-white"
                   }`}
                 >
                   {isAdded ? (
@@ -155,7 +159,7 @@ export default function BrightSignatureDish() {
 
                 <Link
                   href="/menu?category=chicken-mutton"
-                  className="p-3 text-[#292321] hover:text-[#8E171D] border border-[#E6D8C3] hover:border-[#8E171D] transition-colors bg-[#FFF8ED]"
+                  className="p-3 text-[#8E171D] hover:text-white hover:bg-[#8E171D] border border-[#8E171D]/30 transition-colors bg-[#FFF8ED]"
                   aria-label="Explore more meat dishes"
                 >
                   <ArrowRight className="h-4 w-4" />

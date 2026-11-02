@@ -62,10 +62,10 @@ export default function SearchModal({
     >
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative z-10 w-full max-w-3xl bg-[#FFFDF8] border border-[#E6D8C3] shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
+      <div className="relative z-10 w-full max-w-3xl bg-white border-2 border-[#8E171D]/25 shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
         {/* Top Search Input Bar */}
-        <div className="p-4 sm:p-6 border-b border-[#E6D8C3] bg-[#F5EFE4] flex items-center gap-3">
-          <Search className="h-5 w-5 text-[#7A382B] flex-shrink-0" />
+        <div className="p-4 sm:p-6 border-b border-[#8E171D]/15 bg-[#FFF8ED] flex items-center gap-3">
+          <Search className="h-5 w-5 text-[#8E171D] flex-shrink-0" />
           <input
             type="text"
             placeholder="Search Bengali dishes, ingredients, or spices..."
