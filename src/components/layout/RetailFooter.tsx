@@ -20,20 +20,20 @@ export default function RetailFooter() {
   };
 
   return (
-    <footer className="bg-[#E6D8C3] text-[#29251F] border-t border-[#D8C7B0] transition-colors">
+    <footer className="bg-[#F4E8D7] text-[#292321] border-t border-[#E6D8C3] transition-colors">
       {/* ──────────────────────────────────────────────────────────
-          TOP NEWSLETTER & BRAND PHILOSOPHY STRIP (ANAND SWEETS STYLE)
+          TOP NEWSLETTER & BRAND PHILOSOPHY STRIP
       ────────────────────────────────────────────────────────── */}
-      <div className="border-b border-[#D8C7B0]/80 py-12 px-4 sm:px-8 lg:px-12 bg-[#F5EFE4]">
+      <div className="border-b border-[#E6D8C3] py-12 px-4 sm:px-8 lg:px-12 bg-[#FFF8ED]">
         <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-1.5 text-center lg:text-left">
-            <span className="text-xs font-mono uppercase tracking-[0.24em] text-[#7A382B] font-semibold block">
+            <span className="text-xs font-mono uppercase tracking-[0.24em] text-[#8E171D] font-bold block">
               The Calcutta Cafe Dispatch • খবর ও সমাচার
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#29251F]">
+            <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#292321]">
               Seasonal delicacies &amp; culinary essays.
             </h3>
-            <p className="text-xs text-[#6B6357] max-w-md">
+            <p className="text-xs sm:text-sm text-[#5C524B] max-w-md">
               Receive updates on seasonal Hilsa arrivals, winter Joynagarer Moa, and monographs from our kitchen.
             </p>
           </div>
@@ -41,19 +41,19 @@ export default function RetailFooter() {
           {/* Subscription Input Form */}
           <form onSubmit={handleSubscribe} className="w-full max-w-md flex flex-col sm:flex-row gap-2">
             <div className="relative flex-1">
-              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#7A382B]" />
+              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8E171D]" />
               <input
                 type="email"
                 placeholder="Enter your email address..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-[#FFFDF8] border border-[#D8C7B0] pl-10 pr-4 py-3 text-xs text-[#29251F] placeholder-[#6B6357]/60 focus:outline-none focus:border-[#7A382B] transition-colors"
+                className="w-full bg-[#FFFCF7] border border-[#E6D8C3] pl-10 pr-4 py-3 text-xs text-[#292321] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#8E171D] transition-colors shadow-2xs"
               />
             </div>
             <button
               type="submit"
-              className="bg-[#7A382B] hover:bg-[#5E2B21] text-[#FFFDF8] px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-1.5 flex-shrink-0"
+              className="bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED] px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer"
             >
               <span>{subscribed ? "Subscribed" : "Subscribe"}</span>
               {subscribed ? <Check className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5" />}
@@ -71,36 +71,36 @@ export default function RetailFooter() {
           <div className="lg:col-span-4 space-y-4">
             <BrandLogo size="md" />
 
-            <p className="text-xs sm:text-sm text-[#6B6357] font-normal leading-relaxed pt-2">
+            <p className="text-xs sm:text-sm text-[#5C524B] font-normal leading-relaxed pt-2">
               The Calcutta Cafe brings Bengal&apos;s culinary heritage to life in Bangalore—from slow-cooked Sunday Kosha Mangsho to river Hilsa, golden luchis, and claypot Mishti Doi.
             </p>
 
-            <div className="space-y-1.5 pt-2 text-xs text-[#6B6357]">
+            <div className="space-y-1.5 pt-2 text-xs text-[#5C524B]">
               <div className="flex items-center gap-2">
-                <Clock className="h-3.5 w-3.5 text-[#7A382B]" />
-                <span>Operating Hours: 12:00 PM – 11:00 PM Daily</span>
+                <Clock className="h-3.5 w-3.5 text-[#8E171D]" />
+                <span>Operating Hours: 11:30 AM – 11:00 PM Daily</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5 text-[#7A382B]" />
-                <span>Bangalore Hubs: Indiranagar • Koramangala • Whitefield</span>
+                <MapPin className="h-3.5 w-3.5 text-[#8E171D]" />
+                <span>Bangalore Hubs: Koramangala • Indiranagar • Whitefield • HSR</span>
               </div>
             </div>
           </div>
 
           {/* Col 2: Our Repertoire (3 Cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A382B] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#8E171D] font-bold block">
               Our Repertoire
             </span>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#29251F]">
+            <ul className="space-y-2 text-xs sm:text-sm text-[#292321]">
               {MENU_CATEGORIES.filter((c) => c.id !== "drinks").map((cat) => (
                 <li key={cat.id}>
                   <Link
                     href={`/menu?category=${cat.id}`}
-                    className="hover:text-[#7A382B] transition-colors flex items-center justify-between"
+                    className="hover:text-[#8E171D] transition-colors flex items-center justify-between"
                   >
                     <span>{cat.name}</span>
-                    <span className="font-bengali text-xs text-[#6B6357]">
+                    <span className="font-bengali text-xs text-[#8E171D]">
                       {cat.bengaliSubtitle}
                     </span>
                   </Link>
@@ -111,32 +111,32 @@ export default function RetailFooter() {
 
           {/* Col 3: Heritage & About (2 Cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A382B] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#8E171D] font-bold block">
               Heritage
             </span>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#29251F]">
+            <ul className="space-y-2 text-xs sm:text-sm text-[#292321]">
               <li>
-                <Link href="/about" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/about" className="hover:text-[#8E171D] transition-colors">
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/about" className="hover:text-[#8E171D] transition-colors">
                   Akash Santra (2019)
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/blog" className="hover:text-[#8E171D] transition-colors">
                   The Bengal Journal
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/contact" className="hover:text-[#8E171D] transition-colors">
                   Kitchen Hubs
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/contact" className="hover:text-[#8E171D] transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -145,11 +145,11 @@ export default function RetailFooter() {
 
           {/* Col 4: Order Online & Social Channels (3 Cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A382B] font-semibold block">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#8E171D] font-bold block">
               Order Online Direct
             </span>
 
-            <p className="text-xs text-[#6B6357]">
+            <p className="text-xs text-[#5C524B]">
               Delivered fresh across Bangalore exclusively through our verified cloud kitchen partners.
             </p>
 
@@ -158,25 +158,25 @@ export default function RetailFooter() {
                 href="https://www.swiggy.com/restaurants/the-calcutta-cafe-bangalore"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 bg-[#FFFDF8] border border-[#D8C7B0] hover:border-[#7A382B] transition-all text-xs font-semibold uppercase tracking-wider text-[#29251F]"
+                className="flex items-center justify-between p-3 bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] transition-all text-xs font-semibold uppercase tracking-wider text-[#292321] shadow-2xs"
               >
                 <span>Order on Swiggy</span>
-                <ExternalLink className="h-3.5 w-3.5 text-[#7A382B]" />
+                <ExternalLink className="h-3.5 w-3.5 text-[#8E171D]" />
               </a>
 
               <a
                 href="https://www.zomato.com/bangalore/the-calcutta-cafe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 bg-[#FFFDF8] border border-[#D8C7B0] hover:border-[#7A382B] transition-all text-xs font-semibold uppercase tracking-wider text-[#29251F]"
+                className="flex items-center justify-between p-3 bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] transition-all text-xs font-semibold uppercase tracking-wider text-[#292321] shadow-2xs"
               >
                 <span>Order on Zomato</span>
-                <ExternalLink className="h-3.5 w-3.5 text-[#7A382B]" />
+                <ExternalLink className="h-3.5 w-3.5 text-[#8E171D]" />
               </a>
             </div>
 
-            <div className="pt-2 text-xs text-[#6B6357]">
-              <span className="font-mono text-[11px] block uppercase tracking-wider text-[#7A382B] font-semibold mb-1">
+            <div className="pt-2 text-xs text-[#5C524B]">
+              <span className="font-mono text-[11px] block uppercase tracking-wider text-[#8E171D] font-bold mb-1">
                 Follow Our Journey
               </span>
               <div className="flex items-center gap-3">
@@ -184,7 +184,7 @@ export default function RetailFooter() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#7A382B] transition-colors"
+                  className="hover:text-[#8E171D] transition-colors"
                 >
                   Instagram
                 </a>
@@ -193,7 +193,7 @@ export default function RetailFooter() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#7A382B] transition-colors"
+                  className="hover:text-[#8E171D] transition-colors"
                 >
                   Facebook
                 </a>
@@ -206,7 +206,7 @@ export default function RetailFooter() {
       {/* ──────────────────────────────────────────────────────────
           BOTTOM LEGAL & COPYRIGHT BAR
       ────────────────────────────────────────────────────────── */}
-      <div className="border-t border-[#D8C7B0] py-6 px-4 sm:px-8 lg:px-12 text-[11px] font-mono text-[#6B6357] bg-[#E0D0BA]">
+      <div className="border-t border-[#E6D8C3] py-6 px-4 sm:px-8 lg:px-12 text-[11px] font-mono text-[#5C524B] bg-[#E8DCCB]">
         <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div>
             © 2026 The Calcutta Cafe Foods Pvt Ltd. All rights reserved.
@@ -219,4 +219,3 @@ export default function RetailFooter() {
     </footer>
   );
 }
-

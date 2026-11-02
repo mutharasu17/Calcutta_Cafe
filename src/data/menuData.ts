@@ -9,6 +9,7 @@ export interface MenuItem {
   spiceLevel: "mild" | "medium" | "high";
   isChefSpecial?: boolean;
   tags?: string[];
+  price: number;
 }
 
 export type MenuCategory =
@@ -93,6 +94,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "high",
     isChefSpecial: true,
     tags: ["Signature", "Royal Classic", "Mustard Oil"],
+    price: 495,
   },
   {
     id: "bhetki-paturi",
@@ -105,6 +107,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "medium",
     isChefSpecial: true,
     tags: ["Banana Leaf Steamed", "Must-Try"],
+    price: 425,
   },
   {
     id: "katla-kalia",
@@ -115,6 +118,7 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "non-veg",
     spiceLevel: "medium",
     tags: ["Festive Feast", "Traditional"],
+    price: 365,
   },
   {
     id: "chingri-malai-curry",
@@ -126,6 +130,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "mild",
     isChefSpecial: true,
     tags: ["Decadent", "Coconut Cream"],
+    price: 465,
   },
 
   // Chicken & Mutton
@@ -140,6 +145,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "high",
     isChefSpecial: true,
     tags: ["Iconic", "Slow-Cooked", "Sunday Tradition"],
+    price: 445,
   },
   {
     id: "kolkata-chicken-chaap",
@@ -151,6 +157,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "mild",
     isChefSpecial: true,
     tags: ["Awadhi Heritage", "Slow-Braised"],
+    price: 345,
   },
   {
     id: "murgir-jhol",
@@ -161,6 +168,7 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "non-veg",
     spiceLevel: "medium",
     tags: ["Comfort Classic", "Home Recipe"],
+    price: 325,
   },
 
   // Vegetarian
@@ -175,6 +183,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "mild",
     isChefSpecial: true,
     tags: ["Ayurvedic Roots", "Traditional Opener"],
+    price: 245,
   },
   {
     id: "chholar-dal-luchi",
@@ -187,6 +196,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "mild",
     isChefSpecial: true,
     tags: ["Breakfast & Festive", "All-Time Favorite"],
+    price: 225,
   },
   {
     id: "dhokar-dalna",
@@ -197,6 +207,7 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "veg",
     spiceLevel: "medium",
     tags: ["No Onion No Garlic", "Pure Vegetarian"],
+    price: 245,
   },
   {
     id: "mochar-ghonto",
@@ -207,6 +218,7 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "veg",
     spiceLevel: "medium",
     tags: ["Heritage Recipe", "Artisanal Prep"],
+    price: 265,
   },
 
   // Snacks & Street Food
@@ -221,6 +233,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "medium",
     isChefSpecial: true,
     tags: ["New Market Classic", "Street Pioneer"],
+    price: 195,
   },
   {
     id: "kolkata-fish-fry",
@@ -232,6 +245,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "medium",
     isChefSpecial: true,
     tags: ["Cabin Heritage", "Crispy Delicacy"],
+    price: 285,
   },
   {
     id: "dimer-devil",
@@ -242,6 +256,7 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "non-veg",
     spiceLevel: "medium",
     tags: ["British-Raj Kolkata", "Evening Snack"],
+    price: 175,
   },
 
   // Rice & Complete Meals
@@ -256,6 +271,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "mild",
     isChefSpecial: true,
     tags: ["Gobindobhog Rice", "Celebration Classic"],
+    price: 245,
   },
   {
     id: "kolkata-mutton-biryani",
@@ -267,6 +283,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "medium",
     isChefSpecial: true,
     tags: ["With Iconic Potato", "Dum Pukht Style"],
+    price: 395,
   },
   {
     id: "complete-bhoj-thali",
@@ -279,6 +296,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "medium",
     isChefSpecial: true,
     tags: ["Grand Banquet", "Complete Experience"],
+    price: 595,
   },
 
   // Sweets & Desserts
@@ -293,6 +311,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "mild",
     isChefSpecial: true,
     tags: ["Set in Earthen Pots", "Legendary"],
+    price: 145,
   },
   {
     id: "baked-rosogolla",
@@ -304,6 +323,7 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "veg",
     spiceLevel: "mild",
     tags: ["Warm Dessert", "Chef Pick"],
+    price: 165,
   },
   {
     id: "nolen-gurer-sandesh",
@@ -314,6 +334,7 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "veg",
     spiceLevel: "mild",
     tags: ["Seasonal Luxury", "Artisanal"],
+    price: 185,
   },
 
   // Drinks
@@ -327,6 +348,7 @@ export const MENU_ITEMS: MenuItem[] = [
     spiceLevel: "mild",
     isChefSpecial: true,
     tags: ["Gondhoraj Lime", "Summer Elixir"],
+    price: 125,
   },
   {
     id: "kolkata-lebu-cha",
@@ -337,5 +359,6 @@ export const MENU_ITEMS: MenuItem[] = [
     dietary: "veg",
     spiceLevel: "mild",
     tags: ["College Street Vibe", "Digestive"],
+    price: 75,
   },
 ];

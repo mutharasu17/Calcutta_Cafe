@@ -1,46 +1,46 @@
-import GSAPFullscreenHero from "@/components/home/GSAPFullscreenHero";
-import HensslerBrandIntro from "@/components/home/HensslerBrandIntro";
-import HensslerSignatureExperience from "@/components/home/HensslerSignatureExperience";
-import GSAPCategoryDiscovery from "@/components/home/GSAPCategoryDiscovery";
-import GSAPFilteredMenu from "@/components/home/GSAPFilteredMenu";
-import HensslerCampaignBanner from "@/components/home/HensslerCampaignBanner";
-import HensslerRestaurantStory from "@/components/home/HensslerRestaurantStory";
-import HensslerVisualGallery from "@/components/home/HensslerVisualGallery";
-import HensslerOrderOnline from "@/components/home/HensslerOrderOnline";
-import HensslerRestaurantInfo from "@/components/home/HensslerRestaurantInfo";
+import BrightFullscreenHero from "@/components/home/BrightFullscreenHero";
+import BrightBrandIntro from "@/components/home/BrightBrandIntro";
+import BrightSignatureDish from "@/components/home/BrightSignatureDish";
+import BrightCategoryDiscovery from "@/components/home/BrightCategoryDiscovery";
+import BrightMenuPreview from "@/components/home/BrightMenuPreview";
+import BrightSignatureCollection from "@/components/home/BrightSignatureCollection";
+import BrightRestaurantStory from "@/components/home/BrightRestaurantStory";
+import BrightVisualGallery from "@/components/home/BrightVisualGallery";
+import BrightOrderOnline from "@/components/home/BrightOrderOnline";
+import BrightRestaurantInfo from "@/components/home/BrightRestaurantInfo";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. FULL-SCREEN CINEMATIC HOMEPAGE HERO (100svh, TEXT DIRECTLY OVER IMAGE) */}
-      <GSAPFullscreenHero />
+      {/* 1. BRIGHT FULL-SCREEN CINEMATIC HERO (100svh, NATURAL WARM LIGHTING & SPLIT COMPOSITION) */}
+      <BrightFullscreenHero />
 
-      {/* 2. BENGALI CULINARY INTRODUCTION (WARM IVORY EDITORIAL) */}
-      <HensslerBrandIntro />
+      {/* 2. BENGALI CULINARY INTRODUCTION (WARM IVORY EDITORIAL & RIVER CATCH) */}
+      <BrightBrandIntro />
 
-      {/* 3. SIGNATURE FOOD EXPERIENCE (FLAME & CLAYPOT CRAFTSMANSHIP) */}
-      <HensslerSignatureExperience />
+      {/* 3. FEATURED SIGNATURE DISH (FLAME & CLAY KOSHA MANGSHO SPOTLIGHT) */}
+      <BrightSignatureDish />
 
-      {/* 4. ANIMATED FOOD CATEGORY DISCOVERY (GSAP DRAWSVG & MOTIONPATH RINGS) */}
-      <GSAPCategoryDiscovery />
+      {/* 4. EXPLORE FOOD CATEGORIES (GSAP DRAWSVG & MOTIONPATH ORBITING RINGS) */}
+      <BrightCategoryDiscovery />
 
-      {/* 5. FILTERABLE MENU & SIGNATURE DISH CARDS (RELIABLE DISH VISIBILITY & ADD TO CART) */}
-      <GSAPFilteredMenu />
+      {/* 5. COMPLETE MENU PREVIEW (FILTERABLE MENU & SOFT WHITE DISH CARDS) */}
+      <BrightMenuPreview />
 
-      {/* 6. EDITORIAL BENGALI FOOD CAMPAIGN SECTION (BURGUNDY SUNDAY KOSHA RITUAL) */}
-      <HensslerCampaignBanner />
+      {/* 6. SIGNATURE FOOD COLLECTION (CONNOISSEUR 3-PILLAR MASTERPIECES) */}
+      <BrightSignatureCollection />
 
-      {/* 7. BRAND AND CULINARY HERITAGE STORY (AKASH SANTRA MONOGRAPH) */}
-      <HensslerRestaurantStory />
+      {/* 7. BENGALI CULINARY STORY (AKASH SANTRA 2019 MONOGRAPH) */}
+      <BrightRestaurantStory />
 
-      {/* 8. VISUAL FOOD GALLERY (A1 GALLERY PHOTOGRAPHIC ANTHOLOGY) */}
-      <HensslerVisualGallery />
+      {/* 8. FOOD GALLERY (A1 GALLERY-INSPIRED VISUAL ANTHOLOGY) */}
+      <BrightVisualGallery />
 
-      {/* 9. ORDER ONLINE SECTION (DEDICATED CONVERSION WITH SWIGGY & ZOMATO) */}
-      <HensslerOrderOnline />
+      {/* 9. ORDER ONLINE (BANGALORE HUBS & SWIGGY / ZOMATO DISPATCH) */}
+      <BrightOrderOnline />
 
-      {/* 10. CONTACT AND RESTAURANT INFORMATION (BANGALORE HUBS & OPERATIONS) */}
-      <HensslerRestaurantInfo />
+      {/* 10. RESTAURANT INFORMATION (KITCHEN DISPATCH & HOURS) */}
+      <BrightRestaurantInfo />
     </>
   );
 }

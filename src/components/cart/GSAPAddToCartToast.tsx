@@ -33,7 +33,7 @@ export default function GSAPAddToCartToast() {
         flyer.style.height = "40px";
         flyer.style.borderRadius = "50%";
         flyer.style.border = "2px solid #C49A55";
-        flyer.style.boxShadow = "0 8px 24px rgba(0,0,0,0.5)";
+        flyer.style.boxShadow = "0 8px 24px rgba(142,23,29,0.3)";
         flyer.style.backgroundImage = `url(${lastAddedDish.image})`;
         flyer.style.backgroundSize = "cover";
         flyer.style.backgroundPosition = "center";
@@ -90,14 +90,14 @@ export default function GSAPAddToCartToast() {
   return (
     <div
       ref={toastRef}
-      className="fixed bottom-6 right-4 sm:right-8 z-50 max-w-sm w-full bg-[#651217] text-[#FFF1DF] border-2 border-[#C49A55] p-4 shadow-2xl overflow-hidden"
+      className="fixed bottom-6 right-4 sm:right-8 z-50 max-w-sm w-full bg-[#FFF8ED] text-[#292321] border border-[#8E171D] p-4 shadow-xl overflow-hidden"
       role="status"
       aria-live="polite"
     >
       <div className="flex items-center gap-3">
         {/* Thumbnail */}
         {lastAddedDish.image && (
-          <div className="relative w-12 h-12 flex-shrink-0 bg-[#292321] border border-[#C49A55]/40 overflow-hidden rounded-xs">
+          <div className="relative w-12 h-12 flex-shrink-0 bg-[#F4E8D7] border border-[#C49A55]/40 overflow-hidden">
             <Image
               src={lastAddedDish.image}
               alt={lastAddedDish.name}
@@ -110,11 +110,11 @@ export default function GSAPAddToCartToast() {
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-[#C49A55] font-semibold">
-            <CheckCircle2 className="h-3 w-3 text-emerald-400" />
+          <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-[#8E171D] font-bold">
+            <CheckCircle2 className="h-3 w-3 text-emerald-600" />
             <span>Added to Feast ({totalCount})</span>
           </div>
-          <p className="font-serif text-sm font-normal text-[#FFF1DF] truncate">
+          <p className="font-serif text-sm font-medium text-[#292321] truncate mt-0.5">
             {lastAddedDish.name}
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function GSAPAddToCartToast() {
               handleDismiss();
               openCart();
             }}
-            className="bg-[#C49A55] hover:bg-[#b08745] text-[#292321] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 shadow-sm cursor-pointer"
+            className="bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 shadow-xs cursor-pointer"
           >
             <span>View</span>
             <ArrowRight className="h-3 w-3" />
@@ -134,7 +134,7 @@ export default function GSAPAddToCartToast() {
 
           <button
             onClick={handleDismiss}
-            className="p-1 text-[#FFF1DF]/70 hover:text-[#FFF1DF] transition-colors cursor-pointer"
+            className="p-1 text-[#5C524B] hover:text-[#8E171D] transition-colors cursor-pointer"
             aria-label="Dismiss notification"
           >
             <X className="h-4 w-4" />
