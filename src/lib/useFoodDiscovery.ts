@@ -1,36 +1,42 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const FAVORITES_KEY = "calcutta_cafe_favorites";
 const RECENT_KEY = "calcutta_cafe_recent";
 const WELCOME_KEY = "calcutta_cafe_welcome_dismissed";
 
 export function useFoodDiscovery() {
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [recentlyViewed, setRecentlyViewed] = useState<string[]>([]);
-  const [isWelcomeDismissed, setIsWelcomeDismissed] = useState(true); // default true for SSR
-  const [isInitialized, setIsInitialized] = useState(false);
-
-  useEffect(() => {
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
     try {
-      const storedFavs = localStorage.getItem(FAVORITES_KEY);
-      if (storedFavs) {
-        setFavorites(JSON.parse(storedFavs));
-      }
-
-      const storedRecent = localStorage.getItem(RECENT_KEY);
-      if (storedRecent) {
-        setRecentlyViewed(JSON.parse(storedRecent));
-      }
-
-      const dismissed = localStorage.getItem(WELCOME_KEY) === "true";
-      setIsWelcomeDismissed(dismissed);
+      const stored = localStorage.getItem(FAVORITES_KEY);
+      return stored ? JSON.parse(stored) : [];
     } catch {
-      // LocalStorage unavailable
+      return [];
     }
-    setIsInitialized(true);
-  }, []);
+  });
+
+  const [recentlyViewed, setRecentlyViewed] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const stored = localStorage.getItem(RECENT_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [isWelcomeDismissed, setIsWelcomeDismissed] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      return localStorage.getItem(WELCOME_KEY) === "true";
+    } catch {
+      return true;
+    }
+  });
+
+  const isInitialized = true;
 
   const toggleFavorite = (dishId: string) => {
     setFavorites((prev) => {

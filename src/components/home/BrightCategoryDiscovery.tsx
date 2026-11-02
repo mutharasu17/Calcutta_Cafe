@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Compass, Sparkles } from "lucide-react";
-import { gsap, DrawSVGPlugin, MotionPathPlugin, ScrollTrigger } from "@/lib/gsapConfig";
-import { MENU_CATEGORIES, MENU_ITEMS, MenuCategory } from "@/data/menuData";
+import { ArrowUpRight, Compass } from "lucide-react";
+import { gsap } from "@/lib/gsapConfig";
+import { MENU_ITEMS, MenuCategory } from "@/data/menuData";
 
 interface CategoryCardData {
   id: MenuCategory;
@@ -307,3 +307,4 @@ export default function BrightCategoryDiscovery() {
     </section>
   );
 }
+

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { CheckCircle2, ArrowRight, X } from "lucide-react";
 import { gsap } from "@/lib/gsapConfig";
@@ -9,6 +9,21 @@ import { useCart } from "@/context/CartContext";
 export default function GSAPAddToCartToast() {
   const { lastAddedDish, dismissToast, openCart, totalCount } = useCart();
   const toastRef = useRef<HTMLDivElement>(null);
+
+  const handleDismiss = useCallback(() => {
+    if (toastRef.current) {
+      gsap.to(toastRef.current, {
+        y: 20,
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: dismissToast,
+      });
+    } else {
+      dismissToast();
+    }
+  }, [dismissToast]);
 
   useEffect(() => {
     if (lastAddedDish && toastRef.current) {
@@ -68,22 +83,7 @@ export default function GSAPAddToCartToast() {
 
       return () => clearTimeout(timer);
     }
-  }, [lastAddedDish]);
-
-  const handleDismiss = () => {
-    if (toastRef.current) {
-      gsap.to(toastRef.current, {
-        y: 20,
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.3,
-        ease: "power2.in",
-        onComplete: dismissToast,
-      });
-    } else {
-      dismissToast();
-    }
-  };
+  }, [lastAddedDish, handleDismiss]);
 
   if (!lastAddedDish) return null;
 

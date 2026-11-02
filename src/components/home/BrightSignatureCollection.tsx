@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Award, Plus, Check } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { gsap } from "@/lib/gsapConfig";
 import { MENU_ITEMS } from "@/data/menuData";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
@@ -171,3 +171,4 @@ export default function BrightSignatureCollection() {
     </section>
   );
 }
+

@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
-import { ShoppingBag, ArrowUpRight, Clock, MapPin, Sparkles } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { ShoppingBag, ArrowUpRight, Clock, Sparkles } from "lucide-react";
+import { gsap } from "@/lib/gsapConfig";
 
 export default function BrightOrderOnline() {
   const containerRef = useRef<HTMLElement>(null);
@@ -152,3 +151,4 @@ export default function BrightOrderOnline() {
     </section>
   );
 }
+

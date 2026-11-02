@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
-import { gsap, DrawSVGPlugin, MotionPathPlugin } from "@/lib/gsapConfig";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { gsap } from "@/lib/gsapConfig";
 
 export default function BrightFullscreenHero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -274,3 +274,4 @@ export default function BrightFullscreenHero() {
     </section>
   );
 }
+

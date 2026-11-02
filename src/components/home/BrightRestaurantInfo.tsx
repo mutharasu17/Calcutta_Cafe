@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { gsap } from "@/lib/gsapConfig";
 
 export default function BrightRestaurantInfo() {
   const containerRef = useRef<HTMLElement>(null);
@@ -142,3 +142,4 @@ export default function BrightRestaurantInfo() {
     </section>
   );
 }
+

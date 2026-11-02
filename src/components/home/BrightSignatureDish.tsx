@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Flame, Plus, Check, ArrowRight, Clock, Sparkles } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { Flame, Plus, Check, ArrowRight, Clock } from "lucide-react";
+import { gsap } from "@/lib/gsapConfig";
 import { MENU_ITEMS } from "@/data/menuData";
 import { useCart } from "@/context/CartContext";
 
@@ -171,3 +171,4 @@ export default function BrightSignatureDish() {
     </section>
   );
 }
+

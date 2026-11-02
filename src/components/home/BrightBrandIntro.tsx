@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Compass } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { gsap } from "@/lib/gsapConfig";
 
 export default function BrightBrandIntro() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -140,3 +140,4 @@ export default function BrightBrandIntro() {
     </section>
   );
 }
+

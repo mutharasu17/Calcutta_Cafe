@@ -27,21 +27,17 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 const STORAGE_KEY = "calcutta_cafe_curated_cart";
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [lastAddedDish, setLastAddedDish] = useState<MenuItem | null>(null);
-
-  // Load cart from localStorage on mount
-  useEffect(() => {
+  const [items, setItems] = useState<CartItem[]>(() => {
+    if (typeof window === "undefined") return [];
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        setItems(JSON.parse(saved));
-      }
+      return saved ? JSON.parse(saved) : [];
     } catch {
-      // Ignore localStorage errors
+      return [];
     }
-  }, []);
+  });
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [lastAddedDish, setLastAddedDish] = useState<MenuItem | null>(null);
 
   // Save cart to localStorage on changes
   useEffect(() => {

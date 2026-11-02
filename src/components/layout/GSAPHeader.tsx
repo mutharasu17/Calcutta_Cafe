@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X, ArrowUpRight } from "lucide-react";
-import { gsap, DrawSVGPlugin } from "@/lib/gsapConfig";
+import { gsap } from "@/lib/gsapConfig";
 import { useCart } from "@/context/CartContext";
 
 const NAV_LINKS = [

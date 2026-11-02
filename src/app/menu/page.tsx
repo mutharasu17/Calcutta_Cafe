@@ -7,7 +7,7 @@ import { Search, Heart, Sparkles, X, Filter } from "lucide-react";
 import { useFoodDiscovery } from "@/lib/useFoodDiscovery";
 import DishDetailModal from "@/components/ui/DishDetailModal";
 import BrightFoodCard from "@/components/ui/BrightFoodCard";
-import { gsap, DrawSVGPlugin } from "@/lib/gsapConfig";
+import { gsap } from "@/lib/gsapConfig";
 
 type FilterTab = MenuCategory | "all" | "favorites";
 

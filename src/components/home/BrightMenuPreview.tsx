@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { Sparkles, ArrowUpRight, Filter, Search } from "lucide-react";
+import { Sparkles, ArrowUpRight, Filter } from "lucide-react";
 import { gsap } from "@/lib/gsapConfig";
 import { MENU_ITEMS, MenuItem, MenuCategory } from "@/data/menuData";
 import BrightFoodCard from "@/components/ui/BrightFoodCard";
@@ -244,3 +244,4 @@ export default function BrightMenuPreview() {
     </>
   );
 }
+
