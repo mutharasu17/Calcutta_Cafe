@@ -1,8 +1,8 @@
-import CinematicFullscreenHero from "@/components/home/CinematicFullscreenHero";
+import GSAPFullscreenHero from "@/components/home/GSAPFullscreenHero";
 import HensslerBrandIntro from "@/components/home/HensslerBrandIntro";
 import HensslerSignatureExperience from "@/components/home/HensslerSignatureExperience";
-import CinematicCategoryDiscovery from "@/components/home/CinematicCategoryDiscovery";
-import CinematicFeaturedMenu from "@/components/home/CinematicFeaturedMenu";
+import GSAPCategoryDiscovery from "@/components/home/GSAPCategoryDiscovery";
+import GSAPFilteredMenu from "@/components/home/GSAPFilteredMenu";
 import HensslerCampaignBanner from "@/components/home/HensslerCampaignBanner";
 import HensslerRestaurantStory from "@/components/home/HensslerRestaurantStory";
 import HensslerVisualGallery from "@/components/home/HensslerVisualGallery";
@@ -12,20 +12,20 @@ import HensslerRestaurantInfo from "@/components/home/HensslerRestaurantInfo";
 export default function HomePage() {
   return (
     <>
-      {/* 1. FULL-SCREEN CINEMATIC HOMEPAGE HERO (100svh, TEXT OVER IMAGE) */}
-      <CinematicFullscreenHero />
+      {/* 1. FULL-SCREEN CINEMATIC HOMEPAGE HERO (100svh, TEXT DIRECTLY OVER IMAGE) */}
+      <GSAPFullscreenHero />
 
-      {/* 2. BENGALI BRAND INTRODUCTION (WARM IVORY EDITORIAL) */}
+      {/* 2. BENGALI CULINARY INTRODUCTION (WARM IVORY EDITORIAL) */}
       <HensslerBrandIntro />
 
-      {/* 3. SIGNATURE FOOD EXPERIENCE (ASYMMETRIC FLAME & CLAYPOT CRAFT) */}
+      {/* 3. SIGNATURE FOOD EXPERIENCE (FLAME & CLAYPOT CRAFTSMANSHIP) */}
       <HensslerSignatureExperience />
 
-      {/* 4. ANIMATED FOOD CATEGORY DISCOVERY (INDIVIDUAL ORBITING RING MOTION) */}
-      <CinematicCategoryDiscovery />
+      {/* 4. ANIMATED FOOD CATEGORY DISCOVERY (GSAP DRAWSVG & MOTIONPATH RINGS) */}
+      <GSAPCategoryDiscovery />
 
-      {/* 5. FEATURED SIGNATURE DISHES WITH ADD TO CART & FILTER TABS */}
-      <CinematicFeaturedMenu />
+      {/* 5. FILTERABLE MENU & SIGNATURE DISH CARDS (RELIABLE DISH VISIBILITY & ADD TO CART) */}
+      <GSAPFilteredMenu />
 
       {/* 6. EDITORIAL BENGALI FOOD CAMPAIGN SECTION (BURGUNDY SUNDAY KOSHA RITUAL) */}
       <HensslerCampaignBanner />

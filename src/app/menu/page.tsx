@@ -4,8 +4,9 @@ import { useState, useMemo, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { MENU_CATEGORIES, MENU_ITEMS, MenuItem, MenuCategory } from "@/data/menuData";
-import { Search, Heart, Clock, ExternalLink, ArrowRight } from "lucide-react";
+import { Search, Heart, Clock, ExternalLink, ArrowRight, Plus, Check } from "lucide-react";
 import { useFoodDiscovery } from "@/lib/useFoodDiscovery";
+import { useCart } from "@/context/CartContext";
 import DishDetailModal from "@/components/ui/DishDetailModal";
 
 type FilterTab = MenuCategory | "all" | "favorites" | "recent";
@@ -17,6 +18,7 @@ function MenuContent() {
 
   const { favorites, isFavorite, toggleFavorite, recentlyViewed, addRecentlyViewed } =
     useFoodDiscovery();
+  const { addToCart } = useCart();
 
   const [activeTab, setActiveTab] = useState<FilterTab>(initialCat);
   const [dietaryFilter, setDietaryFilter] = useState<"all" | "veg" | "non-veg">("all");
@@ -33,6 +35,14 @@ function MenuContent() {
       }
     }
   }, [initialDishId, addRecentlyViewed]);
+
+  // Synchronize category search param with activeTab
+  useEffect(() => {
+    const cat = searchParams.get("category") as MenuCategory;
+    if (cat) {
+      setActiveTab(cat);
+    }
+  }, [searchParams]);
 
   const filteredItems = useMemo(() => {
     return MENU_ITEMS.filter((item) => {
@@ -305,23 +315,21 @@ function MenuContent() {
                   </div>
 
                   {/* Card Action Bar */}
-                  <div className="p-6 pt-0 border-t border-[#E6D8C3]/60 flex items-center justify-between text-xs mt-3">
+                  <div className="p-6 pt-0 border-t border-[#E6D8C3]/60 flex items-center justify-between text-xs mt-3 gap-2">
                     <button
                       onClick={() => handleOpenDish(item)}
-                      className="font-semibold uppercase tracking-wider text-[#7A382B] hover:text-[#29251F] transition-colors py-2"
+                      className="font-semibold uppercase tracking-wider text-[#7A382B] hover:text-[#29251F] transition-colors py-2 cursor-pointer"
                     >
                       Dish Details
                     </button>
 
-                    <a
-                      href="https://www.swiggy.com/restaurants/the-calcutta-cafe-bangalore"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-[#29251F] hover:text-[#7A382B] font-semibold transition-colors"
+                    <button
+                      onClick={() => addToCart(item)}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#8E171D] hover:bg-[#651217] text-[#FFF1DF] text-[11px] font-semibold uppercase tracking-wider transition-colors shadow-xs cursor-pointer"
                     >
-                      <span>Order</span>
-                      <ExternalLink className="h-3 w-3 text-[#7A382B]" />
-                    </a>
+                      <Plus className="h-3 w-3" />
+                      <span>Add to Feast</span>
+                    </button>
                   </div>
                 </div>
               );

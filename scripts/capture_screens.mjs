@@ -58,7 +58,7 @@ async function run() {
 
   try {
     // ──────────────────────────────────────────────────────────
-    // 1. DESKTOP 1920 × 1080 (CINEMATIC HERO, HEADER, CARDS, CART)
+    // 1. DESKTOP 1920 × 1080 VERIFICATION
     // ──────────────────────────────────────────────────────────
     console.log("--- Testing Desktop 1920x1080 ---");
     const dContext = await browser.newContext({
@@ -67,67 +67,105 @@ async function run() {
     });
     const dPage = await dContext.newPage();
     await dPage.goto(BASE_URL, { waitUntil: "networkidle" });
-    await dPage.waitForTimeout(1200);
+    await dPage.waitForTimeout(1000);
 
-    // 1A. Fullscreen Cinematic Hero (Top fold, text directly over image, transparent header)
-    console.log("Capturing 01-desktop-fullscreen-hero.png...");
+    // 1A. Fullscreen Hero with text layered over image & transparent header
+    console.log("Capturing 01-gsap-hero-fullscreen-text-over-image.png...");
     await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "01-desktop-fullscreen-hero.png"),
+      path: path.join(OUTPUT_DIR, "01-gsap-hero-fullscreen-text-over-image.png"),
       clip: { x: 0, y: 0, width: 1920, height: 1080 },
     });
 
     // 1B. Scrolled Header Transition
-    console.log("Capturing 02-desktop-header-scrolled.png...");
-    await dPage.evaluate(() => window.scrollTo({ top: 400, behavior: "instant" }));
+    console.log("Capturing 02-gsap-header-scrolled.png...");
+    await dPage.evaluate(() => window.scrollTo({ top: 350, behavior: "instant" }));
     await dPage.waitForTimeout(600);
     await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "02-desktop-header-scrolled.png"),
+      path: path.join(OUTPUT_DIR, "02-gsap-header-scrolled.png"),
       clip: { x: 0, y: 0, width: 1920, height: 160 },
     });
 
     // Scroll through page to activate all animations
     await triggerAllScrollTriggers(dPage);
 
-    // 1C. Category Section with Ring Animations
-    console.log("Capturing 03-desktop-category-rings.png...");
+    // 1C. Category Section with DrawSVG and MotionPath Orbiting Rings
+    console.log("Capturing 03-gsap-category-svg-rings-motion.png...");
     const catSec = dPage.locator("#menu-categories").first();
     await catSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    await catSec.screenshot({
-      path: path.join(OUTPUT_DIR, "03-desktop-category-rings.png"),
-    });
-
-    // 1D. Signature Food Cards with Filter Tabs
-    console.log("Capturing 04-desktop-signature-food-cards.png...");
-    const foodSec = dPage.locator("#signature-menu").first();
-    await foodSec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    await foodSec.screenshot({
-      path: path.join(OUTPUT_DIR, "04-desktop-signature-food-cards.png"),
-    });
-
-    // 1E. Add-to-Cart Interaction (Click Add to Feast on first dish)
-    console.log("Testing Add-to-Cart interaction...");
-    const addBtn = foodSec.locator("button:has-text('Add to Feast')").first();
-    await addBtn.click();
     await dPage.waitForTimeout(700);
-
-    // Capture Add-to-Cart feedback and toast
-    console.log("Capturing 05-desktop-add-to-cart-toast.png...");
-    await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "05-desktop-add-to-cart-toast.png"),
-      clip: { x: 1200, y: 800, width: 720, height: 280 },
+    await catSec.screenshot({
+      path: path.join(OUTPUT_DIR, "03-gsap-category-svg-rings-motion.png"),
     });
 
-    // 1F. Open Cart Drawer
+    // 1D. Menu Filtering: Test Fish & Seafood Category
+    console.log("Testing Category Filter: Fish & Seafood...");
+    const menuSec = dPage.locator("#signature-menu").first();
+    await menuSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+
+    const fishTab = menuSec.locator("button:has-text('Fish & Seafood')").first();
+    await fishTab.click();
+    await dPage.waitForTimeout(600);
+
+    console.log("Capturing 04-gsap-menu-filter-fish-seafood.png...");
+    await menuSec.screenshot({
+      path: path.join(OUTPUT_DIR, "04-gsap-menu-filter-fish-seafood.png"),
+    });
+
+    // 1E. Menu Filtering: Test Chicken & Mutton Category
+    console.log("Testing Category Filter: Chicken & Mutton...");
+    const meatTab = menuSec.locator("button:has-text('Chicken & Mutton')").first();
+    await meatTab.click();
+    await dPage.waitForTimeout(600);
+
+    console.log("Capturing 05-gsap-menu-filter-chicken-mutton.png...");
+    await menuSec.screenshot({
+      path: path.join(OUTPUT_DIR, "05-gsap-menu-filter-chicken-mutton.png"),
+    });
+
+    // 1F. Menu Filtering: Test Vegetarian Delicacies Category
+    console.log("Testing Category Filter: Vegetarian...");
+    const vegTab = menuSec.locator("button:has-text('Vegetarian')").first();
+    await vegTab.click();
+    await dPage.waitForTimeout(600);
+
+    console.log("Capturing 06-gsap-menu-filter-vegetarian.png...");
+    await menuSec.screenshot({
+      path: path.join(OUTPUT_DIR, "06-gsap-menu-filter-vegetarian.png"),
+    });
+
+    // 1G. Menu Filtering: Test Sweets & Desserts Category
+    console.log("Testing Category Filter: Mithai / Sweets...");
+    const sweetTab = menuSec.locator("button:has-text('Mithai')").first();
+    await sweetTab.click();
+    await dPage.waitForTimeout(600);
+
+    console.log("Capturing 07-gsap-menu-filter-sweets.png...");
+    await menuSec.screenshot({
+      path: path.join(OUTPUT_DIR, "07-gsap-menu-filter-sweets.png"),
+    });
+
+    // 1H. Add to Cart Interaction (Add Mishti Doi to cart)
+    console.log("Testing Add-to-Cart interaction on Mishti Doi...");
+    const addBtn = menuSec.locator("button:has-text('Add to Feast')").first();
+    await addBtn.click();
+    await dPage.waitForTimeout(600);
+
+    console.log("Capturing 08-gsap-add-to-cart-interaction-and-toast.png...");
+    await dPage.screenshot({
+      path: path.join(OUTPUT_DIR, "08-gsap-add-to-cart-interaction-and-toast.png"),
+      clip: { x: 1200, y: 760, width: 720, height: 320 },
+    });
+
+    // 1I. Open Cart Drawer
     console.log("Opening Cart Drawer...");
-    const cartBtn = dPage.locator("button[aria-label*='Open feast selection']").first();
+    const cartBtn = dPage.locator("#header-cart-btn").first();
     await cartBtn.click();
     await dPage.waitForTimeout(800);
 
-    console.log("Capturing 06-desktop-cart-drawer-open.png...");
+    console.log("Capturing 09-gsap-cart-drawer-open.png...");
     await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "06-desktop-cart-drawer-open.png"),
+      path: path.join(OUTPUT_DIR, "09-gsap-cart-drawer-open.png"),
     });
 
     // Close Cart Drawer
@@ -135,17 +173,17 @@ async function run() {
     await closeDrawerBtn.click();
     await dPage.waitForTimeout(500);
 
-    // 1G. Full Desktop Page Screenshot
-    console.log("Capturing 07-full-desktop-homepage.png...");
+    // 1J. Full Desktop Page Screenshot
+    console.log("Capturing 10-full-desktop-homepage.png...");
     await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "07-full-desktop-homepage.png"),
+      path: path.join(OUTPUT_DIR, "10-full-desktop-homepage.png"),
       fullPage: true,
     });
 
     await dContext.close();
 
     // ──────────────────────────────────────────────────────────
-    // 2. MOBILE 390 × 844 (PRIMARY MOBILE PHONE BENCHMARK)
+    // 2. MOBILE 390 × 844 VERIFICATION
     // ──────────────────────────────────────────────────────────
     console.log("--- Testing Mobile 390x844 ---");
     const m390Context = await browser.newContext({
@@ -159,9 +197,9 @@ async function run() {
     await m390Page.waitForTimeout(1000);
 
     // 2A. Mobile Full-Screen Hero Top Fold
-    console.log("Capturing 08-mobile-fullscreen-hero.png...");
+    console.log("Capturing 11-mobile-hero-and-header.png...");
     await m390Page.screenshot({
-      path: path.join(OUTPUT_DIR, "08-mobile-fullscreen-hero.png"),
+      path: path.join(OUTPUT_DIR, "11-mobile-hero-and-header.png"),
       clip: { x: 0, y: 0, width: 390, height: 844 },
     });
 
@@ -171,9 +209,9 @@ async function run() {
     await mobileMenuBtn.click();
     await m390Page.waitForTimeout(700);
 
-    console.log("Capturing 09-mobile-nav-overlay.png...");
+    console.log("Capturing 12-mobile-nav-overlay.png...");
     await m390Page.screenshot({
-      path: path.join(OUTPUT_DIR, "09-mobile-nav-overlay.png"),
+      path: path.join(OUTPUT_DIR, "12-mobile-nav-overlay.png"),
     });
 
     // Close Mobile Navigation
@@ -184,43 +222,38 @@ async function run() {
     // Scroll through mobile
     await triggerAllScrollTriggers(m390Page);
 
-    // 2C. Mobile Category Cards & Rings
-    console.log("Capturing 10-mobile-category-cards.png...");
-    const mCatSec = m390Page.locator("#menu-categories").first();
-    await mCatSec.scrollIntoViewIfNeeded();
+    // 2C. Mobile Category & Filtered Menu
+    console.log("Capturing 13-mobile-category-and-menu-filter.png...");
+    const mMenuSec = m390Page.locator("#signature-menu").first();
+    await mMenuSec.scrollIntoViewIfNeeded();
     await m390Page.waitForTimeout(500);
-    await mCatSec.screenshot({
-      path: path.join(OUTPUT_DIR, "10-mobile-category-cards.png"),
+
+    // Click Fish & Seafood on mobile
+    const mFishTab = mMenuSec.locator("button:has-text('Fish & Seafood')").first();
+    await mFishTab.click();
+    await m390Page.waitForTimeout(600);
+
+    await mMenuSec.screenshot({
+      path: path.join(OUTPUT_DIR, "13-mobile-category-and-menu-filter.png"),
     });
 
-    // 2D. Mobile Food Cards & Add to Cart
-    console.log("Capturing 11-mobile-food-cards.png...");
-    const mFoodSec = m390Page.locator("#signature-menu").first();
-    await mFoodSec.scrollIntoViewIfNeeded();
-    await m390Page.waitForTimeout(500);
-    await mFoodSec.screenshot({
-      path: path.join(OUTPUT_DIR, "11-mobile-food-cards.png"),
-    });
-
-    // Add an item on mobile
-    const mAddBtn = mFoodSec.locator("button:has-text('Add to Feast')").first();
+    // 2D. Add an item and open cart drawer on mobile
+    const mAddBtn = mMenuSec.locator("button:has-text('Add to Feast')").first();
     await mAddBtn.click();
     await m390Page.waitForTimeout(600);
 
-    // 2E. Mobile Cart Drawer Open
-    console.log("Opening Cart Drawer on mobile...");
-    const mCartBtn = m390Page.locator("button[aria-label*='Open feast selection']").first();
+    const mCartBtn = m390Page.locator("#header-cart-btn").first();
     await mCartBtn.click();
     await m390Page.waitForTimeout(800);
 
-    console.log("Capturing 12-mobile-cart-drawer.png...");
+    console.log("Capturing 14-mobile-cart-drawer.png...");
     await m390Page.screenshot({
-      path: path.join(OUTPUT_DIR, "12-mobile-cart-drawer.png"),
+      path: path.join(OUTPUT_DIR, "14-mobile-cart-drawer.png"),
     });
 
     await m390Context.close();
 
-    console.log("ALL REDESIGN VERIFICATION SCREENSHOTS CAPTURED SUCCESSFULLY!");
+    console.log("ALL GSAP REDESIGN VERIFICATION SCREENSHOTS CAPTURED SUCCESSFULLY!");
   } finally {
     await browser.close();
     server.kill();

@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import CinematicHeader from "@/components/layout/CinematicHeader";
+import GSAPHeader from "@/components/layout/GSAPHeader";
 import RetailFooter from "@/components/layout/RetailFooter";
-import CartDrawer from "@/components/cart/CartDrawer";
-import AddToCartToast from "@/components/cart/AddToCartToast";
+import GSAPCartDrawer from "@/components/cart/GSAPCartDrawer";
+import GSAPAddToCartToast from "@/components/cart/GSAPAddToCartToast";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -12,7 +12,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <CinematicHeader />
+      <GSAPHeader />
       <main
         className={`relative min-h-screen ${
           isHome ? "pt-0" : "pt-[72px] sm:pt-[80px]"
@@ -21,8 +21,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <RetailFooter />
-      <CartDrawer />
-      <AddToCartToast />
+      <GSAPCartDrawer />
+      <GSAPAddToCartToast />
     </>
   );
 }
