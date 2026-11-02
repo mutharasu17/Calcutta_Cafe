@@ -11,6 +11,20 @@ if (!fs.existsSync(OUTPUT_DIR)) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
+async function triggerAllScrollTriggers(page) {
+  await page.evaluate(async () => {
+    const distance = 450;
+    const delay = 80;
+    while (document.scrollingElement.scrollTop + window.innerHeight < document.scrollingElement.scrollHeight) {
+      document.scrollingElement.scrollBy(0, distance);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+    await new Promise((r) => setTimeout(r, 300));
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+  await page.waitForTimeout(600);
+}
+
 async function run() {
   console.log("Starting Next.js production server on port", PORT);
   const server = spawn("npx", ["next", "start", "-p", String(PORT)], {
@@ -18,7 +32,6 @@ async function run() {
     env: { ...process.env, PORT: String(PORT) },
   });
 
-  // Wait for server to become responsive
   const maxRetries = 35;
   let ready = false;
   for (let i = 0; i < maxRetries; i++) {
@@ -29,7 +42,7 @@ async function run() {
         console.log("Server is ready at", BASE_URL);
         break;
       }
-    } catch (e) {
+    } catch {
       await new Promise((r) => setTimeout(r, 400));
     }
   }
@@ -45,7 +58,111 @@ async function run() {
 
   try {
     // ──────────────────────────────────────────────────────────
-    // 1. MOBILE 390 × 844 (PRIMARY MOBILE BENCHMARK)
+    // 1. DESKTOP 1920 × 1080 (FULL MANDATORY SUITE)
+    // ──────────────────────────────────────────────────────────
+    console.log("--- Testing Desktop 1920x1080 ---");
+    const dContext = await browser.newContext({
+      viewport: { width: 1920, height: 1080 },
+      deviceScaleFactor: 2,
+    });
+    const dPage = await dContext.newPage();
+    await dPage.goto(BASE_URL, { waitUntil: "networkidle" });
+    await dPage.waitForTimeout(1000);
+
+    // Scroll through to activate all ScrollTriggers
+    console.log("Activating all scroll animations...");
+    await triggerAllScrollTriggers(dPage);
+
+    // 1A. Desktop Hero
+    console.log("Capturing 01-desktop-hero.png...");
+    await dPage.screenshot({
+      path: path.join(OUTPUT_DIR, "01-desktop-hero.png"),
+      clip: { x: 0, y: 0, width: 1920, height: 960 },
+    });
+
+    // 1B. Desktop Category Section
+    console.log("Capturing 02-desktop-category-section.png...");
+    const catSec = dPage.locator("section:has-text('Shop Our Range.')").first();
+    await catSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await catSec.screenshot({
+      path: path.join(OUTPUT_DIR, "02-desktop-category-section.png"),
+    });
+
+    // 1C. Desktop Best Sellers Gallery
+    console.log("Capturing 03-desktop-bestsellers-gallery.png...");
+    const bestSec = dPage.locator("section:has-text('Best-Selling Delicacies.')").first();
+    await bestSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await bestSec.screenshot({
+      path: path.join(OUTPUT_DIR, "03-desktop-bestsellers-gallery.png"),
+    });
+
+    // 1D. Desktop Promotional Collection
+    console.log("Capturing 04-desktop-promotional-collection.png...");
+    const promoSec = dPage.locator("section:has-text('Taste of Bengal Collections.')").first();
+    await promoSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await promoSec.screenshot({
+      path: path.join(OUTPUT_DIR, "04-desktop-promotional-collection.png"),
+    });
+
+    // 1E. Desktop Speciality Showcase
+    console.log("Capturing 05-desktop-speciality-showcase.png...");
+    const specSec = dPage.locator("section:has-text('Signature Specialities.')").first();
+    await specSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await specSec.screenshot({
+      path: path.join(OUTPUT_DIR, "05-desktop-speciality-showcase.png"),
+    });
+
+    // 1F. Desktop Food Discovery
+    console.log("Capturing 06-desktop-food-discovery.png...");
+    const discSec = dPage.locator("section:has-text('Discover Our Menu.')").first();
+    await discSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await discSec.screenshot({
+      path: path.join(OUTPUT_DIR, "06-desktop-food-discovery.png"),
+    });
+
+    // 1G. Desktop Brand Story
+    console.log("Capturing 07-desktop-brand-story.png...");
+    const storySec = dPage.locator("section:has-text('Bringing the Taste of Bengal Closer to Everyone.')").first();
+    await storySec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await storySec.screenshot({
+      path: path.join(OUTPUT_DIR, "07-desktop-brand-story.png"),
+    });
+
+    // 1H. Desktop Journal
+    console.log("Capturing 08-desktop-journal.png...");
+    const jourSec = dPage.locator("section:has-text('Stories from the Kitchen.')").first();
+    await jourSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await jourSec.screenshot({
+      path: path.join(OUTPUT_DIR, "08-desktop-journal.png"),
+    });
+
+    // 1I. Desktop Existing Footer
+    console.log("Capturing 09-desktop-footer.png...");
+    const footSec = dPage.locator("footer").first();
+    await footSec.scrollIntoViewIfNeeded();
+    await dPage.waitForTimeout(500);
+    await footSec.screenshot({
+      path: path.join(OUTPUT_DIR, "09-desktop-footer.png"),
+    });
+
+    // 1J. Full Desktop Homepage
+    console.log("Capturing 14-full-desktop-homepage.png...");
+    await dPage.screenshot({
+      path: path.join(OUTPUT_DIR, "14-full-desktop-homepage.png"),
+      fullPage: true,
+    });
+
+    await dContext.close();
+
+    // ──────────────────────────────────────────────────────────
+    // 2. MOBILE 390 × 844 (PRIMARY MOBILE BENCHMARK)
     // ──────────────────────────────────────────────────────────
     console.log("--- Testing Mobile 390x844 ---");
     const m390Context = await browser.newContext({
@@ -56,285 +173,46 @@ async function run() {
     });
     const m390Page = await m390Context.newPage();
     await m390Page.goto(BASE_URL, { waitUntil: "networkidle" });
-    await m390Page.waitForTimeout(1500);
+    await m390Page.waitForTimeout(1000);
+    await triggerAllScrollTriggers(m390Page);
 
-    // 1A. Mobile Homepage Top Fold (Announcement + Header + Hero)
-    console.log("Capturing anand-01-mobile-390-homepage.png...");
+    // 2A. Mobile Homepage Top Fold (Compact Header directly at top, portrait hero)
+    console.log("Capturing 10-mobile-homepage.png...");
     await m390Page.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-01-mobile-390-homepage.png"),
+      path: path.join(OUTPUT_DIR, "10-mobile-homepage.png"),
       clip: { x: 0, y: 0, width: 390, height: 844 },
     });
 
-    // 1B. Mobile Shop Our Range
-    console.log("Capturing anand-02-mobile-390-shop-our-range.png...");
-    const rangeSec = m390Page.locator("section:has-text('Shop Our Range.')").first();
-    await rangeSec.scrollIntoViewIfNeeded();
-    await m390Page.waitForTimeout(600);
-    await rangeSec.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-02-mobile-390-shop-our-range.png"),
-    });
-
-    // 1C. Mobile Brand Trust Strip
-    console.log("Capturing anand-03-mobile-390-trust-strip.png...");
-    const trustSec = m390Page.locator("section:has-text('100% Heritage Recipes')").first();
-    await trustSec.scrollIntoViewIfNeeded();
+    // 2B. Mobile Category Browsing
+    console.log("Capturing 11-mobile-category-browsing.png...");
+    const mCatSec = m390Page.locator("section:has-text('Shop Our Range.')").first();
+    await mCatSec.scrollIntoViewIfNeeded();
     await m390Page.waitForTimeout(500);
-    await trustSec.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-03-mobile-390-trust-strip.png"),
+    await mCatSec.screenshot({
+      path: path.join(OUTPUT_DIR, "11-mobile-category-browsing.png"),
     });
 
-    // 1D. Mobile Best Sellers
-    console.log("Capturing anand-04-mobile-390-bestsellers.png...");
-    const bestSec = m390Page.locator("section:has-text('Best-Selling Delicacies.')").first();
-    await bestSec.scrollIntoViewIfNeeded();
-    await m390Page.waitForTimeout(600);
-    await bestSec.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-04-mobile-390-bestsellers.png"),
+    // 2C. Mobile Product Gallery
+    console.log("Capturing 12-mobile-product-gallery.png...");
+    const mBestSec = m390Page.locator("section:has-text('Best-Selling Delicacies.')").first();
+    await mBestSec.scrollIntoViewIfNeeded();
+    await m390Page.waitForTimeout(500);
+    await mBestSec.screenshot({
+      path: path.join(OUTPUT_DIR, "12-mobile-product-gallery.png"),
     });
 
-    // 1E. Mobile Promotional Collections
-    console.log("Capturing anand-05-mobile-390-promotional-banners.png...");
-    const promoSec = m390Page.locator("section:has-text('Taste of Bengal Collections.')").first();
-    await promoSec.scrollIntoViewIfNeeded();
-    await m390Page.waitForTimeout(600);
-    await promoSec.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-05-mobile-390-promotional-banners.png"),
+    // 2D. Mobile Footer
+    console.log("Capturing 13-mobile-footer.png...");
+    const mFootSec = m390Page.locator("footer").first();
+    await mFootSec.scrollIntoViewIfNeeded();
+    await m390Page.waitForTimeout(500);
+    await mFootSec.screenshot({
+      path: path.join(OUTPUT_DIR, "13-mobile-footer.png"),
     });
-
-    // 1F. Mobile Slide-Over Navigation Drawer
-    console.log("Opening mobile navigation drawer...");
-    const drawerBtn = m390Page.locator('button[aria-label="Open navigation drawer"]');
-    await drawerBtn.click({ force: true });
-    await m390Page.waitForTimeout(600);
-    console.log("Capturing anand-06-mobile-390-drawer-navigation.png...");
-    await m390Page.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-06-mobile-390-drawer-navigation.png"),
-    });
-    const closeBtn = m390Page.locator('button[aria-label="Close navigation drawer"]');
-    await closeBtn.click({ force: true });
-    await m390Page.waitForTimeout(400);
 
     await m390Context.close();
 
-    // ──────────────────────────────────────────────────────────
-    // 2. MOBILE 375 × 812 (COMPACT SMARTPHONE)
-    // ──────────────────────────────────────────────────────────
-    console.log("--- Testing Mobile 375x812 ---");
-    const m375Context = await browser.newContext({
-      viewport: { width: 375, height: 812 },
-      deviceScaleFactor: 2,
-      isMobile: true,
-      hasTouch: true,
-    });
-    const m375Page = await m375Context.newPage();
-    await m375Page.goto(BASE_URL, { waitUntil: "networkidle" });
-    await m375Page.waitForTimeout(1000);
-    console.log("Capturing anand-07-mobile-375-compact.png...");
-    await m375Page.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-07-mobile-375-compact.png"),
-      clip: { x: 0, y: 0, width: 375, height: 812 },
-    });
-    await m375Context.close();
-
-    // ──────────────────────────────────────────────────────────
-    // 3. MOBILE 430 × 932 (LARGE SMARTPHONE / PRO MAX)
-    // ──────────────────────────────────────────────────────────
-    console.log("--- Testing Mobile 430x932 ---");
-    const m430Context = await browser.newContext({
-      viewport: { width: 430, height: 932 },
-      deviceScaleFactor: 2,
-      isMobile: true,
-      hasTouch: true,
-    });
-    const m430Page = await m430Context.newPage();
-    await m430Page.goto(BASE_URL, { waitUntil: "networkidle" });
-    await m430Page.waitForTimeout(1000);
-    console.log("Capturing anand-08-mobile-430-large.png...");
-    await m430Page.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-08-mobile-430-large.png"),
-      clip: { x: 0, y: 0, width: 430, height: 932 },
-    });
-    await m430Context.close();
-
-    // ──────────────────────────────────────────────────────────
-    // 4. TABLET 768 × 1024
-    // ──────────────────────────────────────────────────────────
-    console.log("--- Testing Tablet 768x1024 ---");
-    const tabContext = await browser.newContext({
-      viewport: { width: 768, height: 1024 },
-      deviceScaleFactor: 2,
-    });
-    const tabPage = await tabContext.newPage();
-    await tabPage.goto(BASE_URL, { waitUntil: "networkidle" });
-    await tabPage.waitForTimeout(1000);
-    console.log("Capturing anand-09-tablet-768.png...");
-    await tabPage.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-09-tablet-768.png"),
-      clip: { x: 0, y: 0, width: 768, height: 950 },
-    });
-    await tabContext.close();
-
-    // ──────────────────────────────────────────────────────────
-    // 5. LAPTOP 1366 × 768
-    // ──────────────────────────────────────────────────────────
-    console.log("--- Testing Laptop 1366x768 ---");
-    const lapContext = await browser.newContext({
-      viewport: { width: 1366, height: 768 },
-      deviceScaleFactor: 2,
-    });
-    const lapPage = await lapContext.newPage();
-    await lapPage.goto(BASE_URL, { waitUntil: "networkidle" });
-    await lapPage.waitForTimeout(1000);
-    console.log("Capturing anand-10-laptop-1366.png...");
-    await lapPage.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-10-laptop-1366.png"),
-      clip: { x: 0, y: 0, width: 1366, height: 768 },
-    });
-    await lapContext.close();
-
-    // ──────────────────────────────────────────────────────────
-    // 6. DESKTOP 1920 × 1080 (FULL ANAND SUITE)
-    // ──────────────────────────────────────────────────────────
-    console.log("--- Testing Desktop 1920x1080 ---");
-    const dContext = await browser.newContext({
-      viewport: { width: 1920, height: 1080 },
-      deviceScaleFactor: 2,
-    });
-    const dPage = await dContext.newPage();
-    await dPage.goto(BASE_URL, { waitUntil: "networkidle" });
-    await dPage.waitForTimeout(1500);
-
-    // 6A. Desktop Hero
-    console.log("Capturing anand-11-desktop-1920-hero.png...");
-    await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-11-desktop-1920-hero.png"),
-      clip: { x: 0, y: 0, width: 1920, height: 980 },
-    });
-
-    // 6B. Desktop Dropdown Mega Menu
-    console.log("Opening Categories Mega Dropdown...");
-    const catBtn = dPage.locator("button:has-text('Categories')").first();
-    await catBtn.hover();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-12-desktop-1920-dropdown-mega-menu.png...");
-    await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-12-desktop-1920-dropdown-mega-menu.png"),
-      clip: { x: 0, y: 0, width: 1920, height: 620 },
-    });
-    // Move mouse away to close dropdown
-    await dPage.mouse.move(10, 10);
-    await dPage.waitForTimeout(300);
-
-    // 6C. Desktop Shop Our Range
-    console.log("Scrolling to Shop Our Range...");
-    const dRange = dPage.locator("section:has-text('Shop Our Range.')").first();
-    await dRange.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-13-desktop-1920-shop-our-range.png...");
-    await dRange.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-13-desktop-1920-shop-our-range.png"),
-    });
-
-    // 6D. Desktop Best Sellers
-    console.log("Scrolling to Best Sellers...");
-    const dBest = dPage.locator("section:has-text('Best-Selling Delicacies.')").first();
-    await dBest.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-14-desktop-1920-bestsellers.png...");
-    await dBest.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-14-desktop-1920-bestsellers.png"),
-    });
-
-    // 6E. Desktop Promotional Collections
-    console.log("Scrolling to Promotional Collections...");
-    const dPromo = dPage.locator("section:has-text('Taste of Bengal Collections.')").first();
-    await dPromo.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-15-desktop-1920-promotional-banners.png...");
-    await dPromo.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-15-desktop-1920-promotional-banners.png"),
-    });
-
-    // 6F. Desktop Our Speciality
-    console.log("Scrolling to Our Speciality...");
-    const dSpec = dPage.locator("section:has-text('Our Signature Specialities.')").first();
-    await dSpec.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-16-desktop-1920-our-speciality.png...");
-    await dSpec.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-16-desktop-1920-our-speciality.png"),
-    });
-
-    // 6G. Desktop Street Food
-    console.log("Scrolling to Street Savouries...");
-    const dStreet = dPage.locator("section:has-text('Street Savouries & Snacks.')").first();
-    await dStreet.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-17-desktop-1920-street-food.png...");
-    await dStreet.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-17-desktop-1920-street-food.png"),
-    });
-
-    // 6H. Desktop Our Story
-    console.log("Scrolling to Our Story...");
-    const dStory = dPage.locator("section:has-text('Rooted in Bengal, Handcrafted in Bangalore.')").first();
-    await dStory.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-18-desktop-1920-brand-story.png...");
-    await dStory.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-18-desktop-1920-brand-story.png"),
-    });
-
-    // 6I. Desktop Journal Grid
-    console.log("Scrolling to Bengal Journal...");
-    const dJournal = dPage.locator("section:has-text('Stories from the Kitchen.')").first();
-    await dJournal.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-19-desktop-1920-journal.png...");
-    await dJournal.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-19-desktop-1920-journal.png"),
-    });
-
-    // 6J. Desktop Retail Footer
-    console.log("Scrolling to Retail Footer...");
-    const dFooter = dPage.locator("footer").first();
-    await dFooter.scrollIntoViewIfNeeded();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-20-desktop-1920-retail-footer.png...");
-    await dFooter.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-20-desktop-1920-retail-footer.png"),
-    });
-
-    // 6K. Live Search Modal Interaction
-    console.log("Opening Search Dialog...");
-    await dPage.evaluate(() => window.scrollTo(0, 0));
-    await dPage.waitForTimeout(400);
-    const searchIcon = dPage.locator('button[aria-label="Open search dialog"]').first();
-    await searchIcon.click();
-    await dPage.waitForTimeout(500);
-    console.log("Capturing anand-21-search-modal-interaction.png...");
-    await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-21-search-modal-interaction.png"),
-    });
-    await dPage.keyboard.press("Escape");
-    await dPage.waitForTimeout(300);
-
-    // 6L. Dish Detail Modal Interaction
-    console.log("Opening Dish Detail Modal...");
-    const viewDetailBtn = dPage.locator("button:has-text('View Details')").first();
-    await viewDetailBtn.scrollIntoViewIfNeeded();
-    await viewDetailBtn.click();
-    await dPage.waitForTimeout(600);
-    console.log("Capturing anand-22-dish-detail-modal-interaction.png...");
-    await dPage.screenshot({
-      path: path.join(OUTPUT_DIR, "anand-22-dish-detail-modal-interaction.png"),
-    });
-    await dPage.keyboard.press("Escape");
-    await dPage.waitForTimeout(300);
-
-    await dContext.close();
-
-    console.log("ALL 22 ANAND-INSPIRED VERIFICATION CAPTURES COMPLETED SUCCESSFULLY!");
+    console.log("ALL MANDATORY SCREENSHOTS CAPTURED SUCCESSFULLY!");
   } finally {
     await browser.close();
     server.kill();

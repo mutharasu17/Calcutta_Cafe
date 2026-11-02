@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import BrandLogo from "../ui/BrandLogo";
-import AnnouncementBar from "./AnnouncementBar";
 import SearchModal from "../ui/SearchModal";
 import DishDetailModal from "../ui/DishDetailModal";
 import { MENU_CATEGORIES, MenuItem } from "@/data/menuData";
@@ -61,9 +60,6 @@ export default function RetailHeader() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
-        {/* Top Announcement Bar */}
-        <AnnouncementBar />
-
         {/* Primary Retail Navigation Bar */}
         <div
           className={`bg-[#FFFDF8] border-b border-[#E6D8C3] transition-all duration-300 ${

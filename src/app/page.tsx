@@ -1,42 +1,50 @@
-import RetailHeroBanner from "@/components/home/RetailHeroBanner";
-import ShopOurRange from "@/components/home/ShopOurRange";
-import BrandTrustStrip from "@/components/home/BrandTrustStrip";
-import BestSellersGallery from "@/components/home/BestSellersGallery";
-import PromotionalBanners from "@/components/home/PromotionalBanners";
-import OurSpeciality from "@/components/home/OurSpeciality";
-import StreetFoodShowcase from "@/components/home/StreetFoodShowcase";
-import BrandStorySection from "@/components/home/BrandStorySection";
-import JournalGrid from "@/components/home/JournalGrid";
+import AnandHero from "@/components/home/AnandHero";
+import BrandManifesto from "@/components/home/BrandManifesto";
+import AnandCategoryGrid from "@/components/home/AnandCategoryGrid";
+import BrandBenefitsStrip from "@/components/home/BrandBenefitsStrip";
+import AnandBestSellers from "@/components/home/AnandBestSellers";
+import PromotionalCampaign from "@/components/home/PromotionalCampaign";
+import FeaturedCollections from "@/components/home/FeaturedCollections";
+import SpecialityShowcase from "@/components/home/SpecialityShowcase";
+import FoodDiscoverySection from "@/components/home/FoodDiscoverySection";
+import BrandStorySpread from "@/components/home/BrandStorySpread";
+import JournalPreview from "@/components/home/JournalPreview";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. LARGE PROMOTIONAL HERO BANNER (ANAND SWEETS RETAIL STYLE) */}
-      <RetailHeroBanner />
+      {/* 1. LARGE PROMOTIONAL HERO (ANAND SWEETS × A1 GALLERY) */}
+      <AnandHero />
 
-      {/* 2. SHOP OUR RANGE — CATEGORY FIRST VISUAL STRUCTURE */}
-      <ShopOurRange />
+      {/* 2. INTRODUCTORY BRAND STATEMENT */}
+      <BrandManifesto />
 
-      {/* 3. BRAND INFORMATION & TRUST STRIP (4 VERIFIED PILLARS) */}
-      <BrandTrustStrip />
+      {/* 3. SHOP OUR RANGE — IMAGE-LED CATEGORY GRID */}
+      <AnandCategoryGrid />
 
-      {/* 4. FEATURED DISHES & BEST SELLERS (ANAND STYLE PRODUCT GALLERY) */}
-      <BestSellersGallery />
+      {/* 4. BRAND BENEFITS / INFORMATION STRIP */}
+      <BrandBenefitsStrip />
 
-      {/* 5. PROMOTIONAL EDITORIAL CAMPAIGN BANNERS (RIVER FISH & SUNDAY KOSHA) */}
-      <PromotionalBanners />
+      {/* 5. BEST SELLERS — PRODUCT GALLERY REDESIGN */}
+      <AnandBestSellers />
 
-      {/* 6. OUR SPECIALITY — IMAGE-LED SIGNATURE CULINARY SHOWCASE */}
-      <OurSpeciality />
+      {/* 6. LARGE PROMOTIONAL VISUAL CAMPAIGN */}
+      <PromotionalCampaign />
 
-      {/* 7. STREET SAVOURIES & SNACK DISCOVERY (PARK STREET KATHI ROLLS & CUTLETS) */}
-      <StreetFoodShowcase />
+      {/* 7. FEATURED BENGALI COLLECTIONS */}
+      <FeaturedCollections />
 
-      {/* 8. OUR STORY — AKASH SANTRA 2019 FOUNDING MONOGRAPH & PHILOSOPHY */}
-      <BrandStorySection />
+      {/* 8. SPECIALITY SHOWCASE — ALTERNATING VISUAL COMPOSITIONS */}
+      <SpecialityShowcase />
 
-      {/* 9. THE BENGAL JOURNAL — EDITORIAL ARTICLE GRID */}
-      <JournalGrid />
+      {/* 9. FOOD DISCOVERY / CATEGORY SHOWCASE (INTERACTIVE) */}
+      <FoodDiscoverySection />
+
+      {/* 10. BRAND STORY — AKASH SANTRA 2019 MONOGRAPH */}
+      <BrandStorySpread />
+
+      {/* 11. JOURNAL / LATEST STORIES (FEATURED + SUPPORTING) */}
+      <JournalPreview />
     </>
   );
 }

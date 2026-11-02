@@ -79,7 +79,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-[#F5EFE4] text-[#29251F] selection:bg-[#7A382B] selection:text-[#F5EFE4]">
         <SmoothScroll>
           <RetailHeader />
-          <main className="relative min-h-screen pt-[104px] sm:pt-[112px] lg:pt-[118px]">
+          <main className="relative min-h-screen pt-[72px] sm:pt-[76px] lg:pt-[80px]">
             {children}
           </main>
           <RetailFooter />
