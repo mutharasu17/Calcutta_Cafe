@@ -42,9 +42,7 @@ export default function GSAPCategoryDiscovery() {
           if (dot) {
             gsap.to(dot, {
               motionPath: {
-                path: `#cat-ring-path-${idx}`,
-                align: `#cat-ring-path-${idx}`,
-                alignOrigin: [0.5, 0.5],
+                path: "M 150 20 A 130 130 0 1 1 149.9 20 Z",
                 autoRotate: false,
               },
               duration: 14 + idx * 2.5,

@@ -132,9 +132,7 @@ export default function BrightCategoryDiscovery() {
         if (marker) {
           gsap.to(marker, {
             motionPath: {
-              path: `#cat-ring-path-${idx}`,
-              align: `#cat-ring-path-${idx}`,
-              alignOrigin: [0.5, 0.5],
+              path: "M 100, 8 A 92 92 0 1 1 100 192 A 92 92 0 1 1 100 8 Z",
               autoRotate: false,
             },
             duration: 8 + idx * 1.5,
@@ -229,11 +227,9 @@ export default function BrightCategoryDiscovery() {
                       className="absolute inset-0 w-full h-full overflow-visible pointer-events-none z-10"
                       viewBox="0 0 200 200"
                     >
-                      <circle
+                      <path
                         id={`cat-ring-path-${idx}`}
-                        cx="100"
-                        cy="100"
-                        r="92"
+                        d="M 100, 8 A 92 92 0 1 1 100 192 A 92 92 0 1 1 100 8 Z"
                         fill="none"
                         stroke="#C49A55"
                         strokeWidth="1.5"
@@ -242,8 +238,8 @@ export default function BrightCategoryDiscovery() {
                       />
                       <circle
                         id={`cat-ring-marker-${idx}`}
-                        cx="100"
-                        cy="8"
+                        cx="0"
+                        cy="0"
                         r="3.5"
                         fill="#8E171D"
                         stroke="#C49A55"

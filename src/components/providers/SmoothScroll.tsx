@@ -27,7 +27,11 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     lenis.on("scroll", ScrollTrigger.update);
 
     const tickerCb = (time: number) => {
-      lenis.raf(time * 1000);
+      try {
+        lenis.raf(time * 1000);
+      } catch (err) {
+        console.error("SmoothScroll RAF error:", err);
+      }
     };
 
     gsap.ticker.add(tickerCb);

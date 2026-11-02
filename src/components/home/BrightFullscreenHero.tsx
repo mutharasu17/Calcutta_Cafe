@@ -73,12 +73,10 @@ export default function BrightFullscreenHero() {
       if (orbitAccentRef.current) {
         gsap.to(orbitAccentRef.current, {
           motionPath: {
-            path: "#hero-circle-track",
-            align: "#hero-circle-track",
-            alignOrigin: [0.5, 0.5],
+            path: "M 100, 20 A 80 80 0 1 1 100 180 A 80 80 0 1 1 100 20 Z",
             autoRotate: false,
           },
-          duration: 10,
+          duration: 12,
           repeat: -1,
           ease: "none",
         });
@@ -237,11 +235,9 @@ export default function BrightFullscreenHero() {
       ────────────────────────────────────────────────────────── */}
       <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 pointer-events-none z-10 w-72 h-72">
         <svg className="w-full h-full overflow-visible" viewBox="0 0 200 200">
-          <circle
+          <path
             id="hero-circle-track"
-            cx="100"
-            cy="100"
-            r="80"
+            d="M 100, 20 A 80 80 0 1 1 100 180 A 80 80 0 1 1 100 20 Z"
             fill="none"
             stroke="#C49A55"
             strokeWidth="1"
@@ -250,8 +246,8 @@ export default function BrightFullscreenHero() {
           />
           <circle
             ref={orbitAccentRef}
-            cx="100"
-            cy="20"
+            cx="0"
+            cy="0"
             r="4"
             fill="#8E171D"
             stroke="#C49A55"
