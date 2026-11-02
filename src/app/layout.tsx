@@ -76,7 +76,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable} ${notoBengali.variable}`}>
-      <body className="min-h-screen bg-[#F5EFE4] text-[#29251F] selection:bg-[#7A382B] selection:text-[#F5EFE4]">
+      <body className="min-h-screen bg-[#FFF1DF] text-[#292321] selection:bg-[#8E171D] selection:text-[#FFF1DF]">
         <SmoothScroll>
           <RetailHeader />
           <main className="relative min-h-screen pt-[72px] sm:pt-[76px] lg:pt-[80px]">

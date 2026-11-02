@@ -2,20 +2,28 @@
 
 @layer base {
   :root {
-    --ivory: #F5EFE4;
+    /* Bengali Red Restaurant Identity Tokens */
+    --bengali-red: #8E171D;
+    --bengali-red-secondary: #A9272D;
+    --burgundy: #651217;
+    --warm-ivory: #FFF1DF;
+    --cream: #F4E8D7;
+    --muted-gold: #C49A55;
+    --dark-text: #292321;
+    --secondary-text: #796A60;
+
+    --ivory: #FFF1DF;
     --sandstone: #E6D8C3;
-    --charcoal: #29251F;
-    --muted-charcoal: #6B6357;
-    --terracotta: #7A382B;
-    --deep-leaf: #34483A;
-    --muted-brass: #B68A52;
+    --charcoal: #292321;
+    --muted-charcoal: #796A60;
+    --terracotta: #8E171D;
     --white: #FFFFFF;
 
     --ease-out-editorial: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
 
-    --background: var(--ivory);
-    --foreground: var(--charcoal);
+    --background: #FFF1DF;
+    --foreground: #292321;
   }
 
   html {
@@ -39,19 +47,19 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #F5EFE4;
+    background: #FFF1DF;
   }
   ::-webkit-scrollbar-thumb {
     background: #E6D8C3;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #7A382B;
+    background: #8E171D;
   }
 
   ::selection {
-    background: #7A382B;
-    color: #F5EFE4;
+    background: #8E171D;
+    color: #FFF1DF;
   }
 }
 

@@ -1,50 +1,46 @@
-import AnandHero from "@/components/home/AnandHero";
-import BrandManifesto from "@/components/home/BrandManifesto";
-import AnandCategoryGrid from "@/components/home/AnandCategoryGrid";
-import BrandBenefitsStrip from "@/components/home/BrandBenefitsStrip";
-import AnandBestSellers from "@/components/home/AnandBestSellers";
-import PromotionalCampaign from "@/components/home/PromotionalCampaign";
-import FeaturedCollections from "@/components/home/FeaturedCollections";
-import SpecialityShowcase from "@/components/home/SpecialityShowcase";
-import FoodDiscoverySection from "@/components/home/FoodDiscoverySection";
-import BrandStorySpread from "@/components/home/BrandStorySpread";
-import JournalPreview from "@/components/home/JournalPreview";
+import HensslerHero from "@/components/home/HensslerHero";
+import HensslerBrandIntro from "@/components/home/HensslerBrandIntro";
+import HensslerSignatureExperience from "@/components/home/HensslerSignatureExperience";
+import HensslerMenuCategories from "@/components/home/HensslerMenuCategories";
+import HensslerFeaturedDishes from "@/components/home/HensslerFeaturedDishes";
+import HensslerCampaignBanner from "@/components/home/HensslerCampaignBanner";
+import HensslerRestaurantStory from "@/components/home/HensslerRestaurantStory";
+import HensslerVisualGallery from "@/components/home/HensslerVisualGallery";
+import HensslerOrderOnline from "@/components/home/HensslerOrderOnline";
+import HensslerRestaurantInfo from "@/components/home/HensslerRestaurantInfo";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. LARGE PROMOTIONAL HERO (ANAND SWEETS × A1 GALLERY) */}
-      <AnandHero />
+      {/* SECTION 01 — CINEMATIC RESTAURANT HERO (HENSSLER STYLE) */}
+      <HensslerHero />
 
-      {/* 2. INTRODUCTORY BRAND STATEMENT */}
-      <BrandManifesto />
+      {/* SECTION 02 — BRAND INTRODUCTION (WARM IVORY EDITORIAL) */}
+      <HensslerBrandIntro />
 
-      {/* 3. SHOP OUR RANGE — IMAGE-LED CATEGORY GRID */}
-      <AnandCategoryGrid />
+      {/* SECTION 03 — SIGNATURE FOOD EXPERIENCE (ASYMMETRIC SHOWCASE) */}
+      <HensslerSignatureExperience />
 
-      {/* 4. BRAND BENEFITS / INFORMATION STRIP */}
-      <BrandBenefitsStrip />
+      {/* SECTION 04 — EXPLORE OUR MENU (ANAND-INSPIRED CATEGORY DISCOVERY) */}
+      <HensslerMenuCategories />
 
-      {/* 5. BEST SELLERS — PRODUCT GALLERY REDESIGN */}
-      <AnandBestSellers />
+      {/* SECTION 05 — FEATURED MENU / SIGNATURE DISHES (DEEP RED RESTAURANT GALLERY) */}
+      <HensslerFeaturedDishes />
 
-      {/* 6. LARGE PROMOTIONAL VISUAL CAMPAIGN */}
-      <PromotionalCampaign />
+      {/* SECTION 06 — EDITORIAL PROMOTIONAL BANNER (BURGUNDY RITUAL CAMPAIGN) */}
+      <HensslerCampaignBanner />
 
-      {/* 7. FEATURED BENGALI COLLECTIONS */}
-      <FeaturedCollections />
+      {/* SECTION 07 — BENGALI FOOD STORY (FOUNDER & RESTAURANT MONOGRAPH) */}
+      <HensslerRestaurantStory />
 
-      {/* 8. SPECIALITY SHOWCASE — ALTERNATING VISUAL COMPOSITIONS */}
-      <SpecialityShowcase />
+      {/* SECTION 08 — FOOD AND RESTAURANT VISUAL GALLERY (A1 GALLERY ANTHOLOGY) */}
+      <HensslerVisualGallery />
 
-      {/* 9. FOOD DISCOVERY / CATEGORY SHOWCASE (INTERACTIVE) */}
-      <FoodDiscoverySection />
+      {/* SECTION 09 — ORDER ONLINE (DEDICATED CONVERSION SECTION WITH SWIGGY & ZOMATO) */}
+      <HensslerOrderOnline />
 
-      {/* 10. BRAND STORY — AKASH SANTRA 2019 MONOGRAPH */}
-      <BrandStorySpread />
-
-      {/* 11. JOURNAL / LATEST STORIES (FEATURED + SUPPORTING) */}
-      <JournalPreview />
+      {/* SECTION 10 — RESTAURANT INFORMATION / VISIT US (HUBS, HOURS & CONTACT) */}
+      <HensslerRestaurantInfo />
     </>
   );
 }
