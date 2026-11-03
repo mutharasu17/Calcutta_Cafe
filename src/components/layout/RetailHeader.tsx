@@ -71,7 +71,7 @@ export default function RetailHeader() {
             <div className="flex items-center gap-3 sm:gap-4">
               <button
                 onClick={() => setIsMobileDrawerOpen(true)}
-                className="lg:hidden p-2 text-[#29251F] hover:text-[#7A382B] transition-colors"
+                className="lg:hidden p-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors"
                 aria-label="Open navigation drawer"
               >
                 <MenuIcon className="h-5 w-5" />
@@ -87,8 +87,8 @@ export default function RetailHeader() {
             >
               <Link
                 href="/menu"
-                className={`transition-colors hover:text-[#7A382B] ${
-                  pathname === "/menu" ? "text-[#7A382B] font-semibold" : ""
+                className={`transition-colors hover:text-[#5B1B8A] ${
+                  pathname === "/menu" ? "text-[#5B1B8A] font-semibold" : ""
                 }`}
               >
                 Shop All
@@ -102,15 +102,15 @@ export default function RetailHeader() {
               >
                 <button
                   onClick={() => setIsMegaMenuOpen((prev) => !prev)}
-                  className={`inline-flex items-center gap-1.5 transition-colors hover:text-[#7A382B] ${
-                    isMegaMenuOpen ? "text-[#7A382B] font-semibold" : ""
+                  className={`inline-flex items-center gap-1.5 transition-colors hover:text-[#5B1B8A] ${
+                    isMegaMenuOpen ? "text-[#5B1B8A] font-semibold" : ""
                   }`}
                   aria-expanded={isMegaMenuOpen}
                 >
                   <span>Categories</span>
                   <ChevronDown
                     className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                      isMegaMenuOpen ? "rotate-180 text-[#7A382B]" : ""
+                      isMegaMenuOpen ? "rotate-180 text-[#5B1B8A]" : ""
                     }`}
                   />
                 </button>
@@ -135,10 +135,10 @@ export default function RetailHeader() {
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <span className="font-bengali text-[11px] text-[#7A382B] font-medium block truncate">
+                          <span className="font-bengali text-[11px] text-[#5B1B8A] font-medium block truncate">
                             {cat.bengaliSubtitle}
                           </span>
-                          <h4 className="font-serif text-sm font-semibold text-[#29251F] group-hover:text-[#7A382B] transition-colors leading-tight">
+                          <h4 className="font-serif text-sm font-semibold text-[#29251F] group-hover:text-[#5B1B8A] transition-colors leading-tight">
                             {cat.name}
                           </h4>
                           <span className="text-[10px] font-mono text-[#6B6357] uppercase tracking-wider block mt-1">
@@ -152,7 +152,7 @@ export default function RetailHeader() {
                       <Link
                         href="/menu"
                         onClick={() => setIsMegaMenuOpen(false)}
-                        className="text-[#7A382B] hover:text-[#29251F] font-semibold uppercase tracking-wider flex items-center gap-1"
+                        className="text-[#5B1B8A] hover:text-[#29251F] font-semibold uppercase tracking-wider flex items-center gap-1"
                       >
                         <span>View All Courses</span>
                         <ArrowRight className="h-3 w-3" />
@@ -164,8 +164,8 @@ export default function RetailHeader() {
 
               <Link
                 href="/about"
-                className={`transition-colors hover:text-[#7A382B] ${
-                  pathname === "/about" ? "text-[#7A382B] font-semibold" : ""
+                className={`transition-colors hover:text-[#5B1B8A] ${
+                  pathname === "/about" ? "text-[#5B1B8A] font-semibold" : ""
                 }`}
               >
                 Our Story
@@ -173,8 +173,8 @@ export default function RetailHeader() {
 
               <Link
                 href="/blog"
-                className={`transition-colors hover:text-[#7A382B] ${
-                  pathname.startsWith("/blog") ? "text-[#7A382B] font-semibold" : ""
+                className={`transition-colors hover:text-[#5B1B8A] ${
+                  pathname.startsWith("/blog") ? "text-[#5B1B8A] font-semibold" : ""
                 }`}
               >
                 Journal
@@ -182,8 +182,8 @@ export default function RetailHeader() {
 
               <Link
                 href="/contact"
-                className={`transition-colors hover:text-[#7A382B] ${
-                  pathname === "/contact" ? "text-[#7A382B] font-semibold" : ""
+                className={`transition-colors hover:text-[#5B1B8A] ${
+                  pathname === "/contact" ? "text-[#5B1B8A] font-semibold" : ""
                 }`}
               >
                 Contact
@@ -195,7 +195,7 @@ export default function RetailHeader() {
               {/* Search Trigger Icon */}
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-[#29251F] hover:text-[#7A382B] transition-colors relative"
+                className="p-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors relative"
                 aria-label="Open search dialog"
               >
                 <Search className="h-4 sm:h-5 w-4 sm:w-5" />
@@ -204,7 +204,7 @@ export default function RetailHeader() {
               {/* Favourites Shortcut with Live Counter */}
               <Link
                 href="/menu"
-                className="p-2 text-[#29251F] hover:text-[#7A382B] transition-colors relative"
+                className="p-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors relative"
                 aria-label={`Saved favourites: ${favorites.length}`}
               >
                 <Heart
@@ -213,7 +213,7 @@ export default function RetailHeader() {
                   }`}
                 />
                 {favorites.length > 0 && (
-                  <span className="absolute top-1 right-1 h-4 w-4 rounded-full bg-[#7A382B] text-[#FFFDF8] text-[9px] font-mono flex items-center justify-center font-bold">
+                  <span className="absolute top-1 right-1 h-4 w-4 rounded-full bg-[#5B1B8A] text-[#FFFDF8] text-[9px] font-mono flex items-center justify-center font-bold">
                     {favorites.length}
                   </span>
                 )}
@@ -222,7 +222,7 @@ export default function RetailHeader() {
               {/* High-Impact Terracotta Order Online Button */}
               <Link
                 href="/order"
-                className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#7A382B] hover:bg-[#5E2B21] text-[#FFFDF8] px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition-all shadow-sm"
+                className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFFDF8] px-3.5 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition-all shadow-sm"
               >
                 <span>Order Online</span>
                 <ExternalLink className="h-3 sm:h-3.5 w-3 sm:w-3.5" />
@@ -251,7 +251,7 @@ export default function RetailHeader() {
                 <BrandLogo size="sm" />
                 <button
                   onClick={() => setIsMobileDrawerOpen(false)}
-                  className="p-2 text-[#29251F] hover:text-[#7A382B] transition-colors"
+                  className="p-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors"
                   aria-label="Close navigation drawer"
                 >
                   <X className="h-5 w-5" />
@@ -267,7 +267,7 @@ export default function RetailHeader() {
                   }}
                   className="w-full flex items-center gap-2.5 bg-[#F5EFE4] border border-[#E6D8C3] px-3.5 py-2.5 text-xs text-[#6B6357]"
                 >
-                  <Search className="h-4 w-4 text-[#7A382B]" />
+                  <Search className="h-4 w-4 text-[#5B1B8A]" />
                   <span>Search dishes & ingredients...</span>
                 </button>
               </div>
@@ -275,7 +275,7 @@ export default function RetailHeader() {
               {/* Category-First Navigation Links */}
               <div className="p-5 space-y-6">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#7A382B] font-semibold block mb-2.5">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#5B1B8A] font-semibold block mb-2.5">
                     Shop Our Range • রসনার সম্ভার
                   </span>
                   <div className="space-y-1">
@@ -284,10 +284,10 @@ export default function RetailHeader() {
                         key={cat.id}
                         href={`/menu?category=${cat.id}`}
                         onClick={() => setIsMobileDrawerOpen(false)}
-                        className="flex items-center justify-between py-2 text-sm text-[#29251F] hover:text-[#7A382B] transition-colors border-b border-[#E6D8C3]/40"
+                        className="flex items-center justify-between py-2 text-sm text-[#29251F] hover:text-[#5B1B8A] transition-colors border-b border-[#E6D8C3]/40"
                       >
                         <span className="font-serif">{cat.name}</span>
-                        <span className="font-bengali text-xs text-[#7A382B]">
+                        <span className="font-bengali text-xs text-[#5B1B8A]">
                           {cat.bengaliSubtitle}
                         </span>
                       </Link>
@@ -296,27 +296,27 @@ export default function RetailHeader() {
                 </div>
 
                 <div className="space-y-2.5 pt-2 border-t border-[#E6D8C3]">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#7A382B] font-semibold block mb-2">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#5B1B8A] font-semibold block mb-2">
                     Company & Heritage
                   </span>
                   <Link
                     href="/about"
                     onClick={() => setIsMobileDrawerOpen(false)}
-                    className="block text-sm font-serif text-[#29251F] hover:text-[#7A382B]"
+                    className="block text-sm font-serif text-[#29251F] hover:text-[#5B1B8A]"
                   >
                     Our Story & Akash Santra (2019)
                   </Link>
                   <Link
                     href="/blog"
                     onClick={() => setIsMobileDrawerOpen(false)}
-                    className="block text-sm font-serif text-[#29251F] hover:text-[#7A382B]"
+                    className="block text-sm font-serif text-[#29251F] hover:text-[#5B1B8A]"
                   >
                     The Bengal Journal (Culinary Essays)
                   </Link>
                   <Link
                     href="/contact"
                     onClick={() => setIsMobileDrawerOpen(false)}
-                    className="block text-sm font-serif text-[#29251F] hover:text-[#7A382B]"
+                    className="block text-sm font-serif text-[#29251F] hover:text-[#5B1B8A]"
                   >
                     Contact & Bangaluru Kitchen Hubs
                   </Link>
@@ -329,14 +329,14 @@ export default function RetailHeader() {
               <Link
                 href="/order"
                 onClick={() => setIsMobileDrawerOpen(false)}
-                className="w-full flex items-center justify-center gap-2 bg-[#7A382B] text-[#FFFDF8] py-3 text-xs font-semibold uppercase tracking-wider shadow-sm"
+                className="w-full flex items-center justify-center gap-2 bg-[#5B1B8A] text-[#FFFDF8] py-3 text-xs font-semibold uppercase tracking-wider shadow-sm"
               >
                 <UtensilsCrossed className="h-4 w-4" />
                 <span>Order Online Direct</span>
               </Link>
 
               <div className="flex items-center justify-center gap-1.5 text-[11px] font-mono text-[#6B6357]">
-                <MapPin className="h-3 w-3 text-[#7A382B]" />
+                <MapPin className="h-3 w-3 text-[#5B1B8A]" />
                 <span>Indiranagar • Koramangala • Whitefield</span>
               </div>
             </div>

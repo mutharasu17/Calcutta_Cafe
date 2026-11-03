@@ -162,9 +162,9 @@ export default function DashboardClient({
           <div className="flex flex-wrap items-center gap-2.5">
             <button
               onClick={handleOpenAddDish}
-              className="px-4 py-2 bg-[#8E171D] hover:bg-[#A31C23] text-white text-xs font-mono uppercase tracking-wider font-semibold rounded-xl shadow-lg flex items-center gap-1.5 transition-all"
+              className="px-4 py-2 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-mono uppercase tracking-wider font-semibold rounded-xl shadow-lg flex items-center gap-1.5 transition-all border border-[#FFB834]/50 cursor-pointer"
             >
-              <Plus className="w-4 h-4 text-[#D4AF37]" />
+              <Plus className="w-4 h-4 text-[#FFB834]" />
               <span>Add Dish</span>
             </button>
 
@@ -185,7 +185,7 @@ export default function DashboardClient({
             <Link
               href="/menu"
               target="_blank"
-              className="px-4 py-2 bg-[#29251F] hover:bg-[#322E27] text-[#D4AF37] text-xs font-mono uppercase tracking-wider font-semibold rounded-xl border border-[#C49A55]/30 flex items-center gap-1.5 transition-colors"
+              className="px-4 py-2 bg-[#29251F] hover:bg-[#322E27] text-[#FFB834] text-xs font-mono uppercase tracking-wider font-semibold rounded-xl border border-[#FFB834]/30 flex items-center gap-1.5 transition-colors"
             >
               <span>Live Feast</span>
               <ExternalLink className="w-3.5 h-3.5" />

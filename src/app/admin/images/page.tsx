@@ -41,24 +41,31 @@ export default async function AdminImagesPage() {
     ORDER BY name ASC
   `).all() as DishImageRow[];
 
-  // Uploaded files in public/uploads
-  const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
+  // Uploaded and authentic media files
   const uploadedFiles: Array<{ filename: string; url: string; size: number; createdAt: string }> = [];
 
-  try {
-    const files = await fs.readdir(uploadsDir);
-    for (const f of files) {
-      if (f.startsWith('.')) continue;
-      const stat = await fs.stat(path.join(uploadsDir, f));
-      uploadedFiles.push({
-        filename: f,
-        url: `/uploads/${f}`,
-        size: stat.size,
-        createdAt: stat.birthtime.toISOString(),
-      });
+  const mediaDirs = [
+    { dir: path.join(process.cwd(), 'public', 'uploads'), urlPrefix: '/uploads' },
+    { dir: path.join(process.cwd(), 'public', 'images', 'brand'), urlPrefix: '/images/brand' },
+    { dir: path.join(process.cwd(), 'public', 'images', 'dishes'), urlPrefix: '/images/dishes' },
+  ];
+
+  for (const { dir, urlPrefix } of mediaDirs) {
+    try {
+      const files = await fs.readdir(/*turbopackIgnore: true*/ dir);
+      for (const f of files) {
+        if (f.startsWith('.') || !/\.(jpe?g|png|webp|svg)$/i.test(f)) continue;
+        const stat = await fs.stat(/*turbopackIgnore: true*/ path.join(/*turbopackIgnore: true*/ dir, f));
+        uploadedFiles.push({
+          filename: f,
+          url: `${urlPrefix}/${f}`,
+          size: stat.size,
+          createdAt: stat.birthtime.toISOString(),
+        });
+      }
+    } catch {
+      // directory may not exist
     }
-  } catch {
-    // upload dir may be empty
   }
 
   return (

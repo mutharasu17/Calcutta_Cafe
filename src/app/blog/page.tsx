@@ -41,12 +41,12 @@ export default function BlogListPage() {
       {/* Editorial Header */}
       <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
-          <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#7A382B] font-semibold block mb-3">
+          <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#5B1B8A] font-semibold block mb-3">
             The Bengal Journal • প্রবন্ধমালা
           </span>
           <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
             Stories from Bengal&apos;s
-            <span className="block italic text-[#7A382B] font-light mt-1">
+            <span className="block italic text-[#5B1B8A] font-light mt-1">
               culinary heritage.
             </span>
           </h1>
@@ -63,7 +63,7 @@ export default function BlogListPage() {
             {BLOG_POSTS.map((post) => (
               <article
                 key={post.slug}
-                className="group bg-[#FFFFFF] border border-[#E6D8C3] shadow-sm flex flex-col justify-between overflow-hidden hover:border-[#7A382B]/50 transition-all duration-300"
+                className="group bg-[#FFFFFF] border border-[#E6D8C3] shadow-sm flex flex-col justify-between overflow-hidden hover:border-[#5B1B8A]/50 transition-all duration-300"
               >
                 <div>
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E6D8C3]">
@@ -74,7 +74,7 @@ export default function BlogListPage() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute top-3 left-3 bg-[#F5EFE4]/90 backdrop-blur-sm px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-[#7A382B] font-semibold border border-[#E6D8C3]">
+                    <div className="absolute top-3 left-3 bg-[#F5EFE4]/90 backdrop-blur-sm px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-[#5B1B8A] font-semibold border border-[#E6D8C3]">
                       {post.category}
                     </div>
                   </div>
@@ -86,7 +86,7 @@ export default function BlogListPage() {
                       <span>{post.readTime}</span>
                     </div>
 
-                    <h2 className="font-serif text-xl sm:text-2xl text-[#29251F] font-normal leading-snug group-hover:text-[#7A382B] transition-colors">
+                    <h2 className="font-serif text-xl sm:text-2xl text-[#29251F] font-normal leading-snug group-hover:text-[#5B1B8A] transition-colors">
                       <Link href={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
@@ -101,7 +101,7 @@ export default function BlogListPage() {
                 <div className="px-6 pb-6 pt-2 border-t border-[#E6D8C3]/50">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#7A382B] hover:text-[#29251F] transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#5B1B8A] hover:text-[#29251F] transition-colors"
                   >
                     <span>Read Essay</span>
                     <ArrowRight className="h-3.5 w-3.5" />

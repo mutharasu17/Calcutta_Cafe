@@ -5,7 +5,7 @@ import { Sparkles, ArrowRight, MapPin } from "lucide-react";
 
 export default function AnnouncementBar() {
   return (
-    <aside aria-label="Announcement" className="bg-[#7A382B] text-[#FFFDF8] text-[11px] sm:text-xs font-mono tracking-wider py-2 px-4 sm:px-8 border-b border-[#5E2B21]">
+    <aside aria-label="Announcement" className="bg-[#5B1B8A] text-[#FFFDF8] text-[11px] sm:text-xs font-mono tracking-wider py-2 px-4 sm:px-8 border-b border-[#4B1473]">
       <div className="mx-auto max-w-7xl flex items-center justify-between">
         {/* Left Indicator */}
         <div className="flex items-center gap-2">

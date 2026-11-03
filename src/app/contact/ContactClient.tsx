@@ -50,12 +50,12 @@ export default function ContactClient() {
       {/* Editorial Header */}
       <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
-          <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#7A382B] font-semibold block mb-3">
+          <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#5B1B8A] font-semibold block mb-3">
             Direct Communications • যোগাযোগ
           </span>
           <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
             Connect with
-            <span className="block italic text-[#7A382B] font-light mt-1">
+            <span className="block italic text-[#5B1B8A] font-light mt-1">
               The Calcutta Cafe.
             </span>
           </h1>
@@ -71,7 +71,7 @@ export default function ContactClient() {
           {/* Brand & Corporate Details (5 Cols) */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-2">
-              <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#7A382B] font-semibold">
+              <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#5B1B8A] font-semibold">
                 Entity &amp; Operations
               </span>
               <h2 className="font-serif text-2xl font-normal text-[#29251F]">
@@ -83,7 +83,7 @@ export default function ContactClient() {
             </div>
 
             <div className="bg-[#FFFFFF] p-6 border border-[#E6D8C3] shadow-sm space-y-2">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#7A382B] font-semibold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#5B1B8A] font-semibold">
                 Operational Presence
               </span>
               <p className="text-sm font-medium text-[#29251F]">
@@ -95,7 +95,7 @@ export default function ContactClient() {
             </div>
 
             <div className="space-y-3">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#7A382B] font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#5B1B8A] font-semibold block">
                 Official Channels
               </span>
               <div className="flex items-center gap-4">
@@ -103,20 +103,20 @@ export default function ContactClient() {
                   href={BRAND_DATA.socialLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 border border-[#E6D8C3] bg-[#FFFFFF] px-4 py-2.5 text-xs text-[#29251F] hover:border-[#7A382B] transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-[#E6D8C3] bg-[#FFFFFF] px-4 py-2.5 text-xs text-[#29251F] hover:border-[#5B1B8A] transition-colors shadow-sm"
                   aria-label="Instagram"
                 >
-                  <InstagramIcon className="h-4 w-4 text-[#7A382B]" />
+                  <InstagramIcon className="h-4 w-4 text-[#5B1B8A]" />
                   <span>Instagram</span>
                 </a>
                 <a
                   href={BRAND_DATA.socialLinks.x}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 border border-[#E6D8C3] bg-[#FFFFFF] px-4 py-2.5 text-xs text-[#29251F] hover:border-[#7A382B] transition-colors shadow-sm"
+                  className="flex items-center gap-2 border border-[#E6D8C3] bg-[#FFFFFF] px-4 py-2.5 text-xs text-[#29251F] hover:border-[#5B1B8A] transition-colors shadow-sm"
                   aria-label="X (formerly Twitter)"
                 >
-                  <XIcon className="h-3.5 w-3.5 text-[#7A382B]" />
+                  <XIcon className="h-3.5 w-3.5 text-[#5B1B8A]" />
                   <span>X / Twitter</span>
                 </a>
               </div>
@@ -158,7 +158,7 @@ export default function ContactClient() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your full name"
-                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] placeholder-[#6B6357]/50 focus:outline-none focus:border-[#7A382B] transition-colors"
+                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] placeholder-[#6B6357]/50 focus:outline-none focus:border-[#5B1B8A] transition-colors"
                     />
                   </div>
 
@@ -172,7 +172,7 @@ export default function ContactClient() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="you@domain.com"
-                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] placeholder-[#6B6357]/50 focus:outline-none focus:border-[#7A382B] transition-colors"
+                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] placeholder-[#6B6357]/50 focus:outline-none focus:border-[#5B1B8A] transition-colors"
                     />
                   </div>
 
@@ -183,7 +183,7 @@ export default function ContactClient() {
                     <select
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] focus:outline-none focus:border-[#7A382B] transition-colors"
+                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] focus:outline-none focus:border-[#5B1B8A] transition-colors"
                     >
                       <option value="General Inquiry">General Inquiry</option>
                       <option value="Bulk / Corporate Orders">Bulk / Corporate Orders</option>
@@ -203,14 +203,14 @@ export default function ContactClient() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="How can we assist you with our Bengali culinary offerings?"
-                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] placeholder-[#6B6357]/50 focus:outline-none focus:border-[#7A382B] transition-colors"
+                      className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] placeholder-[#6B6357]/50 focus:outline-none focus:border-[#5B1B8A] transition-colors"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full bg-[#7A382B] text-[#F5EFE4] py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#5E2B21] transition-all shadow-md min-h-[48px] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+                    className="w-full bg-[#5B1B8A] text-[#F5EFE4] py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#4B1473] transition-all shadow-md min-h-[48px] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                   >
                     {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
                     <span>{submitting ? "Sending..." : "Send Direct Message"}</span>

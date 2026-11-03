@@ -2,36 +2,36 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Camera, Sparkles } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { Camera } from "lucide-react";
+import { gsap } from "@/lib/gsapConfig";
 
 const GALLERY_PHOTOS = [
   {
-    src: "/images/hero-bengali-bhoj.jpg",
-    title: "Grand Ceremonial Mahabhoj",
-    bengali: "মহভোজ থালি",
-    subtitle: "Basanti Pulao, Kosha Mangsho & Shukto",
+    src: "/images/brand/durga-puja-dining-hall.jpeg",
+    title: "Durga Puja Heritage Dining",
+    bengali: "পূজার ঐতিহ্যবাহী প্রেক্ষাপট",
+    subtitle: "Heritage ambiance with Tagore & Ray portraits",
     aspect: "aspect-[4/3]",
   },
   {
-    src: "/images/kathi-roll.jpg",
-    title: "Nizam-Style Egg Chicken Roll",
-    bengali: "কলকাতা কাঠি রোল",
-    subtitle: "Flaky pan-griddled paratha & charcoal boti",
-    aspect: "aspect-[3/4]",
+    src: "/images/brand/packaging-studio.jpeg",
+    title: "Official Kraft Packaging Suite",
+    bengali: "খাঁটি ক্রাফট প্যাকেজিং",
+    subtitle: "Eco-friendly takeaway bags & meal trays",
+    aspect: "aspect-[4/3]",
   },
   {
-    src: "/images/shorshe-ilish.jpg",
-    title: "Monsoon Hilsa in Mustard Emulsion",
-    bengali: "সর্ষে ইলিশ",
-    subtitle: "Stone-ground mustard & slit chillies",
-    aspect: "aspect-[3/4]",
+    src: "/images/dishes/katla-kalia-bhaat.jpeg",
+    title: "Katla Kalia on Terracotta Platter",
+    bengali: "কাতলা কালিয়া ও ভাত",
+    subtitle: "Prime fish steak in onion-raisin gravy",
+    aspect: "aspect-[4/3]",
   },
   {
-    src: "/images/mishti-doi.jpg",
-    title: "Haringhata Claypot Mishti Doi",
-    bengali: "মাটির ভাঁড়ের মিষ্টি দই",
-    subtitle: "Slowly baked with date-palm jaggery",
+    src: "/images/dishes/luchi-chholar-dal.jpeg",
+    title: "Puffed Luchi & Narkel Chholar Dal",
+    bengali: "লুচি ও নারকেল দিয়ে ছোলার ডাল",
+    subtitle: "Golden puffed luchis & spiced gram",
     aspect: "aspect-[4/3]",
   },
 ];
@@ -69,50 +69,49 @@ export default function BrightVisualGallery() {
     <section
       ref={containerRef}
       id="visual-gallery"
-      className="bg-white text-[#292321] py-20 sm:py-28 lg:py-36 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
+      className="bg-[#FFF8ED] text-[#2D231E] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
       aria-label="Food and Culinary Gallery"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16 space-y-3">
-          <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#8E171D] font-bold">
-            <Camera className="h-3.5 w-3.5 text-[#C49A55]" />
+          <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#5B1B8A] font-bold">
+            <Camera className="h-3.5 w-3.5 text-[#FFB834]" />
             Visual Anthology • চিত্রশালা
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#292321] leading-[1.08]">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-[#2D231E] leading-[1.08]">
             A Visual Journey Through Bengal.
           </h2>
           <p className="text-sm sm:text-base text-[#5C524B] font-sans leading-relaxed">
-            The vibrant yellow of turmeric-infused Basanti Pulao, the earthy terracotta pots of
-            Mishti Doi, and the golden crust of deep-fried Bhetki.
+            The rich terracotta tones of earthen thalis, the aromatic steam rising from slow-braised kalia, and our custom kraft delivery boxes traveling across Bangalore.
           </p>
         </div>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {GALLERY_PHOTOS.map((photo, idx) => (
+          {GALLERY_PHOTOS.map((photo) => (
             <div
               key={photo.title}
-              className={`gallery-item group relative overflow-hidden bg-white border-2 border-[#8E171D]/15 shadow-xs hover:shadow-lg hover:border-[#8E171D] transition-all duration-300 ${photo.aspect}`}
+              className={`gallery-item group relative overflow-hidden bg-[#FAF6F0] border border-[#E6D8C3] shadow-xs hover:shadow-lg hover:border-[#5B1B8A] transition-all duration-300 rounded-sm ${photo.aspect}`}
             >
               <Image
                 src={photo.src}
                 alt={photo.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <span className="font-bengali text-xs text-[#C49A55] block">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white space-y-1">
+                <span className="font-bengali text-xs text-[#FFB834] font-semibold block">
                   {photo.bengali}
                 </span>
-                <h3 className="font-serif text-lg text-white font-medium leading-snug">
+                <h3 className="font-serif text-base sm:text-lg font-medium leading-snug">
                   {photo.title}
                 </h3>
-                <p className="text-[11px] text-white/80 line-clamp-1 mt-0.5 font-sans">
+                <p className="text-[11px] font-sans text-[#FFF8ED]/85 line-clamp-1">
                   {photo.subtitle}
                 </p>
               </div>
@@ -124,4 +123,3 @@ export default function BrightVisualGallery() {
     </section>
   );
 }
-

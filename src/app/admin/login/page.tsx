@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Lock, Mail, Eye, EyeOff, ShieldCheck, AlertCircle, ArrowRight } from 'lucide-react';
 
@@ -47,33 +48,40 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#141210] flex flex-col justify-center items-center px-4 py-12 relative overflow-hidden text-[#FFF8ED]">
-      {/* Subtle luxury ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#8E171D]/15 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[400px] h-[300px] bg-[#C49A55]/10 blur-[100px] rounded-full pointer-events-none" />
+    <div className="min-h-screen bg-[#120D1A] flex flex-col justify-center items-center px-4 py-12 relative overflow-hidden text-[#FFF8ED]">
+      {/* Subtle luxury ambient glow with brand purple and gold */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#5B1B8A]/25 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-[400px] h-[300px] bg-[#FFB834]/12 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
-        {/* Brand Crest */}
+        {/* Official Brand Medallion Crest */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#8E171D] border-2 border-[#C49A55]/50 shadow-2xl mb-4 text-[#D4AF37] font-serif text-2xl font-bold">
-            ক
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full overflow-hidden border-2 border-[#FFB834] bg-[#5B1B8A] shadow-2xl mb-4 group hover:scale-105 transition-transform">
+            <Image
+              src="/images/brand/logo.jpeg"
+              alt="The Calcutta Cafe Official Logo"
+              width={64}
+              height={64}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#FFF8ED] tracking-wide">
             The Calcutta Cafe
           </h1>
-          <p className="text-xs font-mono uppercase tracking-widest text-[#D4AF37] mt-1">
+          <p className="text-xs font-mono uppercase tracking-widest text-[#FFB834] mt-1 font-semibold">
             Restaurant Management System
           </p>
-          <div className="w-16 h-0.5 bg-[#C49A55]/40 mx-auto mt-3" />
+          <div className="w-16 h-0.5 bg-[#FFB834]/40 mx-auto mt-3" />
         </div>
 
         {/* Card */}
-        <div className="bg-[#1E1B18]/90 border border-[#3E3832] rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+        <div className="bg-[#1A1424]/90 border border-[#382B4B] rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
           <div className="mb-6">
             <h2 className="text-lg font-serif font-semibold text-[#FFF8ED]">
               Culinary Portal Access
             </h2>
-            <p className="text-xs text-[#A69B8D] font-mono mt-0.5">
+            <p className="text-xs text-[#C4B6D8] font-mono mt-0.5">
               Secure administrative access for kitchen and menu managers
             </p>
           </div>
@@ -87,7 +95,7 @@ export default function AdminLoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-[#A69B8D] mb-1.5 font-semibold">
+              <label className="block text-xs font-mono uppercase tracking-wider text-[#C4B6D8] mb-1.5 font-semibold">
                 Authorized Email
               </label>
               <div className="relative">
@@ -100,14 +108,14 @@ export default function AdminLoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@thecalcuttacafe.com"
-                  className="w-full bg-[#141210] border border-[#3E3832] rounded-xl pl-10 pr-3.5 py-2.5 text-sm text-[#FFF8ED] placeholder:text-stone-600 focus:outline-none focus:border-[#C49A55] transition-colors"
+                  className="w-full bg-[#241B33] border border-[#382B4B] focus:border-[#FFB834] focus:ring-1 focus:ring-[#FFB834] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#FFF8ED] placeholder-stone-500 outline-none transition-all font-mono"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-[#A69B8D] mb-1.5 font-semibold">
-                Security Password
+              <label className="block text-xs font-mono uppercase tracking-wider text-[#C4B6D8] mb-1.5 font-semibold">
+                Access Passcode
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-500">
@@ -119,12 +127,12 @@ export default function AdminLoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full bg-[#141210] border border-[#3E3832] rounded-xl pl-10 pr-10 py-2.5 text-sm text-[#FFF8ED] placeholder:text-stone-600 focus:outline-none focus:border-[#C49A55] transition-colors font-mono"
+                  className="w-full bg-[#241B33] border border-[#382B4B] focus:border-[#FFB834] focus:ring-1 focus:ring-[#FFB834] rounded-xl pl-10 pr-10 py-2.5 text-sm text-[#FFF8ED] placeholder-stone-500 outline-none transition-all font-mono"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-stone-500 hover:text-stone-300 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-stone-500 hover:text-stone-300"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -134,60 +142,52 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 py-3 px-4 bg-[#8E171D] hover:bg-[#A31C23] text-white text-xs font-mono uppercase tracking-wider font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2 border border-[#8E171D] transition-all duration-300 active:scale-[0.98] disabled:opacity-50"
+              className="w-full mt-2 py-3 px-4 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold text-white bg-[#5B1B8A] hover:bg-[#4B1473] border border-[#FFB834]/50 shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer active:scale-[0.99]"
             >
-              {isLoading ? (
-                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              ) : (
-                <>
-                  <span>Sign In to Dashboard</span>
-                  <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
-                </>
-              )}
+              <span>{isLoading ? 'Verifying...' : 'Authenticate & Enter'}</span>
+              <ArrowRight className="w-4 h-4 text-[#FFB834]" />
             </button>
           </form>
 
-          {/* Quick Demo Credentials Switcher */}
-          <div className="mt-8 pt-6 border-t border-[#3E3832]">
-            <p className="text-[11px] font-mono uppercase tracking-wider text-[#A69B8D] text-center mb-3">
-              Role-Based Credentials (Audit Testing)
+          {/* Seed accounts helper for development review */}
+          <div className="mt-8 pt-6 border-t border-[#382B4B]/80">
+            <p className="text-[11px] font-mono uppercase tracking-wider text-stone-400 mb-3 text-center flex items-center justify-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FFB834]" />
+              <span>Available Demo Credentials</span>
             </p>
-            <div className="grid grid-cols-3 gap-2">
+
+            <div className="space-y-2">
               <button
                 type="button"
                 onClick={() => setPreset('admin@thecalcuttacafe.com', 'Calcutta@2019!')}
-                className="p-2 rounded-lg bg-[#24201C] hover:bg-[#2E2924] border border-[#3E3832] text-left transition-colors"
+                className="w-full text-left p-2.5 rounded-lg bg-[#241B33]/60 hover:bg-[#241B33] border border-[#382B4B] text-[11px] font-mono transition-colors flex items-center justify-between"
               >
-                <span className="block text-[10px] font-mono text-[#D4AF37] font-semibold">Super Admin</span>
-                <span className="block text-[9px] text-stone-400 truncate">Full System</span>
+                <div>
+                  <span className="text-[#FFF8ED] font-semibold block">Akash Santra (Super Admin)</span>
+                  <span className="text-stone-400 text-[10px]">admin@thecalcuttacafe.com</span>
+                </div>
+                <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#5B1B8A]/40 text-[#FFB834] border border-[#FFB834]/30">
+                  Fill
+                </span>
               </button>
+
               <button
                 type="button"
                 onClick={() => setPreset('menu@thecalcuttacafe.com', 'CalcuttaMenu#2026')}
-                className="p-2 rounded-lg bg-[#24201C] hover:bg-[#2E2924] border border-[#3E3832] text-left transition-colors"
+                className="w-full text-left p-2.5 rounded-lg bg-[#241B33]/60 hover:bg-[#241B33] border border-[#382B4B] text-[11px] font-mono transition-colors flex items-center justify-between"
               >
-                <span className="block text-[10px] font-mono text-blue-400 font-semibold">Menu Mgr</span>
-                <span className="block text-[9px] text-stone-400 truncate">Dishes & Prices</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setPreset('editor@thecalcuttacafe.com', 'CalcuttaStory#2026')}
-                className="p-2 rounded-lg bg-[#24201C] hover:bg-[#2E2924] border border-[#3E3832] text-left transition-colors"
-              >
-                <span className="block text-[10px] font-mono text-purple-400 font-semibold">Content Mgr</span>
-                <span className="block text-[9px] text-stone-400 truncate">Recipes & Text</span>
+                <div>
+                  <span className="text-[#FFF8ED] font-semibold block">Sudipto Mukherjee (Chef)</span>
+                  <span className="text-stone-400 text-[10px]">menu@thecalcuttacafe.com</span>
+                </div>
+                <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-emerald-950/40 text-emerald-400 border border-emerald-800">
+                  Fill
+                </span>
               </button>
             </div>
           </div>
-        </div>
-
-        {/* Security Notice */}
-        <div className="text-center mt-6 flex items-center justify-center gap-2 text-xs text-stone-500 font-mono">
-          <ShieldCheck className="w-4 h-4 text-emerald-600" />
-          <span>Encrypted Session • HMAC SHA-256 • Rate-Limited</span>
         </div>
       </div>
     </div>
   );
 }
-

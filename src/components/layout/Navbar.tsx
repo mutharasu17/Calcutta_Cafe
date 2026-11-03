@@ -79,8 +79,8 @@ export default function Navbar() {
                   href={item.href}
                   className={`editorial-link text-xs tracking-[0.2em] uppercase font-medium transition-colors ${
                     isActive
-                      ? "text-[#7A382B] font-semibold"
-                      : "text-[#29251F]/80 hover:text-[#7A382B]"
+                      ? "text-[#5B1B8A] font-semibold"
+                      : "text-[#29251F]/80 hover:text-[#5B1B8A]"
                   }`}
                 >
                   {item.label}
@@ -93,7 +93,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center">
             <Link
               href="/order"
-              className="group inline-flex items-center gap-2 bg-[#7A382B] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#F5EFE4] transition-all duration-300 hover:bg-[#5E2B21] shadow-sm"
+              className="group inline-flex items-center gap-2 bg-[#5B1B8A] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#F5EFE4] transition-all duration-300 hover:bg-[#4B1473] shadow-sm"
             >
               <span>Order Online</span>
               <ArrowUpRight className="h-3.5 w-3.5 text-[#F5EFE4] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -104,14 +104,14 @@ export default function Navbar() {
           <div className="flex md:hidden items-center gap-3">
             <Link
               href="/order"
-              className="inline-flex items-center gap-1.5 bg-[#7A382B] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#F5EFE4]"
+              className="inline-flex items-center gap-1.5 bg-[#5B1B8A] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#F5EFE4]"
             >
               <span>Order</span>
             </Link>
 
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="p-2 text-[#29251F] hover:text-[#7A382B] transition-colors focus:outline-none"
+              className="p-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors focus:outline-none"
               aria-label="Open Navigation Menu"
               aria-expanded={isMenuOpen}
             >
@@ -141,7 +141,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="flex items-center gap-2 p-2 text-[#29251F] hover:text-[#7A382B] transition-colors"
+              className="flex items-center gap-2 p-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors"
               aria-label="Close Navigation Menu"
             >
               <span className="text-xs uppercase tracking-wider font-mono text-[#6B6357]">Close</span>
@@ -167,8 +167,8 @@ export default function Navbar() {
                     <span
                       className={`font-serif text-3xl font-normal tracking-tight transition-colors ${
                         isActive
-                          ? "text-[#7A382B] font-medium"
-                          : "text-[#29251F] group-hover:text-[#7A382B]"
+                          ? "text-[#5B1B8A] font-medium"
+                          : "text-[#29251F] group-hover:text-[#5B1B8A]"
                       }`}
                     >
                       {item.label}
@@ -187,7 +187,7 @@ export default function Navbar() {
             <Link
               href="/order"
               onClick={() => setIsMenuOpen(false)}
-              className="flex items-center justify-center gap-2 bg-[#7A382B] py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#F5EFE4] hover:bg-[#5E2B21] transition-colors w-full"
+              className="flex items-center justify-center gap-2 bg-[#5B1B8A] py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#F5EFE4] hover:bg-[#4B1473] transition-colors w-full"
             >
               <span>Order Online via Swiggy / Zomato</span>
               <ArrowUpRight className="h-4 w-4" />

@@ -24,8 +24,8 @@ const CATEGORIES_DATA: CategoryCardData[] = [
     number: "01",
     name: "Fish & Seafood",
     bengali: "মাছ ও সামুদ্রিক স্বাদ",
-    description: "The soul of Bengal waterways—fresh Hilsa in pungent mustard emulsion, Bhetki steamed in banana leaves, and coconut jumbo prawns.",
-    image: "/images/shorshe-ilish.jpg",
+    description: "The soul of Bengal waterways—Katla kalia in rich onion-raisin gravy, Hilsa in mustard emulsion, and banana-leaf steamed Bhetki.",
+    image: "/images/dishes/katla-kalia-bhaat.jpeg",
     count: MENU_ITEMS.filter((i) => i.category === "fish-seafood").length,
     highlight: "Daily Fresh Catch",
   },
@@ -34,8 +34,8 @@ const CATEGORIES_DATA: CategoryCardData[] = [
     number: "02",
     name: "Slow-Cooked Meats",
     bengali: "মাংসের ঘরোয়া তৃপ্তি",
-    description: "Legendary 4-hour slow-braised Kosha Mangsho, royal Mughlai chicken chaap, and comforting Sunday homestyle broth.",
-    image: "/images/kosha-mangsho.jpg",
+    description: "Legendary 4-hour slow-braised Kosha Mangsho, homestyle Sunday Murgir Jhol with potatoes, and Kolkata Dimer Dalna.",
+    image: "/images/dishes/murgir-jhol-bhaat.jpeg",
     count: MENU_ITEMS.filter((i) => i.category === "chicken-mutton").length,
     highlight: "Sunday Ritual",
   },
@@ -44,8 +44,8 @@ const CATEGORIES_DATA: CategoryCardData[] = [
     number: "03",
     name: "Bengal Vegetarian",
     bengali: "নিরামিষের বৈচিত্র্য",
-    description: "The overlooked genius of satvik Bengali cooking—delicate Shukto, puffy Luchi with spiced Chholar Dal, and steamed lentil dhoka.",
-    image: "/images/luchi-chholar-dal.jpg",
+    description: "Satvik culinary heritage—puffy golden Luchis with coconut Chholar Dal, multi-layered Lachha Parathas, and seasonal Labra.",
+    image: "/images/dishes/luchi-chholar-dal.jpeg",
     count: MENU_ITEMS.filter((i) => i.category === "vegetarian").length,
     highlight: "Satvik Heritage",
   },
@@ -54,18 +54,18 @@ const CATEGORIES_DATA: CategoryCardData[] = [
     number: "04",
     name: "Street Savouries",
     bengali: "কলকাতার স্ট্রিট ফুড",
-    description: "New Market Nizam-style flaky layered Kathi Rolls, crumb-fried Kolkata cabin chops, and colonial spiced egg devils.",
-    image: "/images/kathi-roll.jpg",
+    description: "Kolkata Tangra-style Hakka Chowmein, double masala street omelettes, New Market Kathi Rolls, and College Street Maggi.",
+    image: "/images/dishes/kolkata-chicken-chowmein.jpeg",
     count: MENU_ITEMS.filter((i) => i.category === "snacks-street").length,
-    highlight: "Iconic Street Food",
+    highlight: "Kolkata Street Soul",
   },
   {
     id: "rice-meals",
     number: "05",
     name: "Rice & Grand Thalis",
-    bengali: "ভাত ও পঞ্চব্যঞ্জন",
-    description: "Fragrant saffron Gobindobhog Basanti Pulao, royal Calcutta dum biryani with potato, and multi-course grand feasts.",
-    image: "/images/hero-bengali-bhoj.jpg",
+    bengali: "ভাত ও রাজকীয় থালি",
+    description: "Complete ceremonial Bhoj thalis, fragrant Gobindobhog steamed rice, wok-tossed Tangra fried rice, and comforting daily meals.",
+    image: "/images/dishes/bengali-veg-thali.jpeg",
     count: MENU_ITEMS.filter((i) => i.category === "rice-meals").length,
     highlight: "Ceremonial Feasts",
   },
@@ -98,15 +98,15 @@ export default function BrightCategoryDiscovery() {
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.65,
             stagger: 0.08,
             ease: "power2.out",
-            clearProps: "all",
             scrollTrigger: {
               trigger: cardsGridRef.current,
               start: "top 85%",
               once: true,
             },
+            clearProps: "transform,opacity",
           }
         );
       }
@@ -118,35 +118,38 @@ export default function BrightCategoryDiscovery() {
   return (
     <section
       ref={sectionRef}
-      id="explore-categories"
-      className="bg-white text-[#292321] py-16 sm:py-24 lg:py-32 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
+      id="categories"
+      className="py-16 sm:py-24 lg:py-32 bg-[#FFF8ED] text-[#2D231E] border-b border-[#E6D8C3] relative"
       aria-label="Explore Food Categories"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-5">
-          <div className="space-y-2.5 max-w-xl">
-            <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#8E171D] font-bold">
-              <Compass className="h-3.5 w-3.5 text-[#C49A55]" />
-              Six Culinary Pillars • ছয় স্বাদের সম্ভার
-            </span>
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#292321] leading-[1.1]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+          <div className="space-y-3 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <Compass className="h-4 w-4 text-[#FFB834]" />
+              <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#5B1B8A] font-bold">
+                Cuisine Archetypes • খাদ্য বিভাগ
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-5xl font-medium text-[#2D231E] leading-[1.12]">
               Explore Food Categories.
             </h2>
             <p className="text-sm sm:text-base text-[#5C524B] font-sans leading-relaxed">
-              From the freshwater rivers of Bengal to royal Awadhi-influenced kitchens and colonial confectioners,
-              browse our six traditional culinary pillars.
+              Every dish at The Calcutta Cafe belongs to an unbroken culinary lineage. Explore our six defining gastronomic repertoires.
             </p>
           </div>
 
-          <Link
-            href="/menu"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#8E171D] hover:text-[#A9272D] transition-colors pb-1 border-b border-[#8E171D]/40 self-start md:self-end"
-          >
-            <span>View Full Menu Repertoire</span>
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
+          <div className="flex-shrink-0">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#5B1B8A] font-semibold hover:text-[#4B1473] group"
+            >
+              <span>View Complete Menu (41 Dishes)</span>
+              <ArrowUpRight className="h-4 w-4 text-[#FFB834] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+          </div>
         </div>
 
         {/* ──────────────────────────────────────────────────────────
@@ -163,24 +166,24 @@ export default function BrightCategoryDiscovery() {
             return (
               <div
                 key={cat.id}
-                className={`group bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] transition-all duration-300 rounded-xs overflow-hidden shadow-2xs hover:shadow-md hover:-translate-y-1 flex flex-col justify-between p-5 sm:p-6 relative focus-within:ring-2 focus-within:ring-[#8E171D] focus-within:ring-offset-2 ${
-                  isPillar ? "ring-1 ring-[#C49A55]/30" : ""
+                className={`group bg-[#FAF6F0] border border-[#E6D8C3] hover:border-[#5B1B8A] transition-all duration-300 rounded-sm overflow-hidden shadow-2xs hover:shadow-md hover:-translate-y-1 flex flex-col justify-between p-5 sm:p-6 relative focus-within:ring-2 focus-within:ring-[#5B1B8A] focus-within:ring-offset-2 ${
+                  isPillar ? "ring-1 ring-[#FFB834]/40" : ""
                 }`}
               >
                 {/* Top Badge: Number and Dish Count */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-[#E6D8C3]/70 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-[#8E171D]">
+                    <span className="font-mono text-xs font-bold text-[#5B1B8A]">
                       {cat.number}
                     </span>
-                    <span className="w-1 h-1 rounded-full bg-[#C49A55]" />
+                    <span className="w-1 h-1 rounded-full bg-[#FFB834]" />
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#5C524B]">
                       {cat.count} Dishes
                     </span>
                   </div>
 
                   {cat.highlight && (
-                    <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#FFF8ED] text-[#8E171D] border border-[#C49A55]/40 font-semibold rounded-xs">
+                    <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#FFF8ED] text-[#5B1B8A] border border-[#FFB834]/50 font-semibold rounded-xs">
                       {cat.highlight}
                     </span>
                   )}
@@ -188,7 +191,7 @@ export default function BrightCategoryDiscovery() {
 
                 {/* Central Imagery with Refined Static Border & Zoom on Hover */}
                 <div className="relative my-3 flex items-center justify-center">
-                  <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 border border-[#C49A55]/40 group-hover:border-[#8E171D] transition-colors duration-300">
+                  <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 border border-[#FFB834]/50 group-hover:border-[#5B1B8A] transition-colors duration-300">
                     <div className="relative w-full h-full rounded-full overflow-hidden shadow-inner bg-[#E6D8C3]">
                       <Image
                         src={cat.image}
@@ -204,10 +207,10 @@ export default function BrightCategoryDiscovery() {
                 {/* Bottom Information & Action */}
                 <div className="space-y-2.5 pt-2 flex flex-col flex-1 justify-between">
                   <div>
-                    <span className="font-bengali text-xs text-[#8E171D] font-medium block">
+                    <span className="font-bengali text-xs text-[#5B1B8A] font-semibold block">
                       {cat.bengali}
                     </span>
-                    <h3 className="font-serif text-xl sm:text-2xl text-[#292321] group-hover:text-[#8E171D] transition-colors leading-snug">
+                    <h3 className="font-serif text-xl sm:text-2xl text-[#2D231E] group-hover:text-[#5B1B8A] transition-colors leading-snug">
                       <Link
                         href={`/menu?category=${cat.id}`}
                         className="focus:outline-none"
@@ -221,18 +224,18 @@ export default function BrightCategoryDiscovery() {
                   </div>
 
                   <div className="pt-3 border-t border-[#E6D8C3]/60 flex items-center justify-between">
-                    <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#C49A55] font-semibold">
+                    <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#FFB834] font-bold">
                       Authentic Recipe
                     </span>
 
                     {/* Explore Dishes Link with direct category parameter */}
                     <Link
                       href={`/menu?category=${cat.id}`}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider transition-colors duration-200 shadow-2xs hover:shadow-xs rounded-xs active:scale-95"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider transition-colors duration-200 shadow-2xs hover:shadow-xs rounded-sm active:scale-95 border border-[#FFB834]/40"
                       aria-label={`Explore ${cat.name} dishes`}
                     >
                       <span>Explore</span>
-                      <ArrowUpRight className="h-3 w-3 text-[#C49A55]" />
+                      <ArrowUpRight className="h-3 w-3 text-[#FFB834]" />
                     </Link>
                   </div>
                 </div>

@@ -89,13 +89,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="mx-auto max-w-4xl px-6 sm:px-10 lg:px-12 py-10">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#7A382B] hover:text-[#29251F] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#5B1B8A] hover:text-[#29251F] transition-colors mb-8"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>The Bengal Journal</span>
           </Link>
 
-          <div className="flex items-center gap-4 text-xs font-mono text-[#7A382B] uppercase tracking-widest mb-3">
+          <div className="flex items-center gap-4 text-xs font-mono text-[#5B1B8A] uppercase tracking-widest mb-3">
             <span>{post.category}</span>
             <span className="text-[#6B6357]/40">•</span>
             <span className="text-[#6B6357]">{post.readTime}</span>
@@ -106,7 +106,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </h1>
 
           {post.bengaliTitle && (
-            <p className="font-bengali text-lg text-[#7A382B] mt-2 font-medium">
+            <p className="font-bengali text-lg text-[#5B1B8A] mt-2 font-medium">
               {post.bengaliTitle}
             </p>
           )}
@@ -133,7 +133,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* Body Copy Prose */}
         <div className="mx-auto max-w-3xl px-6 sm:px-10 lg:px-12 space-y-10 text-base sm:text-lg text-[#29251F] font-normal leading-relaxed">
           {/* Lead Paragraph */}
-          <p className="text-lg sm:text-xl font-normal text-[#29251F] border-l-4 border-l-[#7A382B] pl-6 py-1 leading-relaxed bg-[#FFFFFF]/60 p-4 border border-[#E6D8C3]">
+          <p className="text-lg sm:text-xl font-normal text-[#29251F] border-l-4 border-l-[#5B1B8A] pl-6 py-1 leading-relaxed bg-[#FFFFFF]/60 p-4 border border-[#E6D8C3]">
             {post.content.lead}
           </p>
 
@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
 
               {section.quote && (
-                <div className="bg-[#FFFFFF] p-6 sm:p-8 my-6 border-l-4 border-l-[#7A382B] border border-[#E6D8C3] shadow-sm">
+                <div className="bg-[#FFFFFF] p-6 sm:p-8 my-6 border-l-4 border-l-[#5B1B8A] border border-[#E6D8C3] shadow-sm">
                   <blockquote className="font-serif italic text-lg sm:text-xl text-[#29251F]">
                     &ldquo;{section.quote}&rdquo;
                   </blockquote>
@@ -163,7 +163,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Closing Note */}
           <div className="pt-10 border-t border-[#E6D8C3] mt-14">
             <div className="bg-[#FFFFFF] p-8 border border-[#E6D8C3] space-y-2 shadow-sm">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#7A382B] font-semibold block">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#5B1B8A] font-semibold block">
                 The Bengal Journal Series
               </span>
               <p className="font-serif text-xl text-[#29251F] font-normal">

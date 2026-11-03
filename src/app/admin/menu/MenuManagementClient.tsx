@@ -230,7 +230,7 @@ export default function MenuManagementClient({
             {/* Quick Count Badge */}
             <div className="text-xs font-mono text-[#A69B8D] flex items-center gap-2 self-end md:self-center">
               <span>Showing</span>
-              <span className="font-bold text-[#D4AF37] px-2 py-0.5 rounded-full bg-[#24201C] border border-[#3E3832]">
+              <span className="font-bold text-[#FFB834] px-2 py-0.5 rounded-full bg-[#24201C] border border-[#3E3832]">
                 {filteredDishes.length}
               </span>
               <span>of {dishes.length} dishes</span>

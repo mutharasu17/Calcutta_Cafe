@@ -42,12 +42,12 @@ export default function OrderPage() {
         {/* Editorial Header */}
         <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
           <div className="mx-auto max-w-5xl">
-            <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#7A382B] font-semibold block mb-3">
+            <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#5B1B8A] font-semibold block mb-3">
               Official Delivery Channels • অর্ডার অনলাইন
             </span>
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
               Order online.
-              <span className="block italic text-[#7A382B] font-light mt-1">
+              <span className="block italic text-[#5B1B8A] font-light mt-1">
                 Direct to your table.
               </span>
             </h1>
@@ -73,7 +73,7 @@ export default function OrderPage() {
                       {activeHub.name}
                     </h2>
                   </div>
-                  <span className="text-xs font-mono text-[#7A382B] uppercase tracking-widest font-semibold">
+                  <span className="text-xs font-mono text-[#5B1B8A] uppercase tracking-widest font-semibold">
                     {activeHub.city}, {activeHub.region}
                   </span>
                 </div>
@@ -98,7 +98,7 @@ export default function OrderPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {plannedHubs.map((hub) => (
                   <div key={hub.id} className="bg-[#E6D8C3]/40 p-6 border border-[#D8C7B0] space-y-2">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#7A382B] font-semibold">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#5B1B8A] font-semibold">
                       Planned Expansion
                     </span>
                     <h4 className="font-serif text-xl text-[#29251F] font-normal">

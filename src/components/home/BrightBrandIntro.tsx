@@ -55,7 +55,7 @@ export default function BrightBrandIntro() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white text-[#292321] py-16 sm:py-24 lg:py-32 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
+      className="bg-[#FFF8ED] text-[#2D231E] py-16 sm:py-24 lg:py-32 border-b border-[#E6D8C3] relative overflow-hidden"
       aria-label="Brand Introduction"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
@@ -63,29 +63,29 @@ export default function BrightBrandIntro() {
           
           {/* Left Column: Asymmetric Editorial Image Composition */}
           <div ref={imageRef} className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative aspect-[4/5] w-full overflow-hidden border-2 border-[#8E171D]/20 shadow-md group bg-[#FFF8ED]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden border-2 border-[#D2B48C] shadow-md group bg-[#FAF6F0] rounded-sm">
               <Image
-                src="/images/shorshe-ilish.jpg"
-                alt="Shorshe Ilish - Signature fresh Hilsa simmered in mustard paste with green chillies"
+                src="/images/dishes/katla-kalia-bhaat.jpeg"
+                alt="Rajarshir Katla Kalia with Steamed Bhaat on authentic terracotta platter"
                 fill
                 sizes="(max-width: 768px) 100vw, 45vw"
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
-              <div className="absolute bottom-4 left-4 right-4 p-4 bg-white/95 backdrop-blur-xs border-l-4 border-[#8E171D] shadow-sm">
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8E171D] font-bold block">
+              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#FFF8ED]/95 backdrop-blur-xs border-l-4 border-[#5B1B8A] shadow-sm rounded-xs">
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#5B1B8A] font-bold block">
                   Revered River Catch
                 </span>
-                <p className="font-serif text-sm sm:text-base text-[#292321] font-medium mt-0.5">
-                  Shorshe Ilish in stone-ground cold-pressed mustard emulsion.
+                <p className="font-serif text-sm sm:text-base text-[#2D231E] font-medium mt-0.5">
+                  Katla Kalia in onion-raisin gravy served with fragrant rice.
                 </p>
               </div>
             </div>
 
             {/* Accent stamp / detail */}
-            <div className="hidden sm:block absolute -bottom-5 -right-5 p-4 bg-[#8E171D] text-[#FFF8ED] shadow-md border border-[#C49A55]/40 max-w-[200px]">
-              <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-[#C49A55] font-semibold">
+            <div className="hidden sm:block absolute -bottom-5 -right-5 p-4 bg-[#5B1B8A] text-[#FFF8ED] shadow-md border border-[#FFB834]/50 max-w-[200px] rounded-sm">
+              <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-[#FFB834] font-bold">
                 Culinary Monograph
               </span>
               <p className="font-bengali text-xs text-[#FFF8ED]/95 pt-1 leading-relaxed">
@@ -97,11 +97,11 @@ export default function BrightBrandIntro() {
           {/* Right Column: Editorial Narrative */}
           <div ref={contentRef} className="lg:col-span-7 space-y-6 sm:space-y-8 order-1 lg:order-2">
             <div className="space-y-3">
-              <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#8E171D] font-bold">
-                <Compass className="h-3.5 w-3.5 text-[#C49A55]" />
+              <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#5B1B8A] font-bold">
+                <Compass className="h-3.5 w-3.5 text-[#FFB834]" />
                 The Repertoire • বাঙালিয়ানার অভিজ্ঞান
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#292321] leading-[1.12]">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[#2D231E] leading-[1.12]">
                 Centuries of River Delta Cooking, Reimagined for the Modern Table.
               </h2>
             </div>
@@ -113,20 +113,19 @@ export default function BrightBrandIntro() {
                 cannot be compressed into clichéd stereotypes.
               </p>
               <p>
-                From the pungent complexity of cold-pressed mustard oil to the bitter-sweet harmony
-                of afternoon Shukto, our kitchen cooks in small batches every morning. We source
-                authentic Kolaghat Hilsa, hand-ground spices, and traditional date-palm jaggery to
-                serve you dining that feels both deeply rooted and modern.
+                From the pungent complexity of cold-pressed mustard oil to the delicate comfort
+                of afternoon Chholar Dal, our kitchen cooks in small batches every morning. We source
+                authentic spices, Gobindobhog rice, and fresh catch to serve dining that feels both deeply rooted and modern.
               </p>
             </div>
 
             <div className="pt-2 flex flex-wrap items-center gap-6">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#8E171D] hover:text-[#A9272D] transition-colors pb-1 border-b border-[#8E171D]"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#5B1B8A] hover:text-[#4B1473] transition-colors pb-1 border-b border-[#5B1B8A]"
               >
                 <span>Read Founder Akash Santra&apos;s Story</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-[#FFB834]" />
               </Link>
 
               <span className="text-xs font-mono text-[#5C524B]/80 uppercase tracking-widest">
@@ -140,4 +139,3 @@ export default function BrightBrandIntro() {
     </section>
   );
 }
-

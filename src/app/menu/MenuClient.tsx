@@ -17,13 +17,13 @@ const MENU_TABS: { id: FilterTab; label: string; bengali: string }[] = [
   { id: "chicken-mutton", label: "Chicken & Mutton", bengali: "মাংস" },
   { id: "vegetarian", label: "Vegetarian Delicacies", bengali: "নিরামিষ" },
   { id: "snacks-street", label: "Snacks & Street Food", bengali: "স্ট্রিট ফুড" },
-  { id: "rice-meals", label: "Rice & Complete Meals", bengali: "ভাত ও থালি" },
+  { id: "rice-meals", label: "Rice & Grand Thalis", bengali: "ভাত ও থালি" },
   { id: "sweets-desserts", label: "Sweets & Desserts", bengali: "মিষ্টি" },
 ];
 
 /**
  * Isolated component to read useSearchParams inside its own tiny Suspense boundary.
- * This guarantees the main MenuClient and all 21 dishes remain statically prerendered
+ * This guarantees the main MenuClient and all dishes remain statically prerendered
  * and visible to search engine web crawlers in the initial HTML document.
  */
 function SearchParamsHandler({
@@ -138,7 +138,7 @@ export default function MenuClient({
   }, [activeTab, dietaryFilter, searchQuery]);
 
   return (
-    <div className="relative pb-28 bg-white text-[#292321] min-h-screen">
+    <div className="relative pb-28 bg-[#FFF8ED] text-[#2D231E] min-h-screen">
       {/* Isolated URL param handler */}
       <Suspense fallback={null}>
         <SearchParamsHandler
@@ -148,24 +148,24 @@ export default function MenuClient({
       </Suspense>
 
       {/* ──────────────────────────────────────────────────────────
-          1. TOP: MENU INTRODUCTION (EDITORIAL RED & WHITE HEADER)
+          1. TOP: MENU INTRODUCTION (EDITORIAL PURPLE & GOLD HEADER)
       ────────────────────────────────────────────────────────── */}
-      <section className="px-5 sm:px-10 lg:px-16 pt-14 sm:pt-20 pb-10 sm:pb-14 border-b-2 border-[#8E171D]/15 bg-white">
+      <section className="px-5 sm:px-10 lg:px-16 pt-28 pb-10 sm:pb-14 border-b border-[#E6D8C3] bg-[#FAF6F0]">
         <div className="mx-auto max-w-5xl space-y-4">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-3.5 w-3.5 text-[#C49A55]" />
-            <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#8E171D] font-bold">
+            <Sparkles className="h-3.5 w-3.5 text-[#FFB834]" />
+            <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#5B1B8A] font-bold">
               THE BENGAL CULINARY REPERTOIRE
             </span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-[#292321] leading-[1.05]">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-[#2D231E] leading-[1.05]">
             Explore Our Menu.
           </h1>
 
           <p className="text-base sm:text-lg text-[#5C524B] font-sans leading-relaxed max-w-2xl">
-            Discover the flavours, traditions and signature dishes of Bengal.
-            From slow-cooked wedding banquet curries to hand-steamed banana leaf paturis and earthen mishti doi.
+            Discover the authentic flavours, regional traditions and signature terracotta preparations of Bengal.
+            From slow-braised wedding banquet kalia to hand-rolled lachha parathas, comforting jhol, and earthen mishti doi.
           </p>
 
           {/* Small Decorative Animated SVG Line */}
@@ -177,11 +177,11 @@ export default function MenuClient({
                 y1="5"
                 x2="240"
                 y2="5"
-                stroke="#C49A55"
+                stroke="#FFB834"
                 strokeWidth="1.5"
                 strokeLinecap="round"
               />
-              <circle cx="120" cy="5" r="3" fill="#8E171D" />
+              <circle cx="120" cy="5" r="3" fill="#5B1B8A" />
             </svg>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default function MenuClient({
       {/* ──────────────────────────────────────────────────────────
           2. SECOND: CLEAN, RESPONSIVE CATEGORY NAVIGATION BAR
       ────────────────────────────────────────────────────────── */}
-      <section className="px-4 sm:px-8 lg:px-12 py-3.5 border-b border-[#8E171D]/20 sticky top-[64px] sm:top-[72px] lg:top-[78px] z-30 bg-white/98 backdrop-blur-md shadow-xs">
+      <section className="px-4 sm:px-8 lg:px-12 py-3.5 border-b border-[#E6D8C3] sticky top-[64px] sm:top-[72px] lg:top-[78px] z-30 bg-[#FFF8ED]/98 backdrop-blur-md shadow-2xs">
         <div className="mx-auto max-w-7xl">
           {/* Row 1: Primary Category Tabs (Scrollable on Mobile, Wrap on Desktop) */}
           <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-1.5 sm:pb-0 no-scrollbar touch-pan-x scroll-smooth">
@@ -207,16 +207,16 @@ export default function MenuClient({
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
                     isSelected
-                      ? "bg-[#8E171D] text-white shadow-md border border-[#8E171D]"
-                      : "bg-white text-[#292321] hover:text-[#8E171D] hover:bg-[#FFF8ED] border border-[#8E171D]/20 shadow-2xs"
+                      ? "bg-[#5B1B8A] text-[#FFF8ED] shadow-md border border-[#FFB834]/60"
+                      : "bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] hover:bg-[#FFFFFF] border border-[#E6D8C3] shadow-2xs"
                   }`}
                 >
                   <span>{tab.label}</span>
                   <span
                     className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                       isSelected
-                        ? "bg-white text-[#8E171D] font-bold"
-                        : "bg-[#FFF8ED] text-[#8E171D] font-semibold"
+                        ? "bg-[#FFB834] text-[#2D231E] font-bold"
+                        : "bg-[#E6D8C3]/60 text-[#5B1B8A] font-semibold"
                     }`}
                   >
                     {count}
@@ -230,32 +230,32 @@ export default function MenuClient({
               onClick={() => setActiveTab("favorites")}
               className={`px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
                 activeTab === "favorites"
-                  ? "bg-[#8E171D] text-white shadow-md border border-[#8E171D]"
-                  : "bg-white text-[#292321] hover:text-[#8E171D] hover:bg-[#FFF8ED] border border-[#8E171D]/20 shadow-2xs"
+                  ? "bg-[#5B1B8A] text-[#FFF8ED] shadow-md border border-[#FFB834]/60"
+                  : "bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] hover:bg-[#FFFFFF] border border-[#E6D8C3] shadow-2xs"
               }`}
             >
-              <Heart className={`h-3.5 w-3.5 ${favorites.length > 0 ? "fill-current text-rose-500" : ""}`} />
+              <Heart className={`h-3.5 w-3.5 ${favorites.length > 0 ? "fill-current text-[#FFB834]" : ""}`} />
               <span>Favourites ({favorites.length})</span>
             </button>
           </div>
 
           {/* Row 2: Secondary Controls (Filters & Search in a Balanced Row) */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 mt-2 border-t border-[#E6D8C3]/60">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 mt-2 border-t border-[#E6D8C3]/70">
             {/* Dietary Switcher */}
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
-                <Filter className="h-3.5 w-3.5 text-[#8E171D]" />
+                <Filter className="h-3.5 w-3.5 text-[#5B1B8A]" />
                 <span className="text-xs font-mono uppercase tracking-wider text-[#5C524B]">
                   Dietary:
                 </span>
               </div>
-              <div className="inline-flex rounded-md border border-[#E6D8C3] bg-[#FFFCF7] p-0.5 shadow-2xs">
+              <div className="inline-flex rounded-md border border-[#E6D8C3] bg-[#FAF6F0] p-0.5 shadow-2xs">
                 <button
                   onClick={() => setDietaryFilter("all")}
                   className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                     dietaryFilter === "all"
-                      ? "bg-[#8E171D] text-[#FFF8ED]"
-                      : "text-[#5C524B] hover:text-[#292321]"
+                      ? "bg-[#5B1B8A] text-[#FFF8ED]"
+                      : "text-[#5C524B] hover:text-[#2D231E]"
                   }`}
                 >
                   All
@@ -265,7 +265,7 @@ export default function MenuClient({
                   className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                     dietaryFilter === "veg"
                       ? "bg-emerald-600 text-white"
-                      : "text-[#5C524B] hover:text-[#292321]"
+                      : "text-[#5C524B] hover:text-[#2D231E]"
                   }`}
                 >
                   Veg Only
@@ -274,8 +274,8 @@ export default function MenuClient({
                   onClick={() => setDietaryFilter("non-veg")}
                   className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                     dietaryFilter === "non-veg"
-                      ? "bg-[#8E171D] text-[#FFF8ED]"
-                      : "text-[#5C524B] hover:text-[#292321]"
+                      ? "bg-[#5B1B8A] text-[#FFF8ED]"
+                      : "text-[#5C524B] hover:text-[#2D231E]"
                   }`}
                 >
                   Non-Veg
@@ -285,18 +285,18 @@ export default function MenuClient({
 
             {/* Search Input Bar with Clear Button */}
             <div className="relative w-full sm:w-72">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#8E171D]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#5B1B8A]" />
               <input
                 type="text"
                 placeholder="Search dishes or Bengali spices..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#FFFCF7] border border-[#E6D8C3] pl-9 pr-8 py-2 text-xs text-[#292321] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#8E171D] transition-colors rounded-xs shadow-2xs"
+                className="w-full bg-[#FFFFFF] border border-[#E6D8C3] pl-9 pr-8 py-2 text-xs text-[#2D231E] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#5B1B8A] transition-colors rounded-xs shadow-2xs"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#5C524B] hover:text-[#292321]"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#5C524B] hover:text-[#2D231E]"
                   aria-label="Clear search query"
                 >
                   <X className="h-3.5 w-3.5" />
@@ -308,18 +308,18 @@ export default function MenuClient({
       </section>
 
       {/* ──────────────────────────────────────────────────────────
-          3. DISHES EDITORIAL GRID (SOFT WHITE CARDS, 3 COLS DESKTOP)
+          3. DISHES EDITORIAL GRID (WARM CREAM CARDS, 3 COLS DESKTOP)
       ────────────────────────────────────────────────────────── */}
       <section className="px-4 sm:px-8 lg:px-12 py-10 lg:py-14">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-center justify-between mb-8 pb-3 border-b border-[#E6D8C3]/70">
             <span className="font-mono text-xs uppercase tracking-wider text-[#5C524B]">
-              Showing <span className="text-[#8E171D] font-bold">{filteredItems.length}</span>{" "}
+              Showing <span className="text-[#5B1B8A] font-bold">{filteredItems.length}</span>{" "}
               {filteredItems.length === 1 ? "preparation" : "preparations"}
             </span>
 
             {activeTab === "favorites" && (
-              <span className="font-mono text-xs text-[#8E171D]">
+              <span className="font-mono text-xs text-[#5B1B8A]">
                 Saved locally on your device
               </span>
             )}
@@ -346,8 +346,8 @@ export default function MenuClient({
 
           {/* Empty State */}
           {filteredItems.length === 0 && (
-            <div className="text-center py-20 bg-[#FFFCF7] border border-[#E6D8C3] p-8 space-y-4 shadow-xs mt-6">
-              <p className="font-serif text-2xl sm:text-3xl text-[#292321]">
+            <div className="text-center py-20 bg-[#FAF6F0] border border-[#E6D8C3] p-8 space-y-4 shadow-xs mt-6 rounded-sm">
+              <p className="font-serif text-2xl sm:text-3xl text-[#2D231E]">
                 No dishes found matching your selection.
               </p>
               <p className="text-sm text-[#5C524B] max-w-md mx-auto">
@@ -359,7 +359,7 @@ export default function MenuClient({
                   setDietaryFilter("all");
                   setSearchQuery("");
                 }}
-                className="px-6 py-2.5 bg-[#8E171D] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider cursor-pointer shadow-xs hover:bg-[#A9272D] transition-colors"
+                className="px-6 py-2.5 bg-[#5B1B8A] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider cursor-pointer shadow-xs hover:bg-[#4B1473] transition-colors rounded-sm border border-[#FFB834]/50"
               >
                 Reset All Filters
               </button>

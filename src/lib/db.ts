@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+// @ts-expect-error node:sqlite is built into Node.js 22+
 import { DatabaseSync } from "node:sqlite";
 import { MENU_CATEGORIES, MENU_ITEMS } from "@/data/menuData";
 

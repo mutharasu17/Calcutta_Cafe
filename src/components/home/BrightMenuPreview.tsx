@@ -14,7 +14,7 @@ const ALL_CATEGORY_TABS: { id: "all" | MenuCategory; label: string; bengali: str
   { id: "chicken-mutton", label: "Chicken & Mutton", bengali: "মাংস" },
   { id: "vegetarian", label: "Vegetarian Delicacies", bengali: "নিরামিষ" },
   { id: "snacks-street", label: "Snacks & Street", bengali: "স্ট্রিট ফুড" },
-  { id: "rice-meals", label: "Rice & Complete Meals", bengali: "ভাত ও থালি" },
+  { id: "rice-meals", label: "Rice & Grand Thalis", bengali: "ভাত ও থালি" },
   { id: "sweets-desserts", label: "Sweets & Desserts", bengali: "মিষ্টি" },
 ];
 
@@ -77,7 +77,7 @@ export default function BrightMenuPreview() {
     <>
       <section
         id="signature-menu"
-        className="bg-white text-[#292321] py-20 sm:py-28 lg:py-36 border-b-2 border-[#8E171D]/20 relative overflow-hidden"
+        className="bg-[#FFF8ED] text-[#2D231E] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
         aria-label="Filterable Menu and Dish Selection"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
@@ -85,25 +85,24 @@ export default function BrightMenuPreview() {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
             <div className="space-y-3">
-              <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#8E171D] font-bold">
-                <Sparkles className="h-3.5 w-3.5 text-[#C49A55]" />
+              <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#5B1B8A] font-bold">
+                <Sparkles className="h-3.5 w-3.5 text-[#FFB834]" />
                 Curated Menu • সম্পূর্ণ পদ তালিকা
               </span>
-              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#292321] leading-[1.08]">
+              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium text-[#2D231E] leading-[1.08]">
                 Select Dishes for Your Feast.
               </h2>
               <p className="text-sm sm:text-base text-[#5C524B] font-sans leading-relaxed max-w-xl">
-                Browse our complete culinary repertoire. Select dishes to build your feast and
-                order freshly prepared food from our Bangalore cloud kitchen hubs.
+                Browse our complete culinary repertoire with authentic terracotta platter photography. Select dishes to build your feast and order freshly prepared food from our Bangalore cloud kitchen hubs.
               </p>
             </div>
 
             <Link
               href="/menu"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#8E171D] hover:text-[#A9272D] transition-colors pb-1 border-b border-[#8E171D]/40"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#5B1B8A] hover:text-[#4B1473] transition-colors pb-1 border-b border-[#5B1B8A]/40"
             >
               <span>Full Restaurant Menu Page</span>
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 text-[#FFB834]" />
             </Link>
           </div>
 
@@ -125,16 +124,16 @@ export default function BrightMenuPreview() {
                     onClick={() => setActiveCategory(tab.id)}
                     className={`relative px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
                       isSelected
-                        ? "bg-[#8E171D] text-white font-bold shadow-md border border-[#8E171D]"
-                        : "bg-white text-[#292321] hover:text-[#8E171D] hover:bg-[#FFF8ED] border border-[#8E171D]/20 shadow-2xs"
+                        ? "bg-[#5B1B8A] text-[#FFF8ED] font-bold shadow-md border border-[#FFB834]/60"
+                        : "bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] hover:bg-[#FFFFFF] border border-[#E6D8C3] shadow-2xs"
                     }`}
                   >
                     <span>{tab.label}</span>
                     <span
                       className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                         isSelected
-                          ? "bg-white text-[#8E171D] font-bold"
-                          : "bg-[#FFF8ED] text-[#8E171D] font-semibold"
+                          ? "bg-[#FFB834] text-[#2D231E] font-bold"
+                          : "bg-[#E6D8C3]/60 text-[#5B1B8A] font-semibold"
                       }`}
                     >
                       {count}
@@ -148,18 +147,18 @@ export default function BrightMenuPreview() {
             <div className="flex items-center justify-between flex-wrap gap-4 pt-3 border-t border-[#E6D8C3]/70">
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
-                  <Filter className="h-3.5 w-3.5 text-[#8E171D]" />
+                  <Filter className="h-3.5 w-3.5 text-[#5B1B8A]" />
                   <span className="text-xs font-mono uppercase tracking-wider text-[#5C524B]">
                     Dietary:
                   </span>
                 </div>
-                <div className="inline-flex rounded-md border border-[#E6D8C3] bg-[#FFFCF7] p-0.5 shadow-2xs">
+                <div className="inline-flex rounded-md border border-[#E6D8C3] bg-[#FAF6F0] p-0.5 shadow-2xs">
                   <button
                     onClick={() => setDietaryFilter("all")}
                     className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                       dietaryFilter === "all"
-                        ? "bg-[#8E171D] text-[#FFF8ED]"
-                        : "text-[#5C524B] hover:text-[#292321]"
+                        ? "bg-[#5B1B8A] text-[#FFF8ED]"
+                        : "text-[#5C524B] hover:text-[#2D231E]"
                     }`}
                   >
                     All
@@ -169,7 +168,7 @@ export default function BrightMenuPreview() {
                     className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                       dietaryFilter === "veg"
                         ? "bg-emerald-600 text-white"
-                        : "text-[#5C524B] hover:text-[#292321]"
+                        : "text-[#5C524B] hover:text-[#2D231E]"
                     }`}
                   >
                     Veg Only
@@ -178,8 +177,8 @@ export default function BrightMenuPreview() {
                     onClick={() => setDietaryFilter("non-veg")}
                     className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                       dietaryFilter === "non-veg"
-                        ? "bg-[#8E171D] text-[#FFF8ED]"
-                        : "text-[#5C524B] hover:text-[#292321]"
+                        ? "bg-[#5B1B8A] text-[#FFF8ED]"
+                        : "text-[#5C524B] hover:text-[#2D231E]"
                     }`}
                   >
                     Non-Veg
@@ -189,7 +188,7 @@ export default function BrightMenuPreview() {
 
               {/* Live Count Indicator */}
               <div className="text-xs font-mono text-[#5C524B]">
-                Displaying <span className="text-[#8E171D] font-bold">{visibleDishes.length}</span>{" "}
+                Displaying <span className="text-[#5B1B8A] font-bold">{visibleDishes.length}</span>{" "}
                 authentic {visibleDishes.length === 1 ? "dish" : "dishes"}
               </div>
             </div>
@@ -197,7 +196,7 @@ export default function BrightMenuPreview() {
           </div>
 
           {/* ──────────────────────────────────────────────────────────
-              FOOD CARDS GRID WITH GSAP STAGGER (SOFT WHITE SURFACES)
+              FOOD CARDS GRID WITH GSAP STAGGER (WARM CREAM SURFACES)
           ────────────────────────────────────────────────────────── */}
           <div
             ref={gridRef}
@@ -216,15 +215,15 @@ export default function BrightMenuPreview() {
 
           {/* Empty state safeguard */}
           {visibleDishes.length === 0 && (
-            <div className="text-center py-16 bg-[#FFFCF7] border border-[#E6D8C3] p-8 space-y-3 shadow-xs">
-              <p className="font-serif text-2xl text-[#292321]">No dishes match this selection.</p>
+            <div className="text-center py-16 bg-[#FAF6F0] border border-[#E6D8C3] p-8 space-y-3 shadow-xs rounded-sm">
+              <p className="font-serif text-2xl text-[#2D231E]">No dishes match this selection.</p>
               <button
                 onClick={() => {
                   setActiveCategory("all");
                   setDietaryFilter("all");
                   setSearchQuery("");
                 }}
-                className="px-6 py-2.5 bg-[#8E171D] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider cursor-pointer shadow-xs hover:bg-[#A9272D]"
+                className="px-6 py-2.5 bg-[#5B1B8A] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider cursor-pointer shadow-xs hover:bg-[#4B1473] rounded-sm border border-[#FFB834]/40"
               >
                 Reset Filters
               </button>
@@ -244,4 +243,3 @@ export default function BrightMenuPreview() {
     </>
   );
 }
-

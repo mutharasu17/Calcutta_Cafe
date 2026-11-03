@@ -24,14 +24,14 @@ export default function AdminHeader({
   const { openSidebar } = useAdminSidebar();
   const handleToggle = onOpenSidebar || openSidebar;
   return (
-    <header className="sticky top-0 z-20 bg-[#1D1A17]/95 backdrop-blur-md border-b border-[#3E3832] px-4 sm:px-8 py-4">
+    <header className="sticky top-0 z-20 bg-[#1A1424]/95 backdrop-blur-md border-b border-[#382B4B] px-4 sm:px-8 py-4">
       <div className="flex items-center justify-between gap-4">
         {/* Left: Mobile hamburger + Page Title */}
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={handleToggle}
-            className="lg:hidden p-2 rounded-lg bg-[#24201C] border border-[#3E3832] text-stone-300 hover:text-white transition-colors"
+            className="lg:hidden p-2 rounded-lg bg-[#251D33] border border-[#382B4B] text-stone-300 hover:text-white transition-colors"
             aria-label="Open Navigation"
           >
             <Menu className="w-5 h-5" />
@@ -45,7 +45,7 @@ export default function AdminHeader({
               {userRole && <StatusBadge status={userRole} size="sm" />}
             </div>
             {subtitle && (
-              <p className="text-xs text-[#A69B8D] font-mono mt-0.5 hidden sm:block">
+              <p className="text-xs text-[#C4B6D8] font-mono mt-0.5 hidden sm:block">
                 {subtitle}
               </p>
             )}
@@ -57,19 +57,19 @@ export default function AdminHeader({
           <Link
             href="/menu"
             target="_blank"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider text-stone-300 hover:text-[#FFF8ED] bg-[#24201C] hover:bg-[#2E2924] border border-[#3E3832] transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider text-stone-300 hover:text-[#FFF8ED] bg-[#251D33] hover:bg-[#322745] border border-[#382B4B] transition-colors"
           >
             <span>Live Site</span>
-            <ExternalLink className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <ExternalLink className="w-3.5 h-3.5 text-[#FFB834]" />
           </Link>
 
           {onAddDish && (
             <button
               type="button"
               onClick={onAddDish}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-mono uppercase tracking-wider font-semibold text-white bg-[#8E171D] hover:bg-[#A31C23] border border-[#8E171D] shadow-md transition-all active:scale-95"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-mono uppercase tracking-wider font-semibold text-[#FFF8ED] bg-[#5B1B8A] hover:bg-[#4B1473] border border-[#FFB834]/50 shadow-md transition-all active:scale-95 cursor-pointer"
             >
-              <Plus className="w-4 h-4 text-[#D4AF37]" />
+              <Plus className="w-4 h-4 text-[#FFB834]" />
               <span className="hidden xs:inline">Add Dish</span>
             </button>
           )}

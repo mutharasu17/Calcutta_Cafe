@@ -78,10 +78,10 @@ export default function DishDetailModal({
       {/* Background Click to Dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Modal Card: Crisp White with Bengali Red Accents */}
-      <div className="relative z-10 w-full max-w-2xl bg-white border-2 border-[#8E171D]/25 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col my-auto">
+      {/* Modal Card: Warm Ivory with Bengali Purple & Gold Accents */}
+      <div className="relative z-10 w-full max-w-2xl bg-[#FFF8ED] border-2 border-[#D2B48C] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col my-auto rounded-sm">
         {/* Top Image Container */}
-        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#FFF8ED] flex-shrink-0">
+        <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#FAF6F0] flex-shrink-0">
           {dish.image ? (
             <Image
               src={dish.image}
@@ -92,7 +92,7 @@ export default function DishDetailModal({
               priority
             />
           ) : (
-            <div className="h-full w-full flex items-center justify-center text-[#5C524B] text-sm">
+            <div className="h-full w-full flex items-center justify-center text-[#5C524B] text-sm font-mono">
               The Calcutta Cafe Repertoire
             </div>
           )}
@@ -100,7 +100,7 @@ export default function DishDetailModal({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-white/95 backdrop-blur-xs border border-[#8E171D]/30 flex items-center justify-center text-[#292321] hover:bg-[#8E171D] hover:text-white transition-colors cursor-pointer"
+            className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-white/95 backdrop-blur-xs border border-[#5B1B8A]/30 flex items-center justify-center text-[#2D231E] hover:bg-[#5B1B8A] hover:text-[#FFF8ED] transition-colors cursor-pointer shadow-xs"
             aria-label="Close dish details"
           >
             <X className="h-5 w-5" />
@@ -109,17 +109,17 @@ export default function DishDetailModal({
           {/* Dietary Tag */}
           <div className="absolute bottom-4 left-4 flex items-center gap-2">
             <span
-              className={`px-3 py-1 text-[11px] font-mono uppercase tracking-wider font-semibold border backdrop-blur-xs ${
+              className={`px-3 py-1 text-[11px] font-mono uppercase tracking-wider font-semibold border backdrop-blur-xs rounded-xs ${
                 dish.dietary === "veg"
-                  ? "bg-emerald-700/90 text-white border-emerald-600"
-                  : "bg-[#8E171D]/90 text-white border-[#8E171D]"
+                  ? "bg-emerald-700/95 text-white border-emerald-600"
+                  : "bg-[#5B1B8A]/95 text-[#FFF8ED] border-[#FFB834]/50"
               }`}
             >
               {dish.dietary === "veg" ? "Pure Vegetarian" : "Authentic Non-Veg"}
             </span>
 
             {dish.isChefSpecial && (
-              <span className="px-3 py-1 text-[11px] font-mono uppercase tracking-wider font-semibold bg-[#C49A55] text-[#292321] border border-[#C49A55] backdrop-blur-xs">
+              <span className="px-3 py-1 text-[11px] font-mono uppercase tracking-wider font-semibold bg-[#FFB834] text-[#2D231E] border border-[#FFB834] backdrop-blur-xs rounded-xs">
                 Signature Repertoire
               </span>
             )}
@@ -127,18 +127,18 @@ export default function DishDetailModal({
         </div>
 
         {/* Content Body */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+        <div className="p-6 sm:p-8 overflow-y-auto space-y-6 bg-[#FFF8ED]">
           {/* Title & Bengali Script */}
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2
                 id="dish-detail-title"
-                className="font-serif text-2xl sm:text-4xl text-[#292321] font-normal leading-tight"
+                className="font-serif text-2xl sm:text-4xl text-[#2D231E] font-medium leading-tight"
               >
                 {dish.name}
               </h2>
               {dish.bengaliName && (
-                <p className="font-bengali text-base sm:text-lg text-[#8E171D] mt-1 font-medium">
+                <p className="font-bengali text-base sm:text-lg text-[#5B1B8A] mt-1 font-semibold">
                   {dish.bengaliName}
                 </p>
               )}
@@ -148,10 +148,10 @@ export default function DishDetailModal({
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
                 onClick={() => onToggleFavorite(dish.id)}
-                className={`p-2.5 border transition-colors cursor-pointer ${
+                className={`p-2.5 border transition-colors cursor-pointer rounded-sm ${
                   isFavorite
-                    ? "bg-[#8E171D] text-[#FFF8ED] border-[#8E171D]"
-                    : "bg-[#FFFCF7] text-[#292321] border-[#E6D8C3] hover:border-[#8E171D]"
+                    ? "bg-[#5B1B8A] text-[#FFB834] border-[#FFB834]"
+                    : "bg-[#FAF6F0] text-[#2D231E] border-[#E6D8C3] hover:border-[#5B1B8A]"
                 }`}
                 title={isFavorite ? "Remove from favourites" : "Save to favourites"}
                 aria-label={isFavorite ? "Remove from favourites" : "Save to favourites"}
@@ -161,7 +161,7 @@ export default function DishDetailModal({
 
               <button
                 onClick={handleShare}
-                className="p-2.5 bg-[#FFFCF7] text-[#292321] border border-[#E6D8C3] hover:border-[#8E171D] transition-colors relative cursor-pointer"
+                className="p-2.5 bg-[#FAF6F0] text-[#2D231E] border border-[#E6D8C3] hover:border-[#5B1B8A] transition-colors relative cursor-pointer rounded-sm"
                 title="Share this dish"
                 aria-label="Share this dish"
               >
@@ -176,7 +176,7 @@ export default function DishDetailModal({
 
           {/* Copy Toast Alert */}
           {copySuccess && (
-            <div className="text-xs font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 flex items-center gap-2">
+            <div className="text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 flex items-center gap-2 rounded-xs">
               <Check className="h-3.5 w-3.5" />
               <span>Link copied to clipboard! Share with friends.</span>
             </div>
@@ -196,7 +196,7 @@ export default function DishDetailModal({
               {dish.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs px-2.5 py-1 bg-[#FFFCF7] border border-[#E6D8C3] text-[#292321]"
+                  className="text-xs px-2.5 py-1 bg-[#FAF6F0] border border-[#E6D8C3] text-[#2D231E] rounded-xs"
                 >
                   {tag}
                 </span>
@@ -210,17 +210,17 @@ export default function DishDetailModal({
               <span className="text-[10px] font-mono uppercase tracking-wider text-[#5C524B] block">
                 Serving Price
               </span>
-              <span className="font-serif text-3xl font-bold text-[#8E171D]">
+              <span className="font-serif text-3xl font-bold text-[#5B1B8A]">
                 ₹{dish.price}
               </span>
             </div>
 
             <button
               onClick={handleAddDish}
-              className={`flex items-center gap-2 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-xs cursor-pointer ${
+              className={`flex items-center gap-2 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-xs cursor-pointer rounded-sm border ${
                 isAdded
-                  ? "bg-emerald-600 text-white"
-                  : "bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED]"
+                  ? "bg-emerald-600 text-white border-emerald-700"
+                  : "bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] border-[#FFB834]/50"
               }`}
             >
               {isAdded ? (
@@ -230,7 +230,7 @@ export default function DishDetailModal({
                 </>
               ) : (
                 <>
-                  <Plus className="h-4 w-4 text-[#C49A55]" />
+                  <Plus className="h-4 w-4 text-[#FFB834]" />
                   <span>Add to Feast</span>
                 </>
               )}
@@ -240,7 +240,7 @@ export default function DishDetailModal({
           {/* Direct Delivery Hubs */}
           <div className="pt-4 border-t border-[#E6D8C3] space-y-3">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#8E171D] font-bold">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#5B1B8A] font-bold">
                 Bangalore Hub Direct Delivery
               </span>
               <span className="text-xs text-[#5C524B]">
@@ -253,7 +253,7 @@ export default function DishDetailModal({
                 href="https://www.swiggy.com/restaurants/the-calcutta-cafe-bangalore"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#FC8019] text-white py-3 px-4 text-xs font-semibold uppercase tracking-wider hover:bg-[#e06f10] transition-colors shadow-xs"
+                className="flex items-center justify-center gap-2 bg-[#FC8019] text-white py-3 px-4 text-xs font-semibold uppercase tracking-wider hover:bg-[#e06f10] transition-colors shadow-xs rounded-sm"
               >
                 <span>Order on Swiggy</span>
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -263,7 +263,7 @@ export default function DishDetailModal({
                 href="https://www.zomato.com/bangalore/the-calcutta-cafe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#CB202D] text-white py-3 px-4 text-xs font-semibold uppercase tracking-wider hover:bg-[#b01b26] transition-colors shadow-xs"
+                className="flex items-center justify-center gap-2 bg-[#CB202D] text-white py-3 px-4 text-xs font-semibold uppercase tracking-wider hover:bg-[#b01b26] transition-colors shadow-xs rounded-sm"
               >
                 <span>Order on Zomato</span>
                 <ExternalLink className="h-3.5 w-3.5" />

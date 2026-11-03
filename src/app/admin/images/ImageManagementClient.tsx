@@ -92,7 +92,7 @@ export default function ImageManagementClient({
             onClick={() => setActiveTab('dishes')}
             className={`px-4 py-2 text-xs font-mono uppercase tracking-wider rounded-xl transition-colors flex items-center gap-2 ${
               activeTab === 'dishes'
-                ? 'bg-[#8E171D] text-white font-bold'
+                ? 'bg-[#5B1B8A] text-[#FFF8ED] font-bold border border-[#FFB834]/50'
                 : 'text-stone-400 hover:text-white bg-[#1A1815]'
             }`}
           >
@@ -118,7 +118,7 @@ export default function ImageManagementClient({
             onClick={() => setActiveTab('uploads')}
             className={`px-4 py-2 text-xs font-mono uppercase tracking-wider rounded-xl transition-colors flex items-center gap-2 ${
               activeTab === 'uploads'
-                ? 'bg-[#8E171D] text-white font-bold'
+                ? 'bg-[#5B1B8A] text-[#FFF8ED] font-bold border border-[#FFB834]/50'
                 : 'text-stone-400 hover:text-white bg-[#1A1815]'
             }`}
           >

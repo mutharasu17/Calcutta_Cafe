@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link
               href="/order"
-              className="inline-flex items-center gap-2 bg-[#7A382B] text-[#F5EFE4] px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#5E2B21] transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-[#5B1B8A] text-[#F5EFE4] px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#4B1473] transition-all shadow-sm"
             >
               <span>Order via Swiggy / Zomato</span>
               <ArrowUpRight className="h-4 w-4" />
@@ -33,7 +33,7 @@ export default function Footer() {
 
             <Link
               href="/menu"
-              className="editorial-link inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#29251F] hover:text-[#7A382B] px-3 py-3"
+              className="editorial-link inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#29251F] hover:text-[#5B1B8A] px-3 py-3"
             >
               <span>Explore The Menu</span>
             </Link>
@@ -46,32 +46,32 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-xs">
           {/* Col 1: Exploration */}
           <div className="space-y-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#7A382B] font-semibold block">
+            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#5B1B8A] font-semibold block">
               Exploration
             </span>
             <ul className="space-y-2.5 uppercase tracking-wider text-[#29251F] font-medium">
               <li>
-                <Link href="/" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/" className="hover:text-[#5B1B8A] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/about" className="hover:text-[#5B1B8A] transition-colors">
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/menu" className="hover:text-[#5B1B8A] transition-colors">
                   The Menu
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/blog" className="hover:text-[#5B1B8A] transition-colors">
                   Journal
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#7A382B] transition-colors">
+                <Link href="/contact" className="hover:text-[#5B1B8A] transition-colors">
                   Contact
                 </Link>
               </li>
@@ -80,7 +80,7 @@ export default function Footer() {
 
           {/* Col 2: Categories */}
           <div className="space-y-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#7A382B] font-semibold block">
+            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#5B1B8A] font-semibold block">
               Culinary Repertoire
             </span>
             <ul className="space-y-2.5 text-[#6B6357]">
@@ -114,7 +114,7 @@ export default function Footer() {
 
           {/* Col 3: Operational Footprint */}
           <div className="space-y-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#7A382B] font-semibold block">
+            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#5B1B8A] font-semibold block">
               Operations
             </span>
             <div className="space-y-2 text-[#6B6357] leading-relaxed">
@@ -124,7 +124,7 @@ export default function Footer() {
               <p>
                 Delivering across central and eastern Bangalore hubs via Swiggy and Zomato.
               </p>
-              <p className="text-[11px] font-mono text-[#7A382B] pt-1">
+              <p className="text-[11px] font-mono text-[#5B1B8A] pt-1">
                 Expansion: Delhi NCR Planned
               </p>
             </div>
@@ -132,7 +132,7 @@ export default function Footer() {
 
           {/* Col 4: Official Channels */}
           <div className="space-y-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#7A382B] font-semibold block">
+            <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[#5B1B8A] font-semibold block">
               Official Channels
             </span>
             <div className="flex flex-col gap-2.5">
@@ -140,20 +140,20 @@ export default function Footer() {
                 href={BRAND_DATA.socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#29251F] hover:text-[#7A382B] transition-colors"
+                className="inline-flex items-center gap-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="h-4 w-4 text-[#7A382B]" />
+                <InstagramIcon className="h-4 w-4 text-[#5B1B8A]" />
                 <span>Instagram (@thecalcutta_cafe)</span>
               </a>
               <a
                 href={BRAND_DATA.socialLinks.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#29251F] hover:text-[#7A382B] transition-colors"
+                className="inline-flex items-center gap-2 text-[#29251F] hover:text-[#5B1B8A] transition-colors"
                 aria-label="X (formerly Twitter)"
               >
-                <XIcon className="h-3.5 w-3.5 text-[#7A382B]" />
+                <XIcon className="h-3.5 w-3.5 text-[#5B1B8A]" />
                 <span>X / Twitter (@calcutta_cafe)</span>
               </a>
             </div>

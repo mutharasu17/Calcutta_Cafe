@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X, ArrowUpRight } from "lucide-react";
 import { gsap } from "@/lib/gsapConfig";
 import { useCart } from "@/context/CartContext";
+import BrandLogo from "../ui/BrandLogo";
 
 const NAV_LINKS = [
   { name: "Home", href: "/", bengali: "প্রচ্ছদ" },
@@ -23,7 +24,7 @@ export default function GSAPHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const headerRef = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLAnchorElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
   const navContainerRef = useRef<HTMLElement>(null);
   const cartBadgeRef = useRef<HTMLSpanElement>(null);
   const ctaRef = useRef<HTMLAnchorElement>(null);
@@ -100,22 +101,14 @@ export default function GSAPHeader() {
           { opacity: 0, y: -20 },
           { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }
         );
-        const links = mobileMenuRef.current.querySelectorAll(".mobile-nav-item");
-        gsap.fromTo(
-          links,
-          { opacity: 0, x: -25 },
-          { opacity: 1, x: 0, duration: 0.4, stagger: 0.06, ease: "power2.out", delay: 0.08 }
-        );
       }
       return () => {
+        document.body.style.overflow = "";
         window.removeEventListener("keydown", handleKeyDown);
       };
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [mobileMenuOpen]);
 
   // Handle GSAP SVG DrawSVG hover on nav links
@@ -143,31 +136,16 @@ export default function GSAPHeader() {
         ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-400 ease-out ${
           isScrolled
-            ? "bg-white/98 backdrop-blur-md py-2.5 sm:py-3.5 border-b border-[#8E171D]/20 shadow-sm"
-            : "bg-white/95 backdrop-blur-sm py-3.5 sm:py-5 border-b border-[#8E171D]/15"
+            ? "bg-[#FFF8ED]/98 backdrop-blur-md py-2.5 sm:py-3.5 border-b border-[#5B1B8A]/20 shadow-xs"
+            : "bg-[#FFF8ED]/95 backdrop-blur-sm py-3.5 sm:py-4.5 border-b border-[#5B1B8A]/15"
         }`}
       >
         <div className="mx-auto max-w-7xl px-3 sm:px-8 lg:px-12 flex items-center justify-between">
           
-          {/* Left: Brand Emblem & Typography */}
-          <Link
-            ref={logoRef}
-            href="/"
-            className="group flex items-center gap-2 sm:gap-3 relative z-10"
-            aria-label="The Calcutta Cafe Homepage"
-          >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8E171D] border border-[#C49A55] flex items-center justify-center text-[#FFF8ED] shadow-sm group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
-              <span className="font-serif text-base sm:text-lg font-bold text-[#C49A55]">CC</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-base sm:text-xl font-medium text-[#292321] tracking-tight leading-tight group-hover:text-[#8E171D] transition-colors whitespace-nowrap">
-                The Calcutta Cafe
-              </span>
-              <span className="font-bengali text-[9px] sm:text-[10px] text-[#8E171D] font-medium tracking-wider leading-none mt-0.5 whitespace-nowrap">
-                দ্য ক্যালকাটা ক্যাফে • Estd. 2019
-              </span>
-            </div>
-          </Link>
+          {/* Left: Official Medallion Brand Emblem & Typography */}
+          <div ref={logoRef} className="relative z-10">
+            <BrandLogo size="md" />
+          </div>
 
           {/* Centre: Desktop Navigation with GSAP SVG DrawSVG Underline */}
           <nav
@@ -186,8 +164,8 @@ export default function GSAPHeader() {
                   onMouseLeave={() => handleNavMouseLeave(idx, isActive)}
                   className={`relative px-4 py-2 text-xs xl:text-sm uppercase tracking-[0.18em] font-medium transition-colors duration-300 flex flex-col items-center ${
                     isActive
-                      ? "text-[#8E171D] font-semibold"
-                      : "text-[#292321]/80 hover:text-[#8E171D]"
+                      ? "text-[#5B1B8A] font-semibold"
+                      : "text-[#2D231E]/80 hover:text-[#5B1B8A]"
                   }`}
                 >
                   <span>{link.name}</span>
@@ -204,7 +182,7 @@ export default function GSAPHeader() {
                       y1="2"
                       x2="100"
                       y2="2"
-                      stroke="#C49A55"
+                      stroke="#FFB834"
                       strokeWidth="2"
                       strokeLinecap="round"
                       style={{
@@ -224,24 +202,24 @@ export default function GSAPHeader() {
             <Link
               ref={ctaRef}
               href="/order"
-              className="hidden sm:inline-flex items-center gap-2 bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] border border-[#C49A55]/40 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] border border-[#FFB834]/50 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 rounded-sm"
             >
               <span>Order Online</span>
-              <ArrowUpRight className="h-3.5 w-3.5 text-[#C49A55]" />
+              <ArrowUpRight className="h-3.5 w-3.5 text-[#FFB834]" />
             </Link>
 
             {/* Shopping Cart Bag Button with GSAP Animated Counter Badge */}
             <button
               id="header-cart-btn"
               onClick={openCart}
-              className="relative p-2.5 text-[#292321] hover:text-[#8E171D] transition-colors rounded-full hover:bg-[#F4E8D7] cursor-pointer"
+              className="relative p-2.5 text-[#2D231E] hover:text-[#5B1B8A] transition-colors rounded-full hover:bg-[#FAF6F0] cursor-pointer"
               aria-label={`Open shopping feast. ${totalCount} items in cart.`}
             >
               <ShoppingBag className="h-5 w-5" />
               {totalCount > 0 && (
                 <span
                   ref={cartBadgeRef}
-                  className="absolute -top-1 -right-1 w-5 h-5 bg-[#8E171D] text-[#FFF8ED] border border-[#C49A55] text-[10px] font-mono font-bold rounded-full flex items-center justify-center shadow-md"
+                  className="absolute -top-1 -right-1 w-5 h-5 bg-[#5B1B8A] text-[#FFB834] border border-[#FFB834] text-[10px] font-mono font-bold rounded-full flex items-center justify-center shadow-md"
                 >
                   {totalCount}
                 </span>
@@ -251,7 +229,7 @@ export default function GSAPHeader() {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#292321] hover:text-[#8E171D] focus:outline-none cursor-pointer"
+              className="lg:hidden p-2 text-[#2D231E] hover:text-[#5B1B8A] focus:outline-none cursor-pointer"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -268,12 +246,12 @@ export default function GSAPHeader() {
       {mobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="fixed inset-0 z-30 bg-white flex flex-col justify-between pt-24 pb-8 px-6 sm:px-10 overflow-y-auto lg:hidden"
+          className="fixed inset-0 z-30 bg-[#FFF8ED] flex flex-col justify-between pt-24 pb-8 px-6 sm:px-10 overflow-y-auto lg:hidden"
         >
           {/* Header row in mobile overlay */}
           <div className="flex flex-col space-y-6">
-            <div className="pb-4 border-b border-[#C49A55]/20">
-              <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#8E171D] font-bold">
+            <div className="pb-4 border-b border-[#5B1B8A]/20">
+              <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#5B1B8A] font-bold">
                 Navigating The Calcutta Cafe
               </span>
               <p className="font-bengali text-xs text-[#5C524B] mt-1">
@@ -293,13 +271,13 @@ export default function GSAPHeader() {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`mobile-nav-item py-2.5 flex items-baseline justify-between border-b border-[#E6D8C3]/50 transition-colors ${
-                      isActive ? "text-[#8E171D] font-bold" : "text-[#292321] hover:text-[#8E171D]"
+                      isActive ? "text-[#5B1B8A] font-bold" : "text-[#2D231E] hover:text-[#5B1B8A]"
                     }`}
                   >
                     <span className="font-serif text-2xl tracking-wide">
                       {link.name}
                     </span>
-                    <span className="font-bengali text-xs text-[#C49A55] font-medium">
+                    <span className="font-bengali text-xs text-[#FFB834] font-medium">
                       {link.bengali}
                     </span>
                   </Link>
@@ -309,19 +287,19 @@ export default function GSAPHeader() {
           </div>
 
           {/* Bottom Actions: Online Delivery & Hub Details */}
-          <div className="pt-6 border-t border-[#C49A55]/30 space-y-4">
+          <div className="pt-6 border-t border-[#FFB834]/40 space-y-4">
             <Link
               href="/order"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 bg-[#8E171D] text-[#FFF8ED] flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] shadow-md border border-[#C49A55]/40"
+              className="w-full py-3.5 bg-[#5B1B8A] text-[#FFF8ED] flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] shadow-md border border-[#FFB834]/50 rounded-sm"
             >
               <span>Order on Swiggy / Zomato</span>
-              <ArrowUpRight className="h-4 w-4 text-[#C49A55]" />
+              <ArrowUpRight className="h-4 w-4 text-[#FFB834]" />
             </Link>
 
             <div className="text-center text-[11px] font-mono text-[#5C524B]">
               <span>Koramangala • Indiranagar • Whitefield • HSR</span>
-              <p className="mt-1 text-[#8E171D]">Daily 11:30 AM — 11:00 PM</p>
+              <p className="mt-1 text-[#5B1B8A] font-medium">Daily 11:30 AM — 11:00 PM</p>
             </div>
           </div>
         </div>
