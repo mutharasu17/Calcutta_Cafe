@@ -153,18 +153,6 @@ export default function BrightFullscreenHero() {
           <circle cx="180" cy="100" r="3" fill="#8E171D" />
         </svg>
       </div>
-
-      {/* ──────────────────────────────────────────────────────────
-          SUBTLE STATIC SCROLL HINT AT BOTTOM
-      ────────────────────────────────────────────────────────── */}
-      <div className="hidden sm:flex absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1.5 pointer-events-none">
-        <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#5C524B]/80 font-medium">
-          Scroll to Discover
-        </span>
-        <div className="w-4 h-7 border border-[#8E171D]/40 rounded-full flex justify-center p-1 bg-white/80">
-          <div className="w-1 h-1.5 bg-[#8E171D] rounded-full" />
-        </div>
-      </div>
     </section>
   );
 }
