@@ -351,7 +351,7 @@ export default function MenuManagementClient({
                           </div>
                         )}
                         {Boolean(dish.is_signature) && (
-                          <span className="absolute top-0.5 right-0.5 p-0.5 rounded-full bg-[#8E171D] text-[#D4AF37]" title="Chef's Signature">
+                          <span className="absolute top-0.5 right-0.5 p-0.5 rounded-full bg-[#5B1B8A] text-[#FFB834] border border-[#FFB834]/40" title="Chef's Signature">
                             <Sparkles className="w-2.5 h-2.5" />
                           </span>
                         )}

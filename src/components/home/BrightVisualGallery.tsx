@@ -10,28 +10,42 @@ const GALLERY_PHOTOS = [
     src: "/images/brand/durga-puja-dining-hall.jpeg",
     title: "Durga Puja Heritage Dining",
     bengali: "পূজার ঐতিহ্যবাহী প্রেক্ষাপট",
-    subtitle: "Heritage ambiance with Tagore & Ray portraits",
+    subtitle: "Heritage cultural dining adorned with Tagore and Ray portraits",
+    aspect: "aspect-[4/3]",
+  },
+  {
+    src: "/images/brand/restaurant-ambiance.jpeg",
+    title: "Candlelit Evening Service",
+    bengali: "সন্ধ্যার উষ্ণ আবহাওয়া",
+    subtitle: "Warm dining ambiance with handcrafted brass and terracotta",
     aspect: "aspect-[4/3]",
   },
   {
     src: "/images/brand/packaging-studio.jpeg",
     title: "Official Kraft Packaging Suite",
     bengali: "খাঁটি ক্রাফট প্যাকেজিং",
-    subtitle: "Eco-friendly takeaway bags & meal trays",
+    subtitle: "Eco-friendly takeaway bags, meal trays & beverage cups",
     aspect: "aspect-[4/3]",
   },
   {
     src: "/images/dishes/katla-kalia-bhaat.jpeg",
     title: "Katla Kalia on Terracotta Platter",
     bengali: "কাতলা কালিয়া ও ভাত",
-    subtitle: "Prime fish steak in onion-raisin gravy",
+    subtitle: "Prime river carp steak slow-braised in onion-raisin gravy",
+    aspect: "aspect-[4/3]",
+  },
+  {
+    src: "/images/dishes/murgir-jhol-bhaat.jpeg",
+    title: "Robibarer Murgir Jhol",
+    bengali: "রবিবারের মুরগির পাতলা ঝোল",
+    subtitle: "Sunday light chicken broth with fried potato chunks & steamed rice",
     aspect: "aspect-[4/3]",
   },
   {
     src: "/images/dishes/luchi-chholar-dal.jpeg",
     title: "Puffed Luchi & Narkel Chholar Dal",
     bengali: "লুচি ও নারকেল দিয়ে ছোলার ডাল",
-    subtitle: "Golden puffed luchis & spiced gram",
+    subtitle: "Golden puffed luchis with coconut-tempered Bengal gram",
     aspect: "aspect-[4/3]",
   },
 ];
@@ -89,7 +103,7 @@ export default function BrightVisualGallery() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {GALLERY_PHOTOS.map((photo) => (
             <div
               key={photo.title}

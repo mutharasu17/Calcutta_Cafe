@@ -228,8 +228,8 @@ export default function DishEditorModal({
                     </div>
                   )}
                   {formData.is_signature && (
-                    <span className="absolute top-3 left-3 bg-[#8E171D] text-white text-[10px] font-mono uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-[#D4AF37]" /> Chef&apos;s Signature
+                    <span className="absolute top-3 left-3 bg-[#5B1B8A] text-[#FFF8ED] text-[10px] font-mono uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full shadow-md flex items-center gap-1 border border-[#FFB834]/50">
+                      <Sparkles className="w-3 h-3 text-[#FFB834]" /> Chef&apos;s Signature
                     </span>
                   )}
                   <span className="absolute bottom-3 right-3 bg-black/75 backdrop-blur-sm text-[#D4AF37] font-serif font-bold text-base px-3 py-1 rounded-lg border border-[#C49A55]/30">
@@ -540,7 +540,7 @@ export default function DishEditorModal({
                     id="is_signature"
                     checked={formData.is_signature}
                     onChange={(e) => handleChange('is_signature', e.target.checked)}
-                    className="w-4 h-4 rounded border-[#3E3832] text-[#8E171D] focus:ring-[#8E171D] bg-[#1A1815]"
+                    className="w-4 h-4 rounded border-[#3E3832] text-[#5B1B8A] focus:ring-[#5B1B8A] bg-[#1A1815]"
                   />
                   <label htmlFor="is_signature" className="text-xs font-medium text-stone-200 cursor-pointer">
                     Chef&apos;s Signature
@@ -553,7 +553,7 @@ export default function DishEditorModal({
                     id="is_available"
                     checked={formData.is_available}
                     onChange={(e) => handleChange('is_available', e.target.checked)}
-                    className="w-4 h-4 rounded border-[#3E3832] text-[#8E171D] focus:ring-[#8E171D] bg-[#1A1815]"
+                    className="w-4 h-4 rounded border-[#3E3832] text-[#5B1B8A] focus:ring-[#5B1B8A] bg-[#1A1815]"
                   />
                   <label htmlFor="is_available" className="text-xs font-medium text-stone-200 cursor-pointer">
                     Available in Kitchen
@@ -579,7 +579,7 @@ export default function DishEditorModal({
             type="submit"
             form="dish-form"
             disabled={isSubmitting}
-            className="px-6 py-2.5 bg-[#8E171D] hover:bg-[#A31C23] text-white text-xs font-mono uppercase tracking-wider font-semibold rounded-lg shadow-lg flex items-center gap-2 transition-all disabled:opacity-50"
+            className="px-6 py-2.5 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-mono uppercase tracking-wider font-semibold rounded-lg shadow-lg flex items-center gap-2 transition-all disabled:opacity-50 border border-[#FFB834]/40"
           >
             {isSubmitting ? (
               <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

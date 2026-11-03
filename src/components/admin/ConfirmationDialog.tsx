@@ -74,7 +74,7 @@ export default function ConfirmationDialog({
             className={`px-4 py-2 text-sm font-medium rounded-lg text-white transition-all shadow-md flex items-center gap-2 ${
               isDanger
                 ? 'bg-rose-700 hover:bg-rose-600 border border-rose-600'
-                : 'bg-[#8E171D] hover:bg-[#A31C23] border border-[#8E171D]'
+                : 'bg-[#5B1B8A] hover:bg-[#4B1473] border border-[#FFB834]/40'
             } disabled:opacity-50`}
           >
             {isLoading && (

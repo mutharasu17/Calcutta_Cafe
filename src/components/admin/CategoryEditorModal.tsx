@@ -205,7 +205,7 @@ export default function CategoryEditorModal({
                 id="cat_is_active"
                 checked={formData.is_active}
                 onChange={(e) => handleChange('is_active', e.target.checked)}
-                className="w-4 h-4 rounded border-[#3E3832] text-[#8E171D] focus:ring-[#8E171D] bg-[#1A1815]"
+                className="w-4 h-4 rounded border-[#3E3832] text-[#5B1B8A] focus:ring-[#5B1B8A] bg-[#1A1815]"
               />
               <label htmlFor="cat_is_active" className="text-xs font-medium text-stone-200 cursor-pointer">
                 Active on Public Menu
@@ -228,7 +228,7 @@ export default function CategoryEditorModal({
             type="submit"
             form="category-form"
             disabled={isSubmitting}
-            className="px-5 py-2.5 bg-[#8E171D] hover:bg-[#A31C23] text-white text-xs font-mono uppercase tracking-wider font-semibold rounded-lg shadow-lg flex items-center gap-2 transition-all disabled:opacity-50"
+            className="px-5 py-2.5 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-mono uppercase tracking-wider font-semibold rounded-lg shadow-lg flex items-center gap-2 transition-all disabled:opacity-50 border border-[#FFB834]/40"
           >
             {isSubmitting ? (
               <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

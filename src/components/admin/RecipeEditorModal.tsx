@@ -436,7 +436,7 @@ export default function RecipeEditorModal({
               <div className="space-y-3">
                 {formData.instructions.map((inst, idx) => (
                   <div key={idx} className="p-3 bg-[#1A1815] border border-[#3E3832] rounded-xl flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#8E171D] text-white flex items-center justify-center text-xs font-mono font-bold flex-shrink-0 mt-1">
+                    <span className="w-6 h-6 rounded-full bg-[#5B1B8A] text-[#FFF8ED] border border-[#FFB834]/40 flex items-center justify-center text-xs font-mono font-bold flex-shrink-0 mt-1">
                       {idx + 1}
                     </span>
                     <div className="flex-1 space-y-2">
@@ -498,7 +498,7 @@ export default function RecipeEditorModal({
             type="submit"
             form="recipe-form"
             disabled={isSubmitting}
-            className="px-5 py-2.5 bg-[#8E171D] hover:bg-[#A31C23] text-white text-xs font-mono uppercase tracking-wider font-semibold rounded-lg shadow-lg flex items-center gap-2 transition-all disabled:opacity-50"
+            className="px-5 py-2.5 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-mono uppercase tracking-wider font-semibold rounded-lg shadow-lg flex items-center gap-2 transition-all disabled:opacity-50 border border-[#FFB834]/40"
           >
             {isSubmitting ? (
               <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

@@ -151,7 +151,7 @@ export default function RecipeManagementClient({
                 onClick={() => setFilterVisibility('all')}
                 className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-lg transition-colors ${
                   filterVisibility === 'all'
-                    ? 'bg-[#8E171D] text-white font-semibold'
+                    ? 'bg-[#5B1B8A] text-[#FFF8ED] font-semibold border border-[#FFB834]/40'
                     : 'text-stone-400 hover:text-stone-200'
                 }`}
               >
@@ -162,7 +162,7 @@ export default function RecipeManagementClient({
                 onClick={() => setFilterVisibility('internal')}
                 className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-lg transition-colors ${
                   filterVisibility === 'internal'
-                    ? 'bg-[#8E171D] text-white font-semibold'
+                    ? 'bg-[#5B1B8A] text-[#FFF8ED] font-semibold border border-[#FFB834]/40'
                     : 'text-stone-400 hover:text-stone-200'
                 }`}
               >
@@ -173,7 +173,7 @@ export default function RecipeManagementClient({
                 onClick={() => setFilterVisibility('public')}
                 className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded-lg transition-colors ${
                   filterVisibility === 'public'
-                    ? 'bg-[#8E171D] text-white font-semibold'
+                    ? 'bg-[#5B1B8A] text-[#FFF8ED] font-semibold border border-[#FFB834]/40'
                     : 'text-stone-400 hover:text-stone-200'
                 }`}
               >
@@ -183,9 +183,9 @@ export default function RecipeManagementClient({
 
             <button
               onClick={handleCreate}
-              className="px-4 py-2 bg-[#8E171D] hover:bg-[#A31C23] text-white text-xs font-mono uppercase tracking-wider font-semibold rounded-xl shadow-lg flex items-center gap-1.5 transition-all whitespace-nowrap"
+              className="px-4 py-2 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-mono uppercase tracking-wider font-semibold rounded-xl shadow-lg flex items-center gap-1.5 transition-all whitespace-nowrap border border-[#FFB834]/40"
             >
-              <Plus className="w-4 h-4 text-[#D4AF37]" />
+              <Plus className="w-4 h-4 text-[#FFB834]" />
               <span>Add Recipe</span>
             </button>
           </div>
