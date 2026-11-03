@@ -11,7 +11,7 @@ export function OrganizationJsonLd({ url = "https://thecalcuttacafe.com" }: Orga
     name: "The Calcutta Cafe",
     legalName: "The Calcutta Cafe Foods Pvt Ltd",
     url,
-    logo: `${url}/images/hero-bengali-bhoj.jpg`,
+    logo: `${url}/images/brand/logo.jpeg`,
     foundingDate: "2019",
     founder: {
       "@type": "Person",
@@ -19,8 +19,8 @@ export function OrganizationJsonLd({ url = "https://thecalcuttacafe.com" }: Orga
       jobTitle: "Founder & Culinary Steward",
     },
     sameAs: [
-      "https://www.instagram.com/thecalcutta_cafe",
-      "https://x.com/calcutta_cafe",
+      "https://www.instagram.com/thecalcuttacafe.in",
+      "https://x.com/thecalcuttacafe",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -53,6 +53,7 @@ export function RestaurantJsonLd({ url = "https://thecalcuttacafe.com" }: { url?
     description:
       "Authentic regional Bengali gastronomy presented with warm editorial sophistication. Cloud kitchen hubs operating in Bangalore serving Shorshe Ilish, Kosha Mangsho, and artisanal Mishti Doi.",
     url,
+    telephone: "+91 80 4567 8900",
     servesCuisine: ["Bengali", "Regional Indian", "Kolkata"],
     priceRange: "₹₹",
     currenciesAccepted: "INR",
@@ -60,9 +61,16 @@ export function RestaurantJsonLd({ url = "https://thecalcuttacafe.com" }: { url?
     hasMenu: `${url}/menu`,
     address: {
       "@type": "PostalAddress",
+      streetAddress: "80 Feet Road, 4th Block, Koramangala",
       addressLocality: "Bangalore",
       addressRegion: "Karnataka",
+      postalCode: "560034",
       addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 12.9352,
+      longitude: 77.6245,
     },
     openingHoursSpecification: [
       {
@@ -179,7 +187,7 @@ export function ArticleJsonLd({
       name: "The Calcutta Cafe",
       logo: {
         "@type": "ImageObject",
-        url: "https://thecalcuttacafe.com/images/hero-bengali-bhoj.jpg",
+        url: "https://thecalcuttacafe.com/images/brand/logo.jpeg",
       },
     },
     mainEntityOfPage: {

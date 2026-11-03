@@ -5,6 +5,7 @@ export interface BlogPost {
   subtitle: string;
   category: string;
   date: string;
+  isoDate: string;
   readTime: string;
   author: string;
   image: string;
@@ -27,6 +28,7 @@ export const BLOG_POSTS: BlogPost[] = [
     subtitle: "Why the true test of a Bengali cook lies not in meat or fish, but in the subtle balance of a bitter Shukto or fragrant Mochar Ghonto.",
     category: "Culinary Heritage",
     date: "October 2026",
+    isoDate: "2026-10-15",
     readTime: "5 min read",
     author: "The Calcutta Cafe Culinary Team",
     image: "/images/luchi-chholar-dal.jpg",
@@ -59,6 +61,7 @@ export const BLOG_POSTS: BlogPost[] = [
     subtitle: "How slow-cooking goat meat on Sunday afternoons became Bengal’s most enduring domestic ritual.",
     category: "Traditions & Memories",
     date: "September 2026",
+    isoDate: "2026-09-15",
     readTime: "6 min read",
     author: "Akash Santra",
     image: "/images/kosha-mangsho.jpg",
@@ -90,6 +93,7 @@ export const BLOG_POSTS: BlogPost[] = [
     subtitle: "Understanding why Hilsa is revered with quasi-religious devotion across Bengal.",
     category: "Culinary Heritage",
     date: "August 2026",
+    isoDate: "2026-08-15",
     readTime: "4 min read",
     author: "The Calcutta Cafe Culinary Team",
     image: "/images/shorshe-ilish.jpg",

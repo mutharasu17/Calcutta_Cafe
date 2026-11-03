@@ -148,10 +148,11 @@ export default function ContactClient() {
                   )}
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
+                    <label htmlFor="contact-name" className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
                       Full Name *
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
                       minLength={2}
@@ -163,10 +164,11 @@ export default function ContactClient() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
+                    <label htmlFor="contact-email" className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
                       Email Address *
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       required
                       value={formData.email}
@@ -177,10 +179,11 @@ export default function ContactClient() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
+                    <label htmlFor="contact-subject" className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
                       Inquiry Type
                     </label>
                     <select
+                      id="contact-subject"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       className="w-full bg-[#F5EFE4]/50 border border-[#E6D8C3] px-4 py-3 text-sm text-[#29251F] focus:outline-none focus:border-[#5B1B8A] transition-colors"
@@ -193,10 +196,11 @@ export default function ContactClient() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
+                    <label htmlFor="contact-message" className="block text-xs font-mono uppercase tracking-wider text-[#6B6357] mb-2">
                       Message *
                     </label>
                     <textarea
+                      id="contact-message"
                       required
                       rows={5}
                       minLength={10}

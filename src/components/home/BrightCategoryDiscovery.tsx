@@ -79,6 +79,16 @@ const CATEGORIES_DATA: CategoryCardData[] = [
     count: MENU_ITEMS.filter((i) => i.category === "sweets-desserts").length,
     highlight: "Claypot Aged",
   },
+  {
+    id: "drinks",
+    number: "07",
+    name: "Beverages & Coolers",
+    bengali: "পানীয় ও শরবত",
+    description: "Fragrant Gondhoraj lime refreshers, street-style spiced Lebu Cha, and traditional afternoon ghol buttermilk coolers.",
+    image: "/images/brand/restaurant-ambiance.jpeg",
+    count: MENU_ITEMS.filter((i) => i.category === "drinks").length,
+    highlight: "Gondhoraj Coolers",
+  },
 ];
 
 export default function BrightCategoryDiscovery() {
@@ -137,7 +147,7 @@ export default function BrightCategoryDiscovery() {
               Explore Food Categories.
             </h2>
             <p className="text-sm sm:text-base text-[#5C524B] font-sans leading-relaxed">
-              Every dish at The Calcutta Cafe belongs to an unbroken culinary lineage. Explore our six defining gastronomic repertoires.
+              Every dish at The Calcutta Cafe belongs to an unbroken culinary lineage. Explore our seven defining gastronomic repertoires.
             </p>
           </div>
 

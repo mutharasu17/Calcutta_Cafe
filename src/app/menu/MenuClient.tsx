@@ -19,6 +19,7 @@ const MENU_TABS: { id: FilterTab; label: string; bengali: string }[] = [
   { id: "snacks-street", label: "Snacks & Street Food", bengali: "স্ট্রিট ফুড" },
   { id: "rice-meals", label: "Rice & Grand Thalis", bengali: "ভাত ও থালি" },
   { id: "sweets-desserts", label: "Sweets & Desserts", bengali: "মিষ্টি" },
+  { id: "drinks", label: "Beverages & Refreshers", bengali: "পানীয় ও শরবত" },
 ];
 
 /**
@@ -289,6 +290,7 @@ export default function MenuClient({
               <input
                 type="text"
                 placeholder="Search dishes or Bengali spices..."
+                aria-label="Search dishes or Bengali spices"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-[#FFFFFF] border border-[#E6D8C3] pl-9 pr-8 py-2 text-xs text-[#2D231E] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#5B1B8A] transition-colors rounded-xs shadow-2xs"
@@ -310,9 +312,16 @@ export default function MenuClient({
       {/* ──────────────────────────────────────────────────────────
           3. DISHES EDITORIAL GRID (WARM CREAM CARDS, 3 COLS DESKTOP)
       ────────────────────────────────────────────────────────── */}
-      <section className="px-4 sm:px-8 lg:px-12 py-10 lg:py-14">
+      <section className="px-4 sm:px-8 lg:px-12 py-10 lg:py-14" aria-label="Menu Items">
         <div className="mx-auto max-w-7xl">
-          <div className="flex items-center justify-between mb-8 pb-3 border-b border-[#E6D8C3]/70">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8 pb-3 border-b border-[#E6D8C3]/70">
+            <h2 className="font-serif text-xl sm:text-2xl font-medium text-[#2D231E]">
+              {activeTab === "all"
+                ? "All Culinary Preparations"
+                : activeTab === "favorites"
+                ? "Saved Preparations"
+                : MENU_TABS.find((t) => t.id === activeTab)?.label || "Culinary Preparations"}
+            </h2>
             <span className="font-mono text-xs uppercase tracking-wider text-[#5C524B]">
               Showing <span className="text-[#5B1B8A] font-bold">{filteredItems.length}</span>{" "}
               {filteredItems.length === 1 ? "preparation" : "preparations"}

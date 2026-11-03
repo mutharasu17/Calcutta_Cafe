@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         description={post.excerpt}
         url={postUrl}
         image={`https://thecalcuttacafe.com${post.image}`}
-        datePublished={post.date}
+        datePublished={post.isoDate || post.date}
         author={post.author}
       />
       <article className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">

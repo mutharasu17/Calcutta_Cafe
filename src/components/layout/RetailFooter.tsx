@@ -72,6 +72,7 @@ export default function RetailFooter() {
                 <input
                   type="email"
                   placeholder="Enter your email address..."
+                  aria-label="Email address for newsletter dispatch"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
