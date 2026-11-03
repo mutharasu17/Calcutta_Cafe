@@ -155,7 +155,7 @@ export default function BrightFoodCard({
 
           <button
             onClick={handleAdd}
-            className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer ${
+            className={`flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[42px] sm:min-h-[38px] text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer active:scale-95 ${
               isAdded
                 ? "bg-emerald-600 text-white"
                 : "bg-[#8E171D] hover:bg-[#A9272D] text-white"

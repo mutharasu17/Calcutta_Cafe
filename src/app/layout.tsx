@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans, Noto_Serif_Bengali } from "next/font/googl
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import { CartProvider } from "@/context/CartContext";
 import AppShell from "@/components/layout/AppShell";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -28,7 +29,7 @@ const notoBengali = Noto_Serif_Bengali({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thecalcuttacafe.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://thecalcuttacafe.com"),
   title: "The Calcutta Cafe — Bengal, Reimagined | Premium Bengali Culinary Editorial",
   description:
     "The taste of Bengal, beyond boundaries. Authentic regional Bengali cuisine presented with warm editorial sophistication. Founded by Akash Santra.",
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Akash Santra" }],
   creator: "The Calcutta Cafe Foods Pvt Ltd",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "The Calcutta Cafe — The Taste of Bengal, Beyond Boundaries",
     description: "Authentic regional Bengali gastronomy presented with warm editorial sophistication. Bringing Bengal closer to everyone.",
@@ -67,6 +71,9 @@ export const metadata: Metadata = {
     creator: "@calcutta_cafe",
     images: ["/images/hero-bengali-bhoj.jpg"],
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
 };
 
 export default function RootLayout({
@@ -77,6 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable} ${notoBengali.variable}`}>
       <body className="min-h-screen bg-white text-[#292321] selection:bg-[#8E171D] selection:text-white">
+        <GoogleAnalytics />
         <CartProvider>
           <SmoothScroll>
             <AppShell>{children}</AppShell>

@@ -3,19 +3,45 @@
 import { useState } from "react";
 import Link from "next/link";
 import BrandLogo from "../ui/BrandLogo";
-import { ArrowRight, ExternalLink, MapPin, Clock, Mail, Check } from "lucide-react";
+import { ArrowRight, ExternalLink, MapPin, Clock, Mail, Check, Loader2 } from "lucide-react";
 import { MENU_CATEGORIES } from "@/data/menuData";
+import { BRAND_DATA } from "@/data/brandInfo";
+import { trackOrderClick } from "@/lib/analytics";
 
 export default function RetailFooter() {
   const [email, setEmail] = useState("");
+  const [subscribing, setSubscribing] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
+  const [subscribeError, setSubscribeError] = useState<string | null>(null);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+
+    setSubscribing(true);
+    setSubscribeError(null);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Subscription failed.");
+      }
+
       setSubscribed(true);
       setEmail("");
       setTimeout(() => setSubscribed(false), 5000);
+    } catch (err) {
+      setSubscribeError(
+        err instanceof Error ? err.message : "Failed to subscribe. Please try again."
+      );
+    } finally {
+      setSubscribing(false);
     }
   };
 
@@ -30,35 +56,47 @@ export default function RetailFooter() {
             <span className="text-xs font-mono uppercase tracking-[0.24em] text-[#8E171D] font-bold block">
               The Calcutta Cafe Dispatch • খবর ও সমাচার
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#292321]">
+            <p className="font-serif text-2xl sm:text-3xl font-normal text-[#292321]">
               Seasonal delicacies &amp; culinary essays.
-            </h3>
+            </p>
             <p className="text-xs sm:text-sm text-[#5C524B] max-w-md">
               Receive updates on seasonal Hilsa arrivals, winter Joynagarer Moa, and monographs from our kitchen.
             </p>
           </div>
 
           {/* Subscription Input Form */}
-          <form onSubmit={handleSubscribe} className="w-full max-w-md flex flex-col sm:flex-row gap-2">
-            <div className="relative flex-1">
-              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8E171D]" />
-              <input
-                type="email"
-                placeholder="Enter your email address..."
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full bg-[#FFFCF7] border border-[#E6D8C3] pl-10 pr-4 py-3 text-xs text-[#292321] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#8E171D] transition-colors shadow-2xs"
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED] px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer"
-            >
-              <span>{subscribed ? "Subscribed" : "Subscribe"}</span>
-              {subscribed ? <Check className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5" />}
-            </button>
-          </form>
+          <div className="w-full max-w-md">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
+              <div className="relative flex-1">
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8E171D]" />
+                <input
+                  type="email"
+                  placeholder="Enter your email address..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full bg-[#FFFCF7] border border-[#E6D8C3] pl-10 pr-4 py-3 text-xs text-[#292321] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#8E171D] transition-colors shadow-2xs"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={subscribing}
+                className="bg-[#8E171D] hover:bg-[#A9272D] text-[#FFF8ED] px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer disabled:opacity-70"
+              >
+                {subscribing ? (
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                ) : subscribed ? (
+                  <Check className="h-3.5 w-3.5" />
+                ) : (
+                  <ArrowRight className="h-3.5 w-3.5" />
+                )}
+                <span>{subscribing ? "Sending..." : subscribed ? "Subscribed" : "Subscribe"}</span>
+              </button>
+            </form>
+            {subscribeError && (
+              <p className="text-[11px] text-rose-700 mt-1.5 font-mono">{subscribeError}</p>
+            )}
+          </div>
         </div>
       </div>
 
@@ -158,6 +196,7 @@ export default function RetailFooter() {
                 href="https://www.swiggy.com/restaurants/the-calcutta-cafe-bangalore"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackOrderClick("swiggy", "Footer Order Link")}
                 className="flex items-center justify-between p-3 bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] transition-all text-xs font-semibold uppercase tracking-wider text-[#292321] shadow-2xs"
               >
                 <span>Order on Swiggy</span>
@@ -168,6 +207,7 @@ export default function RetailFooter() {
                 href="https://www.zomato.com/bangalore/the-calcutta-cafe"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackOrderClick("zomato", "Footer Order Link")}
                 className="flex items-center justify-between p-3 bg-[#FFFCF7] border border-[#E6D8C3] hover:border-[#8E171D] transition-all text-xs font-semibold uppercase tracking-wider text-[#292321] shadow-2xs"
               >
                 <span>Order on Zomato</span>
@@ -181,7 +221,7 @@ export default function RetailFooter() {
               </span>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://instagram.com"
+                  href={BRAND_DATA.socialLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#8E171D] transition-colors"
@@ -190,12 +230,12 @@ export default function RetailFooter() {
                 </a>
                 <span>•</span>
                 <a
-                  href="https://facebook.com"
+                  href={BRAND_DATA.socialLinks.x}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#8E171D] transition-colors"
                 >
-                  Facebook
+                  X (Twitter)
                 </a>
               </div>
             </div>

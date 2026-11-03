@@ -1,17 +1,43 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BRAND_DATA } from "@/data/brandInfo";
 import { ArrowRight } from "lucide-react";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "Our Story | The Calcutta Cafe",
+export const metadata: Metadata = {
+  title: "Our Story — Bengali Heritage Reimagined | The Calcutta Cafe",
   description:
-    "The journey of The Calcutta Cafe, founded by Akash Santra. Bringing the authentic culinary heritage of Bengal closer to everyone across India.",
+    "The story and foundational vision of The Calcutta Cafe, founded in 2019 by Akash Santra. Bringing authentic regional Bengali cuisine to tables across India.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "Our Story — The Calcutta Cafe",
+    description:
+      "A culinary monograph celebrating Bengal's heritage recipes, founded by Akash Santra in 2019.",
+    url: "https://thecalcuttacafe.com/about",
+    images: [
+      {
+        url: "/images/akash-santra-founder.jpg",
+        width: 1200,
+        height: 675,
+        alt: "Akash Santra, Founder of The Calcutta Cafe",
+      },
+    ],
+  },
 };
 
 export default function AboutPage() {
   return (
-    <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://thecalcuttacafe.com" },
+          { name: "Our Story", url: "https://thecalcuttacafe.com/about" },
+        ]}
+      />
+      <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
       {/* Editorial Header */}
       <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
@@ -138,5 +164,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

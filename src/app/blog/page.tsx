@@ -1,17 +1,43 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BLOG_POSTS } from "@/data/blogData";
 import { ArrowRight } from "lucide-react";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "The Bengal Journal | The Calcutta Cafe",
+export const metadata: Metadata = {
+  title: "The Bengal Journal — Culinary Essays & Heritage | The Calcutta Cafe",
   description:
-    "Reflective essays on Bengali gastronomy, seasonal rituals, and time-honored culinary traditions.",
+    "Reflective essays on Bengali gastronomy, seasonal river rituals, the architecture of Sunday Kosha Mangsho, and centuries of culinary traditions.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "The Bengal Journal — The Calcutta Cafe",
+    description:
+      "Essays on monsoon Hilsa legends, the sacred architecture of the Sunday Kosha ritual, and the overlooked genius of Bengal's vegetarian repertoire.",
+    url: "https://thecalcuttacafe.com/blog",
+    images: [
+      {
+        url: "/images/hero-bengali-bhoj.jpg",
+        width: 1200,
+        height: 675,
+        alt: "The Bengal Journal Culinary Monograph",
+      },
+    ],
+  },
 };
 
 export default function BlogListPage() {
   return (
-    <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://thecalcuttacafe.com" },
+          { name: "The Bengal Journal", url: "https://thecalcuttacafe.com/blog" },
+        ]}
+      />
+      <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
       {/* Editorial Header */}
       <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
@@ -87,5 +113,6 @@ export default function BlogListPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

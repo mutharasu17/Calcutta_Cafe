@@ -8,10 +8,16 @@ import BrightRestaurantStory from "@/components/home/BrightRestaurantStory";
 import BrightVisualGallery from "@/components/home/BrightVisualGallery";
 import BrightOrderOnline from "@/components/home/BrightOrderOnline";
 import BrightRestaurantInfo from "@/components/home/BrightRestaurantInfo";
+import { WebSiteJsonLd, OrganizationJsonLd, RestaurantJsonLd } from "@/components/seo/JsonLd";
 
 export default function HomePage() {
   return (
     <>
+      {/* Search Engine Structured Data Schemas */}
+      <WebSiteJsonLd />
+      <OrganizationJsonLd />
+      <RestaurantJsonLd />
+
       {/* 1. BRIGHT FULL-SCREEN CINEMATIC HERO (100svh, NATURAL WARM LIGHTING & SPLIT COMPOSITION) */}
       <BrightFullscreenHero />
 

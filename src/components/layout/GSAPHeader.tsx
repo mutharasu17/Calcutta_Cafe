@@ -86,10 +86,14 @@ export default function GSAPHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock scroll when mobile menu is open
+  // Lock scroll when mobile menu is open & listen for Escape key
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setMobileMenuOpen(false);
+      };
+      window.addEventListener("keydown", handleKeyDown);
       if (mobileMenuRef.current) {
         gsap.fromTo(
           mobileMenuRef.current,
@@ -103,6 +107,9 @@ export default function GSAPHeader() {
           { opacity: 1, x: 0, duration: 0.4, stagger: 0.06, ease: "power2.out", delay: 0.08 }
         );
       }
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+      };
     } else {
       document.body.style.overflow = "";
     }
@@ -136,27 +143,27 @@ export default function GSAPHeader() {
         ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-400 ease-out ${
           isScrolled
-            ? "bg-white/98 backdrop-blur-md py-3 sm:py-3.5 border-b border-[#8E171D]/20 shadow-sm"
-            : "bg-white/95 backdrop-blur-sm py-4 sm:py-5 border-b border-[#8E171D]/15"
+            ? "bg-white/98 backdrop-blur-md py-2.5 sm:py-3.5 border-b border-[#8E171D]/20 shadow-sm"
+            : "bg-white/95 backdrop-blur-sm py-3.5 sm:py-5 border-b border-[#8E171D]/15"
         }`}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-3 sm:px-8 lg:px-12 flex items-center justify-between">
           
           {/* Left: Brand Emblem & Typography */}
           <Link
             ref={logoRef}
             href="/"
-            className="group flex items-center gap-3 relative z-10"
+            className="group flex items-center gap-2 sm:gap-3 relative z-10"
             aria-label="The Calcutta Cafe Homepage"
           >
-            <div className="w-10 h-10 rounded-full bg-[#8E171D] border border-[#C49A55] flex items-center justify-center text-[#FFF8ED] shadow-sm group-hover:scale-105 transition-transform duration-300">
-              <span className="font-serif text-lg font-bold text-[#C49A55]">CC</span>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8E171D] border border-[#C49A55] flex items-center justify-center text-[#FFF8ED] shadow-sm group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+              <span className="font-serif text-base sm:text-lg font-bold text-[#C49A55]">CC</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg sm:text-xl font-medium text-[#292321] tracking-tight leading-tight group-hover:text-[#8E171D] transition-colors">
+              <span className="font-serif text-base sm:text-xl font-medium text-[#292321] tracking-tight leading-tight group-hover:text-[#8E171D] transition-colors whitespace-nowrap">
                 The Calcutta Cafe
               </span>
-              <span className="font-bengali text-[10px] text-[#8E171D] font-medium tracking-wider leading-none mt-0.5">
+              <span className="font-bengali text-[9px] sm:text-[10px] text-[#8E171D] font-medium tracking-wider leading-none mt-0.5 whitespace-nowrap">
                 দ্য ক্যালকাটা ক্যাফে • Estd. 2019
               </span>
             </div>

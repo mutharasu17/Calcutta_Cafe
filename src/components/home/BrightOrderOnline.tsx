@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { ShoppingBag, ArrowUpRight, Clock, Sparkles } from "lucide-react";
 import { gsap } from "@/lib/gsapConfig";
+import { trackOrderClick } from "@/lib/analytics";
 
 export default function BrightOrderOnline() {
   const containerRef = useRef<HTMLElement>(null);
@@ -92,6 +93,7 @@ export default function BrightOrderOnline() {
                   href="https://www.swiggy.com/restaurants/the-calcutta-cafe-bangalore"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackOrderClick("swiggy", "Homepage Bright Order Online")}
                   className="flex-1 inline-flex items-center justify-center gap-2 bg-[#FC8019] hover:bg-[#e06f10] text-white py-4 px-6 text-xs font-semibold uppercase tracking-[0.18em] transition-all shadow-md hover:shadow-lg text-center"
                 >
                   <span>Order on Swiggy</span>
@@ -102,6 +104,7 @@ export default function BrightOrderOnline() {
                   href="https://www.zomato.com/bangalore/the-calcutta-cafe"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackOrderClick("zomato", "Homepage Bright Order Online")}
                   className="flex-1 inline-flex items-center justify-center gap-2 bg-[#CB202D] hover:bg-[#b01b26] text-white py-4 px-6 text-xs font-semibold uppercase tracking-[0.18em] transition-all shadow-md hover:shadow-lg text-center"
                 >
                   <span>Order on Zomato</span>
