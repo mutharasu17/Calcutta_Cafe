@@ -36,6 +36,13 @@ export interface BrandData {
     mutedBrass: string;
     white: string;
   };
+  contact: {
+    phone: string;
+    phoneDisplay: string;
+    phoneHref: string;
+    email: string;
+    emailHref: string;
+  };
   socialLinks: {
     instagram: string;
     x: string;
@@ -79,6 +86,13 @@ export const BRAND_DATA: BrandData = {
     deepLeaf: "#34483A",
     mutedBrass: "#FFB834",
     white: "#FFFFFF",
+  },
+  contact: {
+    phone: "9625177650",
+    phoneDisplay: "+91 96251 77650",
+    phoneHref: "tel:+919625177650",
+    email: "social@thecalcuttacafe.com",
+    emailHref: "mailto:social@thecalcuttacafe.com",
   },
   socialLinks: {
     instagram: "https://www.instagram.com/thecalcuttacafe.in",

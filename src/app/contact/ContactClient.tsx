@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BRAND_DATA } from "@/data/brandInfo";
 import { InstagramIcon, XIcon } from "@/components/ui/SocialIcons";
-import { Check, AlertCircle, Loader2 } from "lucide-react";
+import { Check, AlertCircle, Loader2, Phone, Mail } from "lucide-react";
 
 export default function ContactClient() {
   const [submitting, setSubmitting] = useState(false);
@@ -80,6 +80,38 @@ export default function ContactClient() {
               <p className="text-xs text-[#6B6357] font-normal leading-relaxed">
                 Founded by Akash Santra in 2019. Operating through dedicated delivery cloud kitchen hubs.
               </p>
+            </div>
+
+            <div className="bg-[#FFFFFF] p-6 border border-[#E6D8C3] shadow-sm space-y-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#5B1B8A] font-semibold block">
+                Direct Contact
+              </span>
+              <div className="space-y-3 text-xs text-[#29251F]">
+                <a
+                  href={BRAND_DATA.contact.phoneHref}
+                  className="flex items-center gap-3 p-2 -mx-2 rounded hover:bg-[#FAF6F0] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#FAF6F0] group-hover:bg-[#5B1B8A] group-hover:text-white flex items-center justify-center transition-colors text-[#5B1B8A] flex-shrink-0">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#6B6357] block">Phone / Inquiries</span>
+                    <span className="font-medium text-sm text-[#29251F] group-hover:text-[#5B1B8A] transition-colors">{BRAND_DATA.contact.phoneDisplay}</span>
+                  </div>
+                </a>
+                <a
+                  href={BRAND_DATA.contact.emailHref}
+                  className="flex items-center gap-3 p-2 -mx-2 rounded hover:bg-[#FAF6F0] transition-colors group"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#FAF6F0] group-hover:bg-[#5B1B8A] group-hover:text-white flex items-center justify-center transition-colors text-[#5B1B8A] flex-shrink-0">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-[#6B6357] block">Email Support</span>
+                    <span className="font-medium text-sm text-[#29251F] group-hover:text-[#5B1B8A] transition-colors">{BRAND_DATA.contact.email}</span>
+                  </div>
+                </a>
+              </div>
             </div>
 
             <div className="bg-[#FFFFFF] p-6 border border-[#E6D8C3] shadow-sm space-y-2">

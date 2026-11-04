@@ -114,18 +114,18 @@ export default function BrightRestaurantInfo() {
         <div className="mt-12 p-6 sm:p-8 bg-[#FAF6F0] border border-[#E6D8C3] border-l-4 border-l-[#5B1B8A] shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6 rounded-sm">
           <div className="flex items-center gap-6 flex-wrap text-xs font-mono text-[#2D231E]">
             <a
-              href="tel:+918045678900"
+              href="tel:+919625177650"
               className="inline-flex items-center gap-2 hover:text-[#5B1B8A] transition-colors"
             >
               <Phone className="h-4 w-4 text-[#5B1B8A]" />
-              <span>+91 80 4567 8900</span>
+              <span>+91 96251 77650</span>
             </a>
             <a
-              href="mailto:contact@thecalcuttacafe.in"
+              href="mailto:social@thecalcuttacafe.com"
               className="inline-flex items-center gap-2 hover:text-[#5B1B8A] transition-colors"
             >
               <Mail className="h-4 w-4 text-[#5B1B8A]" />
-              <span>contact@thecalcuttacafe.in</span>
+              <span>social@thecalcuttacafe.com</span>
             </a>
           </div>
 

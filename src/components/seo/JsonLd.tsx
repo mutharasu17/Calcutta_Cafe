@@ -25,7 +25,8 @@ export function OrganizationJsonLd({ url = "https://thecalcuttacafe.com" }: Orga
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
-      email: "hello@thecalcuttacafe.com",
+      telephone: "+91 96251 77650",
+      email: "social@thecalcuttacafe.com",
       areaServed: "IN",
       availableLanguage: ["English", "Bengali", "Hindi"],
     },
@@ -53,7 +54,8 @@ export function RestaurantJsonLd({ url = "https://thecalcuttacafe.com" }: { url?
     description:
       "Authentic regional Bengali gastronomy presented with warm editorial sophistication. Cloud kitchen hubs operating in Bangalore serving Shorshe Ilish, Kosha Mangsho, and artisanal Mishti Doi.",
     url,
-    telephone: "+91 80 4567 8900",
+    telephone: "+91 96251 77650",
+    email: "social@thecalcuttacafe.com",
     servesCuisine: ["Bengali", "Regional Indian", "Kolkata"],
     priceRange: "₹₹",
     currenciesAccepted: "INR",

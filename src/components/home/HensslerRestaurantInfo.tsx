@@ -132,15 +132,15 @@ export default function HensslerRestaurantInfo() {
               </p>
               <div className="pt-2 border-t border-[#E6D8C3] space-y-2 text-xs font-mono">
                 <div className="flex items-center gap-2">
-                  <Mail className="h-3.5 w-3.5 text-[#8E171D]" />
-                  <a href="mailto:hello@thecalcuttacafe.com" className="hover:text-[#8E171D] transition-colors">
-                    hello@thecalcuttacafe.com
+                  <Mail className="h-3.5 w-3.5 text-[#5B1B8A]" />
+                  <a href="mailto:social@thecalcuttacafe.com" className="hover:text-[#5B1B8A] transition-colors">
+                    social@thecalcuttacafe.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="h-3.5 w-3.5 text-[#8E171D]" />
-                  <a href="tel:+919876543210" className="hover:text-[#8E171D] transition-colors">
-                    +91 98765 43210
+                  <Phone className="h-3.5 w-3.5 text-[#5B1B8A]" />
+                  <a href="tel:+919625177650" className="hover:text-[#5B1B8A] transition-colors">
+                    +91 96251 77650
                   </a>
                 </div>
                 <div className="text-[11px] text-[#796A60] pt-1">

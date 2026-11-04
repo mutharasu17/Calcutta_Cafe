@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import BrandLogo from "../ui/BrandLogo";
-import { ArrowRight, ExternalLink, MapPin, Clock, Mail, Check, Loader2 } from "lucide-react";
+import { ArrowRight, ExternalLink, MapPin, Clock, Mail, Phone, Check, Loader2 } from "lucide-react";
 import { MENU_CATEGORIES } from "@/data/menuData";
 import { BRAND_DATA } from "@/data/brandInfo";
 import { trackOrderClick } from "@/lib/analytics";
@@ -122,6 +122,18 @@ export default function RetailFooter() {
               <div className="flex items-center gap-2">
                 <MapPin className="h-3.5 w-3.5 text-[#5B1B8A]" />
                 <span>Bangalore Hubs: Koramangala • Indiranagar • Whitefield • HSR</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 text-[#5B1B8A]" />
+                <a href={BRAND_DATA.contact.phoneHref} className="hover:text-[#5B1B8A] transition-colors">
+                  {BRAND_DATA.contact.phoneDisplay}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 text-[#5B1B8A]" />
+                <a href={BRAND_DATA.contact.emailHref} className="hover:text-[#5B1B8A] transition-colors">
+                  {BRAND_DATA.contact.email}
+                </a>
               </div>
             </div>
           </div>
