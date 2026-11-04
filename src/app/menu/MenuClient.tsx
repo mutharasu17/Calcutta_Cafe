@@ -151,8 +151,8 @@ export default function MenuClient({
       {/* ──────────────────────────────────────────────────────────
           1. TOP: MENU INTRODUCTION (EDITORIAL PURPLE & GOLD HEADER)
       ────────────────────────────────────────────────────────── */}
-      <section className="px-5 sm:px-10 lg:px-16 pt-28 pb-10 sm:pb-14 border-b border-[#E6D8C3] bg-[#FAF6F0]">
-        <div className="mx-auto max-w-5xl space-y-4">
+      <section className="px-4 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-6 sm:pb-14 border-b border-[#E6D8C3] bg-[#FAF6F0]">
+        <div className="mx-auto max-w-5xl space-y-3 sm:space-y-4">
           <div className="flex items-center gap-2">
             <Sparkles className="h-3.5 w-3.5 text-[#FFB834]" />
             <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#5B1B8A] font-bold">
@@ -160,17 +160,17 @@ export default function MenuClient({
             </span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-[#2D231E] leading-[1.05]">
+          <h1 className="font-serif text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-[#2D231E] leading-[1.08] sm:leading-[1.05]">
             Explore Our Menu.
           </h1>
 
-          <p className="text-base sm:text-lg text-[#5C524B] font-sans leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-lg text-[#5C524B] font-sans leading-relaxed max-w-2xl">
             Discover the authentic flavours, regional traditions and signature terracotta preparations of Bengal.
             From slow-braised wedding banquet kalia to hand-rolled lachha parathas, comforting jhol, and earthen mishti doi.
           </p>
 
           {/* Small Decorative Animated SVG Line */}
-          <div className="pt-2 w-48 sm:w-60 h-4">
+          <div className="pt-2 w-40 sm:w-60 h-3 sm:h-4">
             <svg className="w-full h-full overflow-visible" viewBox="0 0 240 10">
               <line
                 ref={svgLineRef}
@@ -191,7 +191,7 @@ export default function MenuClient({
       {/* ──────────────────────────────────────────────────────────
           2. SECOND: CLEAN, RESPONSIVE CATEGORY NAVIGATION BAR
       ────────────────────────────────────────────────────────── */}
-      <section className="px-4 sm:px-8 lg:px-12 py-3.5 border-b border-[#E6D8C3] sticky top-[64px] sm:top-[72px] lg:top-[78px] z-30 bg-[#FFF8ED]/98 backdrop-blur-md shadow-2xs">
+      <section className="px-3 sm:px-8 lg:px-12 py-3 border-b border-[#E6D8C3] sticky top-[56px] sm:top-[68px] lg:top-[76px] z-30 bg-[#FFF8ED]/98 backdrop-blur-md shadow-2xs">
         <div className="mx-auto max-w-7xl">
           {/* Row 1: Primary Category Tabs (Scrollable on Mobile, Wrap on Desktop) */}
           <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-1.5 sm:pb-0 no-scrollbar touch-pan-x scroll-smooth">
@@ -206,7 +206,7 @@ export default function MenuClient({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
+                  className={`px-4 sm:px-5 py-2.5 min-h-[44px] text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
                     isSelected
                       ? "bg-[#5B1B8A] text-[#FFF8ED] shadow-md border border-[#FFB834]/60"
                       : "bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] hover:bg-[#FFFFFF] border border-[#E6D8C3] shadow-2xs"
@@ -229,7 +229,7 @@ export default function MenuClient({
             {/* Favourites Tab */}
             <button
               onClick={() => setActiveTab("favorites")}
-              className={`px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
+              className={`px-4 sm:px-5 py-2.5 min-h-[44px] text-xs font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-all duration-300 rounded-full flex items-center gap-1.5 flex-shrink-0 cursor-pointer ${
                 activeTab === "favorites"
                   ? "bg-[#5B1B8A] text-[#FFF8ED] shadow-md border border-[#FFB834]/60"
                   : "bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] hover:bg-[#FFFFFF] border border-[#E6D8C3] shadow-2xs"
@@ -241,9 +241,9 @@ export default function MenuClient({
           </div>
 
           {/* Row 2: Secondary Controls (Filters & Search in a Balanced Row) */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 mt-2 border-t border-[#E6D8C3]/70">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2.5 mt-1.5 border-t border-[#E6D8C3]/70">
             {/* Dietary Switcher */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-1.5">
                 <Filter className="h-3.5 w-3.5 text-[#5B1B8A]" />
                 <span className="text-xs font-mono uppercase tracking-wider text-[#5C524B]">
@@ -253,7 +253,7 @@ export default function MenuClient({
               <div className="inline-flex rounded-md border border-[#E6D8C3] bg-[#FAF6F0] p-0.5 shadow-2xs">
                 <button
                   onClick={() => setDietaryFilter("all")}
-                  className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 min-h-[36px] text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                     dietaryFilter === "all"
                       ? "bg-[#5B1B8A] text-[#FFF8ED]"
                       : "text-[#5C524B] hover:text-[#2D231E]"
@@ -263,7 +263,7 @@ export default function MenuClient({
                 </button>
                 <button
                   onClick={() => setDietaryFilter("veg")}
-                  className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 min-h-[36px] text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                     dietaryFilter === "veg"
                       ? "bg-emerald-600 text-white"
                       : "text-[#5C524B] hover:text-[#2D231E]"
@@ -273,7 +273,7 @@ export default function MenuClient({
                 </button>
                 <button
                   onClick={() => setDietaryFilter("non-veg")}
-                  className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 min-h-[36px] text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                     dietaryFilter === "non-veg"
                       ? "bg-[#5B1B8A] text-[#FFF8ED]"
                       : "text-[#5C524B] hover:text-[#2D231E]"
@@ -293,12 +293,12 @@ export default function MenuClient({
                 aria-label="Search dishes or Bengali spices"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#FFFFFF] border border-[#E6D8C3] pl-9 pr-8 py-2 text-xs text-[#2D231E] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#5B1B8A] transition-colors rounded-xs shadow-2xs"
+                className="w-full bg-[#FFFFFF] border border-[#E6D8C3] pl-9 pr-8 py-2.5 min-h-[44px] text-xs text-[#2D231E] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#5B1B8A] transition-colors rounded-xs shadow-2xs"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#5C524B] hover:text-[#2D231E]"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#5C524B] hover:text-[#2D231E] p-1"
                   aria-label="Clear search query"
                 >
                   <X className="h-3.5 w-3.5" />
@@ -384,6 +384,25 @@ export default function MenuClient({
         isFavorite={selectedDish ? isFavorite(selectedDish.id) : false}
         onToggleFavorite={toggleFavorite}
       />
+
+      {/* Mobile Floating Category & Count Indicator */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-20 sm:hidden pointer-events-auto">
+        <button
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex items-center gap-2 bg-[#5B1B8A] text-[#FFF8ED] px-4 py-2.5 rounded-full shadow-lg border border-[#FFB834]/50 text-xs font-mono uppercase tracking-wider backdrop-blur-md active:scale-95 transition-transform"
+          aria-label="Back to top category filters"
+        >
+          <span className="w-2 h-2 rounded-full bg-[#FFB834] animate-pulse" />
+          <span>
+            {activeTab === "all" ? "All Dishes" : activeTab === "favorites" ? "Favourites" : MENU_TABS.find((t) => t.id === activeTab)?.label}
+          </span>
+          <span className="bg-[#FFB834] text-[#2D231E] px-1.5 py-0.5 rounded-full text-[10px] font-bold">
+            {filteredItems.length}
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

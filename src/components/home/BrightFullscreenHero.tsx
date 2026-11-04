@@ -36,19 +36,19 @@ export default function BrightFullscreenHero() {
           HERO EDITORIAL CONTENT & TYPOGRAPHY
           Stable cinematic layout without distracting entrance delay
       ────────────────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 w-full pt-20 sm:pt-24 pb-12 sm:pb-16">
-        <div className="max-w-2xl space-y-4 sm:space-y-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 w-full pt-16 sm:pt-24 pb-6 sm:pb-16">
+        <div className="max-w-2xl space-y-3.5 sm:space-y-6">
           
           {/* Eyebrow Label with Ornamental Accents */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 bg-[#FFF8ED]/95 backdrop-blur-md border border-[#5B1B8A]/30 text-[#5B1B8A] text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] sm:tracking-[0.25em] font-semibold shadow-xs rounded-sm">
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3.5 sm:py-1.5 bg-[#FFF8ED]/95 backdrop-blur-md border border-[#5B1B8A]/30 text-[#5B1B8A] text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] font-semibold shadow-xs rounded-sm">
               <Sparkles className="h-3 w-3 text-[#FFB834] flex-shrink-0" />
               <span>THE CALCUTTA CAFE · ONLINE DELIVERY</span>
             </span>
           </div>
 
           {/* Main Editorial Headline */}
-          <h1 className="font-serif text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-medium text-[#2D231E] leading-[1.08] sm:leading-[1.06] tracking-tight">
+          <h1 className="font-serif text-[30px] xs:text-4xl sm:text-6xl lg:text-7xl font-medium text-[#2D231E] leading-[1.1] sm:leading-[1.06] tracking-tight">
             <span className="block">
               A Taste of Bengal.
             </span>
@@ -58,12 +58,12 @@ export default function BrightFullscreenHero() {
           </h1>
 
           {/* Bengali Subtitle */}
-          <p className="font-bengali text-sm sm:text-lg lg:text-xl text-[#5B1B8A] font-semibold leading-relaxed tracking-wide">
+          <p className="font-bengali text-xs xs:text-sm sm:text-lg lg:text-xl text-[#5B1B8A] font-semibold leading-relaxed tracking-wide">
             বাংলার খাঁটি স্বাদ, ঐতিহ্যের নতুন অনুভূতি।
           </p>
 
           {/* Static SVG Decorative Accent Line */}
-          <div className="relative w-40 sm:w-56 h-3 flex items-center">
+          <div className="relative w-36 sm:w-56 h-2.5 sm:h-3 flex items-center">
             <svg
               className="w-full h-full overflow-visible"
               viewBox="0 0 240 10"
@@ -94,7 +94,7 @@ export default function BrightFullscreenHero() {
             {/* Primary Button: Explore Menu */}
             <Link
               href="/menu"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-300 shadow-md hover:shadow-lg border border-[#FFB834]/50 text-center active:scale-[0.99] rounded-sm"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] px-6 sm:px-8 py-3.5 sm:py-4 min-h-[44px] text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-300 shadow-md hover:shadow-lg border border-[#FFB834]/50 text-center active:scale-[0.99] rounded-sm"
             >
               <span>Explore Menu</span>
               <ArrowRight className="h-4 w-4 text-[#FFB834]" />
@@ -103,7 +103,7 @@ export default function BrightFullscreenHero() {
             {/* Secondary Button: Order Online */}
             <Link
               href="/order"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#FFF8ED] hover:bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-300 shadow-xs hover:shadow-md border border-[#5B1B8A]/40 text-center active:scale-[0.99] rounded-sm"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#FFF8ED] hover:bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] px-6 sm:px-8 py-3.5 sm:py-4 min-h-[44px] text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] transition-all duration-300 shadow-xs hover:shadow-md border border-[#5B1B8A]/40 text-center active:scale-[0.99] rounded-sm"
             >
               <span>Order Online</span>
               <span className="font-mono text-[10px] text-[#5B1B8A] font-bold">Bangalore</span>
@@ -111,7 +111,7 @@ export default function BrightFullscreenHero() {
           </div>
 
           {/* Quality Assurance Badges */}
-          <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#5C524B]">
+          <div className="pt-1 sm:pt-2 flex flex-wrap items-center gap-3 sm:gap-6 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#5C524B]">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#5B1B8A]" />
               Small-Batch Cooking

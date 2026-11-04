@@ -56,7 +56,7 @@ export default function BrightSignatureCollection() {
   return (
     <section
       ref={containerRef}
-      className="bg-gradient-to-b from-[#5B1B8A] via-[#4B1473] to-[#390F58] text-white py-20 sm:py-28 lg:py-36 border-b-4 border-[#FFB834] relative overflow-hidden"
+      className="bg-gradient-to-b from-[#5B1B8A] via-[#4B1473] to-[#390F58] text-white py-12 sm:py-20 lg:py-28 border-b-4 border-[#FFB834] relative overflow-hidden"
       aria-label="Signature Food Collection"
     >
       {/* Decorative Purple & Gold Geometric Motifs */}
@@ -84,7 +84,7 @@ export default function BrightSignatureCollection() {
             href="/menu"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#FFF8ED] hover:text-[#FFB834] transition-colors pb-1 border-b border-[#FFB834]/60 group"
           >
-            <span>Explore All 41 Menu Dishes</span>
+            <span>Explore All {MENU_ITEMS.length} Menu Dishes</span>
             <ArrowUpRight className="h-4 w-4 text-[#FFB834] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
@@ -143,7 +143,7 @@ export default function BrightSignatureCollection() {
 
                     <button
                       onClick={() => handleAdd(dish)}
-                      className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer rounded-sm border ${
+                      className={`flex items-center justify-center gap-1.5 px-4 py-2 min-h-[44px] text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer rounded-sm border ${
                         isAdded
                           ? "bg-emerald-600 text-white border-emerald-700"
                           : "bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] border-[#FFB834]/40"

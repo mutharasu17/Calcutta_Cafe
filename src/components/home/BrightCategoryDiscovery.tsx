@@ -129,14 +129,14 @@ export default function BrightCategoryDiscovery() {
     <section
       ref={sectionRef}
       id="categories"
-      className="py-16 sm:py-24 lg:py-32 bg-[#FFF8ED] text-[#2D231E] border-b border-[#E6D8C3] relative"
+      className="py-10 sm:py-20 lg:py-28 bg-[#FFF8ED] text-[#2D231E] border-b border-[#E6D8C3] relative"
       aria-label="Explore Food Categories"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="space-y-3 max-w-2xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 sm:mb-16">
+          <div className="space-y-2 sm:space-y-3 max-w-2xl">
             <div className="flex items-center gap-2">
               <Compass className="h-4 w-4 text-[#FFB834]" />
               <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#5B1B8A] font-bold">
@@ -146,7 +146,7 @@ export default function BrightCategoryDiscovery() {
             <h2 className="font-serif text-3xl sm:text-5xl font-medium text-[#2D231E] leading-[1.12]">
               Explore Food Categories.
             </h2>
-            <p className="text-sm sm:text-base text-[#5C524B] font-sans leading-relaxed">
+            <p className="text-xs sm:text-base text-[#5C524B] font-sans leading-relaxed">
               Every dish at The Calcutta Cafe belongs to an unbroken culinary lineage. Explore our seven defining gastronomic repertoires.
             </p>
           </div>
@@ -154,21 +154,30 @@ export default function BrightCategoryDiscovery() {
           <div className="flex-shrink-0">
             <Link
               href="/menu"
-              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#5B1B8A] font-semibold hover:text-[#4B1473] group"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#5B1B8A] font-semibold hover:text-[#4B1473] group py-1"
             >
-              <span>View Complete Menu (41 Dishes)</span>
+              <span>View Complete Menu ({MENU_ITEMS.length} Dishes)</span>
               <ArrowUpRight className="h-4 w-4 text-[#FFB834] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
         </div>
 
+        {/* Mobile Swipe Notice */}
+        <div className="flex sm:hidden items-center justify-between text-xs font-mono text-[#5B1B8A] mb-3 px-1">
+          <span className="flex items-center gap-1.5 font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFB834] animate-pulse" />
+            Swipe to explore 7 culinary traditions
+          </span>
+          <span className="text-xs text-[#5C524B]">→</span>
+        </div>
+
         {/* ──────────────────────────────────────────────────────────
-            RESPONSIVE CATEGORY GRID (1 COL ON NARROW, 2 COL TABLET, 3 COL DESKTOP)
-            Gentle hover elevation, no continuous spinning or orbital loops
+            RESPONSIVE CATEGORY PRESENTATION
+            Horizontal snap carousel on mobile; clean 3-col grid on desktop
         ────────────────────────────────────────────────────────── */}
         <div
           ref={cardsGridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 items-stretch"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-7 items-stretch no-scrollbar touch-pan-x"
         >
           {CATEGORIES_DATA.map((cat, idx) => {
             const isPillar = idx === 0 || idx === 1;
@@ -176,7 +185,7 @@ export default function BrightCategoryDiscovery() {
             return (
               <div
                 key={cat.id}
-                className={`group bg-[#FAF6F0] border border-[#E6D8C3] hover:border-[#5B1B8A] transition-all duration-300 rounded-sm overflow-hidden shadow-2xs hover:shadow-md hover:-translate-y-1 flex flex-col justify-between p-5 sm:p-6 relative focus-within:ring-2 focus-within:ring-[#5B1B8A] focus-within:ring-offset-2 ${
+                className={`group bg-[#FAF6F0] border border-[#E6D8C3] hover:border-[#5B1B8A] transition-all duration-300 rounded-sm overflow-hidden shadow-2xs hover:shadow-md hover:-translate-y-1 flex flex-col justify-between p-5 sm:p-6 relative focus-within:ring-2 focus-within:ring-[#5B1B8A] focus-within:ring-offset-2 w-[82vw] max-w-[310px] flex-shrink-0 snap-center sm:w-auto sm:max-w-none ${
                   isPillar ? "ring-1 ring-[#FFB834]/40" : ""
                 }`}
               >
@@ -241,11 +250,11 @@ export default function BrightCategoryDiscovery() {
                     {/* Explore Dishes Link with direct category parameter */}
                     <Link
                       href={`/menu?category=${cat.id}`}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider transition-colors duration-200 shadow-2xs hover:shadow-xs rounded-sm active:scale-95 border border-[#FFB834]/40"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] text-xs font-semibold uppercase tracking-wider transition-colors duration-200 shadow-2xs hover:shadow-xs rounded-sm active:scale-95 border border-[#FFB834]/40"
                       aria-label={`Explore ${cat.name} dishes`}
                     >
                       <span>Explore</span>
-                      <ArrowUpRight className="h-3 w-3 text-[#FFB834]" />
+                      <ArrowUpRight className="h-3.5 w-3.5 text-[#FFB834]" />
                     </Link>
                   </div>
                 </div>

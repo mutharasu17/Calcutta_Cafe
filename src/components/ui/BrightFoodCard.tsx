@@ -87,14 +87,14 @@ export default function BrightFoodCard({
                   e.stopPropagation();
                   onToggleFavorite(dish.id);
                 }}
-                className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors ${
+                className={`w-9 h-9 flex items-center justify-center rounded-full transition-colors ${
                   isFavorite
                     ? "bg-[#5B1B8A] text-[#FFB834]"
                     : "bg-[#FFFFFF]/90 text-[#2D231E] hover:text-[#5B1B8A]"
                 }`}
                 aria-label={isFavorite ? "Remove from favourites" : "Add to favourites"}
               >
-                <Heart className={`h-3.5 w-3.5 ${isFavorite ? "fill-current" : ""}`} />
+                <Heart className={`h-4 w-4 ${isFavorite ? "fill-current" : ""}`} />
               </button>
             )}
 
@@ -122,7 +122,7 @@ export default function BrightFoodCard({
       {/* ──────────────────────────────────────────────────────────
           DISH INFORMATION & TYPOGRAPHY
       ────────────────────────────────────────────────────────── */}
-      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+      <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between space-y-3.5">
         <div className="space-y-1.5">
           {dish.bengaliName && (
             <span className="font-bengali text-xs text-[#5B1B8A] font-semibold block">
@@ -143,7 +143,7 @@ export default function BrightFoodCard({
         {/* ──────────────────────────────────────────────────────────
             VERIFIED PRICE & ADD TO FEAST ACTION BAR
         ────────────────────────────────────────────────────────── */}
-        <div className="pt-3.5 border-t border-[#E6D8C3]/70 flex items-center justify-between gap-3">
+        <div className="pt-3 border-t border-[#E6D8C3]/70 flex items-center justify-between gap-3">
           <div className="flex flex-col">
             <span className="text-[10px] font-mono uppercase tracking-wider text-[#5C524B]/80 leading-none">
               Portion
@@ -155,7 +155,7 @@ export default function BrightFoodCard({
 
           <button
             onClick={handleAdd}
-            className={`flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[42px] sm:min-h-[38px] text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer active:scale-95 rounded-sm border ${
+            className={`flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer active:scale-95 rounded-sm border ${
               isAdded
                 ? "bg-emerald-600 text-white border-emerald-700"
                 : "bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] border-[#FFB834]/50"

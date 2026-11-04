@@ -100,8 +100,8 @@ export default function DishDetailModal({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-white/95 backdrop-blur-xs border border-[#5B1B8A]/30 flex items-center justify-center text-[#2D231E] hover:bg-[#5B1B8A] hover:text-[#FFF8ED] transition-colors cursor-pointer shadow-xs"
-            aria-label="Close dish details"
+            className="absolute top-3 right-3 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-xs border border-[#5B1B8A]/30 flex items-center justify-center text-[#2D231E] hover:bg-[#5B1B8A] hover:text-[#FFF8ED] transition-colors cursor-pointer shadow-xs"
+            aria-label="Close dish details modal"
           >
             <X className="h-5 w-5" />
           </button>
@@ -217,7 +217,7 @@ export default function DishDetailModal({
 
             <button
               onClick={handleAddDish}
-              className={`flex items-center gap-2 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-xs cursor-pointer rounded-sm border ${
+              className={`flex items-center justify-center gap-2 px-6 py-3.5 min-h-[44px] text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-xs cursor-pointer rounded-sm border ${
                 isAdded
                   ? "bg-emerald-600 text-white border-emerald-700"
                   : "bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] border-[#FFB834]/50"
@@ -239,7 +239,7 @@ export default function DishDetailModal({
 
           {/* Direct Delivery Hubs */}
           <div className="pt-4 border-t border-[#E6D8C3] space-y-3">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <span className="font-mono text-xs uppercase tracking-wider text-[#5B1B8A] font-bold">
                 Bangalore Hub Direct Delivery
               </span>
@@ -253,7 +253,7 @@ export default function DishDetailModal({
                 href="https://www.swiggy.com/restaurants/the-calcutta-cafe-bangalore"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#FC8019] text-white py-3 px-4 text-xs font-semibold uppercase tracking-wider hover:bg-[#e06f10] transition-colors shadow-xs rounded-sm"
+                className="flex items-center justify-center gap-2 bg-[#FC8019] text-white py-3.5 px-4 min-h-[44px] text-xs font-semibold uppercase tracking-wider hover:bg-[#e06f10] transition-colors shadow-xs rounded-sm"
               >
                 <span>Order on Swiggy</span>
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -263,7 +263,7 @@ export default function DishDetailModal({
                 href="https://www.zomato.com/bangalore/the-calcutta-cafe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#CB202D] text-white py-3 px-4 text-xs font-semibold uppercase tracking-wider hover:bg-[#b01b26] transition-colors shadow-xs rounded-sm"
+                className="flex items-center justify-center gap-2 bg-[#CB202D] text-white py-3.5 px-4 min-h-[44px] text-xs font-semibold uppercase tracking-wider hover:bg-[#b01b26] transition-colors shadow-xs rounded-sm"
               >
                 <span>Order on Zomato</span>
                 <ExternalLink className="h-3.5 w-3.5" />

@@ -48,25 +48,25 @@ export default function ContactClient() {
   return (
     <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
       {/* Editorial Header */}
-      <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
+      <section className="px-4 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-8 sm:pb-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
           <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#5B1B8A] font-semibold block mb-3">
             Direct Communications • যোগাযোগ
           </span>
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
+          <h1 className="font-serif text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.08] sm:leading-[1.04]">
             Connect with
             <span className="block italic text-[#5B1B8A] font-light mt-1">
               The Calcutta Cafe.
             </span>
           </h1>
-          <p className="mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
             For catering inquiries, cloud kitchen expansion feedback, or corporate collaborations across India.
           </p>
         </div>
       </section>
 
       {/* Main Grid */}
-      <section className="px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
+      <section className="px-4 sm:px-10 lg:px-16 py-10 sm:py-16 lg:py-24">
         <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Brand & Corporate Details (5 Cols) */}
           <div className="lg:col-span-5 space-y-8">

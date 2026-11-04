@@ -15,7 +15,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <GSAPHeader />
       <main
         className={`relative min-h-screen ${
-          isHome ? "pt-0" : "pt-[72px] sm:pt-[80px]"
+          isHome ? "pt-0" : "pt-[58px] sm:pt-[76px]"
         }`}
       >
         {children}

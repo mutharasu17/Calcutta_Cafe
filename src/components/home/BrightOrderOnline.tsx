@@ -39,7 +39,7 @@ export default function BrightOrderOnline() {
     <section
       ref={containerRef}
       id="order-online"
-      className="bg-[#FFF8ED] text-[#2D231E] py-16 sm:py-24 lg:py-32 border-y border-[#E6D8C3] relative overflow-hidden"
+      className="bg-[#FFF8ED] text-[#2D231E] py-10 sm:py-20 lg:py-28 border-y border-[#E6D8C3] relative overflow-hidden"
       aria-label="Order Online Delivery & Packaging"
     >
       {/* Decorative Subtle Kraft & Gold Watermark Rings */}

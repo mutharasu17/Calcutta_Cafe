@@ -50,8 +50,8 @@ export default function RetailFooter() {
       {/* ──────────────────────────────────────────────────────────
           TOP NEWSLETTER & BRAND PHILOSOPHY STRIP
       ────────────────────────────────────────────────────────── */}
-      <div className="border-b border-[#E6D8C3] py-12 px-4 sm:px-8 lg:px-12 bg-[#FFF8ED]">
-        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div className="border-b border-[#E6D8C3] py-8 sm:py-12 px-4 sm:px-8 lg:px-12 bg-[#FFF8ED]">
+        <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="space-y-1.5 text-center lg:text-left">
             <span className="text-xs font-mono uppercase tracking-[0.24em] text-[#5B1B8A] font-bold block">
               The Calcutta Cafe Dispatch • খবর ও সমাচার
@@ -76,13 +76,13 @@ export default function RetailFooter() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full bg-[#FFFFFF] border border-[#E6D8C3] pl-10 pr-4 py-3 text-xs text-[#2D231E] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#5B1B8A] transition-colors shadow-2xs rounded-sm"
+                  className="w-full bg-[#FFFFFF] border border-[#E6D8C3] pl-10 pr-4 py-3 min-h-[44px] text-xs text-[#2D231E] placeholder-[#5C524B]/60 focus:outline-none focus:border-[#5B1B8A] transition-colors shadow-2xs rounded-sm"
                 />
               </div>
               <button
                 type="submit"
                 disabled={subscribing}
-                className="bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] px-6 py-3 text-xs font-semibold uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer disabled:opacity-70 rounded-sm border border-[#FFB834]/40"
+                className="bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] px-6 py-3 min-h-[44px] text-xs font-semibold uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer disabled:opacity-70 rounded-sm border border-[#FFB834]/40"
               >
                 {subscribing ? (
                   <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -104,7 +104,7 @@ export default function RetailFooter() {
       {/* ──────────────────────────────────────────────────────────
           MAIN 4-COLUMN RETAIL DIRECTORY
       ────────────────────────────────────────────────────────── */}
-      <div className="py-14 sm:py-20 px-4 sm:px-8 lg:px-12">
+      <div className="py-10 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Col 1: Brand Info & Identity (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
@@ -132,7 +132,7 @@ export default function RetailFooter() {
               Our Repertoire
             </span>
             <ul className="space-y-2 text-xs sm:text-sm text-[#2D231E]">
-              {MENU_CATEGORIES.filter((c) => c.id !== "drinks").map((cat) => (
+              {MENU_CATEGORIES.map((cat) => (
                 <li key={cat.id}>
                   <Link
                     href={`/menu?category=${cat.id}`}

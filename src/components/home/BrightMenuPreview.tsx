@@ -16,6 +16,7 @@ const ALL_CATEGORY_TABS: { id: "all" | MenuCategory; label: string; bengali: str
   { id: "snacks-street", label: "Snacks & Street", bengali: "স্ট্রিট ফুড" },
   { id: "rice-meals", label: "Rice & Grand Thalis", bengali: "ভাত ও থালি" },
   { id: "sweets-desserts", label: "Sweets & Desserts", bengali: "মিষ্টি" },
+  { id: "drinks", label: "Beverages & Refreshers", bengali: "পানীয় ও শরবত" },
 ];
 
 export default function BrightMenuPreview() {
@@ -77,7 +78,7 @@ export default function BrightMenuPreview() {
     <>
       <section
         id="signature-menu"
-        className="bg-[#FFF8ED] text-[#2D231E] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+        className="bg-[#FFF8ED] text-[#2D231E] py-12 sm:py-20 lg:py-28 border-b border-[#E6D8C3] relative overflow-hidden"
         aria-label="Filterable Menu and Dish Selection"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 relative z-10">
@@ -122,7 +123,7 @@ export default function BrightMenuPreview() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveCategory(tab.id)}
-                    className={`relative px-4 sm:px-5 py-2.5 text-xs font-mono uppercase tracking-wider transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
+                    className={`relative px-4 sm:px-5 py-2.5 min-h-[44px] text-xs font-mono uppercase tracking-wider transition-all duration-300 rounded-full flex items-center gap-2 flex-shrink-0 cursor-pointer ${
                       isSelected
                         ? "bg-[#5B1B8A] text-[#FFF8ED] font-bold shadow-md border border-[#FFB834]/60"
                         : "bg-[#FAF6F0] text-[#2D231E] hover:text-[#5B1B8A] hover:bg-[#FFFFFF] border border-[#E6D8C3] shadow-2xs"

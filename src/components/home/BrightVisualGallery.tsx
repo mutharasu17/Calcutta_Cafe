@@ -7,13 +7,6 @@ import { gsap } from "@/lib/gsapConfig";
 
 const GALLERY_PHOTOS = [
   {
-    src: "/images/brand/durga-puja-dining-hall.jpeg",
-    title: "Durga Puja Heritage Dining",
-    bengali: "পূজার ঐতিহ্যবাহী প্রেক্ষাপট",
-    subtitle: "Heritage cultural dining adorned with Tagore and Ray portraits",
-    aspect: "aspect-[4/3]",
-  },
-  {
     src: "/images/brand/restaurant-ambiance.jpeg",
     title: "Candlelit Evening Service",
     bengali: "সন্ধ্যার উষ্ণ আবহাওয়া",
@@ -83,7 +76,7 @@ export default function BrightVisualGallery() {
     <section
       ref={containerRef}
       id="visual-gallery"
-      className="bg-[#FFF8ED] text-[#2D231E] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-[#FFF8ED] text-[#2D231E] py-12 sm:py-20 lg:py-28 border-b border-[#E6D8C3] relative overflow-hidden"
       aria-label="Food and Culinary Gallery"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">

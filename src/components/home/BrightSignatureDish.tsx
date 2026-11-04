@@ -49,7 +49,7 @@ export default function BrightSignatureDish() {
   return (
     <section
       ref={containerRef}
-      className="bg-gradient-to-b from-[#5B1B8A] via-[#4B1473] to-[#390F58] text-white py-20 sm:py-28 lg:py-36 relative overflow-hidden border-b-4 border-[#FFB834]"
+      className="bg-gradient-to-b from-[#5B1B8A] via-[#4B1473] to-[#390F58] text-white py-12 sm:py-20 lg:py-28 relative overflow-hidden border-b-4 border-[#FFB834]"
       aria-label="Featured Signature Dish"
     >
       {/* Decorative Purple & Gold Heritage Motif Background Watermark */}
@@ -135,10 +135,10 @@ export default function BrightSignatureDish() {
                 </span>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <button
                   onClick={handleAdd}
-                  className={`flex items-center gap-2 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-xs cursor-pointer rounded-sm border ${
+                  className={`flex items-center justify-center gap-2 px-6 py-3.5 min-h-[44px] text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 shadow-xs cursor-pointer rounded-sm border ${
                     isAdded
                       ? "bg-emerald-600 text-white border-emerald-700"
                       : "bg-[#5B1B8A] hover:bg-[#4B1473] text-[#FFF8ED] border-[#FFB834]/50"
@@ -159,10 +159,10 @@ export default function BrightSignatureDish() {
 
                 <Link
                   href="/menu?category=chicken-mutton"
-                  className="p-3 text-[#5B1B8A] hover:text-[#FFF8ED] hover:bg-[#5B1B8A] border border-[#5B1B8A]/30 transition-colors bg-[#FFF8ED] rounded-sm"
-                  aria-label="Explore more meat dishes"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 min-h-[44px] text-xs font-semibold uppercase tracking-[0.18em] text-[#FFF8ED] hover:text-[#FFB834] transition-colors border border-white/20 hover:border-[#FFB834] rounded-sm"
                 >
-                  <ArrowRight className="h-4 w-4" />
+                  <span>View Full Category</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>

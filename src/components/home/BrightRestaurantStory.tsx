@@ -55,7 +55,7 @@ export default function BrightRestaurantStory() {
   return (
     <section
       ref={containerRef}
-      className="bg-[#FFF8ED] text-[#2D231E] py-20 sm:py-28 lg:py-36 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-[#FFF8ED] text-[#2D231E] py-12 sm:py-20 lg:py-28 border-b border-[#E6D8C3] relative overflow-hidden"
       aria-label="Restaurant and Heritage Story"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">

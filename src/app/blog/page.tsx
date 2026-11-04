@@ -39,25 +39,25 @@ export default function BlogListPage() {
       />
       <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
       {/* Editorial Header */}
-      <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
+      <section className="px-4 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-8 sm:pb-20 border-b border-[#E6D8C3]">
         <div className="mx-auto max-w-5xl">
           <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#5B1B8A] font-semibold block mb-3">
             The Bengal Journal • প্রবন্ধমালা
           </span>
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
+          <h1 className="font-serif text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.08] sm:leading-[1.04]">
             Stories from Bengal&apos;s
             <span className="block italic text-[#5B1B8A] font-light mt-1">
               culinary heritage.
             </span>
           </h1>
-          <p className="mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
             Essays on monsoon Hilsa legends, the sacred architecture of the Sunday Kosha ritual, and the overlooked genius of Bengal&apos;s vegetarian repertoire.
           </p>
         </div>
       </section>
 
       {/* Articles Grid */}
-      <section className="px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
+      <section className="px-4 sm:px-10 lg:px-16 py-10 sm:py-14 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {BLOG_POSTS.map((post) => (

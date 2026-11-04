@@ -137,18 +137,6 @@ export const MENU_ITEMS: MenuItem[] = [
     tags: ["Banana Leaf Steamed", "Must-Try"],
     price: 425,
   },
-  {
-    id: "chingri-malai-curry",
-    name: "Daab Chingri Malai Curry",
-    bengaliName: "চিংড়ি মালাই কারি",
-    category: "fish-seafood",
-    description: "Jumbo fresh freshwater prawns cooked slowly inside silky tender coconut milk gravy delicately spiced with green cardamom and bay leaf.",
-    dietary: "non-veg",
-    spiceLevel: "mild",
-    isChefSpecial: true,
-    tags: ["Decadent", "Coconut Cream"],
-    price: 465,
-  },
 
   // ──────────────────────────────────────────────────────────
   // CHICKEN & MUTTON
@@ -204,18 +192,6 @@ export const MENU_ITEMS: MenuItem[] = [
     isChefSpecial: true,
     tags: ["Iconic", "Slow-Cooked", "Sunday Tradition"],
     price: 445,
-  },
-  {
-    id: "kolkata-chicken-chaap",
-    name: "Royal Kolkata Chicken Chaap",
-    bengaliName: "চিকেন চাপ",
-    category: "chicken-mutton",
-    description: "Mughlai Calcutta culinary heirloom: whole chicken leg braised slowly in a rich paste of cashew, poppy seeds, mace, kewra, and roasted saffron ghee.",
-    dietary: "non-veg",
-    spiceLevel: "mild",
-    isChefSpecial: true,
-    tags: ["Awadhi Heritage", "Slow-Braised"],
-    price: 345,
   },
 
   // ──────────────────────────────────────────────────────────
@@ -296,28 +272,6 @@ export const MENU_ITEMS: MenuItem[] = [
     tags: ["Ayurvedic Roots", "Traditional Opener"],
     price: 245,
   },
-  {
-    id: "dhokar-dalna",
-    name: "Niramish Dhokar Dalna",
-    bengaliName: "ধোঁকার ডালনা",
-    category: "vegetarian",
-    description: "Spiced chana dal cakes steamed, fried golden, and then simmered in a satvik no-onion, no-garlic tomato-ginger gravy spiced with hing and garam masala.",
-    dietary: "veg",
-    spiceLevel: "medium",
-    tags: ["No Onion No Garlic", "Pure Vegetarian"],
-    price: 245,
-  },
-  {
-    id: "mochar-ghonto",
-    name: "Narkel Bori Diye Mochar Ghonto",
-    bengaliName: "মোচার ঘণ্ট",
-    category: "vegetarian",
-    description: "Finely minced tender banana blossoms tempered with five spices, fried lentil crisps, and freshly grated coconut.",
-    dietary: "veg",
-    spiceLevel: "medium",
-    tags: ["Heritage Recipe", "Artisanal Prep"],
-    price: 265,
-  },
 
   // ──────────────────────────────────────────────────────────
   // SNACKS & STREET FOOD
@@ -395,29 +349,6 @@ export const MENU_ITEMS: MenuItem[] = [
     isChefSpecial: true,
     tags: ["New Market Classic", "Street Pioneer"],
     price: 195,
-  },
-  {
-    id: "kolkata-fish-fry",
-    name: "Diamond Fish Fry with Kasundi",
-    bengaliName: "ডায়মন্ড ফিশ ফ্রাই ও কাসুন্দি",
-    category: "snacks-street",
-    description: "Fresh Bhetki fillet marinated in green herbs, crumb-coated with Kolkata bakery biscuit crumbs and fried golden. Served with sharp mustard Kasundi.",
-    dietary: "non-veg",
-    spiceLevel: "medium",
-    isChefSpecial: true,
-    tags: ["Cabin Heritage", "Crispy Delicacy"],
-    price: 285,
-  },
-  {
-    id: "dimer-devil",
-    name: "Colonial Dimer Devil",
-    bengaliName: "ডিমের ডেভিল",
-    category: "snacks-street",
-    description: "Hard-boiled eggs encased in spiced minced mutton and potato mash, double crumb-coated and crisped to golden bronze.",
-    dietary: "non-veg",
-    spiceLevel: "medium",
-    tags: ["British-Raj Kolkata", "Evening Snack"],
-    price: 175,
   },
 
   // ──────────────────────────────────────────────────────────
@@ -524,18 +455,6 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 245,
   },
   {
-    id: "kolkata-mutton-biryani",
-    name: "Calcutta Dum Biryani (Mutton & Aloo)",
-    bengaliName: "কলকাতা মটন বিরিয়ানি",
-    category: "rice-meals",
-    description: "Long-grain aged basmati layered with fall-apart tender mutton, melt-in-mouth slow-braised golden potato, and soft boiled egg in subtle saffron meetha ittar broth.",
-    dietary: "non-veg",
-    spiceLevel: "medium",
-    isChefSpecial: true,
-    tags: ["With Iconic Potato", "Dum Pukht Style"],
-    price: 395,
-  },
-  {
     id: "complete-bhoj-thali",
     name: "The Calcutta Cafe Mahabhoj",
     bengaliName: "মহভোজ থালি",
@@ -577,17 +496,6 @@ export const MENU_ITEMS: MenuItem[] = [
     tags: ["Warm Dessert", "Chef Pick"],
     price: 165,
   },
-  {
-    id: "nolen-gurer-sandesh",
-    name: "Artisanal Nolen Gurer Sandesh",
-    bengaliName: "নলেন গুড়ের সন্দেশ",
-    category: "sweets-desserts",
-    description: "Molded cottage cheese delicacies made using winter date-palm jaggery (Nolen Gur) harvested before sunrise in Bengal's countryside.",
-    dietary: "veg",
-    spiceLevel: "mild",
-    tags: ["Seasonal Luxury", "Artisanal"],
-    price: 185,
-  },
 
   // ──────────────────────────────────────────────────────────
   // BEVERAGES & REFRESHERS
@@ -604,16 +512,5 @@ export const MENU_ITEMS: MenuItem[] = [
     isChefSpecial: true,
     tags: ["Gondhoraj Lime", "Summer Elixir"],
     price: 125,
-  },
-  {
-    id: "kolkata-lebu-cha",
-    name: "Kolkata Street-Style Lebu Cha",
-    bengaliName: "লেবু চা",
-    category: "drinks",
-    description: "Steaming spiced black tea with roasted cumin-coriander spice blend (bit-noon) and freshly squeezed lime.",
-    dietary: "veg",
-    spiceLevel: "mild",
-    tags: ["College Street Vibe", "Digestive"],
-    price: 75,
   },
 ];

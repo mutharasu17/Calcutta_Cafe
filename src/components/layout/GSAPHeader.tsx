@@ -212,14 +212,14 @@ export default function GSAPHeader() {
             <button
               id="header-cart-btn"
               onClick={openCart}
-              className="relative p-2.5 text-[#2D231E] hover:text-[#5B1B8A] transition-colors rounded-full hover:bg-[#FAF6F0] cursor-pointer"
+              className="relative w-11 h-11 flex items-center justify-center text-[#2D231E] hover:text-[#5B1B8A] transition-colors rounded-full hover:bg-[#FAF6F0] cursor-pointer"
               aria-label={`Open shopping feast. ${totalCount} items in cart.`}
             >
               <ShoppingBag className="h-5 w-5" />
               {totalCount > 0 && (
                 <span
                   ref={cartBadgeRef}
-                  className="absolute -top-1 -right-1 w-5 h-5 bg-[#5B1B8A] text-[#FFB834] border border-[#FFB834] text-[10px] font-mono font-bold rounded-full flex items-center justify-center shadow-md"
+                  className="absolute 0 top-0.5 right-0.5 w-5 h-5 bg-[#5B1B8A] text-[#FFB834] border border-[#FFB834] text-[10px] font-mono font-bold rounded-full flex items-center justify-center shadow-md"
                 >
                   {totalCount}
                 </span>
@@ -229,7 +229,7 @@ export default function GSAPHeader() {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#2D231E] hover:text-[#5B1B8A] focus:outline-none cursor-pointer"
+              className="lg:hidden w-11 h-11 flex items-center justify-center text-[#2D231E] hover:text-[#5B1B8A] focus:outline-none cursor-pointer rounded-full hover:bg-[#FAF6F0]"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -270,13 +270,16 @@ export default function GSAPHeader() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`mobile-nav-item py-2.5 flex items-baseline justify-between border-b border-[#E6D8C3]/50 transition-colors ${
+                    className={`mobile-nav-item min-h-[48px] py-2.5 flex items-center justify-between border-b border-[#E6D8C3]/60 transition-colors ${
                       isActive ? "text-[#5B1B8A] font-bold" : "text-[#2D231E] hover:text-[#5B1B8A]"
                     }`}
                   >
-                    <span className="font-serif text-2xl tracking-wide">
-                      {link.name}
-                    </span>
+                    <div className="flex items-center gap-2.5">
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#5B1B8A]" />}
+                      <span className="font-serif text-2xl tracking-wide">
+                        {link.name}
+                      </span>
+                    </div>
                     <span className="font-bengali text-xs text-[#FFB834] font-medium">
                       {link.bengali}
                     </span>

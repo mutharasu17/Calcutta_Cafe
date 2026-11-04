@@ -55,7 +55,7 @@ export default function BrightBrandIntro() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#FFF8ED] text-[#2D231E] py-16 sm:py-24 lg:py-32 border-b border-[#E6D8C3] relative overflow-hidden"
+      className="bg-[#FFF8ED] text-[#2D231E] py-10 sm:py-20 lg:py-28 border-b border-[#E6D8C3] relative overflow-hidden"
       aria-label="Brand Introduction"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">

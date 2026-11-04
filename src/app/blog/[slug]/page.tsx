@@ -86,27 +86,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
       <article className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
         {/* Article Header */}
-        <div className="mx-auto max-w-4xl px-6 sm:px-10 lg:px-12 py-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-10 lg:px-12 pt-16 sm:pt-20 pb-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#5B1B8A] hover:text-[#29251F] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#5B1B8A] hover:text-[#29251F] transition-colors mb-6 min-h-[36px]"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>The Bengal Journal</span>
           </Link>
 
-          <div className="flex items-center gap-4 text-xs font-mono text-[#5B1B8A] uppercase tracking-widest mb-3">
+          <div className="flex items-center gap-3 text-xs font-mono text-[#5B1B8A] uppercase tracking-widest mb-3">
             <span>{post.category}</span>
             <span className="text-[#6B6357]/40">•</span>
             <span className="text-[#6B6357]">{post.readTime}</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#29251F] leading-tight">
+          <h1 className="font-serif text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-normal text-[#29251F] leading-tight">
             {post.title}
           </h1>
 
           {post.bengaliTitle && (
-            <p className="font-bengali text-lg text-[#5B1B8A] mt-2 font-medium">
+            <p className="font-bengali text-base sm:text-lg text-[#5B1B8A] mt-2 font-medium">
               {post.bengaliTitle}
             </p>
           )}
@@ -117,7 +117,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* Featured Visual Canvas */}
-        <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-12 mb-14">
+        <div className="mx-auto max-w-5xl px-4 sm:px-10 lg:px-12 mb-8 sm:mb-14">
           <div className="relative aspect-[21/10] w-full overflow-hidden border border-[#E6D8C3] bg-[#E6D8C3] shadow-md">
             <Image
               src={post.image}
@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* Body Copy Prose */}
-        <div className="mx-auto max-w-3xl px-6 sm:px-10 lg:px-12 space-y-10 text-base sm:text-lg text-[#29251F] font-normal leading-relaxed">
+        <div className="mx-auto max-w-3xl px-4 sm:px-10 lg:px-12 space-y-6 sm:space-y-10 text-base sm:text-lg text-[#29251F] font-normal leading-relaxed">
           {/* Lead Paragraph */}
           <p className="text-lg sm:text-xl font-normal text-[#29251F] border-l-4 border-l-[#5B1B8A] pl-6 py-1 leading-relaxed bg-[#FFFFFF]/60 p-4 border border-[#E6D8C3]">
             {post.content.lead}

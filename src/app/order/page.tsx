@@ -40,29 +40,29 @@ export default function OrderPage() {
       />
       <div className="relative pb-28 bg-[#F5EFE4] text-[#29251F] min-h-screen">
         {/* Editorial Header */}
-        <section className="px-6 sm:px-10 lg:px-16 py-14 sm:py-20 border-b border-[#E6D8C3]">
+        <section className="px-4 sm:px-10 lg:px-16 pt-20 sm:pt-28 pb-8 sm:pb-20 border-b border-[#E6D8C3]">
           <div className="mx-auto max-w-5xl">
             <span className="text-xs font-mono tracking-[0.24em] uppercase text-[#5B1B8A] font-semibold block mb-3">
               Official Delivery Channels • অর্ডার অনলাইন
             </span>
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.04]">
+            <h1 className="font-serif text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.08] sm:leading-[1.04]">
               Order online.
               <span className="block italic text-[#5B1B8A] font-light mt-1">
                 Direct to your table.
               </span>
             </h1>
-            <p className="mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base text-[#6B6357] font-normal leading-relaxed max-w-2xl">
               To guarantee freshness and temperature control, cloud kitchen orders are fulfilled exclusively through verified delivery partners on Swiggy and Zomato.
             </p>
           </div>
         </section>
 
         {/* Hubs Presentation */}
-        <section className="px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
-          <div className="mx-auto max-w-5xl space-y-12">
+        <section className="px-4 sm:px-10 lg:px-16 py-10 sm:py-16 lg:py-24">
+          <div className="mx-auto max-w-5xl space-y-8 sm:space-y-12">
             {/* Active Operational Hub */}
             {activeHub && (
-              <div className="bg-[#FFFFFF] p-8 sm:p-12 border border-[#E6D8C3] shadow-md space-y-6">
+              <div className="bg-[#FFFFFF] p-6 sm:p-12 border border-[#E6D8C3] shadow-md space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E6D8C3]">
                   <div>
                     <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#34483A] font-semibold">
